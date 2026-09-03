@@ -172,9 +172,9 @@
       "chapter": "verfassungsschutz",
       "quote": "Der Verfassungsschutz gehört in seiner jetzigen Form abgeschafft beziehungsweise grundlegend reformiert.",
       "author": "Alice Weidel, AfD-Bundesvorsitzende, August 2026",
-      "context": "Weidel behauptete, der Verfassungsschutz werde „zur Beobachtung und Unterdrückung der politischen Opposition eingesetzt“. Übersetzt: Die AfD will genau die Behörde abschaffen, die ihre Partei als rechtsextremistisch einstuft — und ihre Forderung kommt ausgerechnet aus Sachsen-Anhalt, wo die AfD als gesichert rechtsextremistisch gilt.",
+      "context": "Weidel behauptete, der Verfassungsschutz werde „zur Beobachtung und Unterdrückung der politischen Opposition eingesetzt“. Diese Forderung begleitete ihren ganzen Wahlkampf — beim offiziellen Wahlkampfauftakt am 18.07.2026 in der Magdeburger Messehalle, vor rund 3.000 Anhängern. Übersetzt: Die AfD will genau die Behörde abschaffen, die ihre Partei als rechtsextremistisch einstuft.",
       "source": {
-        "label": "Deutschlandfunk 17.08.2026 (Weidel zu „The Pioneer“)",
+        "label": "Deutschlandfunk 17.08.2026 · dpa/MDR zum Wahlkampfauftakt 18.07.2026",
         "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html",
         "visited": "2026-09-03"
       }
@@ -411,6 +411,30 @@
       }
     },
     {
+      "type": "reveal",
+      "chapter": "innen",
+      "teaser": "Tippen, um aufzudecken",
+      "headline": "„Abschieben, bis die Startbahnen glühen“",
+      "body": "Die Bayerische AfD-Fraktion forderte im Januar 2026 offiziell eine Abschiebe-Truppe „ähnlich wie das ICE“ — die US-Behörde, deren gewaltsame Einsätze weltweit für Schlagzeilen sorgen. Name: „AFA“. Fraktionschefin Ebner-Steiner: „Damit meinen wir Straftäter, Ausreisepflichtige und Personen, die sich den deutschen Pass erschlichen haben.“ Ihr Parteitag 2024: „umfassende Remigration im Millionenbereich für die kommenden zehn Jahre“. Polizei-Gewerkschaften und das Innenministerium lehnten den Vorstoß ab — rechtlich gäbe es dafür keine Grundlage. Der Politologe Schammann: „Man kann die Forderungen der AfD nur erfüllen, wenn man ein anderes politisches System wählt.“ (BR24, 30.01.2026)",
+      "source": {
+        "label": "Bayerischer Rundfunk BR24 (30.01.2026)",
+        "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quote",
+      "chapter": "innen",
+      "quote": "Man erlebe aktuell einen Angriff auf die weißen Europäer, auf die weißen Menschen in dieser Welt.",
+      "author": "Dennis Hohloch, AfD-Landtagsabgeordneter, beim offiziellen AfD-Wahlkampfauftakt Magdeburg, 18.07.2026",
+      "context": "Dokumentiert vom MDR. Hohloch bedient damit die rechtsextreme „Großer Austausch“-Verschwörungserzählung — auf der offiziellen Bühne der Partei, vor rund 3.000 Anhängern. „Jubel im Saal. Es widerspricht niemand.“ (MDR, 20.07.2026)",
+      "source": {
+        "label": "MDR-Analyse zum Wahlkampfauftakt (20.07.2026)",
+        "url": "https://www.mdr.de/nachrichten/sachsen-anhalt/landtagswahl/analyse-wahlkampf-auftakt-wahl,afd-siegmund-magdeburg-102.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
       "type": "chapterbreak",
       "chapter": "fazit"
     },
@@ -447,6 +471,9 @@
         { "label": "Deutschlandfunk: Weidel will Verfassungsschutz abschaffen (17.08.2026)", "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html", "visited": "2026-09-03" },
         { "label": "DIE ZEIT: Siegmund will Abschaffung des Verfassungsschutzes prüfen (15.08.2026)", "url": "https://www.zeit.de/politik/deutschland/2026-08/afd-sachsen-anhalt-verfassungsschutz-ulrich-siegmund", "visited": "2026-09-03" },
         { "label": "wahlrecht.de: Landtagswahl Sachsen-Anhalt, Sonntagsfragen (Stand 02.09.2026)", "url": "https://www.wahlrecht.de/umfragen/landtage/sachsen-anhalt.htm", "visited": "2026-09-03" },
+        { "label": "Bayerischer Rundfunk: AfD fordert Abschiebetrupp „ähnlich wie ICE“ (30.01.2026)", "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3", "visited": "2026-09-03" },
+        { "label": "MDR: Analyse zum AfD-Wahlkampfauftakt Magdeburg (20.07.2026)", "url": "https://www.mdr.de/nachrichten/sachsen-anhalt/landtagswahl/analyse-wahlkampf-auftakt-wahl,afd-siegmund-magdeburg-102.html", "visited": "2026-09-03" },
+        { "label": "dpa via ZEIT: AfD-Wahlkampfauftakt Magdeburg (18.07.2026)", "url": "https://www.zeit.de/news/2026-07/18/weidel-startet-offiziell-afd-wahlkampf-in-sachsen-anhalt", "visited": "2026-09-03" },
         { "label": "AfD-Wahlprogramm Bundestagswahl 2025 (PDF, afd.de)", "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf", "visited": "2026-09-03" },
         { "label": "AfD-Grundsatzprogramm „Programm für Deutschland“ (PDF)", "url": "https://rnk.afd-bw.de/afd-bw/wahlprogramme/afd-grundsatzprogramm_aktuelle-version.pdf", "visited": "2026-09-03" },
         { "label": "tagesschau: Wahlprogramme im Vergleich — Migration", "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html", "visited": "2026-09-03" },
