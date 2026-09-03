@@ -27,22 +27,7 @@ function wrapText(ctx, text, maxWidth) {
   return lines;
 }
 
-// Zahlen/Begriffe als Akzent-Markierungen erkennen (gleiche Logik wie der Auto-Highlighter)
-function highlight(ctx, line, x, y, accent) {
-  const PAT = /(\d[\d.,]*\s?(?:%|€|Mrd\.?|Mio\.?|Milliarden|Millionen)?(?:\s(?:pro|je)\s\w+)?)/g;
-  const parts = line.split(PAT);
-  let cursor = x;
-  for (const part of parts) {
-    if (!part) continue;
-    const isNum = PAT.test(part) && /\d/.test(part);
-    PAT.lastIndex = 0;
-    ctx.fillStyle = isNum ? accent : FG;
-    ctx.fillText(part, cursor, y);
-    cursor += ctx.measureText(part).width;
-  }
-}
-
-export async function renderShareCard({ tldr, closing, accent = '#ff4d2e', url, origin }) {
+export async function renderShareCard({ tldr, accent = '#ff4d2e', url, origin }) {
   const canvas = document.createElement('canvas');
   canvas.width = W;
   canvas.height = H;
@@ -53,90 +38,69 @@ export async function renderShareCard({ tldr, closing, accent = '#ff4d2e', url, 
   ctx.fillStyle = BG;
   ctx.fillRect(0, 0, W, H);
 
-  // Glow-Hauch oben links + unten rechts (wie die Site)
-  const g1 = ctx.createRadialGradient(0, H * 0.1, 0, 0, H * 0.1, W * 0.9);
-  g1.addColorStop(0, `${accent}30`);
+  // Glow-Hauch (wie die Site, dezent)
+  const g1 = ctx.createRadialGradient(0, H * 0.06, 0, 0, H * 0.06, W * 0.95);
+  g1.addColorStop(0, `${accent}26`);
   g1.addColorStop(1, 'transparent');
   ctx.fillStyle = g1;
-  ctx.fillRect(0, 0, W, H * 0.5);
-  const g2 = ctx.createRadialGradient(W, H * 0.92, 0, W, H * 0.92, W * 0.9);
-  g2.addColorStop(0, '#4de0ff26');
-  g2.addColorStop(1, 'transparent');
-  ctx.fillStyle = g2;
-  ctx.fillRect(0, H * 0.5, W, H * 0.5);
+  ctx.fillRect(0, 0, W, H * 0.55);
 
   // Headline
   ctx.textBaseline = 'top';
   ctx.fillStyle = accent;
-  ctx.font = '700 54px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
-  ctx.fillText('DIE AFD. DIE FAKTEN.', 72, 130);
+  ctx.font = '700 72px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
+  ctx.fillText('DIE AFD.', 84, 120);
+  ctx.fillStyle = FG;
+  ctx.fillText('DIE FAKTEN.', 84, 200);
 
   ctx.fillStyle = MUTED;
   ctx.font = '400 30px "Inter Variable", Inter, system-ui, sans-serif';
-  ctx.fillText('Jede Zeile mit Quelle. Alles prüfbar.', 72, 185);
+  ctx.fillText('Sechs Fakten. Jede mit Quelle.', 84, 250);
 
-  // Fakten-Karten
-  let y = 300;
-  const maxCards = Math.min(tldr.length, 10);
-  const slotH = 1050 / maxCards;
-  tldr.forEach((point, i) => {
-    const num = point.num ?? String(i + 1).padStart(2, '0');
-    const text = point.text ?? point;
-    // Karten-Hintergrund
-    const cardY = y;
-    // Höhe dynamisch nach Text
-    ctx.font = '600 31px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
-    const lines = wrapText(ctx, text, W - 72 * 2 - 110);
-    const cardH = Math.max(74, lines.length * 42 + 40);
-    // Badge
-    ctx.fillStyle = '#141311';
-    roundRect(ctx, 72, cardY, W - 144, cardH, 16);
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(245,242,236,0.14)';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-    // Nummer
+  // 6 Kernfakten — große Zahl, kurzer Text, viel Luft
+  // Format: { num, big, small } — big = Akzent-Zeile, small = Erklärung
+  const facts = (window.__fckafd_facts6 ?? []).slice(0, 6);
+  let y = 360;
+  const rowH = 178;
+  facts.forEach((f) => {
+    // Große Akzent-Zahl/Keyword
     ctx.fillStyle = accent;
-    ctx.font = '700 26px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
-    ctx.fillText(num, 96, cardY + 46);
-    // Text (mit Zahlen-Highlights)
-    ctx.font = '600 31px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
-    lines.slice(0, 3).forEach((line, li) => {
-      highlight(ctx, line, 72 + 96, cardY + 44 + li * 42 + (li === 0 ? 6 : 0), accent);
+    ctx.font = '700 64px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
+    ctx.fillText(f.big, 84, y);
+    // Beschreibung (max 2 Zeilen)
+    ctx.fillStyle = FG;
+    ctx.font = '500 29px "Inter Variable", Inter, system-ui, sans-serif';
+    const lines = wrapText(ctx, f.small, W - 84 * 2).slice(0, 2);
+    lines.forEach((line, li) => {
+      ctx.fillText(line, 84, y + 82 + li * 38);
     });
-    y += cardH + 18;
+    // Trennlinie
+    ctx.strokeStyle = 'rgba(245,242,236,0.10)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(84, y + 158);
+    ctx.lineTo(W - 84, y + 158);
+    ctx.stroke();
+    y += rowH;
   });
 
-  // QR-Code
+  // Footer: QR + CTA
+  const qrSize = 210;
+  const qrY = H - 330;
   const qrCanvas = document.createElement('canvas');
   await QRCode.toCanvas(qrCanvas, url, {
-    width: 300,
-    color: { dark: FG, light: '#00000000' },
+    width: qrSize,
+    color: { dark: '#f5f2ec', light: '#00000000' },
     margin: 0,
   });
-  const qrY = H - 400;
-  ctx.drawImage(qrCanvas, 72, qrY, 240, 240);
+  ctx.drawImage(qrCanvas, 84, qrY, qrSize, qrSize);
 
-  // CTA-Text neben QR
   ctx.fillStyle = FG;
-  ctx.font = '700 34px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
-  ctx.fillText('Die ganze Tour:', 360, qrY + 92);
+  ctx.font = '700 36px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
+  ctx.fillText('Die ganze Tour:', 84 + qrSize + 40, qrY + 70);
   ctx.fillStyle = accent;
   ctx.font = '700 30px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
-  ctx.fillText(url.replace(/^https?:\/\//, ''), 360, qrY + 140);
-  ctx.fillStyle = MUTED;
-  ctx.font = '400 24px "Inter Variable", Inter, system-ui, sans-serif';
-  ctx.fillText('Scan oder tippen — jede Zahl mit Quelle.', 360, qrY + 190);
+  ctx.fillText(url.replace(/^https?:\/\//, ''), 84 + qrSize + 40, qrY + 118);
 
   return canvas;
-}
-
-function roundRect(ctx, x, y, w, h, r) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.arcTo(x + w, y, x + w, y + h, r);
-  ctx.arcTo(x + w, y + h, x, y + h, r);
-  ctx.arcTo(x, y + h, x, y, r);
-  ctx.arcTo(x, y, x + w, y, r);
-  ctx.closePath();
 }

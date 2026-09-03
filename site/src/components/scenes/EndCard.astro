@@ -181,10 +181,8 @@ const accent = scene.accent ?? '#ff4d2e';
         }
       } else if (action === 'card') {
         const { renderShareCard } = await import('../../scripts/sharecard.js');
-        const tldr = window.__fckafd_tldr ?? [];
         const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#ff4d2e';
         const canvas = await renderShareCard({
-          tldr,
           accent,
           url: window.location.origin + window.location.pathname,
         });

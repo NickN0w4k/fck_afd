@@ -128,6 +128,15 @@ const total = scenes.length;
     // TL;DR global für die ShareCard-Generierung (EndCard)
     const summary = (scenesRaw.scenes ?? scenesRaw).find((s) => s.type === 'summary');
     if (summary) window.__fckafd_tldr = summary.tldr;
+    // 6 Kernfakten für die ShareCard (kurz, grafisch, eindrücklich)
+    window.__fckafd_facts6 = [
+      { big: '28.000', small: 'Menschen im AfD-Umfeld ordnet der Verfassungsschutz dem Rechtsextremismus zu.' },
+      { big: '5×', small: 'Fünf Landesverbände gelten als gesichert rechtsextremistisch.' },
+      { big: '+440 €', small: 'Eine 40.000-€-Familie verliert pro Jahr unter den AfD-Steuerplänen — Topverdiener gewinnen 19.190 €.' },
+      { big: '690 Mrd. €', small: 'Kosten eines Dexit laut IW Köln — plus 2,5 Millionen Arbeitsplätze.' },
+      { big: '2×', small: 'Björn Höcke wegen einer SA-Parole verurteilt — 13.000 € und 16.900 € (LG Halle).' },
+      { big: '4 J. 9 M.', small: 'Haft für Krahs Mitarbeiter: Spionage für China aus dem EU-Büro des AfD-Spitzenkandidaten.' },
+    ];
     // Kapitel-Dots: scrollt zur ersten Szene des jeweiligen Kapitels
     document.querySelectorAll('.dots button').forEach((btn) => {
       btn.addEventListener('click', () => {
