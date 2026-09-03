@@ -1,0 +1,131 @@
+---
+// Data: Count-up-Zahl + animiertes Balken- oder Donut-Diagramm.
+import SourceTag from '../SourceTag.astro';
+
+interface Props {
+  scene: {
+    headline: string;
+    value?: number;
+    suffix?: string;
+    caption?: string;
+    chart?: 'bars' | 'donut';
+    series?: { label: string; value: number }[];
+    source?: { label: string; url: string; visited?: string };
+  };
+}
+const { scene } = Astro.props;
+---
+
+<div class="data">
+  <h2 class="data-headline" data-anim="rise">{scene.headline}</h2>
+
+  {
+    scene.value !== undefined && (
+      <p class="data-value">
+        <span data-count={scene.value}>0</span>
+        {scene.suffix && <span class="data-suffix">{scene.suffix}</span>}
+      </p>
+    )
+  }
+
+  {
+    scene.chart === 'bars' && scene.series && (
+      <div class="bars" role="img" aria-label={scene.series.map((s) => `${s.label}: ${s.value}`).join(', ')}>
+        {scene.series.map((s) => (
+          <div class="bar-row">
+            <span class="bar-label">{s.label}</span>
+            <div class="bar-track">
+              <div class="bar-fill" data-bar style={`--w: ${s.value}%`} />
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    scene.chart === 'donut' && scene.value !== undefined && (
+      <svg class="donut" viewBox="0 0 120 120" role="img" aria-label={`${scene.value}${scene.suffix ?? ''}`}>
+        <circle class="donut-track" cx="60" cy="60" r="48" />
+        <circle class="donut-fill" cx="60" cy="60" r="48" data-donut={scene.value} />
+      </svg>
+    )
+  }
+
+  {scene.caption && <p class="data-caption" data-anim="rise">{scene.caption}</p>}
+  {scene.source && <SourceTag source={scene.source} />}
+</div>
+
+<style>
+  .data {
+    max-width: 52rem;
+    width: 100%;
+  }
+  .data-headline {
+    font-size: clamp(1.5rem, 4vw, 2.6rem);
+  }
+  .data-value {
+    font-family: var(--font-head);
+    font-size: clamp(4.5rem, 18vw, 12rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent);
+    margin: 1.5rem 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .data-suffix {
+    font-size: 0.45em;
+    color: var(--fg);
+  }
+  .bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-top: 1.5rem;
+  }
+  .bar-row {
+    display: grid;
+    grid-template-columns: minmax(6rem, 10rem) 1fr;
+    align-items: center;
+    gap: 1rem;
+  }
+  .bar-label {
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+  }
+  .bar-track {
+    height: 14px;
+    background: rgba(245, 242, 236, 0.08);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: var(--accent);
+    width: 0%;
+  }
+  .donut {
+    width: min(60vw, 260px);
+    margin-top: 1.5rem;
+    transform: rotate(-90deg);
+  }
+  .donut-track {
+    fill: none;
+    stroke: rgba(245, 242, 236, 0.08);
+    stroke-width: 12;
+  }
+  .donut-fill {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 12;
+    stroke-linecap: round;
+  }
+  .data-caption {
+    margin-top: 1.25rem;
+    color: var(--fg-muted);
+    max-width: 46ch;
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Die AfD. Was du wissen solltest.',
+  description = 'Belegte Fakten über die AfD — als scrollbare Tour. Keine Meinung, nur Quellen.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+    <div class="counter" aria-hidden="true"></div>
+    <slot />
+    <div class="grain" aria-hidden="true"></div>
+    <script src="../scripts/animations.js"></script>
+  </body>
+</html>

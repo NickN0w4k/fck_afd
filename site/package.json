@@ -1,0 +1,24 @@
+{
+  "name": "site",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/validate-content.mjs && astro build",
+    "preview": "astro preview",
+    "validate": "node scripts/validate-content.mjs",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^9.0.1",
+    "astro": "^7.2.10",
+    "gsap": "^3.15.0",
+    "svelte": "^5.57.0"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

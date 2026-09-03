@@ -1,0 +1,109 @@
+---
+// Contrast: Split-Screen öffnet sich beim Scrollen — Behauptung links, Realität rechts.
+// Mit data-strike-Mythos-Variante, wenn reality mit "!" beginnt.
+import SourceTag from '../SourceTag.astro';
+
+interface Props {
+  scene: {
+    claim: string;
+    reality: string;
+    source?: { label: string; url: string; visited?: string };
+  };
+}
+const { scene } = Astro.props;
+const isMyth = scene.reality.startsWith('!');
+const reality = isMyth ? scene.reality.slice(1) : scene.reality;
+---
+
+<div class="contrast">
+  <div class="claim" data-split>
+    <p class="side-label">Behauptung</p>
+    <p class="claim-text">{scene.claim}</p>
+  </div>
+  <div class="reality">
+    <p class="side-label">Realität</p>
+    <p class="reality-text">{reality}</p>
+  </div>
+  {scene.source && <SourceTag source={scene.source} />}
+</div>
+
+<style>
+  .contrast {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 64rem;
+    gap: 2px;
+    background: transparent;
+  }
+  .claim {
+    background: var(--bg-elev);
+    padding: clamp(1.5rem, 4vw, 3rem);
+    min-height: 55svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1 1 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .reality {
+    background: var(--accent);
+    color: var(--accent-contrast);
+    padding: clamp(1.5rem, 4vw, 3rem);
+    min-height: 45svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1 1 100%;
+  }
+  .side-label {
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+  }
+  .claim-text {
+    font-family: var(--font-head);
+    font-size: clamp(1.4rem, 3.6vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1.15;
+    position: relative;
+  }
+  /* Mythos-Durchstrich wächst per CSS var, gesteuert von animations.js (initStrike) */
+  .claim[data-strike] .claim-text::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 54%;
+    height: 4px;
+    width: var(--strike, 0%);
+    background: var(--accent);
+  }
+  .claim.struck .claim-text {
+    opacity: 0.55;
+  }
+  .reality-text {
+    font-family: var(--font-head);
+    font-size: clamp(1.3rem, 3.4vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  :global(.scene[data-accent]) .source-tag {
+    color: rgba(245, 242, 236, 0.75);
+  }
+  @media (min-width: 768px) {
+    .contrast {
+      flex-wrap: nowrap;
+      height: 70svh;
+    }
+    .claim,
+    .reality {
+      flex: 1 1 50%;
+      min-height: 0;
+      height: 100%;
+    }
+  }
+</style>

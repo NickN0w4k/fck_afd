@@ -1,0 +1,37 @@
+[
+  {
+    "id": "intro",
+    "num": "01",
+    "title": "Der Anlass",
+    "accent": "#FF4D2E",
+    "question": "Was wäre, wenn du wüsstest, wofür diese Partei wirklich steht?"
+  },
+  {
+    "id": "verfassungsschutz",
+    "num": "02",
+    "title": "Verfassungsschutz",
+    "accent": "#FFB02E",
+    "question": "Warum beobachtet der Inlandsgeheimdienst diese Partei?"
+  },
+  {
+    "id": "programm",
+    "num": "03",
+    "title": "Das Programm",
+    "accent": "#4DE0FF",
+    "question": "Was plant die AfD eigentlich für dein Leben?"
+  },
+  {
+    "id": "innen",
+    "num": "04",
+    "title": "Innenleben",
+    "accent": "#B44DFF",
+    "question": "Wer gibt dort den Ton an?"
+  },
+  {
+    "id": "fazit",
+    "num": "05",
+    "title": "Das Fazit",
+    "accent": "#FF4D2E",
+    "question": "Und jetzt?"
+  }
+]

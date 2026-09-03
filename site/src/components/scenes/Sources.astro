@@ -1,0 +1,62 @@
+---
+// Sources: saubere Linkliste aller Belege.
+interface Props {
+  scene: { sources: { label: string; url: string; visited?: string }[] };
+}
+const { scene } = Astro.props;
+---
+
+<div class="sources">
+  <p class="kicker">Quellen</p>
+  <ul class="source-list">
+    {
+      scene.sources.map((s) => (
+        <li>
+          <a href={s.url} target="_blank" rel="noopener noreferrer">
+            <span class="s-label">{s.label}</span>
+            {s.visited && <span class="s-date">abgerufen {s.visited}</span>}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .sources {
+    max-width: 48rem;
+    width: 100%;
+  }
+  .source-list {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .source-list li {
+    border-bottom: 1px solid var(--border);
+  }
+  .source-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.9rem 0.25rem;
+    text-decoration: none;
+    transition: color 0.15s, padding-left 0.2s var(--ease-out);
+  }
+  .source-list a:hover {
+    color: var(--accent);
+    padding-left: 0.75rem;
+  }
+  .s-label {
+    font-family: var(--font-head);
+    font-weight: 500;
+  }
+  .s-date {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    white-space: nowrap;
+  }
+</style>

@@ -1,0 +1,253 @@
+/* ============ fck_afd — Design-System ============ */
+
+:root {
+  --bg: #0a0a0a;
+  --bg-elev: #141311;
+  --fg: #f5f2ec;
+  --fg-muted: #9b968c;
+  --accent: #ff4d2e; /* wird pro Kapitel via [data-accent] überschrieben */
+  --accent-contrast: #0a0a0a;
+  --border: rgba(245, 242, 236, 0.12);
+
+  --font-head: 'Space Grotesk Variable', system-ui, sans-serif;
+  --font-body: 'Inter Variable', system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --scene-pad: clamp(1.25rem, 4vw, 3rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  color-scheme: dark;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.96rem + 0.4vw, 1.15rem);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* ============ Szenen-Feed (TikTok-Scroll) ============ */
+
+.feed {
+  position: relative;
+}
+
+.scene {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--scene-pad);
+  padding-top: calc(var(--scene-pad) + 3.5rem); /* Platz für Progress-Bar */
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Snap-Container ist das Dokument (html), nicht .feed */
+  html {
+    scroll-snap-type: y mandatory;
+  }
+  .scene {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+}
+
+/* Kapitel-Akzentfarben: jedes Kapitel tönt seine Szenen */
+.scene[data-accent] {
+  --accent: attr(data-accent type(<color>)); /* Fallback unten per Inline-Style */
+}
+
+/* Grain-Overlay für Textur (dezent, performance-freundlich) */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============ Shared Elemente ============ */
+
+.kicker {
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.scene-num {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  letter-spacing: 0.1em;
+}
+
+.source-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  max-width: 100%;
+}
+.source-tag:hover {
+  color: var(--fg);
+  border-color: var(--fg-muted);
+}
+.source-tag svg {
+  flex-shrink: 0;
+}
+
+/* Progress-Bar (Story-Stil) */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 3px;
+  background: rgba(245, 242, 236, 0.08);
+}
+.progress__bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent, #ff4d2e);
+  transition: width 0.15s linear;
+}
+
+/* Progress-Zähler */
+.counter {
+  position: fixed;
+  top: 0.9rem;
+  right: var(--scene-pad);
+  z-index: 50;
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--fg-muted);
+  pointer-events: none;
+}
+
+/* Kapitel-Dots seitlich (Desktop) */
+.dots {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: none;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+@media (min-width: 900px) {
+  .dots {
+    display: flex;
+  }
+}
+.dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--fg-muted);
+  opacity: 0.35;
+  transition: opacity 0.2s, transform 0.2s, background 0.2s;
+}
+.dots button[aria-current='true'] {
+  opacity: 1;
+  background: var(--accent, #ff4d2e);
+  transform: scale(1.35);
+}
+.dots button:hover {
+  opacity: 0.8;
+}
+
+/* ============ Reduced Motion: alles statisch ============ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

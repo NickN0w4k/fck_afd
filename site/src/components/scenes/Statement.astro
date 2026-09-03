@@ -1,0 +1,37 @@
+---
+// Statement: Text baut sich Wort für Wort beim Scrollen auf.
+interface Props {
+  scene: { text: string; note?: string };
+}
+const { scene } = Astro.props;
+---
+
+<div class="statement">
+  <p class="statement-text" data-words>{scene.text}</p>
+  {scene.note && <p class="statement-note" data-anim="rise">{scene.note}</p>}
+</div>
+
+<style>
+  .statement {
+    max-width: 52rem;
+  }
+  .statement-text {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 5.5vw, 3.8rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  .statement-text :global(.word) {
+    display: inline-block;
+    will-change: opacity;
+  }
+  .statement-note {
+    margin-top: 1.75rem;
+    color: var(--accent);
+    font-family: var(--font-head);
+    font-size: 0.9rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+</style>

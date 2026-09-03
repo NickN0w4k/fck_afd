@@ -1,0 +1,27 @@
+---
+// Reveal: verdeckte Karte, die beim Antippen den Fakt aufdeckt (Svelte-Insel).
+import SourceTag from '../SourceTag.astro';
+import RevealIsland from './RevealIsland.svelte';
+
+interface Props {
+  scene: {
+    teaser: string;
+    headline: string;
+    body: string;
+    source?: { label: string; url: string; visited?: string };
+  };
+}
+const { scene } = Astro.props;
+---
+
+<div class="reveal-scene">
+  <RevealIsland client:visible teaser={scene.teaser} headline={scene.headline} body={scene.body} />
+  {scene.source && <SourceTag source={scene.source} />}
+</div>
+
+<style>
+  .reveal-scene {
+    max-width: 44rem;
+    width: 100%;
+  }
+</style>

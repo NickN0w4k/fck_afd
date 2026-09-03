@@ -1,0 +1,143 @@
+{
+  "$comment": "Szenen-Datenmodell. type: hero|statement|data|contrast|quote|quiz|slider|reveal|chapterbreak|summary|sources. Jede claim-Szene braucht source {label,url,visited}. Platzhalter-Inhalte, ersetzt in Phase 2 (Recherche).",
+  "scenes": [
+    {
+      "type": "hero",
+      "chapter": "intro",
+      "title": "Die AfD.",
+      "subtitle": "Was du über sie wissen solltest, bevor du sie wählst.",
+      "cta": "Scrollen"
+    },
+    {
+      "type": "statement",
+      "chapter": "intro",
+      "text": "Diese Seite ist keine Meinungsseite. Hier steht nur, was sich belegen lässt — mit Quelle.",
+      "note": "Alles mit Beleg. Immer."
+    },
+    {
+      "type": "chapterbreak",
+      "chapter": "verfassungsschutz"
+    },
+    {
+      "type": "data",
+      "chapter": "verfassungsschutz",
+      "headline": "Drei Landesverbände gelten als gesichert rechtsextremistisch",
+      "value": 3,
+      "suffix": "",
+      "caption": "Thüringen, Sachsen und Sachsen-Anhalt — laut Verfassungsschutz (Platzhalter, Phase 2 liefert Beleg).",
+      "chart": "bars",
+      "series": [
+        { "label": "Thüringen", "value": 90 },
+        { "label": "Sachsen", "value": 80 },
+        { "label": "Sachsen-Anhalt", "value": 75 }
+      ],
+      "source": {
+        "label": "Platzhalter — wird in Phase 2 ersetzt",
+        "url": "https://www.verfassungsschutz.de",
+        "visited": "2026-09-02"
+      }
+    },
+    {
+      "type": "quiz",
+      "chapter": "verfassungsschutz",
+      "question": "Wird die AfD vom Verfassungsschutz beobachtet?",
+      "options": [
+        { "text": "Nein, gar nicht", "correct": false },
+        { "text": "Ja, auf Bundesebene seit 2021 als Verdachtsfall", "correct": true },
+        { "text": "Nur einzelne Landeschefs", "correct": false }
+      ],
+      "explanation": "Seit 2021 gilt die Gesamtpartei auf Bundesebene als rechtsextremistischer Verdachtsfall. (Platzhalter-Text, Phase 2 präzisiert.)",
+      "source": {
+        "label": "Platzhalter — wird in Phase 2 ersetzt",
+        "url": "https://www.verfassungsschutz.de",
+        "visited": "2026-09-02"
+      }
+    },
+    {
+      "type": "chapterbreak",
+      "chapter": "programm"
+    },
+    {
+      "type": "statement",
+      "chapter": "programm",
+      "text": "Klimaschutz teuer? Rente unsicher? Was im Wahlprogramm steht, geht dich direkt an.",
+      "note": "Platzhalter — Phase 2 füllt das Kapitel mit Belegen."
+    },
+    {
+      "type": "contrast",
+      "chapter": "programm",
+      "claim": "\"Deutschland wird nicht abgeschafft.\"",
+      "reality": "Platzhalter: Hier steht ein belegbarer Widerspruch zwischen Wahlversprechen und Programm. Phase 2 füllt ihn.",
+      "source": {
+        "label": "Platzhalter — wird in Phase 2 ersetzt",
+        "url": "https://www.afd.de",
+        "visited": "2026-09-02"
+      }
+    },
+    {
+      "type": "slider",
+      "chapter": "programm",
+      "prompt": "Wie viel Prozent der Rente soll laut AfD-Programm über private Vorsicherung laufen? Schätzwert-Platzhalter.",
+      "min": 0,
+      "max": 100,
+      "answer": 40,
+      "unit": "%",
+      "explanation": "Platzhalter-Antwort, Phase 2 belegt den Wert.",
+      "source": {
+        "label": "Platzhalter — wird in Phase 2 ersetzt",
+        "url": "https://www.afd.de",
+        "visited": "2026-09-02"
+      }
+    },
+    {
+      "type": "chapterbreak",
+      "chapter": "innen"
+    },
+    {
+      "type": "quote",
+      "chapter": "innen",
+      "quote": "Hier steht ein dokumentiertes Originalzitat.",
+      "author": "Name, Funktion",
+      "context": "Platzhalter — Phase 2 liefert Zitat mit Fundstelle.",
+      "source": {
+        "label": "Platzhalter — wird in Phase 2 ersetzt",
+        "url": "https://example.com",
+        "visited": "2026-09-02"
+      }
+    },
+    {
+      "type": "reveal",
+      "chapter": "innen",
+      "teaser": "Tippen, um aufzudecken",
+      "headline": "Was 2025 über die AfD dokumentiert wurde",
+      "body": "Platzhalter: Phase 2 füllt hier dokumentierte Fakten nach (Urteile, Berichte, Abstimmungen).",
+      "source": {
+        "label": "Platzhalter — wird in Phase 2 ersetzt",
+        "url": "https://example.com",
+        "visited": "2026-09-02"
+      }
+    },
+    {
+      "type": "chapterbreak",
+      "chapter": "fazit"
+    },
+    {
+      "type": "summary",
+      "chapter": "fazit",
+      "tldr": [
+        "Platzhalter 1 — wird in Phase 2 mit belegtem Fakt ersetzt",
+        "Platzhalter 2 — wird in Phase 2 mit belegtem Fakt ersetzt",
+        "Platzhalter 3 — wird in Phase 2 mit belegtem Fakt ersetzt"
+      ],
+      "closing": "Prüfe selbst. Alle Quellen findest du hier."
+    },
+    {
+      "type": "sources",
+      "chapter": "fazit",
+      "sources": [
+        { "label": "Platzhalter — Verfassungsschutz-Bericht", "url": "https://www.verfassungsschutz.de", "visited": "2026-09-02" },
+        { "label": "Platzhalter — AfD-Programm", "url": "https://www.afd.de", "visited": "2026-09-02" }
+      ]
+    }
+  ]
+}

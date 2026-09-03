@@ -1,0 +1,54 @@
+---
+// Quote: Vollbild-Zitat, Wörter sliden einzeln rein.
+import SourceTag from '../SourceTag.astro';
+
+interface Props {
+  scene: {
+    quote: string;
+    author: string;
+    context?: string;
+    source?: { label: string; url: string; visited?: string };
+  };
+}
+const { scene } = Astro.props;
+---
+
+<blockquote class="quote">
+  <p class="quote-text" data-quote>„{scene.quote}“</p>
+  <footer class="quote-footer" data-anim="rise">
+    <p class="quote-author">{scene.author}</p>
+    {scene.context && <p class="quote-context">{scene.context}</p>}
+  </footer>
+  {scene.source && <SourceTag source={scene.source} />}
+</blockquote>
+
+<style>
+  .quote {
+    margin: 0;
+    max-width: 56rem;
+  }
+  .quote-text {
+    font-family: var(--font-head);
+    font-size: clamp(1.9rem, 6vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .quote-text :global(.word) {
+    display: inline-block;
+  }
+  .quote-footer {
+    margin-top: 2rem;
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+  }
+  .quote-author {
+    font-family: var(--font-head);
+    font-weight: 600;
+  }
+  .quote-context {
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+</style>

@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+import Scene from '../components/Scene.astro';
+import Hero from '../components/scenes/Hero.astro';
+import Statement from '../components/scenes/Statement.astro';
+import Data from '../components/scenes/Data.astro';
+import Contrast from '../components/scenes/Contrast.astro';
+import Quote from '../components/scenes/Quote.astro';
+import Quiz from '../components/scenes/Quiz.astro';
+import Slider from '../components/scenes/Slider.astro';
+import Reveal from '../components/scenes/Reveal.astro';
+import ChapterBreak from '../components/scenes/ChapterBreak.astro';
+import Summary from '../components/scenes/Summary.astro';
+import Sources from '../components/scenes/Sources.astro';
+
+import chaptersRaw from '../../../content/chapters.json';
+import scenesRaw from '../../../content/scenes.json';
+
+const chapters = /** @type {any[]} */ (chaptersRaw);
+const scenes = /** @type {any[]} */ ((/** @type {any} */ (scenesRaw)).scenes);
+const chapterById = Object.fromEntries(chapters.map((c) => [c.id, c]));
+
+const total = scenes.length;
+---
+
+<Base>
+  <main class="feed" id="feed">
+    {
+      scenes.map((scene, i) => {
+        const chapter = chapterById[scene.chapter];
+        const accent = chapter?.accent;
+        const shared = { index: i, total, accent, chapter: scene.chapter };
+        switch (scene.type) {
+          case 'hero':
+            return (
+              <Scene {...shared} id="scene-0">
+                <Hero scene={scene} />
+              </Scene>
+            );
+          case 'statement':
+            return (
+              <Scene {...shared}>
+                <Statement scene={scene} />
+              </Scene>
+            );
+          case 'data':
+            return (
+              <Scene {...shared}>
+                <Data scene={scene} />
+              </Scene>
+            );
+          case 'contrast':
+            return (
+              <Scene {...shared}>
+                <Contrast scene={scene} />
+              </Scene>
+            );
+          case 'quote':
+            return (
+              <Scene {...shared}>
+                <Quote scene={scene} />
+              </Scene>
+            );
+          case 'quiz':
+            return (
+              <Scene {...shared}>
+                <Quiz scene={scene} />
+              </Scene>
+            );
+          case 'slider':
+            return (
+              <Scene {...shared}>
+                <Slider scene={scene} />
+              </Scene>
+            );
+          case 'reveal':
+            return (
+              <Scene {...shared}>
+                <Reveal scene={scene} />
+              </Scene>
+            );
+          case 'chapterbreak':
+            return (
+              <Scene {...shared} kicker={`Kapitel ${chapter?.num ?? ''}`}>
+                <ChapterBreak chapter={chapter} />
+              </Scene>
+            );
+          case 'summary':
+            return (
+              <Scene {...shared}>
+                <Summary scene={scene} chapters={chapters} />
+              </Scene>
+            );
+          case 'sources':
+            return (
+              <Scene {...shared}>
+                <Sources scene={scene} />
+              </Scene>
+            );
+          default:
+            return null;
+        }
+      })
+    }
+  </main>
+
+  <nav class="dots" aria-label="Kapitel-Navigation">
+    {
+      chapters.map((c) => (
+        <button
+          data-goto={`chapter-${c.id}`}
+          aria-label={`Zu Kapitel ${c.num}: ${c.title}`}
+          title={c.title}
+          style={`--accent: ${c.accent}`}
+        />
+      ))
+    }
+  </nav>
+
+  <script>
+    // Kapitel-Dots: scrollt zur ersten Szene des jeweiligen Kapitels
+    document.querySelectorAll('.dots button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const chapterId = btn.dataset.goto?.replace('chapter-', '');
+        const target = document.querySelector(`.scene[data-chapter="${chapterId}"]`);
+        target?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</Base>

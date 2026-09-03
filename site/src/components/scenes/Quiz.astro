@@ -1,0 +1,32 @@
+---
+// Quiz: 2-3 Optionen als Svelte-Insel (interaktiv).
+import SourceTag from '../SourceTag.astro';
+import QuizIsland from './QuizIsland.svelte';
+
+interface Props {
+  scene: {
+    question: string;
+    options: { text: string; correct: boolean }[];
+    explanation: string;
+    source?: { label: string; url: string; visited?: string };
+  };
+}
+const { scene } = Astro.props;
+---
+
+<div class="quiz">
+  <h2 class="quiz-question" data-anim="rise">{scene.question}</h2>
+  <QuizIsland client:visible options={scene.options} explanation={scene.explanation} />
+  {scene.source && <SourceTag source={scene.source} />}
+</div>
+
+<style>
+  .quiz {
+    max-width: 44rem;
+    width: 100%;
+  }
+  .quiz-question {
+    font-size: clamp(1.5rem, 4.2vw, 2.6rem);
+    margin-bottom: 2rem;
+  }
+</style>
