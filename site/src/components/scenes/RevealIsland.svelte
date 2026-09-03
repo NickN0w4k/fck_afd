@@ -11,8 +11,8 @@
   </button>
 {:else}
   <div class="card" transition:scale>
-    <h2>{headline}</h2>
-    <p>{body}</p>
+    <h2>{@html headline}</h2>
+    <p>{@html body}</p>
   </div>
 {/if}
 

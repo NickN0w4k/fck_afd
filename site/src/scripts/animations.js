@@ -2,6 +2,7 @@
 // Wird von Base.astro geladen. Respektiert prefers-reduced-motion.
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { initHighlights } from './highlights.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,13 +24,25 @@ function initRise() {
   });
 }
 
-/** Statement-Szenen: Wörter bauen sich beim Scrollen auf (scrubbed) */
+/** Statement-Szenen: Wörter bauen sich beim Scrollen auf (scrubbed).
+ *  Mark-aware: bereits bestehende <mark.hl>-Highlights bleiben erhalten. */
 function initWords() {
   document.querySelectorAll('[data-words]').forEach((el) => {
     if (prefersReduced) return;
-    // Wörter in Spans wrappen (einmalig)
+    // Wörter in Spans wrappen (einmalig) — mark-Tags bleiben als Einheit erhalten
     if (!el.dataset.wordSplit) {
-      el.innerHTML = el.textContent.trim().split(/\s+/).map((w) => `<span class="word">${w}</span>`).join(' ');
+      const frag = el.innerHTML.split(/(<mark class="hl">.*?<\/mark>)/g);
+      el.innerHTML = frag
+        .map((chunk) => {
+          if (chunk.startsWith('<mark')) return chunk; // Highlight-Block unangetastet
+          return chunk
+            .trim()
+            .split(/\s+/)
+            .filter(Boolean)
+            .map((w) => `<span class="word">${w}</span>`)
+            .join(' ');
+        })
+        .join(' ');
       el.dataset.wordSplit = '1';
     }
     gsap.fromTo(
@@ -162,7 +175,7 @@ function initStrike() {
   });
 }
 
-/** Zitate: Buchstaben-sliden */
+/** Zitate: Buchstaben-sliden — mark-aware (Highlights bleiben Einheiten) */
 function initQuote() {
   document.querySelectorAll('[data-quote]').forEach((el) => {
     if (prefersReduced) return;
@@ -346,6 +359,7 @@ function initWheelSnap() {
 }
 
 function init() {
+  initHighlights();
   initRise();
   initWords();
   initCount();

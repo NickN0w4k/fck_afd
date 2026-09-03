@@ -9,7 +9,7 @@ const { scene } = Astro.props;
 ---
 
 <div class="statement">
-  <p class="statement-text" data-words>{scene.text}</p>
+  <p class="statement-text" data-words data-hl>{scene.text}</p>
   {scene.note && <p class="statement-note" data-anim="rise">{scene.note}</p>}
   {scene.source && <SourceTag source={scene.source} />}
 </div>

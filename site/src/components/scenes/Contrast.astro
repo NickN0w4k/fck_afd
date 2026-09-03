@@ -2,6 +2,7 @@
 // Contrast: Split-Screen öffnet sich beim Scrollen — Behauptung links, Realität rechts.
 // Mit data-strike-Mythos-Variante, wenn reality mit "!" beginnt.
 import SourceTag from '../SourceTag.astro';
+import { hl } from '../../scripts/hl-server.js';
 
 interface Props {
   scene: {
@@ -18,11 +19,11 @@ const reality = isMyth ? scene.reality.slice(1) : scene.reality;
 <div class="contrast">
   <div class="claim" data-split>
     <p class="side-label">Behauptung</p>
-    <p class="claim-text">{scene.claim}</p>
+    <p class="claim-text" set:html={hl(scene.claim)} />
   </div>
   <div class="reality">
     <p class="side-label">Realität</p>
-    <p class="reality-text">{reality}</p>
+    <p class="reality-text" set:html={hl(reality)} />
   </div>
   {scene.source && <SourceTag source={scene.source} />}
 </div>
@@ -38,8 +39,7 @@ const reality = isMyth ? scene.reality.slice(1) : scene.reality;
   }
   .claim {
     background: var(--bg-elev);
-    padding: clamp(1.5rem, 4vw, 3rem);
-    min-height: 55svh;
+    padding: clamp(1.2rem, 3vw, 3rem);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -50,8 +50,7 @@ const reality = isMyth ? scene.reality.slice(1) : scene.reality;
   .reality {
     background: var(--accent);
     color: var(--accent-contrast);
-    padding: clamp(1.5rem, 4vw, 3rem);
-    min-height: 45svh;
+    padding: clamp(1.2rem, 3vw, 3rem);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -97,13 +96,25 @@ const reality = isMyth ? scene.reality.slice(1) : scene.reality;
   @media (min-width: 768px) {
     .contrast {
       flex-wrap: nowrap;
-      height: 70svh;
+      height: 62svh;
     }
     .claim,
     .reality {
       flex: 1 1 50%;
       min-height: 0;
       height: 100%;
+    }
+  }
+  /* Mobile: Gesamtblock auf max 100svh begrenzen, Schrift schrumpft mit */
+  @media (max-width: 767px) {
+    .claim-text {
+      font-size: clamp(1.15rem, 4.6vw, 1.8rem);
+    }
+    .reality-text {
+      font-size: clamp(1.05rem, 4.2vw, 1.6rem);
+    }
+    .side-label {
+      margin-bottom: 0.6rem;
     }
   }
 </style>

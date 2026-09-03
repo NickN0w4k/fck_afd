@@ -14,7 +14,7 @@ const { scene } = Astro.props;
 ---
 
 <blockquote class="quote">
-  <p class="quote-text" data-quote>„{scene.quote}“</p>
+  <p class="quote-text" data-quote data-hl>„{scene.quote}“</p>
   <footer class="quote-footer" data-anim="rise">
     <p class="quote-author">{scene.author}</p>
     {scene.context && <p class="quote-context">{scene.context}</p>}
