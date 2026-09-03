@@ -16,7 +16,7 @@ function initRise() {
       autoAlpha: 0,
       duration: 0.9,
       ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 82%', once: true },
+      scrollTrigger: { trigger: el, start: 'top 95%', once: true },
     });
   });
 }
@@ -311,7 +311,14 @@ function initWheelSnap() {
   const goTo = (i) => {
     const s = scenes[Math.max(0, Math.min(scenes.length - 1, i))];
     const tall = s.scrollHeight > window.innerHeight * 1.15;
-    s.scrollIntoView({ behavior: 'smooth', block: tall ? 'start' : 'center' });
+    if (tall) {
+      // Hohe Szene: erst ans Ende scrollen (Autor/Quelle zeigen), Snap restet via CSS
+      const targetY = s.offsetTop + s.scrollHeight - window.innerHeight;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      window.scrollTo({ top: Math.min(targetY, Math.max(0, max)), behavior: 'smooth' });
+    } else {
+      s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
 
   window.addEventListener(
