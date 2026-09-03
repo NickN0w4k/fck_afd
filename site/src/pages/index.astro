@@ -12,6 +12,7 @@ import Reveal from '../components/scenes/Reveal.astro';
 import ChapterBreak from '../components/scenes/ChapterBreak.astro';
 import Summary from '../components/scenes/Summary.astro';
 import Sources from '../components/scenes/Sources.astro';
+import EndCard from '../components/scenes/EndCard.astro';
 
 import chaptersRaw from '../../../content/chapters.json';
 import scenesRaw from '../../../content/scenes.json';
@@ -97,6 +98,12 @@ const total = scenes.length;
                 <Sources scene={scene} />
               </Scene>
             );
+          case 'endcard':
+            return (
+              <Scene {...shared}>
+                <EndCard scene={{ ...scene, accent }} />
+              </Scene>
+            );
           default:
             return null;
         }
@@ -117,7 +124,10 @@ const total = scenes.length;
     }
   </nav>
 
-  <script>
+  <script define:vars={{ scenesRaw }}>
+    // TL;DR global für die ShareCard-Generierung (EndCard)
+    const summary = (scenesRaw.scenes ?? scenesRaw).find((s) => s.type === 'summary');
+    if (summary) window.__fckafd_tldr = summary.tldr;
     // Kapitel-Dots: scrollt zur ersten Szene des jeweiligen Kapitels
     document.querySelectorAll('.dots button').forEach((btn) => {
       btn.addEventListener('click', () => {

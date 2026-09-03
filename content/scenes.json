@@ -646,6 +646,10 @@
         { "label": "CORRECTIV: Geheimplan gegen Deutschland (10.01.2024)", "url": "https://correctiv.org/aktuelles/neue-rechte/2024/01/10/geheimplan-remigration-vertreibung-afd-rechtsextreme-november-treffen/", "visited": "2026-09-03" },
         { "label": "Der Tagesspiegel: Gerichtliche Einordnung der Correctiv-Enthüllung (18.12.2025)", "url": "https://www.tagesspiegel.de/politik/umstrittene-correctiv-enthullung-zur-remigration-ein-urteil-uber-einen-fall-zu-dem-jeder-seine-wahrheit-hat-15059842.html", "visited": "2026-09-03" }
       ]
+    },
+    {
+      "type": "endcard",
+      "chapter": "fazit"
     }
   ]
 }

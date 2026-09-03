@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs';
 
 const CLAIM_TYPES = new Set(['data', 'contrast', 'quote', 'quiz', 'slider', 'reveal', 'statement']);
-const NO_CLAIM_TYPES = new Set(['hero', 'chapterbreak', 'summary', 'sources']);
+const NO_CLAIM_TYPES = new Set(['hero', 'chapterbreak', 'summary', 'sources', 'endcard']);
 
 const raw = JSON.parse(readFileSync(new URL('../../content/scenes.json', import.meta.url), 'utf-8'));
 const scenes = raw.scenes ?? raw;

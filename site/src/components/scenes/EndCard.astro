@@ -1,0 +1,170 @@
+---
+// EndCard: Finale Aktions-Szene — Neustart, Teilen, Story-Karte generieren.
+import Scene from '../Scene.astro';
+
+interface Props {
+  scene: { accent?: string };
+  index?: number;
+  total?: number;
+  chapter?: string;
+}
+const { scene, index, total, chapter } = Astro.props;
+const accent = scene.accent ?? '#ff4d2e';
+---
+
+<Scene kicker="Weiter so" index={index} total={total} chapter={chapter} accent={accent}>
+  <div class="endcard">
+    <h2 class="end-headline" data-anim="rise">Dein Zug.</h2>
+    <p class="end-sub" data-anim="rise" style="--d: 120ms">Teile die Fakten — oder schau nochmal genau hin.</p>
+
+    <div class="end-actions" data-anim="rise" style="--d: 260ms">
+      <button class="end-btn end-primary" data-action="restart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" />
+        </svg>
+        Nochmal von vorne
+      </button>
+      <button class="end-btn" data-action="share">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+          <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.23" /><line x1="15.41" y1="8.77" x2="8.59" y2="12.49" />
+        </svg>
+        Teilen
+      </button>
+      <button class="end-btn" data-action="card">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="m21 15-5-5L5 21" />
+        </svg>
+        Fakten-Karte speichern
+      </button>
+    </div>
+
+    <div class="card-result" hidden>
+      <img class="card-preview" alt="Fakten-Karte: Die AfD. Die Fakten." />
+      <p class="card-hint">Langes Drücken oder Rechtsklick → Bild speichern.</p>
+    </div>
+
+    <p class="end-note" data-anim="rise" style="--d: 400ms">Alle Quellen liegen als Volltexte offen — prüfe jede Zahl.</p>
+  </div>
+</Scene>
+
+<style>
+  .endcard {
+    max-width: 44rem;
+    width: 100%;
+  }
+  .end-headline {
+    font-size: clamp(2.6rem, 9vw, 5.5rem);
+  }
+  .end-sub {
+    margin-top: 1rem;
+    color: var(--fg-muted);
+    font-size: clamp(1rem, 2.6vw, 1.3rem);
+  }
+  .end-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 2.2rem;
+  }
+  .end-btn,
+  .end-primary {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.8rem;
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 14px;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    transition: transform 0.15s var(--ease-out), background 0.2s, border-color 0.2s;
+  }
+  .end-primary {
+    background: var(--accent);
+    color: var(--accent-contrast);
+  }
+  .end-btn {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    color: var(--fg);
+  }
+  .end-btn:hover,
+  .end-primary:hover {
+    transform: translateY(-2px);
+  }
+  .end-btn:active,
+  .end-primary:active {
+    transform: scale(0.98);
+  }
+  .card-result {
+    margin-top: 1.6rem;
+  }
+  .card-result img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+  .card-result p {
+    margin-top: 0.7rem;
+    font-size: 0.78rem;
+    color: var(--fg-muted);
+  }
+  .end-note {
+    margin-top: 1.8rem;
+    color: var(--fg-muted);
+    font-size: 0.85rem;
+  }
+</style>
+
+<script>
+  const btns = document.querySelectorAll('.endcard [data-action]');
+  const resultBox = document.querySelector('.card-result');
+  const resultImg = document.querySelector('.card-result img');
+  const SITE_URL = 'https://fck-afd.example'; // Deploy-URL, wird beim Build ersetzt — siehe index.astro
+
+  btns.forEach((b) => {
+    b.addEventListener('click', async () => {
+      const action = b.dataset.action;
+      if (action === 'restart') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (action === 'share') {
+        const shareData = {
+          title: 'Die AfD. Die Fakten.',
+          text: '48 Szenen, jede Behauptung mit Quelle. Prüf es selbst.',
+          url: window.location.origin + window.location.pathname,
+        };
+        if (navigator.share) {
+          try { await navigator.share(shareData); } catch {} // Abbruch ist ok
+        } else {
+          try {
+            await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+            b.textContent = 'Link kopiert ✓';
+            setTimeout(() => (b.querySelector('span') ? (b.innerHTML = b.innerHTML) : null), 1800);
+          } catch {}
+        }
+      } else if (action === 'card') {
+        const { renderShareCard } = await import('../../scripts/sharecard.js');
+        const tldr = window.__fckafd_tldr ?? [];
+        const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#ff4d2e';
+        const canvas = await renderShareCard({
+          tldr,
+          accent,
+          url: window.location.origin + window.location.pathname,
+        });
+        const dataUrl = canvas.toDataURL('image/png');
+        resultImg.src = dataUrl;
+        document.querySelector('.card-result').hidden = false;
+        // Download anbieten
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = 'fck-afd-fakten.png';
+        a.click();
+      }
+    });
+  });
+</script>
