@@ -45,6 +45,13 @@ const accent = scene.accent ?? '#ff4d2e';
     </div>
 
     <p class="end-note" data-anim="rise" style="--d: 400ms">Alle Quellen liegen als Volltexte offen — prüfe jede Zahl.</p>
+
+    <button class="scroll-to-sources" data-scroll-sources aria-label="Zu den Quellen scrollen">
+      <span>Quellen</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+        <path d="M12 5v14" /><path d="m19 12-7 7-7-7" />
+      </svg>
+    </button>
   </div>
 </Scene>
 
@@ -119,6 +126,31 @@ const accent = scene.accent ?? '#ff4d2e';
     color: var(--fg-muted);
     font-size: 0.85rem;
   }
+  .scroll-to-sources {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    width: 100%;
+    color: var(--fg-muted);
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: bob-sources 2.4s var(--ease-out) infinite;
+    transition: color 0.2s;
+  }
+  .scroll-to-sources:hover {
+    color: var(--accent);
+  }
+  @keyframes bob-sources {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(7px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-to-sources { animation: none; }
+  }
 </style>
 
 <script>
@@ -167,4 +199,15 @@ const accent = scene.accent ?? '#ff4d2e';
       }
     });
   });
+
+  // Quellen-Pfeil: scrollt zur nächsten Szene (die Quellenliste)
+  const srcBtn = document.querySelector('[data-scroll-sources]');
+  if (srcBtn) {
+    srcBtn.addEventListener('click', () => {
+      const sceneEl = srcBtn.closest('.scene');
+      if (sceneEl && sceneEl.nextElementSibling) {
+        sceneEl.nextElementSibling.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
 </script>

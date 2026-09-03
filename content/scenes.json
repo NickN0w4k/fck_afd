@@ -23,14 +23,38 @@
       "caption": "Sonntagsfrage, Stand 01.09.2026: Alle acht Institute sehen die AfD zwischen 27 und 29 Prozent — überall vor der Union. Die Partei ist keine Randerscheinung mehr.",
       "chart": "bars",
       "series": [
-        { "label": "INSA", "value": 29 },
-        { "label": "Verian", "value": 28 },
-        { "label": "Forsa", "value": 28 },
-        { "label": "Infratest dimap", "value": 28 },
-        { "label": "GMS", "value": 28 },
-        { "label": "YouGov", "value": 28 },
-        { "label": "Allensbach", "value": 27.5 },
-        { "label": "FG Wahlen", "value": 27 }
+        {
+          "label": "INSA",
+          "value": 29
+        },
+        {
+          "label": "Verian",
+          "value": 28
+        },
+        {
+          "label": "Forsa",
+          "value": 28
+        },
+        {
+          "label": "Infratest dimap",
+          "value": 28
+        },
+        {
+          "label": "GMS",
+          "value": 28
+        },
+        {
+          "label": "YouGov",
+          "value": 28
+        },
+        {
+          "label": "Allensbach",
+          "value": 27.5
+        },
+        {
+          "label": "FG Wahlen",
+          "value": 27
+        }
       ],
       "source": {
         "label": "wahlrecht.de — Umfragenübersicht (Institute: Allensbach, Verian, Forsa, FG Wahlen, GMS, Infratest dimap, INSA, YouGov)",
@@ -43,9 +67,18 @@
       "chapter": "intro",
       "question": "Wie stark war die AfD bei der Bundestagswahl 2025?",
       "options": [
-        { "text": "11 %", "correct": false },
-        { "text": "20,8 % — zweitstärkste Kraft", "correct": true },
-        { "text": "15 %", "correct": false }
+        {
+          "text": "11 %",
+          "correct": false
+        },
+        {
+          "text": "20,8 % — zweitstärkste Kraft",
+          "correct": true
+        },
+        {
+          "text": "15 %",
+          "correct": false
+        }
       ],
       "explanation": "Bei der Bundestagswahl am 23. Februar 2025 erhielt die AfD 20,8 % der Zweitstimmen (2021: 10,4 %) und zog mit 152 Abgeordneten in den Bundestag ein. Ende des offiziellen Endergebnisses.",
       "source": {
@@ -62,8 +95,14 @@
       "caption": "Mitglieder der AfD zum 01.01.2026 — laut Schatzmeister Carsten Hütter. Ein Jahr zuvor waren es rund 51.000: ein Plus von mehr als 43 Prozent in einem Jahr.",
       "chart": "bars",
       "series": [
-        { "label": "Jan. 2025", "value": 70 },
-        { "label": "Jan. 2026", "value": 100 }
+        {
+          "label": "Jan. 2025",
+          "value": 70
+        },
+        {
+          "label": "Jan. 2026",
+          "value": 100
+        }
       ],
       "source": {
         "label": "DIE ZEIT (07.03.2026), Zahlen der Partei (Schatzmeister Carsten Hütter)",
@@ -83,9 +122,18 @@
       "caption": "Personenpotenzial „Verdachtsfall AfD“ inkl. Junge Alternative: von 11.300 (2023) über 20.000 (2024) auf 28.000 (2025) — mehr als verdoppelt in zwei Jahren.",
       "chart": "bars",
       "series": [
-        { "label": "2023", "value": 11300 },
-        { "label": "2024", "value": 20000 },
-        { "label": "2025", "value": 28000 }
+        {
+          "label": "2023",
+          "value": 11300
+        },
+        {
+          "label": "2024",
+          "value": 20000
+        },
+        {
+          "label": "2025",
+          "value": 28000
+        }
       ],
       "source": {
         "label": "Verfassungsschutzbericht 2025 (BMI), Tabelle „Rechtsextremismuspotenzial“, S. 94–95",
@@ -110,9 +158,18 @@
       "chapter": "verfassungsschutz",
       "question": "Wie bewertet das Bundesamt für Verfassungsschutz die AfD?",
       "options": [
-        { "text": "Gar nicht — das ist unzulässig", "correct": false },
-        { "text": "Als „Verdachtsfall“ rechtsextremistischer Bestrebungen — rechtskräftig bestätigt", "correct": true },
-        { "text": "Nur der Thüringer Landesverband", "correct": false }
+        {
+          "text": "Gar nicht — das ist unzulässig",
+          "correct": false
+        },
+        {
+          "text": "Als „Verdachtsfall“ rechtsextremistischer Bestrebungen — rechtskräftig bestätigt",
+          "correct": true
+        },
+        {
+          "text": "Nur der Thüringer Landesverband",
+          "correct": false
+        }
       ],
       "explanation": "Seit dem 3. März 2021 gilt die Gesamtpartei als Verdachtsfall. VG Köln (2022) und OVG NRW (2024) bestätigten die Einstufung, das Bundesverwaltungsgericht ließ die Revision nicht zu (Mai 2025). Die AfD war mit ihrer Klage in drei Instanzen erfolglos. Eine Hochstufung zur „gesichert rechtsextremistischen Bestrebung“ (Mai 2025) wurde im Eilverfahren vorläufig ausgesetzt — die Hauptsache läuft. Einordnung: Die AfD nennt das „linksgrüne Hetzbehörde“. Die Gerichte — konservativ besetzt, unabhängig — haben dreimal anders entschieden.",
       "source": {
@@ -200,9 +257,18 @@
       "caption": "Sonntagsfragen kurz vor der Landtagswahl: Infratest dimap (ARD) 42 %, Forschungsgruppe Wahlen (ZDF) 40 % für die gesichert rechtsextremistische AfD — um die 20 Punkte vor der CDU. Eine absolute Mehrheit ist greifbar nah. Die Partei, die den Verfassungsschutz abschaffen will, könnte bald die Regierung stellen.",
       "chart": "bars",
       "series": [
-        { "label": "AfD", "value": 42 },
-        { "label": "CDU", "value": 22 },
-        { "label": "Linke", "value": 11 }
+        {
+          "label": "AfD",
+          "value": 42
+        },
+        {
+          "label": "CDU",
+          "value": 22
+        },
+        {
+          "label": "Linke",
+          "value": 11
+        }
       ],
       "source": {
         "label": "wahlrecht.de — Landtagswahl Sachsen-Anhalt (Infratest dimap/ARD, FG Wahlen/ZDF)",
@@ -314,9 +380,18 @@
       "chapter": "programm",
       "question": "Wo sollen Asylverfahren künftig stattfinden, wenn es nach der AfD geht?",
       "options": [
-        { "text": "In Deutschland, nur schneller", "correct": false },
-        { "text": "Außerhalb Deutschlands", "correct": true },
-        { "text": "Bei der EU in Brüssel", "correct": false }
+        {
+          "text": "In Deutschland, nur schneller",
+          "correct": false
+        },
+        {
+          "text": "Außerhalb Deutschlands",
+          "correct": true
+        },
+        {
+          "text": "Bei der EU in Brüssel",
+          "correct": false
+        }
       ],
       "explanation": "Wahlprogramm wörtlich: „Wir werden uns dafür einsetzen, dass Asylverfahren und Anträge auf subsidiären Schutz zukünftig außerhalb Deutschlands gestellt und bearbeitet werden.“ Konsequenz: Schutzsuchende wären faktisch unerreichbar — niemand könnte mehr in Deutschland Asyl beantragen. Gleichzeitig will die AfD den UN-Flüchtlingspakt „aufkündigen“ (S. 66) und Leistungen auf ein „Existenzminimum“ senken. Das Grundrecht auf Asyl (Art. 16a GG) wäre damit ausgehöhlt — ein Grundrecht, das aus den Erfahrungen von 1945 stammt.",
       "source": {
@@ -341,9 +416,18 @@
       "chapter": "programm",
       "question": "Unter welchem Kampfbegriff fasst die AfD ihre Migrationspolitik zusammen?",
       "options": [
-        { "text": "„Rückführungsoffensive“", "correct": false },
-        { "text": "„Remigration“", "correct": true },
-        { "text": "„Ordnung und Respekt“", "correct": false }
+        {
+          "text": "„Rückführungsoffensive“",
+          "correct": false
+        },
+        {
+          "text": "„Remigration“",
+          "correct": true
+        },
+        {
+          "text": "„Ordnung und Respekt“",
+          "correct": false
+        }
       ],
       "explanation": "Das Wahlprogramm fasst die Forderungen unter „Remigration“ zusammen — ein Begriff aus der rechtsextremen Szene für Ausreise „mit Druck“. Darunter: konsequente Abschiebungen, Abschaffung von Duldungen, Grenzzurückweisungen ohne Dokumente. Ein „großes Remigrationspotenzial“ sieht die AfD darin, den Schutzstatus von Syrern zu widerrufen. Frag dich: Wer wäre gemeint, wenn man bei Millionen Menschen mit Migrationsgeschichte anfängt zu rechnen? Krah hat es vorgerechnet: „25 Millionen Menschen, davon 15 Millionen deutsche Staatsangehörige.“",
       "source": {
@@ -400,9 +484,18 @@
       "caption": "Verfassungsschutzbericht 2025, S. 86–87: Teile der AfD vertraten „eindeutig prorussische Narrative“. Mehrere AfD-Abgeordnete beteiligten sich an der Kampagne „Stoppt die Sanktionen“. AfD-Vertreter reisten wiederholt nach Russland. Die Partei lehnt eine Unterstützung der Ukraine überwiegend ab. Übersetzt: Die Partei, die „Für Deutschland“ ruft, agiert außenpolitisch in Richtung Moskau — gegen die Interessen des Landes, das sie zu vertreten beansprucht.",
       "chart": "bars",
       "series": [
-        { "label": "prorussische Narrative", "value": 100 },
-        { "label": "„Stoppt die Sanktionen“", "value": 80 },
-        { "label": "Reisen nach Russland", "value": 70 }
+        {
+          "label": "prorussische Narrative",
+          "value": 100
+        },
+        {
+          "label": "„Stoppt die Sanktionen“",
+          "value": 80
+        },
+        {
+          "label": "Reisen nach Russland",
+          "value": 70
+        }
       ],
       "source": {
         "label": "Verfassungsschutzbericht 2025 (BMI), S. 86–87",
@@ -458,8 +551,14 @@
       "caption": "ZEW-Rechnung für eine Familie mit 180.000 € Brutto: 19.190 € mehr im Jahr bei AfD-Steuerplänen. Eine Familie mit 40.000 € Brutto verliert dagegen 440 €. Fazit der Forscher: Die Entlastung steigt mit dem Einkommen — wer wenig hat, zahlt drauf.",
       "chart": "bars",
       "series": [
-        { "label": "Familie 180.000 €", "value": 95 },
-        { "label": "Familie 40.000 €", "value": 3 }
+        {
+          "label": "Familie 180.000 €",
+          "value": 95
+        },
+        {
+          "label": "Familie 40.000 €",
+          "value": 3
+        }
       ],
       "source": {
         "label": "ZEW Mannheim, „Wen die Parteien entlasten würden“ (2025)",
@@ -490,8 +589,14 @@
       "caption": "Die AfD hat im Juli 2026 ein Gesetz zur Abschaffung der Erbschaftsteuer in den Bundestag gebracht (21/7251) — 8,5 Mrd. € Entlastung für Erben, 4,8 Mrd. € für Beschenkte. Wer erbt so viel? DIW: Die Hälfte aller Erbschaftssummen fließt an die reichsten 10 % der Empfänger. Nicht an dich.",
       "chart": "bars",
       "series": [
-        { "label": "Entlastung Erben", "value": 100 },
-        { "label": "Anteil Reichste 10 % an Erbschaften", "value": 50 }
+        {
+          "label": "Entlastung Erben",
+          "value": 100
+        },
+        {
+          "label": "Anteil Reichste 10 % an Erbschaften",
+          "value": 50
+        }
       ],
       "source": {
         "label": "Bundestag hib 608/2026 · DIW Wochenbericht 5/2021",
@@ -508,8 +613,14 @@
       "caption": "IW-Gutachten: Ein Dexit würde nach fünf Jahren 5,6 % des BIP kosten — 690 Milliarden Euro und 2,5 Millionen Arbeitsplätze. Und das ohne Euro-Austritt, den die AfD ebenfalls will. Zum Vergleich: Das ist mehr als der gesamte Bundeshaushalt eines Jahres.",
       "chart": "bars",
       "series": [
-        { "label": "BIP-Verlust nach 5 Jahren", "value": 90 },
-        { "label": "Bundeshaushalt 2025 (zum Vergleich)", "value": 80 }
+        {
+          "label": "BIP-Verlust nach 5 Jahren",
+          "value": 90
+        },
+        {
+          "label": "Bundeshaushalt 2025 (zum Vergleich)",
+          "value": 80
+        }
       ],
       "source": {
         "label": "IW Köln, Gutachten „Vielfalt ist Zukunft“ (2025, PDF)",
@@ -534,9 +645,18 @@
       "chapter": "kosten",
       "question": "Wer bekommt laut Datenanalyse den größten Teil der EU-Agrarmilliarden?",
       "options": [
-        { "text": "Kleine Familienbetriebe", "correct": false },
-        { "text": "Das oberste 1 % der Empfänger", "correct": true },
-        { "text": "Gleichmäßig verteilt", "correct": false }
+        {
+          "text": "Kleine Familienbetriebe",
+          "correct": false
+        },
+        {
+          "text": "Das oberste 1 % der Empfänger",
+          "correct": true
+        },
+        {
+          "text": "Gleichmäßig verteilt",
+          "correct": false
+        }
       ],
       "explanation": "NDR/WDR/SZ-Datenanalyse zu den EU-Agrarsubventionen: Das oberste 1 % der Empfänger erhielt über 12 Mrd. € — fast ein Viertel aller Subventionen, knapp 30.000 € pro Betrieb. Die untere Hälfte der Empfänger bekam zusammen unter 4 Mrd. €. Unter den Top-100-Empfängern: 24 Ex-DDR-Großbetriebe. Die AfD will diese Subventionen schützen — ihre Wähler auf dem Land zahlen dafür als Steuerzahler.",
       "source": {
@@ -554,8 +674,14 @@
       "caption": "Studie für das BMWK: Klimaschäden bis 2050 kosten Deutschland je nach Erderwärmung 280–900 Mrd. €. Die AfD will 23 Klimagesetze kündigen (EEG, CO₂-Handel, Klimafonds — Bundestag lehnte 443:131 ab). Die Ahrtal-Flut 2021 allein: 40 Mrd. € Folgekosten. Ein Hitzetag kostet Sachsen-Anhalt 22 Mio. € Produktivität — Correctiv-Berechnung von Prognos.",
       "chart": "bars",
       "series": [
-        { "label": "Klimaschäden bis 2050 (obere Grenze)", "value": 100 },
-        { "label": "Ahrtal-Flut 2021", "value": 20 }
+        {
+          "label": "Klimaschäden bis 2050 (obere Grenze)",
+          "value": 100
+        },
+        {
+          "label": "Ahrtal-Flut 2021",
+          "value": 20
+        }
       ],
       "source": {
         "label": "SZ zur BMWK-Studie (2023) · Bundestag 21/576 · Correctiv/Prognos (31.08.2026)",
@@ -583,73 +709,281 @@
       "type": "summary",
       "chapter": "fazit",
       "tldr": [
-        { "num": "01", "text": "28.000 Menschen rechnet der Verfassungsschutz allein im AfD-Umfeld dem Rechtsextremismus zu — doppelt so viele wie 2023 (VSB 2025)." },
-        { "num": "02", "text": "Die Gesamtpartei ist seit 2021 als rechtsextremistischer Verdachtsfall eingestuft — rechtskräftig in drei Instanzen (BfV, VG Köln, OVG NRW)." },
-        { "num": "03", "text": "Fünf Landesverbände gelten als gesichert rechtsextremistisch — von Thüringen bis Niedersachsen (Correctiv-Übersicht, Juni 2026)." },
-        { "num": "04", "text": "Die AfD-Chefin will den Verfassungsschutz abschaffen — die Behörde, die ihre Partei beobachtet (Deutschlandfunk, Aug. 2026)." },
-        { "num": "05", "text": "In Sachsen-Anhalt liegt die AfD kurz vor der Wahl bei 40–42 %: eine gesichert rechtsextremistische Partei vor der Regierungsmacht." },
-        { "num": "06", "text": "Kostenrechnung der Institute: Familie mit 40.000 € verliert 440 €/Jahr — Topverdiener-Familie gewinnt 19.190 € (ZEW)." },
-        { "num": "07", "text": "Ein Dexit würde laut IW Köln 690 Mrd. € und 2,5 Mio. Arbeitsplätze kosten; in AfD-Hochburgen sinkt das Einkommen um 7–8 % (DIW)." },
-        { "num": "08", "text": "Im Grundsatzprogramm steht der Austritt Deutschlands aus der EU als Ziel — falls die „Reformansätze“ scheitern." },
-        { "num": "09", "text": "Im Wahlprogramm steht wörtlich: Ausstieg aus dem Pariser Klimaabkommen und aus dem Euro-System (AfD-Programm 2025)." },
-        { "num": "10", "text": "Sofortige Aufhebung der Russland-Sanktionen und Instandsetzung von Nord Stream stehen im offiziellen Wahlprogramm (S. 92)." },
-        { "num": "11", "text": "Björn Höcke wurde zweimal wegen Verwendens einer SA-Parole verurteilt — 13.000 € und 16.900 € (LG Halle 2024)." },
-        { "num": "12", "text": "Der Mitarbeiter des AfD-Europa-Spitzenkandidaten Krah spionierte für China — 4 Jahre 9 Monate Haft (OLG Dresden 2025)." }
+        {
+          "num": "01",
+          "text": "28.000 Menschen rechnet der Verfassungsschutz allein im AfD-Umfeld dem Rechtsextremismus zu — doppelt so viele wie 2023 (VSB 2025)."
+        },
+        {
+          "num": "02",
+          "text": "Die Gesamtpartei ist seit 2021 als rechtsextremistischer Verdachtsfall eingestuft — rechtskräftig in drei Instanzen (BfV, VG Köln, OVG NRW)."
+        },
+        {
+          "num": "03",
+          "text": "Fünf Landesverbände gelten als gesichert rechtsextremistisch — von Thüringen bis Niedersachsen (Correctiv-Übersicht, Juni 2026)."
+        },
+        {
+          "num": "04",
+          "text": "Die AfD-Chefin will den Verfassungsschutz abschaffen — die Behörde, die ihre Partei beobachtet (Deutschlandfunk, Aug. 2026)."
+        },
+        {
+          "num": "05",
+          "text": "In Sachsen-Anhalt liegt die AfD kurz vor der Wahl bei 40–42 %: eine gesichert rechtsextremistische Partei vor der Regierungsmacht."
+        },
+        {
+          "num": "06",
+          "text": "Kostenrechnung der Institute: Familie mit 40.000 € verliert 440 €/Jahr — Topverdiener-Familie gewinnt 19.190 € (ZEW)."
+        },
+        {
+          "num": "07",
+          "text": "Ein Dexit würde laut IW Köln 690 Mrd. € und 2,5 Mio. Arbeitsplätze kosten; in AfD-Hochburgen sinkt das Einkommen um 7–8 % (DIW)."
+        },
+        {
+          "num": "08",
+          "text": "Im Grundsatzprogramm steht der Austritt Deutschlands aus der EU als Ziel — falls die „Reformansätze“ scheitern."
+        },
+        {
+          "num": "09",
+          "text": "Im Wahlprogramm steht wörtlich: Ausstieg aus dem Pariser Klimaabkommen und aus dem Euro-System (AfD-Programm 2025)."
+        },
+        {
+          "num": "10",
+          "text": "Sofortige Aufhebung der Russland-Sanktionen und Instandsetzung von Nord Stream stehen im offiziellen Wahlprogramm (S. 92)."
+        },
+        {
+          "num": "11",
+          "text": "Björn Höcke wurde zweimal wegen Verwendens einer SA-Parole verurteilt — 13.000 € und 16.900 € (LG Halle 2024)."
+        },
+        {
+          "num": "12",
+          "text": "Der Mitarbeiter des AfD-Europa-Spitzenkandidaten Krah spionierte für China — 4 Jahre 9 Monate Haft (OLG Dresden 2025)."
+        }
       ],
       "closing": "Jede Zahl hier hat eine Quelle — die Volltexte liegen öffentlich. Prüfe selbst."
+    },
+    {
+      "type": "endcard",
+      "chapter": "fazit"
     },
     {
       "type": "sources",
       "chapter": "fazit",
       "sources": [
-        { "label": "Verfassungsschutzbericht 2025 (BMI, PDF)", "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf", "visited": "2026-09-03" },
-        { "label": "Verfassungsschutzbericht 2024 (BMI, PDF)", "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI25029-vsb2024.pdf", "visited": "2026-09-03" },
-        { "label": "BMI: Verfassungsschutzbericht 2025 vorgestellt (30.06.2026)", "url": "https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2026/06/vsb2025-pm.html", "visited": "2026-09-03" },
-        { "label": "BfV: OVG NRW bestätigt Verdachtsfall-Einstufung (13.05.2024)", "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html", "visited": "2026-09-03" },
-        { "label": "tagesschau: Was die Gerichtsentscheidung zur AfD-Einstufung bedeutet (26.02.2026)", "url": "https://www.tagesschau.de/inland/innenpolitik/afd-einstufung-verfassungsschutz-106.html", "visited": "2026-09-03" },
-        { "label": "tagesschau: FAQ zur Einstufung der AfD (Mai 2025)", "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html", "visited": "2026-09-03" },
-        { "label": "tagesschau: Wie das AfD-Verfahren weitergeht (04.03.2026)", "url": "https://www.tagesschau.de/inland/innenpolitik/afd-verfahren-verfassungsschutz-100.html", "visited": "2026-09-03" },
-        { "label": "DIE ZEIT: AfD-Hochstufung — Teilsieg für Rechtsaußen (26.02.2026)", "url": "https://www.zeit.de/politik/deutschland/2026-02/afd-einstufung-rechtsextremistisch-verwaltungsgericht-koeln-urteil", "visited": "2026-09-03" },
-        { "label": "CORRECTIV: Einstufungen der AfD in den Bundesländern (17.06.2026)", "url": "https://correctiv.org/aktuelles/afd/2026/06/17/wie-stuft-der-verfassungsschutz-die-afd-in-den-bundeslaendern-ein/", "visited": "2026-09-03" },
-        { "label": "Deutschlandfunk: Weidel will Verfassungsschutz abschaffen (17.08.2026)", "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html", "visited": "2026-09-03" },
-        { "label": "DIE ZEIT: Siegmund will Abschaffung des Verfassungsschutzes prüfen (15.08.2026)", "url": "https://www.zeit.de/politik/deutschland/2026-08/afd-sachsen-anhalt-verfassungsschutz-ulrich-siegmund", "visited": "2026-09-03" },
-        { "label": "wahlrecht.de: Landtagswahl Sachsen-Anhalt, Sonntagsfragen (Stand 02.09.2026)", "url": "https://www.wahlrecht.de/umfragen/landtage/sachsen-anhalt.htm", "visited": "2026-09-03" },
-        { "label": "Bayerischer Rundfunk: AfD fordert Abschiebetrupp „ähnlich wie ICE“ (30.01.2026)", "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3", "visited": "2026-09-03" },
-        { "label": "MDR: Analyse zum AfD-Wahlkampfauftakt Magdeburg (20.07.2026)", "url": "https://www.mdr.de/nachrichten/sachsen-anhalt/landtagswahl/analyse-wahlkampf-auftakt-wahl,afd-siegmund-magdeburg-102.html", "visited": "2026-09-03" },
-        { "label": "dpa via ZEIT: AfD-Wahlkampfauftakt Magdeburg (18.07.2026)", "url": "https://www.zeit.de/news/2026-07/18/weidel-startet-offiziell-afd-wahlkampf-in-sachsen-anhalt", "visited": "2026-09-03" },
-        { "label": "ZEW Mannheim: Wen die Parteien entlasten würden (2025)", "url": "https://www.zew.de/presse/pressearchiv/wen-die-parteien-entlasten-wuerden/", "visited": "2026-09-03" },
-        { "label": "DIW Berlin: Steuerreformvorschläge der Parteien, DIW aktuell 106 (2025)", "url": "https://www.diw.de/de/diw_01.c.936228.de/publikationen/diw_aktuell/2025_0106/steuerreformvorschlaege_der_parteien__ambitionierte_entlastungen_fuer_arbeitende_mitte_und_unternehmen_treiben_defizite.html", "visited": "2026-09-03" },
-        { "label": "IW Köln: Gutachten „Vielfalt ist Zukunft“ (2025, PDF)", "url": "https://www.iwkoeln.de/fileadmin/user_upload/Studien/Gutachten/PDF/2025/IW-Gutachten_2025-Vielfalt-ist-Zukunft.pdf", "visited": "2026-09-03" },
-        { "label": "Bundestag: AfD-Gesetzentwurf Erbschaftsteuer, hib 608/2026", "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1201000", "visited": "2026-09-03" },
-        { "label": "DIW Berlin: Hälfte aller Erbschaften an die reichsten 10 % (2021)", "url": "https://www.diw.de/de/diw_01.c.809832.de/publikationen/wochenberichte/2021_05_1/haelfte_aller_erbschaften_und_schenkungen_geht_an_die_reichsten_zehn_prozent_aller_beguenstigten.html", "visited": "2026-09-03" },
-        { "label": "tagesschau/NDR/WDR/SZ: EU-Agrarsubventionen-Datenanalyse", "url": "https://www.tagesschau.de/investigativ/ndr-wdr/eu-agrarsubventionen-unternehmen-101.html", "visited": "2026-09-03" },
-        { "label": "DIW Berlin: Das AfD-Paradox — Sachsen-Anhalt (Juli 2026)", "url": "https://www.diw.de/de/diw_01.c.1014790.de/publikationen/diw_aktuell/2026_0121/sachsen-anhalt_zeigt_das_afd-paradox__strukturschwache_afd-hochburgen_wuerden_unter_ihrer_politik_am_staerksten_leiden.html", "visited": "2026-09-03" },
-        { "label": "DIW Berlin: Das AfD-Paradox — eigene Wähler Hauptleidtragende (2023)", "url": "https://www.diw.de/de/diw_01.c.879742.de/publikationen/diw_aktuell/2023_0088/das_afd-paradox__die_hauptleidtragenden_der_afd-politik_waeren_ihre_eigenen_waehler_innen.html", "visited": "2026-09-03" },
-        { "label": "SZ: Klimakosten-Studie für BMWK (2023)", "url": "https://www.sueddeutsche.de/politik/klimawandel-deutschland-kosten-1.5763352", "visited": "2026-09-03" },
-        { "label": "Bundestag: AfD-Antrag Klimaschutzfolgenbereinigung (21/576)", "url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw26-de-klimaschutzfolgenbereinigung-1084784", "visited": "2026-09-03" },
-        { "label": "Correctiv/Prognos: AfD-Klimapolitik gefährdet Sachsen-Anhalts Wirtschaft (31.08.2026)", "url": "https://correctiv.org/aktuelles/klimawandel/2026/08/31/afd-klimapolitik-gefaehrdet-sachsen-anhalts-wirtschaft/", "visited": "2026-09-03" },
-        { "label": "AfD-Wahlprogramm Bundestagswahl 2025 (PDF, afd.de)", "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf", "visited": "2026-09-03" },
-        { "label": "AfD-Grundsatzprogramm „Programm für Deutschland“ (PDF)", "url": "https://rnk.afd-bw.de/afd-bw/wahlprogramme/afd-grundsatzprogramm_aktuelle-version.pdf", "visited": "2026-09-03" },
-        { "label": "tagesschau: Wahlprogramme im Vergleich — Migration", "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html", "visited": "2026-09-03" },
-        { "label": "DIE ZEIT: Parteimitglieder (07.03.2026)", "url": "https://www.zeit.de/politik/deutschland/2026-03/mitgliedszahlen-linke-afd-gruene-csu-cdu-spd-gxe", "visited": "2026-09-03" },
-        { "label": "Legal Tribune Online: Höcke-Urteil LG Halle (14.05.2024)", "url": "https://www.lto.de/recht/nachrichten/n/lg-halle-5kls623-hoecke-urteil", "visited": "2026-09-03" },
-        { "label": "Legal Tribune Online: Höcke erneut verurteilt (01.07.2024)", "url": "https://www.lto.de/recht/hintergruende/h/bjoern-hoecke-zweites-mal-verurteilt-lg-halle-alles-fuer-deutschland-sa-parole", "visited": "2026-09-03" },
-        { "label": "Bundeswahlleiterin: Endgültiges Ergebnis BTW 2025 (PM 29/25)", "url": "https://bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html", "visited": "2026-09-03" },
-        { "label": "wahlrecht.de: Wahlumfragen (Stand 01.09.2026)", "url": "https://www.wahlrecht.de/umfragen/", "visited": "2026-09-03" },
-        { "label": "tagesschau: Höcke erneut wegen Nazi-Parole verurteilt (01.07.2024)", "url": "https://www.tagesschau.de/inland/innenpolitik/hoecke-urteil-geldstrafe-100.html", "visited": "2026-09-03" },
-        { "label": "DIE ZEIT: Höcke zu Geldstrafe verurteilt (14.05.2024)", "url": "https://www.zeit.de/politik/deutschland/2024-05/bjoern-hoecke-wegen-ns-ausspruch-zu-geldstrafe-verurteilt", "visited": "2026-09-03" },
-        { "label": "DIE ZEIT: Gaulands Relativierung der NS-Zeit (03.06.2018)", "url": "https://www.zeit.de/news/2018-06/03/empoerung-wegen-gaulands-relativierung-der-ns-zeit-180603-99-560879", "visited": "2026-09-03" },
-        { "label": "Deutsche Welle: Gauland „Vogelschiss in der Geschichte“", "url": "https://www.dw.com/de/gauland-bezeichnet-ns-zeit-als-vogelschiss-in-der-geschichte/a-44054219", "visited": "2026-09-03" },
-        { "label": "tagesschau: Ex-Mitarbeiter Krahs wegen Spionage verurteilt (30.09.2025)", "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html", "visited": "2026-09-03" },
-        { "label": "Generalbundesanwalt: Festnahme Jian G. (23.04.2024)", "url": "https://www.generalbundesanwalt.de/SharedDocs/Pressemitteilungen/DE/2024/Pressemitteilung-vom-23-04-2024.html", "visited": "2026-09-03" },
-        { "label": "Generalbundesanwalt: Anklage gegen Jian G. (29.04.2025)", "url": "https://www.generalbundesanwalt.de/SharedDocs/Pressemitteilungen/DE/2025/Pressemitteilung-vom-29-04-2025.html", "visited": "2026-09-03" },
-        { "label": "CORRECTIV: Geheimplan gegen Deutschland (10.01.2024)", "url": "https://correctiv.org/aktuelles/neue-rechte/2024/01/10/geheimplan-remigration-vertreibung-afd-rechtsextreme-november-treffen/", "visited": "2026-09-03" },
-        { "label": "Der Tagesspiegel: Gerichtliche Einordnung der Correctiv-Enthüllung (18.12.2025)", "url": "https://www.tagesspiegel.de/politik/umstrittene-correctiv-enthullung-zur-remigration-ein-urteil-uber-einen-fall-zu-dem-jeder-seine-wahrheit-hat-15059842.html", "visited": "2026-09-03" }
+        {
+          "label": "Verfassungsschutzbericht 2025 (BMI, PDF)",
+          "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Verfassungsschutzbericht 2024 (BMI, PDF)",
+          "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI25029-vsb2024.pdf",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "BMI: Verfassungsschutzbericht 2025 vorgestellt (30.06.2026)",
+          "url": "https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2026/06/vsb2025-pm.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "BfV: OVG NRW bestätigt Verdachtsfall-Einstufung (13.05.2024)",
+          "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "tagesschau: Was die Gerichtsentscheidung zur AfD-Einstufung bedeutet (26.02.2026)",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/afd-einstufung-verfassungsschutz-106.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "tagesschau: FAQ zur Einstufung der AfD (Mai 2025)",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "tagesschau: Wie das AfD-Verfahren weitergeht (04.03.2026)",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/afd-verfahren-verfassungsschutz-100.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "DIE ZEIT: AfD-Hochstufung — Teilsieg für Rechtsaußen (26.02.2026)",
+          "url": "https://www.zeit.de/politik/deutschland/2026-02/afd-einstufung-rechtsextremistisch-verwaltungsgericht-koeln-urteil",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "CORRECTIV: Einstufungen der AfD in den Bundesländern (17.06.2026)",
+          "url": "https://correctiv.org/aktuelles/afd/2026/06/17/wie-stuft-der-verfassungsschutz-die-afd-in-den-bundeslaendern-ein/",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Deutschlandfunk: Weidel will Verfassungsschutz abschaffen (17.08.2026)",
+          "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "DIE ZEIT: Siegmund will Abschaffung des Verfassungsschutzes prüfen (15.08.2026)",
+          "url": "https://www.zeit.de/politik/deutschland/2026-08/afd-sachsen-anhalt-verfassungsschutz-ulrich-siegmund",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "wahlrecht.de: Landtagswahl Sachsen-Anhalt, Sonntagsfragen (Stand 02.09.2026)",
+          "url": "https://www.wahlrecht.de/umfragen/landtage/sachsen-anhalt.htm",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Bayerischer Rundfunk: AfD fordert Abschiebetrupp „ähnlich wie ICE“ (30.01.2026)",
+          "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "MDR: Analyse zum AfD-Wahlkampfauftakt Magdeburg (20.07.2026)",
+          "url": "https://www.mdr.de/nachrichten/sachsen-anhalt/landtagswahl/analyse-wahlkampf-auftakt-wahl,afd-siegmund-magdeburg-102.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "dpa via ZEIT: AfD-Wahlkampfauftakt Magdeburg (18.07.2026)",
+          "url": "https://www.zeit.de/news/2026-07/18/weidel-startet-offiziell-afd-wahlkampf-in-sachsen-anhalt",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "ZEW Mannheim: Wen die Parteien entlasten würden (2025)",
+          "url": "https://www.zew.de/presse/pressearchiv/wen-die-parteien-entlasten-wuerden/",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "DIW Berlin: Steuerreformvorschläge der Parteien, DIW aktuell 106 (2025)",
+          "url": "https://www.diw.de/de/diw_01.c.936228.de/publikationen/diw_aktuell/2025_0106/steuerreformvorschlaege_der_parteien__ambitionierte_entlastungen_fuer_arbeitende_mitte_und_unternehmen_treiben_defizite.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "IW Köln: Gutachten „Vielfalt ist Zukunft“ (2025, PDF)",
+          "url": "https://www.iwkoeln.de/fileadmin/user_upload/Studien/Gutachten/PDF/2025/IW-Gutachten_2025-Vielfalt-ist-Zukunft.pdf",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Bundestag: AfD-Gesetzentwurf Erbschaftsteuer, hib 608/2026",
+          "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1201000",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "DIW Berlin: Hälfte aller Erbschaften an die reichsten 10 % (2021)",
+          "url": "https://www.diw.de/de/diw_01.c.809832.de/publikationen/wochenberichte/2021_05_1/haelfte_aller_erbschaften_und_schenkungen_geht_an_die_reichsten_zehn_prozent_aller_beguenstigten.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "tagesschau/NDR/WDR/SZ: EU-Agrarsubventionen-Datenanalyse",
+          "url": "https://www.tagesschau.de/investigativ/ndr-wdr/eu-agrarsubventionen-unternehmen-101.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "DIW Berlin: Das AfD-Paradox — Sachsen-Anhalt (Juli 2026)",
+          "url": "https://www.diw.de/de/diw_01.c.1014790.de/publikationen/diw_aktuell/2026_0121/sachsen-anhalt_zeigt_das_afd-paradox__strukturschwache_afd-hochburgen_wuerden_unter_ihrer_politik_am_staerksten_leiden.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "DIW Berlin: Das AfD-Paradox — eigene Wähler Hauptleidtragende (2023)",
+          "url": "https://www.diw.de/de/diw_01.c.879742.de/publikationen/diw_aktuell/2023_0088/das_afd-paradox__die_hauptleidtragenden_der_afd-politik_waeren_ihre_eigenen_waehler_innen.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "SZ: Klimakosten-Studie für BMWK (2023)",
+          "url": "https://www.sueddeutsche.de/politik/klimawandel-deutschland-kosten-1.5763352",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Bundestag: AfD-Antrag Klimaschutzfolgenbereinigung (21/576)",
+          "url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw26-de-klimaschutzfolgenbereinigung-1084784",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Correctiv/Prognos: AfD-Klimapolitik gefährdet Sachsen-Anhalts Wirtschaft (31.08.2026)",
+          "url": "https://correctiv.org/aktuelles/klimawandel/2026/08/31/afd-klimapolitik-gefaehrdet-sachsen-anhalts-wirtschaft/",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "AfD-Wahlprogramm Bundestagswahl 2025 (PDF, afd.de)",
+          "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "AfD-Grundsatzprogramm „Programm für Deutschland“ (PDF)",
+          "url": "https://rnk.afd-bw.de/afd-bw/wahlprogramme/afd-grundsatzprogramm_aktuelle-version.pdf",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "tagesschau: Wahlprogramme im Vergleich — Migration",
+          "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "DIE ZEIT: Parteimitglieder (07.03.2026)",
+          "url": "https://www.zeit.de/politik/deutschland/2026-03/mitgliedszahlen-linke-afd-gruene-csu-cdu-spd-gxe",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Legal Tribune Online: Höcke-Urteil LG Halle (14.05.2024)",
+          "url": "https://www.lto.de/recht/nachrichten/n/lg-halle-5kls623-hoecke-urteil",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Legal Tribune Online: Höcke erneut verurteilt (01.07.2024)",
+          "url": "https://www.lto.de/recht/hintergruende/h/bjoern-hoecke-zweites-mal-verurteilt-lg-halle-alles-fuer-deutschland-sa-parole",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Bundeswahlleiterin: Endgültiges Ergebnis BTW 2025 (PM 29/25)",
+          "url": "https://bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "wahlrecht.de: Wahlumfragen (Stand 01.09.2026)",
+          "url": "https://www.wahlrecht.de/umfragen/",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "tagesschau: Höcke erneut wegen Nazi-Parole verurteilt (01.07.2024)",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/hoecke-urteil-geldstrafe-100.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "DIE ZEIT: Höcke zu Geldstrafe verurteilt (14.05.2024)",
+          "url": "https://www.zeit.de/politik/deutschland/2024-05/bjoern-hoecke-wegen-ns-ausspruch-zu-geldstrafe-verurteilt",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "DIE ZEIT: Gaulands Relativierung der NS-Zeit (03.06.2018)",
+          "url": "https://www.zeit.de/news/2018-06/03/empoerung-wegen-gaulands-relativierung-der-ns-zeit-180603-99-560879",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Deutsche Welle: Gauland „Vogelschiss in der Geschichte“",
+          "url": "https://www.dw.com/de/gauland-bezeichnet-ns-zeit-als-vogelschiss-in-der-geschichte/a-44054219",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "tagesschau: Ex-Mitarbeiter Krahs wegen Spionage verurteilt (30.09.2025)",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Generalbundesanwalt: Festnahme Jian G. (23.04.2024)",
+          "url": "https://www.generalbundesanwalt.de/SharedDocs/Pressemitteilungen/DE/2024/Pressemitteilung-vom-23-04-2024.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Generalbundesanwalt: Anklage gegen Jian G. (29.04.2025)",
+          "url": "https://www.generalbundesanwalt.de/SharedDocs/Pressemitteilungen/DE/2025/Pressemitteilung-vom-29-04-2025.html",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "CORRECTIV: Geheimplan gegen Deutschland (10.01.2024)",
+          "url": "https://correctiv.org/aktuelles/neue-rechte/2024/01/10/geheimplan-remigration-vertreibung-afd-rechtsextreme-november-treffen/",
+          "visited": "2026-09-03"
+        },
+        {
+          "label": "Der Tagesspiegel: Gerichtliche Einordnung der Correctiv-Enthüllung (18.12.2025)",
+          "url": "https://www.tagesspiegel.de/politik/umstrittene-correctiv-enthullung-zur-remigration-ein-urteil-uber-einen-fall-zu-dem-jeder-seine-wahrheit-hat-15059842.html",
+          "visited": "2026-09-03"
+        }
       ]
-    },
-    {
-      "type": "endcard",
-      "chapter": "fazit"
     }
   ]
 }
