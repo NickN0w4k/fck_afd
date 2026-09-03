@@ -15,12 +15,12 @@ const { scene } = Astro.props;
   <div class="hero-inner">
     <h1 class="hero-title" data-anim="rise">{scene.title}</h1>
     <p class="hero-sub" data-anim="rise">{scene.subtitle}</p>
-    <div class="swipe-hint" aria-hidden="true">
-      <span>{scene.cta ?? 'Scrollen'}</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 5v14" /><path d="m19 12-7 7-7-7" />
-      </svg>
-    </div>
+  </div>
+  <div class="swipe-hint" aria-hidden="true">
+    <span>{scene.cta ?? 'Scrollen'}</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14" /><path d="m19 12-7 7-7-7" />
+    </svg>
   </div>
 </Fragment>
 
@@ -41,6 +41,16 @@ const { scene } = Astro.props;
   }
   .hero-title :global(.char) {
     display: inline-block;
+  }
+  /* Mobile: Titel größer skalieren, mehr Präsenz */
+  @media (max-width: 640px) {
+    .hero-title {
+      font-size: clamp(3.4rem, 17vw, 5rem);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      max-width: 100%;
+    }
   }
   .hero-sub {
     margin-top: 1.5rem;
@@ -63,6 +73,15 @@ const { scene } = Astro.props;
     text-transform: uppercase;
     color: var(--fg-muted);
     animation: bob 2.2s var(--ease-out) infinite;
+  }
+  /* Mobile: Hint weiter unten, damit er nicht mit dem Titel kollidiert */
+  @media (max-width: 640px) {
+    .hero-inner {
+      padding-bottom: 0;
+    }
+    .hero-sub {
+      margin-top: 1.1rem;
+    }
   }
   @keyframes bob {
     0%, 100% { transform: translate(-50%, 0); }

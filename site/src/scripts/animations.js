@@ -7,14 +7,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/** Fade+Rise für alle [data-anim="rise"] Elemente */
+/** Fade+Rise für alle [data-anim="rise"] Elemente; respektiert optionale --d-Verzögerung */
 function initRise() {
   document.querySelectorAll('[data-anim="rise"]').forEach((el) => {
     if (prefersReduced) return;
+    const delay = parseFloat(getComputedStyle(el).getPropertyValue('--d')) || 0;
     gsap.from(el, {
       y: 42,
       autoAlpha: 0,
       duration: 0.9,
+      delay: delay / 1000,
       ease: 'power3.out',
       scrollTrigger: { trigger: el, start: 'top 95%', once: true },
     });
@@ -70,24 +72,28 @@ function initCount() {
   });
 }
 
-/** Balken wachsen auf Scrub: [data-bar] mit style="--w: X%" */
+/** Balken wachsen auf Scrub: [data-bar] mit style="--w: X%" — gestaffelt pro Szene */
 function initBars() {
-  document.querySelectorAll('[data-bar]').forEach((el) => {
-    const width = el.style.getPropertyValue('--w');
-    if (prefersReduced) {
-      el.style.width = width;
-      return;
-    }
-    gsap.fromTo(
-      el,
-      { width: '0%' },
-      {
-        width,
-        duration: 1.2,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-      },
-    );
+  document.querySelectorAll('.scene').forEach((scene) => {
+    const bars = scene.querySelectorAll('[data-bar]');
+    bars.forEach((el, i) => {
+      const width = el.style.getPropertyValue('--w');
+      if (prefersReduced) {
+        el.style.width = width;
+        return;
+      }
+      gsap.fromTo(
+        el,
+        { width: '0%' },
+        {
+          width,
+          duration: 1.1,
+          delay: i * 0.12, // Stagger: Balken wachsen nacheinander
+          ease: 'power3.out',
+          scrollTrigger: { trigger: scene, start: 'top 70%', once: true },
+        },
+      );
+    });
   });
 }
 

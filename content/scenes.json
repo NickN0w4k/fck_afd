@@ -442,16 +442,16 @@
       "type": "summary",
       "chapter": "fazit",
       "tldr": [
-        "28.000 Menschen rechnet der Verfassungsschutz allein im AfD-Umfeld dem Rechtsextremismus zu — doppelt so viele wie 2023 (VSB 2025).",
-        "Die Gesamtpartei ist seit 2021 als rechtsextremistischer Verdachtsfall eingestuft — rechtskräftig in drei Instanzen (BfV, VG Köln, OVG NRW).",
-        "Fünf Landesverbände gelten als gesichert rechtsextremistisch — von Thüringen bis Niedersachsen (Correctiv-Übersicht, Juni 2026).",
-        "Die AfD-Chefin will den Verfassungsschutz abschaffen — die Behörde, die ihre Partei beobachtet (Deutschlandfunk, Aug. 2026).",
-        "In Sachsen-Anhalt liegt die AfD kurz vor der Wahl bei 40–42 %: eine gesichert rechtsextremistische Partei vor der Regierungsmacht.",
-        "Im Grundsatzprogramm steht der Austritt Deutschlands aus der EU als Ziel — falls die „Reformansätze“ scheitern.",
-        "Im Wahlprogramm steht wörtlich: Ausstieg aus dem Pariser Klimaabkommen und aus dem Euro-System (AfD-Programm 2025).",
-        "Sofortige Aufhebung der Russland-Sanktionen und Instandsetzung von Nord Stream stehen im offiziellen Wahlprogramm (S. 92).",
-        "Björn Höcke wurde zweimal wegen Verwendens einer SA-Parole verurteilt — 13.000 € und 16.900 € (LG Halle 2024).",
-        "Der Mitarbeiter des AfD-Europa-Spitzenkandidaten Krah spionierte für China — 4 Jahre 9 Monate Haft (OLG Dresden 2025)."
+        { "num": "01", "text": "28.000 Menschen rechnet der Verfassungsschutz allein im AfD-Umfeld dem Rechtsextremismus zu — doppelt so viele wie 2023 (VSB 2025)." },
+        { "num": "02", "text": "Die Gesamtpartei ist seit 2021 als rechtsextremistischer Verdachtsfall eingestuft — rechtskräftig in drei Instanzen (BfV, VG Köln, OVG NRW)." },
+        { "num": "03", "text": "Fünf Landesverbände gelten als gesichert rechtsextremistisch — von Thüringen bis Niedersachsen (Correctiv-Übersicht, Juni 2026)." },
+        { "num": "04", "text": "Die AfD-Chefin will den Verfassungsschutz abschaffen — die Behörde, die ihre Partei beobachtet (Deutschlandfunk, Aug. 2026)." },
+        { "num": "05", "text": "In Sachsen-Anhalt liegt die AfD kurz vor der Wahl bei 40–42 %: eine gesichert rechtsextremistische Partei vor der Regierungsmacht." },
+        { "num": "06", "text": "Im Grundsatzprogramm steht der Austritt Deutschlands aus der EU als Ziel — falls die „Reformansätze“ scheitern." },
+        { "num": "07", "text": "Im Wahlprogramm steht wörtlich: Ausstieg aus dem Pariser Klimaabkommen und aus dem Euro-System (AfD-Programm 2025)." },
+        { "num": "08", "text": "Sofortige Aufhebung der Russland-Sanktionen und Instandsetzung von Nord Stream stehen im offiziellen Wahlprogramm (S. 92)." },
+        { "num": "09", "text": "Björn Höcke wurde zweimal wegen Verwendens einer SA-Parole verurteilt — 13.000 € und 16.900 € (LG Halle 2024)." },
+        { "num": "10", "text": "Der Mitarbeiter des AfD-Europa-Spitzenkandidaten Krah spionierte für China — 4 Jahre 9 Monate Haft (OLG Dresden 2025)." }
       ],
       "closing": "Jede Zahl hier hat eine Quelle — die Volltexte liegen öffentlich. Prüfe selbst."
     },
