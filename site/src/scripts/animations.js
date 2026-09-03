@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initHighlights } from './highlights.js';
 import { initAmbient } from './ambient.js';
+import { initGlow } from './glow.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -361,6 +362,7 @@ function initWheelSnap() {
 
 function init() {
   initAmbient();
+  initGlow();
   initHighlights();
   initRise();
   initWords();

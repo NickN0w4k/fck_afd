@@ -287,6 +287,42 @@ button {
   z-index: 1;
 }
 
+/* Ambient-Glow (experiment/edge-glow): zwei weiche Lichter aus den Seiten */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.glow-blob {
+  position: absolute;
+  top: -20%;
+  width: 95vmax;
+  height: 140vh;
+  filter: blur(60px);
+  opacity: 0.22;
+  will-change: transform, opacity;
+  animation: glow-breathe 9s ease-in-out infinite alternate;
+}
+.glow-left {
+  left: -38vmax;
+  animation-name: glow-breathe-l;
+}
+.glow-right {
+  right: -38vmax;
+  animation-name: glow-breathe-r;
+  animation-delay: -4.5s; /* gegenphasig: Lichter "antworten" sich */
+}
+@keyframes glow-breathe-l {
+  0%   { transform: translateX(-6%) scale(1); opacity: 0.16; }
+  100% { transform: translateX(9%)  scale(1.12); opacity: 0.30; }
+}
+@keyframes glow-breathe-r {
+  0%   { transform: translateX(6%)  scale(1.1); opacity: 0.28; }
+  100% { transform: translateX(-9%) scale(1); opacity: 0.14; }
+}
+
 /* Auto-Highlighter (highlights.js): markiert Zahlen + Kernbegriffe */
 mark.hl {
   background: none;
