@@ -125,11 +125,11 @@
       "type": "reveal",
       "chapter": "verfassungsschutz",
       "teaser": "Tippen, um aufzudecken",
-      "headline": "Drei Landesverbände gelten als gesichert rechtsextremistisch",
-      "body": "Die Landesbehörden führen Thüringen, Sachsen und Sachsen-Anhalt als „gesichert extremistisch“ — die höchste Stufe. Diese Einstufungen wurden bislang von keinem Gericht gekippt. (tagesschau-FAQ zur Einstufung, Mai 2025)",
+      "headline": "Fünf Landesverbände gelten als gesichert rechtsextremistisch",
+      "body": "Thüringen, Sachsen und Sachsen-Anhalt führen die Landesbehörden seit Jahren als „gesichert extremistisch“ — von keinem Gericht gekippt. 2025/26 kamen Brandenburg (Vermerk 14.04.2025) und Niedersachsen hinzu (Gerichts-Eilentscheidung Juni 2026, erster westdeutscher Verband). Belege der Gerichte u. a.: Schlagworte wie „Bevölkerungsaustausch“, „Umvolkung“, „Volkstod“. (Correctiv-Länderübersicht, Juni 2026)",
       "source": {
-        "label": "tagesschau — FAQ zur AfD-Einstufung",
-        "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html",
+        "label": "CORRECTIV — Verfassungsschutz-Einstufungen der AfD in den Bundesländern (17.06.2026)",
+        "url": "https://correctiv.org/aktuelles/afd/2026/06/17/wie-stuft-der-verfassungsschutz-die-afd-in-den-bundeslaendern-ein/",
         "visited": "2026-09-03"
       }
     },
@@ -164,6 +164,49 @@
       "source": {
         "label": "Verfassungsschutzbericht 2025 (BMI), S. 131",
         "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quote",
+      "chapter": "verfassungsschutz",
+      "quote": "Der Verfassungsschutz gehört in seiner jetzigen Form abgeschafft beziehungsweise grundlegend reformiert.",
+      "author": "Alice Weidel, AfD-Bundesvorsitzende, August 2026",
+      "context": "Weidel behauptete, der Verfassungsschutz werde „zur Beobachtung und Unterdrückung der politischen Opposition eingesetzt“. Übersetzt: Die AfD will genau die Behörde abschaffen, die ihre Partei als rechtsextremistisch einstuft — und ihre Forderung kommt ausgerechnet aus Sachsen-Anhalt, wo die AfD als gesichert rechtsextremistisch gilt.",
+      "source": {
+        "label": "Deutschlandfunk 17.08.2026 (Weidel zu „The Pioneer“)",
+        "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "reveal",
+      "chapter": "verfassungsschutz",
+      "teaser": "Tippen, um aufzudecken",
+      "headline": "Wer den Beobachter kontrolliert, kontrolliert die Beobachtung",
+      "body": "AfD-Spitzenkandidat Ulrich Siegmund will nach einem Wahlsieg in Sachsen-Anhalt den Landesverfassungsschutz „ergebnisoffen“ prüfen — von kompletter Abschaffung bis zum Umbau. Die Behörde hätte dann ein AfD-Innenministerium als Dienstherrn: dasselbe Ministerium, das die Beobachtung der eigenen Partei steuert. Ex-Verfassungsschutzchef Müller warnte, ein AfD-Innenminister könnte Aufgabenschwerpunkte neu setzen — „Kollegen, die früher Rechtsextremismus bearbeitet haben, bearbeiten dann den Linksextremismus.“ SPD-Innenminister Maier: „Ein AfD-Innenminister wäre ein Sicherheitsrisiko.“ (ZEIT/Tagesspiegel, Aug. 2026)",
+      "source": {
+        "label": "DIE ZEIT + Tagesspiegel (15.–17.08.2026)",
+        "url": "https://www.zeit.de/politik/deutschland/2026-08/afd-sachsen-anhalt-verfassungsschutz-ulrich-siegmund",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "data",
+      "chapter": "verfassungsschutz",
+      "headline": "Wo das schon fast Realität ist: Sachsen-Anhalt, 6. September 2026",
+      "value": 42,
+      "suffix": " %",
+      "caption": "Sonntagsfragen kurz vor der Landtagswahl: Infratest dimap (ARD) 42 %, Forschungsgruppe Wahlen (ZDF) 40 % für die gesichert rechtsextremistische AfD — um die 20 Punkte vor der CDU. Eine absolute Mehrheit ist greifbar nah. Die Partei, die den Verfassungsschutz abschaffen will, könnte bald die Regierung stellen.",
+      "chart": "bars",
+      "series": [
+        { "label": "AfD", "value": 42 },
+        { "label": "CDU", "value": 22 },
+        { "label": "Linke", "value": 11 }
+      ],
+      "source": {
+        "label": "wahlrecht.de — Landtagswahl Sachsen-Anhalt (Infratest dimap/ARD, FG Wahlen/ZDF)",
+        "url": "https://www.wahlrecht.de/umfragen/landtage/sachsen-anhalt.htm",
         "visited": "2026-09-03"
       }
     },
@@ -377,7 +420,9 @@
       "tldr": [
         "28.000 Menschen rechnet der Verfassungsschutz allein im AfD-Umfeld dem Rechtsextremismus zu — doppelt so viele wie 2023 (VSB 2025).",
         "Die Gesamtpartei ist seit 2021 als rechtsextremistischer Verdachtsfall eingestuft — rechtskräftig in drei Instanzen (BfV, VG Köln, OVG NRW).",
-        "Drei Landesverbände gelten als gesichert rechtsextremistisch; kein Gericht hat das gekippt (tagesschau).",
+        "Fünf Landesverbände gelten als gesichert rechtsextremistisch — von Thüringen bis Niedersachsen (Correctiv-Übersicht, Juni 2026).",
+        "Die AfD-Chefin will den Verfassungsschutz abschaffen — die Behörde, die ihre Partei beobachtet (Deutschlandfunk, Aug. 2026).",
+        "In Sachsen-Anhalt liegt die AfD kurz vor der Wahl bei 40–42 %: eine gesichert rechtsextremistische Partei vor der Regierungsmacht.",
         "Im Grundsatzprogramm steht der Austritt Deutschlands aus der EU als Ziel — falls die „Reformansätze“ scheitern.",
         "Im Wahlprogramm steht wörtlich: Ausstieg aus dem Pariser Klimaabkommen und aus dem Euro-System (AfD-Programm 2025).",
         "Sofortige Aufhebung der Russland-Sanktionen und Instandsetzung von Nord Stream stehen im offiziellen Wahlprogramm (S. 92).",
@@ -396,6 +441,12 @@
         { "label": "BfV: OVG NRW bestätigt Verdachtsfall-Einstufung (13.05.2024)", "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html", "visited": "2026-09-03" },
         { "label": "tagesschau: Was die Gerichtsentscheidung zur AfD-Einstufung bedeutet (26.02.2026)", "url": "https://www.tagesschau.de/inland/innenpolitik/afd-einstufung-verfassungsschutz-106.html", "visited": "2026-09-03" },
         { "label": "tagesschau: FAQ zur Einstufung der AfD (Mai 2025)", "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html", "visited": "2026-09-03" },
+        { "label": "tagesschau: Wie das AfD-Verfahren weitergeht (04.03.2026)", "url": "https://www.tagesschau.de/inland/innenpolitik/afd-verfahren-verfassungsschutz-100.html", "visited": "2026-09-03" },
+        { "label": "DIE ZEIT: AfD-Hochstufung — Teilsieg für Rechtsaußen (26.02.2026)", "url": "https://www.zeit.de/politik/deutschland/2026-02/afd-einstufung-rechtsextremistisch-verwaltungsgericht-koeln-urteil", "visited": "2026-09-03" },
+        { "label": "CORRECTIV: Einstufungen der AfD in den Bundesländern (17.06.2026)", "url": "https://correctiv.org/aktuelles/afd/2026/06/17/wie-stuft-der-verfassungsschutz-die-afd-in-den-bundeslaendern-ein/", "visited": "2026-09-03" },
+        { "label": "Deutschlandfunk: Weidel will Verfassungsschutz abschaffen (17.08.2026)", "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html", "visited": "2026-09-03" },
+        { "label": "DIE ZEIT: Siegmund will Abschaffung des Verfassungsschutzes prüfen (15.08.2026)", "url": "https://www.zeit.de/politik/deutschland/2026-08/afd-sachsen-anhalt-verfassungsschutz-ulrich-siegmund", "visited": "2026-09-03" },
+        { "label": "wahlrecht.de: Landtagswahl Sachsen-Anhalt, Sonntagsfragen (Stand 02.09.2026)", "url": "https://www.wahlrecht.de/umfragen/landtage/sachsen-anhalt.htm", "visited": "2026-09-03" },
         { "label": "AfD-Wahlprogramm Bundestagswahl 2025 (PDF, afd.de)", "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf", "visited": "2026-09-03" },
         { "label": "AfD-Grundsatzprogramm „Programm für Deutschland“ (PDF)", "url": "https://rnk.afd-bw.de/afd-bw/wahlprogramme/afd-grundsatzprogramm_aktuelle-version.pdf", "visited": "2026-09-03" },
         { "label": "tagesschau: Wahlprogramme im Vergleich — Migration", "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html", "visited": "2026-09-03" },
