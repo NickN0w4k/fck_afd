@@ -1,5 +1,5 @@
 {
-  "$comment": "Szenen-Datenmodell. type: hero|statement|data|contrast|quote|quiz|slider|reveal|chapterbreak|summary|sources. Jede claim-Szene braucht source {label,url,visited}. Platzhalter-Inhalte, ersetzt in Phase 2 (Recherche).",
+  "$comment": "Szenen-Datenmodell. type: hero|statement|data|contrast|quote|quiz|slider|reveal|chapterbreak|summary|sources. Jede claim-Szene braucht source {label,url,visited}. Alle Inhalte aus Phase-2-Recherche (siehe notes/10_fakten_recherche.md), Volltext-Archive unter sources/pages/.",
   "scenes": [
     {
       "type": "hero",
@@ -15,42 +15,127 @@
       "note": "Alles mit Beleg. Immer."
     },
     {
+      "type": "data",
+      "chapter": "intro",
+      "headline": "Wo die AfD in den Umfragen steht",
+      "value": 28,
+      "suffix": " %",
+      "caption": "Sonntagsfrage, Stand 01.09.2026: Alle acht Institute sehen die AfD zwischen 27 und 29 Prozent — überall vor der Union. Die Partei ist keine Randerscheinung mehr.",
+      "chart": "bars",
+      "series": [
+        { "label": "INSA", "value": 29 },
+        { "label": "Verian", "value": 28 },
+        { "label": "Forsa", "value": 28 },
+        { "label": "Infratest dimap", "value": 28 },
+        { "label": "GMS", "value": 28 },
+        { "label": "YouGov", "value": 28 },
+        { "label": "Allensbach", "value": 27.5 },
+        { "label": "FG Wahlen", "value": 27 }
+      ],
+      "source": {
+        "label": "wahlrecht.de — Umfragenübersicht (Institute: Allensbach, Verian, Forsa, FG Wahlen, GMS, Infratest dimap, INSA, YouGov)",
+        "url": "https://www.wahlrecht.de/umfragen/",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quiz",
+      "chapter": "intro",
+      "question": "Wie stark war die AfD bei der Bundestagswahl 2025?",
+      "options": [
+        { "text": "11 %", "correct": false },
+        { "text": "20,8 % — zweitstärkste Kraft", "correct": true },
+        { "text": "15 %", "correct": false }
+      ],
+      "explanation": "Bei der Bundestagswahl am 23. Februar 2025 erhielt die AfD 20,8 % der Zweitstimmen (2021: 10,4 %) und zog mit 152 Abgeordneten in den Bundestag ein. Ende des offiziellen Endergebnisses.",
+      "source": {
+        "label": "Die Bundeswahlleiterin, Pressemitteilung Nr. 29/25 (endgültiges Ergebnis)",
+        "url": "https://bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
       "type": "chapterbreak",
       "chapter": "verfassungsschutz"
     },
     {
       "type": "data",
       "chapter": "verfassungsschutz",
-      "headline": "Drei Landesverbände gelten als gesichert rechtsextremistisch",
-      "value": 3,
-      "suffix": "",
-      "caption": "Thüringen, Sachsen und Sachsen-Anhalt — laut Verfassungsschutz (Platzhalter, Phase 2 liefert Beleg).",
+      "headline": "Wie viele Menschen im Umfeld der AfD der Verfassungsschutz dem Rechtsextremismus zurechnet",
+      "value": 28000,
+      "caption": "Personenpotenzial „Verdachtsfall AfD“ inkl. Junge Alternative: von 11.300 (2023) über 20.000 (2024) auf 28.000 (2025) — mehr als verdoppelt in zwei Jahren.",
       "chart": "bars",
       "series": [
-        { "label": "Thüringen", "value": 90 },
-        { "label": "Sachsen", "value": 80 },
-        { "label": "Sachsen-Anhalt", "value": 75 }
+        { "label": "2023", "value": 11300 },
+        { "label": "2024", "value": 20000 },
+        { "label": "2025", "value": 28000 }
       ],
       "source": {
-        "label": "Platzhalter — wird in Phase 2 ersetzt",
-        "url": "https://www.verfassungsschutz.de",
-        "visited": "2026-09-02"
+        "label": "Verfassungsschutzbericht 2025 (BMI), Tabelle „Rechtsextremismuspotenzial“, S. 94–95",
+        "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quote",
+      "chapter": "verfassungsschutz",
+      "quote": "Die größte Bedrohung für unsere Demokratie kommt weiterhin von Rechtsextremisten.",
+      "author": "Alexander Dobrindt, Bundesinnenminister (CDU)",
+      "context": "Vorstellung des Verfassungsschutzberichts 2025, Bundespressekonferenz, 30.06.2026 — aus dem eigenen Innenministerium.",
+      "source": {
+        "label": "BMI-Pressemitteilung „Verfassungsschutzbericht 2025 vorgestellt“",
+        "url": "https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2026/06/vsb2025-pm.html",
+        "visited": "2026-09-03"
       }
     },
     {
       "type": "quiz",
       "chapter": "verfassungsschutz",
-      "question": "Wird die AfD vom Verfassungsschutz beobachtet?",
+      "question": "Wie bewertet das Bundesamt für Verfassungsschutz die AfD?",
       "options": [
-        { "text": "Nein, gar nicht", "correct": false },
-        { "text": "Ja, auf Bundesebene seit 2021 als Verdachtsfall", "correct": true },
-        { "text": "Nur einzelne Landeschefs", "correct": false }
+        { "text": "Gar nicht — das ist unzulässig", "correct": false },
+        { "text": "Als „Verdachtsfall“ rechtsextremistischer Bestrebungen — rechtskräftig bestätigt", "correct": true },
+        { "text": "Nur der Thüringer Landesverband", "correct": false }
       ],
-      "explanation": "Seit 2021 gilt die Gesamtpartei auf Bundesebene als rechtsextremistischer Verdachtsfall. (Platzhalter-Text, Phase 2 präzisiert.)",
+      "explanation": "Seit dem 3. März 2021 gilt die Gesamtpartei als Verdachtsfall. VG Köln (2022) und OVG NRW (2024) bestätigten die Einstufung, das Bundesverwaltungsgericht ließ die Revision nicht zu (Mai 2025). Die AfD war mit ihrer Klage in drei Instanzen erfolglos. Eine Hochstufung zur „gesichert rechtsextremistischen Bestrebung“ (Mai 2025) wurde im Eilverfahren vorläufig ausgesetzt — die Hauptsache läuft.",
       "source": {
-        "label": "Platzhalter — wird in Phase 2 ersetzt",
-        "url": "https://www.verfassungsschutz.de",
-        "visited": "2026-09-02"
+        "label": "BfV-Pressemitteilung 13.05.2024 + tagesschau-Analyse 26.02.2026",
+        "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "reveal",
+      "chapter": "verfassungsschutz",
+      "teaser": "Tippen, um aufzudecken",
+      "headline": "Drei Landesverbände gelten als gesichert rechtsextremistisch",
+      "body": "Die Landesbehörden führen Thüringen, Sachsen und Sachsen-Anhalt als „gesichert extremistisch“ — die höchste Stufe. Diese Einstufungen wurden bislang von keinem Gericht gekippt. (tagesschau-FAQ zur Einstufung, Mai 2025)",
+      "source": {
+        "label": "tagesschau — FAQ zur AfD-Einstufung",
+        "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "contrast",
+      "chapter": "verfassungsschutz",
+      "claim": "„Das sind nur ein paar Verirrte in einer ansonsten normalen Partei.“",
+      "reality": "Verfassungsschutzbericht 2025: „Ein Abrücken der Partei von verfassungsschutzrelevanten Standpunkten war im Berichtsjahr nicht festzustellen.“ Liberal-konservative Positionen sind „öffentlich kaum noch wahrnehmbar“, die Partei homogenisiert sich weiter nach rechts.",
+      "source": {
+        "label": "Verfassungsschutzbericht 2025 (BMI), S. 131",
+        "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "statement",
+      "chapter": "verfassungsschutz",
+      "text": "Der Verfassungsschutz schreibt, in der AfD komme ein Volksverständnis zum Ausdruck, das im Widerspruch zum Grundgesetz stehe — der Mensch als Teil einer Abstammungsgemeinschaft, nicht als Träger gleicher Würde.",
+      "note": "VSB 2025, S. 131–132 · OVG NRW, Urteil 13.05.2024",
+      "source": {
+        "label": "Verfassungsschutzbericht 2025 (BMI), S. 131–132",
+        "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
+        "visited": "2026-09-03"
       }
     },
     {
@@ -60,33 +145,112 @@
     {
       "type": "statement",
       "chapter": "programm",
-      "text": "Klimaschutz teuer? Rente unsicher? Was im Wahlprogramm steht, geht dich direkt an.",
-      "note": "Platzhalter — Phase 2 füllt das Kapitel mit Belegen."
+      "text": "Was würde die AfD mit Deutschland machen? Steht in ihrem Wahlprogramm. Wort für Wort.",
+      "note": "„Zeit für Deutschland“, 16. Bundesparteitag Riesa, Januar 2025",
+      "source": {
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de) — Beratungs- und Beschlussdokument",
+        "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
+        "visited": "2026-09-03"
+      }
     },
     {
       "type": "contrast",
       "chapter": "programm",
-      "claim": "\"Deutschland wird nicht abgeschafft.\"",
-      "reality": "Platzhalter: Hier steht ein belegbarer Widerspruch zwischen Wahlversprechen und Programm. Phase 2 füllt ihn.",
+      "claim": "„Das Klima kann der Mensch nicht schützen.“",
+      "reality": "Diesen Satz schreibt die AfD wörtlich in ihr Wahlprogramm — und fordert: „Wir wollen zudem aus dem Pariser Klimaabkommen aussteigen.“ (S. 53). Wissenschaftler und alle anderen Bundestagsparteien sehen das völlig anders.",
       "source": {
-        "label": "Platzhalter — wird in Phase 2 ersetzt",
-        "url": "https://www.afd.de",
-        "visited": "2026-09-02"
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 53",
+        "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quote",
+      "chapter": "programm",
+      "quote": "Deutschland muss aus dem Euro-System austreten.",
+      "author": "AfD-Wahlprogramm 2025, Kapitel Währungspolitik",
+      "context": "Kernforderung: Rückkehr zu nationalen Währungen — Abschaffung des Euro als deutsche Währung. (S. 61–62)",
+      "source": {
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 61–62",
+        "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "reveal",
+      "chapter": "programm",
+      "teaser": "Tippen, um aufzudecken",
+      "headline": "Wohin die AfD das Geld lenken will, das du für Energie zahlst",
+      "body": "Im Programm: Abschaffung der CO₂-Abgabe, Subventionen für erneuerbare Energien streichen, „Neubau und Inbetriebnahme von Kohle- und Gaskraftwerken“ sowie Kernkraft sichern. (Wahlprogramm 2025, Energiekapitel)",
+      "source": {
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), Energiepolitik",
+        "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quote",
+      "chapter": "programm",
+      "quote": "Zur Wiederherstellung des ungestörten Handels mit Russland gehören die sofortige Aufhebung der Wirtschaftssanktionen gegen Russland sowie die Instandsetzung der Nord Stream-Leitungen.",
+      "author": "AfD-Wahlprogramm 2025, S. 92",
+      "context": "Während der Krieg in der Ukraine läuft, will die Partei Gas aus Moskau zurück — und schreibt das in ihr offizielles Wahlprogramm.",
+      "source": {
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 92",
+        "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "contrast",
+      "chapter": "programm",
+      "claim": "„Wir sind für Freiheit — auch in Schulen und Straßen.“",
+      "reality": "Im Wahlprogramm steht wörtlich: „Der Bau von Minaretten und der Muezzinruf sind zu untersagen.“ und „Wir fordern ein Kopftuchverbot in öffentlichen Einrichtungen und insbesondere in Schulen.“ Das Verwaltungsgericht Köln hat genau diese Forderungen 2026 in seinem Beschluss zitiert.",
+      "source": {
+        "label": "AfD-Wahlprogramm 2025 (S. ~105) · tagesschau 26.02.2026 zum VG-Köln-Beschluss",
+        "url": "https://www.tagesschau.de/inland/innenpolitik/afd-einstufung-verfassungsschutz-106.html",
+        "visited": "2026-09-03"
       }
     },
     {
       "type": "slider",
       "chapter": "programm",
-      "prompt": "Wie viel Prozent der Rente soll laut AfD-Programm über private Vorsicherung laufen? Schätzwert-Platzhalter.",
+      "prompt": "Wie viel von der Rente soll laut AfD künftig über ein Steuergeld-finanziertes Aktien-Depot laufen? Schätzfrage — die Antwort wird dich überraschen.",
       "min": 0,
       "max": 100,
-      "answer": 40,
-      "unit": "%",
-      "explanation": "Platzhalter-Antwort, Phase 2 belegt den Wert.",
+      "answer": 0,
+      "unit": " %",
+      "explanation": "Trickfrage — die AfD plant keine Quote, sondern ein Zusatzmodell: das „Junior-Spardepot“. Für jedes neugeborene Kind mit deutscher Staatsangehörigkeit zahlt der Staat 100 €/Monat bis zum 18. Lebensjahr in einen ETF-Sparplan, ausgezahlt ab 65. Das gesetzliche Umlagesystem bleibt — aber für Millionen Kinder ohne deutschen Pass gibt es nichts.",
       "source": {
-        "label": "Platzhalter — wird in Phase 2 ersetzt",
-        "url": "https://www.afd.de",
-        "visited": "2026-09-02"
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), Rente",
+        "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quiz",
+      "chapter": "programm",
+      "question": "Wo sollen Asylverfahren künftig stattfinden, wenn es nach der AfD geht?",
+      "options": [
+        { "text": "In Deutschland, nur schneller", "correct": false },
+        { "text": "Außerhalb Deutschlands", "correct": true },
+        { "text": "Bei der EU in Brüssel", "correct": false }
+      ],
+      "explanation": "Wahlprogramm wörtlich: „Wir werden uns dafür einsetzen, dass Asylverfahren und Anträge auf subsidiären Schutz zukünftig außerhalb Deutschlands gestellt und bearbeitet werden.“ Dazu: Sozialleistungen für Asylbewerber als Sachleistungen oder Bezahlkarte, Leistungen für Ausreisepflichtige auf ein „Existenzminimum“ abgesenkt, Rückführung „in aufnahmebereite Drittstaaten“.",
+      "source": {
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 104",
+        "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "statement",
+      "chapter": "programm",
+      "text": "Und außenpolitisch? Die AfD will aus der NATO-Osterweiterung aussteigen, ein eigenes europäisches Militärbündnis aufbauen — und ein „interessengeleitetes Verhältnis“ zu Russland pflegen.",
+      "note": "AfD-Wahlprogramm 2025, S. 88",
+      "source": {
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 88",
+        "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
+        "visited": "2026-09-03"
       }
     },
     {
@@ -96,25 +260,55 @@
     {
       "type": "quote",
       "chapter": "innen",
-      "quote": "Hier steht ein dokumentiertes Originalzitat.",
-      "author": "Name, Funktion",
-      "context": "Platzhalter — Phase 2 liefert Zitat mit Fundstelle.",
+      "quote": "Alles für unsere Heimat, alles für Sachsen-Anhalt, alles für Deutschland.",
+      "author": "Björn Höcke, AfD-Landesvorsitzender Thüringen",
+      "context": "Schluss der Wahlkampfrede in Merseburg, Mai 2021. „Alles für Deutschland“ war eine Parole der SA. Das Landgericht Halle verurteilte ihn dafür am 14.05.2024 zu 13.000 Euro — und am 01.07.2024 erneut zu 16.900 Euro für denselben Spruch in Gera. Vorsatz laut Gericht erwiesen.",
       "source": {
-        "label": "Platzhalter — wird in Phase 2 ersetzt",
-        "url": "https://example.com",
-        "visited": "2026-09-02"
+        "label": "tagesschau 01.07.2024 + DIE ZEIT 14.05.2024 (LG Halle)",
+        "url": "https://www.tagesschau.de/inland/innenpolitik/hoecke-urteil-geldstrafe-100.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quote",
+      "chapter": "innen",
+      "quote": "Hitler und die Nazis sind nur ein Vogelschiss in über 1000 Jahren erfolgreicher deutscher Geschichte.",
+      "author": "Alexander Gauland, damaliger AfD-Vorsitzender",
+      "context": "Rede beim Bundeskongress der AfD-Jugend (Junge Alternative), Seebach, Juni 2018 — mit Beifall und „Gauland, Gauland“-Rufen quittiert.",
+      "source": {
+        "label": "DIE ZEIT, 03.06.2018 + Deutsche Welle",
+        "url": "https://www.zeit.de/news/2018-06/03/empoerung-wegen-gaulands-relativierung-der-ns-zeit-180603-99-560879",
+        "visited": "2026-09-03"
       }
     },
     {
       "type": "reveal",
       "chapter": "innen",
       "teaser": "Tippen, um aufzudecken",
-      "headline": "Was 2025 über die AfD dokumentiert wurde",
-      "body": "Platzhalter: Phase 2 füllt hier dokumentierte Fakten nach (Urteile, Berichte, Abstimmungen).",
+      "headline": "Ein Spion arbeitete im Büro des AfD-Europa-Spitzenkandidaten",
+      "body": "Maximilian Krahs langjähriger Mitarbeiter Jian G. wurde am 30.09.2025 vom OLG Dresden zu 4 Jahren und 9 Monaten Haft verurteilt — geheimdienstliche Agententätigkeit für China, „in besonders schwerem Fall“. Von 2019 bis 2024 sammelte er in Krahs EU-Büro Informationen, spähte chinesische Dissidenten aus. (Generalbundesanwalt + tagesschau)",
       "source": {
-        "label": "Platzhalter — wird in Phase 2 ersetzt",
-        "url": "https://example.com",
-        "visited": "2026-09-02"
+        "label": "tagesschau 30.09.2025 · Generalbundesanwalt, PM 29.04.2025",
+        "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "data",
+      "chapter": "innen",
+      "headline": "Wie der Verfassungsschutz die AfD-Außenpolitik beschreibt",
+      "value": 3,
+      "caption": "Verfassungsschutzbericht 2025, S. 86–87: Teile der AfD vertraten „eindeutig prorussische Narrative“. Mehrere AfD-Abgeordnete beteiligten sich an der Kampagne „Stoppt die Sanktionen“. AfD-Vertreter reisten wiederholt nach Russland. Die Partei lehnt eine Unterstützung der Ukraine überwiegend ab.",
+      "chart": "bars",
+      "series": [
+        { "label": "prorussische Narrative", "value": 100 },
+        { "label": "„Stoppt die Sanktionen“", "value": 80 },
+        { "label": "Reisen nach Russland", "value": 70 }
+      ],
+      "source": {
+        "label": "Verfassungsschutzbericht 2025 (BMI), S. 86–87",
+        "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
+        "visited": "2026-09-03"
       }
     },
     {
@@ -125,18 +319,38 @@
       "type": "summary",
       "chapter": "fazit",
       "tldr": [
-        "Platzhalter 1 — wird in Phase 2 mit belegtem Fakt ersetzt",
-        "Platzhalter 2 — wird in Phase 2 mit belegtem Fakt ersetzt",
-        "Platzhalter 3 — wird in Phase 2 mit belegtem Fakt ersetzt"
+        "28.000 Menschen rechnet der Verfassungsschutz allein im AfD-Umfeld dem Rechtsextremismus zu — doppelt so viele wie 2023 (VSB 2025).",
+        "Die Gesamtpartei ist seit 2021 als rechtsextremistischer Verdachtsfall eingestuft — rechtskräftig in drei Instanzen (BfV, VG Köln, OVG NRW).",
+        "Drei Landesverbände gelten als gesichert rechtsextremistisch; kein Gericht hat das gekippt (tagesschau).",
+        "Im Wahlprogramm steht wörtlich: Ausstieg aus dem Pariser Klimaabkommen und aus dem Euro-System (AfD-Programm 2025).",
+        "Sofortige Aufhebung der Russland-Sanktionen und Instandsetzung von Nord Stream stehen im offiziellen Wahlprogramm (S. 92).",
+        "Björn Höcke wurde zweimal wegen Verwendens einer SA-Parole verurteilt — 13.000 € und 16.900 € (LG Halle 2024).",
+        "Der Mitarbeiter des AfD-Europa-Spitzenkandidaten Krah spionierte für China — 4 Jahre 9 Monate Haft (OLG Dresden 2025)."
       ],
-      "closing": "Prüfe selbst. Alle Quellen findest du hier."
+      "closing": "Jede Zahl hier hat eine Quelle — die Volltexte liegen öffentlich. Prüfe selbst."
     },
     {
       "type": "sources",
       "chapter": "fazit",
       "sources": [
-        { "label": "Platzhalter — Verfassungsschutz-Bericht", "url": "https://www.verfassungsschutz.de", "visited": "2026-09-02" },
-        { "label": "Platzhalter — AfD-Programm", "url": "https://www.afd.de", "visited": "2026-09-02" }
+        { "label": "Verfassungsschutzbericht 2025 (BMI, PDF)", "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf", "visited": "2026-09-03" },
+        { "label": "Verfassungsschutzbericht 2024 (BMI, PDF)", "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI25029-vsb2024.pdf", "visited": "2026-09-03" },
+        { "label": "BMI: Verfassungsschutzbericht 2025 vorgestellt (30.06.2026)", "url": "https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2026/06/vsb2025-pm.html", "visited": "2026-09-03" },
+        { "label": "BfV: OVG NRW bestätigt Verdachtsfall-Einstufung (13.05.2024)", "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html", "visited": "2026-09-03" },
+        { "label": "tagesschau: Was die Gerichtsentscheidung zur AfD-Einstufung bedeutet (26.02.2026)", "url": "https://www.tagesschau.de/inland/innenpolitik/afd-einstufung-verfassungsschutz-106.html", "visited": "2026-09-03" },
+        { "label": "tagesschau: FAQ zur Einstufung der AfD (Mai 2025)", "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html", "visited": "2026-09-03" },
+        { "label": "AfD-Wahlprogramm Bundestagswahl 2025 (PDF, afd.de)", "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf", "visited": "2026-09-03" },
+        { "label": "Bundeswahlleiterin: Endgültiges Ergebnis BTW 2025 (PM 29/25)", "url": "https://bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html", "visited": "2026-09-03" },
+        { "label": "wahlrecht.de: Wahlumfragen (Stand 01.09.2026)", "url": "https://www.wahlrecht.de/umfragen/", "visited": "2026-09-03" },
+        { "label": "tagesschau: Höcke erneut wegen Nazi-Parole verurteilt (01.07.2024)", "url": "https://www.tagesschau.de/inland/innenpolitik/hoecke-urteil-geldstrafe-100.html", "visited": "2026-09-03" },
+        { "label": "DIE ZEIT: Höcke zu Geldstrafe verurteilt (14.05.2024)", "url": "https://www.zeit.de/politik/deutschland/2024-05/bjoern-hoecke-wegen-ns-ausspruch-zu-geldstrafe-verurteilt", "visited": "2026-09-03" },
+        { "label": "DIE ZEIT: Gaulands Relativierung der NS-Zeit (03.06.2018)", "url": "https://www.zeit.de/news/2018-06/03/empoerung-wegen-gaulands-relativierung-der-ns-zeit-180603-99-560879", "visited": "2026-09-03" },
+        { "label": "Deutsche Welle: Gauland „Vogelschiss in der Geschichte“", "url": "https://www.dw.com/de/gauland-bezeichnet-ns-zeit-als-vogelschiss-in-der-geschichte/a-44054219", "visited": "2026-09-03" },
+        { "label": "tagesschau: Ex-Mitarbeiter Krahs wegen Spionage verurteilt (30.09.2025)", "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html", "visited": "2026-09-03" },
+        { "label": "Generalbundesanwalt: Festnahme Jian G. (23.04.2024)", "url": "https://www.generalbundesanwalt.de/SharedDocs/Pressemitteilungen/DE/2024/Pressemitteilung-vom-23-04-2024.html", "visited": "2026-09-03" },
+        { "label": "Generalbundesanwalt: Anklage gegen Jian G. (29.04.2025)", "url": "https://www.generalbundesanwalt.de/SharedDocs/Pressemitteilungen/DE/2025/Pressemitteilung-vom-29-04-2025.html", "visited": "2026-09-03" },
+        { "label": "CORRECTIV: Geheimplan gegen Deutschland (10.01.2024)", "url": "https://correctiv.org/aktuelles/neue-rechte/2024/01/10/geheimplan-remigration-vertreibung-afd-rechtsextreme-november-treffen/", "visited": "2026-09-03" },
+        { "label": "Der Tagesspiegel: Gerichtliche Einordnung der Correctiv-Enthüllung (18.12.2025)", "url": "https://www.tagesspiegel.de/politik/umstrittene-correctiv-enthullung-zur-remigration-ein-urteil-uber-einen-fall-zu-dem-jeder-seine-wahrheit-hat-15059842.html", "visited": "2026-09-03" }
       ]
     }
   ]

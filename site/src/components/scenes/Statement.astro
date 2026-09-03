@@ -1,7 +1,9 @@
 ---
 // Statement: Text baut sich Wort für Wort beim Scrollen auf.
+import SourceTag from '../SourceTag.astro';
+
 interface Props {
-  scene: { text: string; note?: string };
+  scene: { text: string; note?: string; source?: { label: string; url: string; visited?: string } };
 }
 const { scene } = Astro.props;
 ---
@@ -9,6 +11,7 @@ const { scene } = Astro.props;
 <div class="statement">
   <p class="statement-text" data-words>{scene.text}</p>
   {scene.note && <p class="statement-note" data-anim="rise">{scene.note}</p>}
+  {scene.source && <SourceTag source={scene.source} />}
 </div>
 
 <style>

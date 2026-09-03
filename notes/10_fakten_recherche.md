@@ -56,4 +56,27 @@ Alle Behauptungen mit Primärquelle. Jede Quelle als Volltext-Archiv unter `sour
 - **BTW 23.02.2025 (endgültig, Bundeswahlleiterin PM 29/25):** AfD 20,8 % Zweitstimmen (2021: 10,4 %), **152 Sitze** (Tabelle im Archiv).
 - **Sonntagsfrage Sept 2026 (wahlrecht.de archiviert):** AfD 27–29 % in allen 8 Instituten, überall vor CDU/CSU — Allensbach 27,5 / Verian 28 / Forsa 28 / FG Wahlen 27 / GMS 28 / Infratest dimap 28 / INSA 29 / YouGov 28 (Erhebungen 14.08.–31.08.2026).
 
-## Kapitel 03 — Programm (Recherche läuft, Subagent)
+## Kapitel 03 — Programm (verifiziert, archiviert: AfD-Wahlprogramm-PDF 265.578 Zeichen Volltext)
+
+Quelle: AfD „Zeit für Deutschland" BTW-Programm 2025 (afd.de PDF, 16. Bundesparteitag Riesa 11.–12.01.2025)
+
+### Direktzitate aus dem Programm (Zeilennummern = Archiv-Datei)
+- **Euro-Austritt (S. 61–62):** „Deutschland muss aus dem Euro-System austreten" + „Nur durch nationale Währungen erlangt jeder Staat seine Souveränität über die Wirtschafts- und Währungspolitik zurück."
+- **Pariser Abkommen (S. ~53):** „Die AfD lehnt daher jede Politik und jede Steuer ab, die sich auf angeblichen Klimaschutz beruft, denn das Klima kann der Mensch nicht schützen. Wir wollen zudem aus dem Pariser Klimaabkommen aussteigen."
+- **Russland (S. 92):** „Zur Wiederherstellung des ungestörten Handels mit Russland gehören die sofortige Aufhebung der Wirtschaftssanktionen gegen Russland sowie die Instandsetzung der Nord Stream-Leitungen."
+- **NATO (S. 88):** „Eine Osterweiterung der EU und der NATO lehnen wir ab." + Übergang zu „eigenen Machtzentrum" / europäischem Militärbündnis
+- **Asyl (S. 104):** „Wir werden uns dafür einsetzen, dass Asylverfahren und Anträge auf subsidiären Schutz zukünftig außerhalb Deutschlands gestellt und bearbeitet werden" + Sachleistungen/Bezahlkarte + „Leistungen für Ausreisepflichtige sind auf ein menschenwürdiges Existenzminimum abzusenken." + Rückführung „in aufnahmebereite Drittstaaten"
+- **Islam/Freiheit (S. ~105):** „Der Bau von Minaretten und der Muezzinruf sind zu untersagen." + „Wir fordern ein Kopftuchverbot in öffentlichen Einrichtungen und insbesondere in Schulen" (von VG Köln 2026 eigens erwähnt!)
+- **Rente:** „Junior-Spardepot" (kapitalgedeckte Ergänzung, 100 €/Monat aus Steuermitteln bis 18, Auszahlung ab 65)
+
+## Szenen-Plan (finale Tour, ~24 Szenen — Typ-Mix nach Szenen-Komponenten-Schema)
+
+**01 intro (#FF4D2E):** hero → statement („keine Meinungsseite…") → data (Umfrage 9/26: AfD 28 %, vor CDU — Hook: „keine Randerscheinung") → quiz („Wie viel % bei der BTW 2025?" → 20,8, Bundeswahlleiterin)
+
+**02 verfassungsschutz (#FFB02E):** chapterbreak → data (Balken 11.300/20.000/28.000 Verdachtsfall-AfD, VSB 2025 S. 94–95) → quote (Dobrindt-PM: „Die größte Bedrohung für unsere Demokratie kommt weiterhin von Rechtsextremisten" — aus dem eigenen Innenministerium!) → quiz (Verdachtsfall seit 3.3.2021, rechtskräftig in 3 Instanzen) → reveal (Landesverbände TH/ST/SA gesichert rechtsextremistisch, von keinem Gericht gekippt) → contrast („Nur eine kleine Minderheit in der Partei…" vs. Homogenisierung-Zitat VSB 2025) → statement (Hochstufung Mai 2025, Eilverfahren Feb 2026 — ehrlich: Hauptsache offen)
+
+**03 programm (#4DE0FF):** chapterbreak → [Task-0-Daten: Dexit/Klima/Rente/Migration als data/contrast/slider/quiz] → contrast (VG Köln festgestellt: Wahlprogramm 2025 fordert Kopftuchverbot + Minarett-/Muezzinruf-Verbot — tagesschau 26.02.2026)
+
+**04 innen (#B44DFF):** chapterbreak → quote (Höcke SA-Parole, 2× LG Halle verurteilt) → quote (Gauland „Vogelschiss") → reveal (Jian G.: 4 J. 9 M., OLG Dresden — Spionage aus Krahs EU-Büro) → data (prorussische Narrative + „Stoppt die Sanktionen", VSB 2025 S. 86–87)
+
+**05 fazit (#FF4D2E):** chapterbreak → summary (TL;DR 6–7 belegte Punkte) → sources (alle archivierten URLs, ~15)
