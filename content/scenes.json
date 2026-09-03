@@ -302,10 +302,10 @@
       "max": 100,
       "answer": 0,
       "unit": " %",
-      "explanation": "Trickfrage — die AfD plant keine Quote, sondern ein Zusatzmodell: das „Junior-Spardepot“. Für jedes neugeborene Kind mit deutscher Staatsangehörigkeit zahlt der Staat 100 €/Monat bis zum 18. Lebensjahr in einen ETF-Sparplan, ausgezahlt ab 65. Das gesetzliche Umlagesystem bleibt — aber für Millionen Kinder ohne deutschen Pass gibt es nichts.",
+      "explanation": "Trickfrage — die AfD plant keine Quote, sondern ein Zusatzmodell: das „Junior-Spardepot“. Laut AfD-Antrag (21/2163, im Bundestag debattiert am 04.12.2025) zahlt der Staat für jedes neugeborene Kind mit deutscher Staatsangehörigkeit 100 €/Monat bis zum 18. Lebensjahr in einen ETF-Sparplan, ausgezahlt ab 65. Für Kinder ohne deutschen Pass: nichts. Das gesetzliche Umlagesystem bleibt — aber der Staat investiert steuerfinanziert in die Aktien der einen Kinder, die anderen zahlen mit.",
       "source": {
-        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), Rente",
-        "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
+        "label": "Bundestag, Debatte zum AfD-Antrag „Junior-Spardepot“ (04.12.2025) · AfD-Wahlprogramm 2025",
+        "url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw49-de-rente-1128178",
         "visited": "2026-09-03"
       }
     },
