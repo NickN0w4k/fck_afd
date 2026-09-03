@@ -11,7 +11,7 @@
     {
       "type": "statement",
       "chapter": "intro",
-      "text": "Diese Seite ist keine Meinungsseite. Hier steht nur, was sich belegen lässt — mit Quelle.",
+      "text": "Diese Seite ist keine Meinungsseite. Hier steht nur, was sich belegen lässt — mit Quelle. Aber die Belege sprechen eine ziemlich deutliche Sprache.",
       "note": "Alles mit Beleg. Immer."
     },
     {
@@ -114,7 +114,7 @@
         { "text": "Als „Verdachtsfall“ rechtsextremistischer Bestrebungen — rechtskräftig bestätigt", "correct": true },
         { "text": "Nur der Thüringer Landesverband", "correct": false }
       ],
-      "explanation": "Seit dem 3. März 2021 gilt die Gesamtpartei als Verdachtsfall. VG Köln (2022) und OVG NRW (2024) bestätigten die Einstufung, das Bundesverwaltungsgericht ließ die Revision nicht zu (Mai 2025). Die AfD war mit ihrer Klage in drei Instanzen erfolglos. Eine Hochstufung zur „gesichert rechtsextremistischen Bestrebung“ (Mai 2025) wurde im Eilverfahren vorläufig ausgesetzt — die Hauptsache läuft.",
+      "explanation": "Seit dem 3. März 2021 gilt die Gesamtpartei als Verdachtsfall. VG Köln (2022) und OVG NRW (2024) bestätigten die Einstufung, das Bundesverwaltungsgericht ließ die Revision nicht zu (Mai 2025). Die AfD war mit ihrer Klage in drei Instanzen erfolglos. Eine Hochstufung zur „gesichert rechtsextremistischen Bestrebung“ (Mai 2025) wurde im Eilverfahren vorläufig ausgesetzt — die Hauptsache läuft. Einordnung: Die AfD nennt das „linksgrüne Hetzbehörde“. Die Gerichte — konservativ besetzt, unabhängig — haben dreimal anders entschieden.",
       "source": {
         "label": "BfV-Pressemitteilung 13.05.2024 + tagesschau-Analyse 26.02.2026",
         "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html",
@@ -156,6 +156,18 @@
       }
     },
     {
+      "type": "quote",
+      "chapter": "verfassungsschutz",
+      "quote": "Unsere Dörfer sterben nicht nur leise aus. Sie werden gezielt umgewandelt. … Die Politik schaut nicht nur dabei zu, sie fördert aktiv den Austausch unserer Bevölkerung.",
+      "author": "Offizieller AfD-YouTube-Kanal „AfD TV“, 8. Mai 2025",
+      "context": "Dokumentiert im Verfassungsschutzbericht 2025. Das ist die Sprache des „Großen Austauschs“ — eine Verschwörungserzählung, die der Verfassungsschutz als rechtsextremistisch einordnet. Nicht ein verirrter Einzelner: der offizielle Parteikanal.",
+      "source": {
+        "label": "Verfassungsschutzbericht 2025 (BMI), S. 131",
+        "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
       "type": "chapterbreak",
       "chapter": "programm"
     },
@@ -174,7 +186,7 @@
       "type": "contrast",
       "chapter": "programm",
       "claim": "„Das Klima kann der Mensch nicht schützen.“",
-      "reality": "Diesen Satz schreibt die AfD wörtlich in ihr Wahlprogramm — und fordert: „Wir wollen zudem aus dem Pariser Klimaabkommen aussteigen.“ (S. 53). Wissenschaftler und alle anderen Bundestagsparteien sehen das völlig anders.",
+      "reality": "Diesen Satz schreibt die AfD wörtlich in ihr Wahlprogramm — und fordert: „Wir wollen zudem aus dem Pariser Klimaabkommen aussteigen.“ (S. 53). Konkret heißt das: Kein Klimaschutz mehr in Deutschland, in einem Land, das Dürren, Fluten und Hitzetote schon jetzt erlebt — während 195 Staaten weltweit im Abkommen bleiben. Allein dein Wetter kostet, wenn niemand gegensteuert.",
       "source": {
         "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 53",
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
@@ -197,7 +209,7 @@
       "chapter": "programm",
       "quote": "Deutschland muss aus dem Euro-System austreten.",
       "author": "AfD-Wahlprogramm 2025, Kapitel Währungspolitik",
-      "context": "Kernforderung: Rückkehr zu nationalen Währungen — Abschaffung des Euro als deutsche Währung. (S. 61–62)",
+      "context": "Kernforderung: Rückkehr zu nationalen Währungen — Abschaffung des Euro als deutsche Währung. (S. 61–62). Konsequenz für dich: Der Euro ist die stabilste Währung der Region — ein erzwungener Austritt würde dein Sparguthaben, Kredite, Hypotheken und Rentenansprüche über Nacht in eine neue, wackelige Währung umtauschen. 2002, beim Euro-Start, war der Umtauschkurs 1,95583 DM — bei einem Dexit weiß niemand, was dein Konto dann wert wäre.",
       "source": {
         "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 61–62",
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
@@ -221,9 +233,9 @@
       "chapter": "programm",
       "quote": "Zur Wiederherstellung des ungestörten Handels mit Russland gehören die sofortige Aufhebung der Wirtschaftssanktionen gegen Russland sowie die Instandsetzung der Nord Stream-Leitungen.",
       "author": "AfD-Wahlprogramm 2025, S. 92",
-      "context": "Während der Krieg in der Ukraine läuft, will die Partei Gas aus Moskau zurück — und schreibt das in ihr offizielles Wahlprogramm.",
+      "context": "Während Russland weiter Krieg gegen die Ukraine führt, will die AfD die Sanktionen sofort kippen und das Gas zurück. Konsequenz: Europa hätte Russland den Krieg wieder finanzieren geholfen — und Deutschland hätte Putins Energie-Erpressung wieder als Druckmittel gegen sich selbst. Der Verfassungsschutz ordnet AfD-Außenpolitik deshalb als „eindeutig prorussisch“ ein.",
       "source": {
-        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 92",
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 92 · VSB 2025, S. 86–87",
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
         "visited": "2026-09-03"
       }
@@ -232,7 +244,7 @@
       "type": "contrast",
       "chapter": "programm",
       "claim": "„Wir sind für Freiheit — auch in Schulen und Straßen.“",
-      "reality": "Im Wahlprogramm steht wörtlich: „Der Bau von Minaretten und der Muezzinruf sind zu untersagen.“ und „Wir fordern ein Kopftuchverbot in öffentlichen Einrichtungen und insbesondere in Schulen.“ Das Verwaltungsgericht Köln hat genau diese Forderungen 2026 in seinem Beschluss zitiert.",
+      "reality": "Im Wahlprogramm steht wörtlich: „Der Bau von Minaretten und der Muezzinruf sind zu untersagen.“ und „Wir fordern ein Kopftuchverbot in öffentlichen Einrichtungen und insbesondere in Schulen.“ Widerspruch inklusive: Die Partei, die sich als Hüterin der Grundrechte verkauft, würde Muslimen gezielt Grundrechte nehmen — für die Ausübung ihrer Religion. Das Verwaltungsgericht Köln hat genau diese Forderungen 2026 in seinem Beschluss zitiert.",
       "source": {
         "label": "AfD-Wahlprogramm 2025 (S. ~105) · tagesschau 26.02.2026 zum VG-Köln-Beschluss",
         "url": "https://www.tagesschau.de/inland/innenpolitik/afd-einstufung-verfassungsschutz-106.html",
@@ -263,9 +275,9 @@
         { "text": "Außerhalb Deutschlands", "correct": true },
         { "text": "Bei der EU in Brüssel", "correct": false }
       ],
-      "explanation": "Wahlprogramm wörtlich: „Wir werden uns dafür einsetzen, dass Asylverfahren und Anträge auf subsidiären Schutz zukünftig außerhalb Deutschlands gestellt und bearbeitet werden.“ Dazu: Sozialleistungen für Asylbewerber als Sachleistungen oder Bezahlkarte, Leistungen für Ausreisepflichtige auf ein „Existenzminimum“ abgesenkt, Rückführung „in aufnahmebereite Drittstaaten“.",
+      "explanation": "Wahlprogramm wörtlich: „Wir werden uns dafür einsetzen, dass Asylverfahren und Anträge auf subsidiären Schutz zukünftig außerhalb Deutschlands gestellt und bearbeitet werden.“ Konsequenz: Schutzsuchende wären faktisch unerreichbar — niemand könnte mehr in Deutschland Asyl beantragen. Gleichzeitig will die AfD den UN-Flüchtlingspakt „aufkündigen“ (S. 66) und Leistungen auf ein „Existenzminimum“ senken. Das Grundrecht auf Asyl (Art. 16a GG) wäre damit ausgehöhlt — ein Grundrecht, das aus den Erfahrungen von 1945 stammt.",
       "source": {
-        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 104",
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 104 + S. 3099–3100",
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
         "visited": "2026-09-03"
       }
@@ -290,7 +302,7 @@
         { "text": "„Remigration“", "correct": true },
         { "text": "„Ordnung und Respekt“", "correct": false }
       ],
-      "explanation": "Das Wahlprogramm fasst die Forderungen unter „Remigration“ zusammen — ein Begriff aus der rechtsextremen Szene für Ausreise „mit Druck“. Darunter: konsequente Abschiebungen, Abschaffung von Duldungen, Grenzzurückweisungen ohne Dokumente. Ein „großes Remigrationspotenzial“ sieht die AfD darin, den Schutzstatus von Syrern zu widerrufen.",
+      "explanation": "Das Wahlprogramm fasst die Forderungen unter „Remigration“ zusammen — ein Begriff aus der rechtsextremen Szene für Ausreise „mit Druck“. Darunter: konsequente Abschiebungen, Abschaffung von Duldungen, Grenzzurückweisungen ohne Dokumente. Ein „großes Remigrationspotenzial“ sieht die AfD darin, den Schutzstatus von Syrern zu widerrufen. Frag dich: Wer wäre gemeint, wenn man bei Millionen Menschen mit Migrationsgeschichte anfängt zu rechnen? Krah hat es vorgerechnet: „25 Millionen Menschen, davon 15 Millionen deutsche Staatsangehörige.“",
       "source": {
         "label": "tagesschau — Wahlprogramme im Vergleich: Migration",
         "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html",
@@ -306,9 +318,9 @@
       "chapter": "innen",
       "quote": "Alles für unsere Heimat, alles für Sachsen-Anhalt, alles für Deutschland.",
       "author": "Björn Höcke, AfD-Landesvorsitzender Thüringen",
-      "context": "Schluss der Wahlkampfrede in Merseburg, Mai 2021. „Alles für Deutschland“ war eine Parole der SA. Das Landgericht Halle verurteilte ihn dafür am 14.05.2024 zu 13.000 Euro — und am 01.07.2024 erneut zu 16.900 Euro für denselben Spruch in Gera. Vorsatz laut Gericht erwiesen.",
+      "context": "Schluss der Wahlkampfrede in Merseburg, Mai 2021. „Alles für Deutschland“ war die Parole der SA, der paramilitärischen Truppe der NSDAP. Das Landgericht Halle verurteilte Höcke dafür am 14.05.2024 zu 13.000 Euro — und am 01.07.2024 erneut zu 16.900 Euro für denselben Spruch in Gera. Der Richter: ein „redegewandter, intelligenter Mann, der weiß, was er sagt“. Konsequenz für die AfD: Nichts. Höcke blieb Fraktions- und Landesvorsitzender — und führt den Verdachtsfall bis heute mit an.",
       "source": {
-        "label": "tagesschau 01.07.2024 + DIE ZEIT 14.05.2024 (LG Halle)",
+        "label": "tagesschau 01.07.2024 + DIE ZEIT 14.05.2024 + LTO (LG Halle)",
         "url": "https://www.tagesschau.de/inland/innenpolitik/hoecke-urteil-geldstrafe-100.html",
         "visited": "2026-09-03"
       }
@@ -318,7 +330,7 @@
       "chapter": "innen",
       "quote": "Hitler und die Nazis sind nur ein Vogelschiss in über 1000 Jahren erfolgreicher deutscher Geschichte.",
       "author": "Alexander Gauland, damaliger AfD-Vorsitzender",
-      "context": "Rede beim Bundeskongress der AfD-Jugend (Junge Alternative), Seebach, Juni 2018 — mit Beifall und „Gauland, Gauland“-Rufen quittiert.",
+      "context": "Rede beim Bundeskongress der AfD-Jugend (Junge Alternative), Seebach, Juni 2018 — mit Beifall und „Gauland, Gauland“-Rufen quittiert. Ausgerechnet die Partei, die „Denkmal der Schuld“-Erinnerungskultur kritisiert, verharmlost die NS-Zeit — und ihre Jugend jubelt dazu.",
       "source": {
         "label": "DIE ZEIT, 03.06.2018 + Deutsche Welle",
         "url": "https://www.zeit.de/news/2018-06/03/empoerung-wegen-gaulands-relativierung-der-ns-zeit-180603-99-560879",
@@ -330,7 +342,7 @@
       "chapter": "innen",
       "teaser": "Tippen, um aufzudecken",
       "headline": "Ein Spion arbeitete im Büro des AfD-Europa-Spitzenkandidaten",
-      "body": "Maximilian Krahs langjähriger Mitarbeiter Jian G. wurde am 30.09.2025 vom OLG Dresden zu 4 Jahren und 9 Monaten Haft verurteilt — geheimdienstliche Agententätigkeit für China, „in besonders schwerem Fall“. Von 2019 bis 2024 sammelte er in Krahs EU-Büro Informationen, spähte chinesische Dissidenten aus. (Generalbundesanwalt + tagesschau)",
+      "body": "Maximilian Krahs langjähriger Mitarbeiter Jian G. wurde am 30.09.2025 vom OLG Dresden zu 4 Jahren und 9 Monaten Haft verurteilt — geheimdienstliche Agententätigkeit für China, „in besonders schwerem Fall“. Von 2019 bis 2024 spähte er für den chinesischen Geheimdienst aus Krahs EU-Büro aus — inklusive Dissidenten. Die Pointe: Krah blieb trotzdem Spitzenkandidat und saß im EU-Ausschuss für Menschenrechte. „Kein persönliches Fehlverhalten“, so Krah. (Generalbundesanwalt + tagesschau)",
       "source": {
         "label": "tagesschau 30.09.2025 · Generalbundesanwalt, PM 29.04.2025",
         "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html",
@@ -342,7 +354,7 @@
       "chapter": "innen",
       "headline": "Wie der Verfassungsschutz die AfD-Außenpolitik beschreibt",
       "value": 3,
-      "caption": "Verfassungsschutzbericht 2025, S. 86–87: Teile der AfD vertraten „eindeutig prorussische Narrative“. Mehrere AfD-Abgeordnete beteiligten sich an der Kampagne „Stoppt die Sanktionen“. AfD-Vertreter reisten wiederholt nach Russland. Die Partei lehnt eine Unterstützung der Ukraine überwiegend ab.",
+      "caption": "Verfassungsschutzbericht 2025, S. 86–87: Teile der AfD vertraten „eindeutig prorussische Narrative“. Mehrere AfD-Abgeordnete beteiligten sich an der Kampagne „Stoppt die Sanktionen“. AfD-Vertreter reisten wiederholt nach Russland. Die Partei lehnt eine Unterstützung der Ukraine überwiegend ab. Übersetzt: Die Partei, die „Für Deutschland“ ruft, agiert außenpolitisch in Richtung Moskau — gegen die Interessen des Landes, das sie zu vertreten beansprucht.",
       "chart": "bars",
       "series": [
         { "label": "prorussische Narrative", "value": 100 },
