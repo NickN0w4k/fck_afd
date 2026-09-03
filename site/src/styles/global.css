@@ -272,6 +272,21 @@ button {
   white-space: nowrap;
 }
 
+/* Ambient-Hintergrund: globaler Partikel-Canvas hinter allen Szenen */
+.ambient-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Alle Szenen über dem Ambient-Canvas halten (Content z-index >= 1) */
+.scene {
+  position: relative;
+  z-index: 1;
+}
+
 /* Auto-Highlighter (highlights.js): markiert Zahlen + Kernbegriffe */
 mark.hl {
   background: none;
