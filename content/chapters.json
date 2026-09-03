@@ -11,34 +11,34 @@
     "num": "02",
     "title": "Verfassungsschutz",
     "accent": "#FFB02E",
-    "question": "Warum beobachtet der Inlandsgeheimdienst diese Partei?"
+    "question": "Warum sagt der Staat, diese Partei ist rechtsextremistisch — und was hat das mit dir zu tun?"
   },
   {
     "id": "programm",
     "num": "03",
     "title": "Das Programm",
     "accent": "#4DE0FF",
-    "question": "Was plant die AfD eigentlich für dein Leben?"
+    "question": "Was plant die AfD für dein Geld, deine Rente, dein Klima? Steht schwarz auf weiß in ihrem Programm."
   },
   {
     "id": "innen",
     "num": "04",
     "title": "Innenleben",
     "accent": "#B44DFF",
-    "question": "Wer gibt dort den Ton an?"
+    "question": "Wer gibt dort den Ton an? Die Namen, die Urteile, die Zitate — dokumentiert."
   },
   {
     "id": "kosten",
     "num": "05",
     "title": "Was es kostet",
     "accent": "#5CFF8F",
-    "question": "Wer zahlt dafür — und wer kassiert?"
+    "question": "Wer zahlt für die AfD-Pläne — und wer geht leer aus? Die Institute haben durchgerechnet."
   },
   {
     "id": "fazit",
     "num": "06",
     "title": "Das Fazit",
     "accent": "#FF4D2E",
-    "question": "Und jetzt?"
+    "question": "Und jetzt? Du kennst die Fakten. Was machst du damit?"
   }
 ]
