@@ -1,8 +1,8 @@
-// Ambient-Glow: zwei große, weiche Farblichter aus gegenüberliegenden Ecken,
-// die langsam in die Mitte auslaufen. Farben folgen den Kapitel-Akzenten
-// (linke Kante = aktuelle Akzentfarbe, rechte Kante = komplementärer Farbton).
-// Pure CSS-Animation (kein JS-Loop) —GPU-kompositiert, batteriefreundlich.
-// Allein sichtbar, wenn prefers-reduced-motion nicht greift; Layer unter Content.
+// Ambient-Glow: zwei große, weiche Farblichter aus gegenüberliegenden Ecken.
+// Design-Prinzip "Licht als Ereignis": Der Ruhezustand ist dezent (BASE_OPACITY),
+// bei jedem Kapitelwechsel flammt das Licht kurz auf und klingt über ~3s ab.
+// Das bekämpft den Gewöhnungseffekt (Habituation), ohne den dunklen Stil
+// dauerhaft aufzuhellen. Farben folgen den Kapitel-Akzenten.
 
 const HUE_SHIFT = 150; // Grad Verschiebung für die Gegenfarbe (türkis <-> pink-Bereich)
 
@@ -30,7 +30,6 @@ function hexToHsl(hex) {
 function complementary(hex) {
   const { h, s, l } = hexToHsl(hex);
   const h2 = (h + HUE_SHIFT) % 360;
-  // Als lesbaren Hex-Farbton zurückgeben (sättigung leicht reduziert für Weichheit)
   return hslToHex(h2, Math.min(1, s * 0.9 + 0.1), Math.min(0.72, l + 0.18));
 }
 
@@ -47,9 +46,13 @@ function hslToHex(h, s, l) {
 export function initGlow() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  const BASE_OPACITY = 0.55; // Ruhezustand: dezent, dunkler Stil bleibt intakt
+  const FLAME_OPACITY = 1.0; // Kapitelwechsel-Aufflammen
+
   const glow = document.createElement('div');
   glow.className = 'ambient-glow';
   glow.setAttribute('aria-hidden', 'true');
+  glow.style.opacity = String(BASE_OPACITY);
 
   const left = document.createElement('div');
   left.className = 'glow-blob glow-left';
@@ -66,8 +69,27 @@ export function initGlow() {
     left.style.background = `radial-gradient(circle at 0% 50%, ${accent}cc 0%, transparent 62%)`;
     right.style.background = `radial-gradient(circle at 100% 50%, ${complementary(accent)}99 0%, transparent 62%)`;
   };
-  update();
+
+  // Kapitelwechsel = Licht-Ereignis: aufflammen, dann über ~3s abklingen
+  const flame = () => {
+    glow.style.transition = 'none';
+    glow.style.opacity = String(FLAME_OPACITY);
+    void glow.offsetHeight; // Force-Refresh, damit die Transition greift
+    glow.style.transition = 'opacity 3.2s cubic-bezier(0.16, 1, 0.3, 1)';
+    glow.style.opacity = String(BASE_OPACITY);
+  };
+
   // Akzent wechselt pro Kapitel (via --accent auf :root) — MutationObserver verfolgt das live
-  const observer = new MutationObserver(update);
+  let lastAccent = '';
+  const observer = new MutationObserver(() => {
+    const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    if (accent !== lastAccent) {
+      lastAccent = accent;
+      update();
+      flame();
+    }
+  });
+  lastAccent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+  update();
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['style'] });
 }
