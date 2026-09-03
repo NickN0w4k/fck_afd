@@ -280,6 +280,17 @@ mark.hl {
   padding: 0;
 }
 
+/* Auf Akzent-hinterlegten Flächen (Reality-Block, ChapterBreak): Akzentfarbe
+   wäre unsichtbar — dort dunkle Kontrastfarbe + Unterstreichung als Markierung */
+.reality mark.hl,
+.chapterbreak mark.hl,
+.summary .card mark.hl {
+  color: var(--accent-contrast, #0a0a0a);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
 /* Mobile-Feinschliff: Tap-Targets, Typo, Quellen */
 @media (max-width: 640px) {
   .source-tag {
