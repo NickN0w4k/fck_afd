@@ -55,6 +55,23 @@
       }
     },
     {
+      "type": "data",
+      "chapter": "intro",
+      "headline": "Und die Partei wächst weiter",
+      "value": 73000,
+      "caption": "Mitglieder der AfD zum 01.01.2026 — laut Schatzmeister Carsten Hütter. Ein Jahr zuvor waren es rund 51.000: ein Plus von mehr als 43 Prozent in einem Jahr.",
+      "chart": "bars",
+      "series": [
+        { "label": "Jan. 2025", "value": 70 },
+        { "label": "Jan. 2026", "value": 100 }
+      ],
+      "source": {
+        "label": "DIE ZEIT (07.03.2026), Zahlen der Partei (Schatzmeister Carsten Hütter)",
+        "url": "https://www.zeit.de/politik/deutschland/2026-03/mitgliedszahlen-linke-afd-gruene-csu-cdu-spd-gxe",
+        "visited": "2026-09-03"
+      }
+    },
+    {
       "type": "chapterbreak",
       "chapter": "verfassungsschutz"
     },
@@ -165,6 +182,17 @@
       }
     },
     {
+      "type": "contrast",
+      "chapter": "programm",
+      "claim": "„Wir wollen Europa — nur ein anderes.“",
+      "reality": "Im Grundsatzprogramm steht wörtlich: „Sollten sich unsere grundlegenden Reformansätze im bestehenden System der EU nicht verwirklichen lassen, streben wir einen Austritt Deutschlands oder eine demokratische Auflösung der Europäischen Union … an.“ Das ist Dexit — als offizielles Ziel.",
+      "source": {
+        "label": "AfD-Grundsatzprogramm „Programm für Deutschland“, Kapitel Europa",
+        "url": "https://rnk.afd-bw.de/afd-bw/wahlprogramme/afd-grundsatzprogramm_aktuelle-version.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
       "type": "quote",
       "chapter": "programm",
       "quote": "Deutschland muss aus dem Euro-System austreten.",
@@ -254,6 +282,22 @@
       }
     },
     {
+      "type": "quiz",
+      "chapter": "programm",
+      "question": "Unter welchem Kampfbegriff fasst die AfD ihre Migrationspolitik zusammen?",
+      "options": [
+        { "text": "„Rückführungsoffensive“", "correct": false },
+        { "text": "„Remigration“", "correct": true },
+        { "text": "„Ordnung und Respekt“", "correct": false }
+      ],
+      "explanation": "Das Wahlprogramm fasst die Forderungen unter „Remigration“ zusammen — ein Begriff aus der rechtsextremen Szene für Ausreise „mit Druck“. Darunter: konsequente Abschiebungen, Abschaffung von Duldungen, Grenzzurückweisungen ohne Dokumente. Ein „großes Remigrationspotenzial“ sieht die AfD darin, den Schutzstatus von Syrern zu widerrufen.",
+      "source": {
+        "label": "tagesschau — Wahlprogramme im Vergleich: Migration",
+        "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
       "type": "chapterbreak",
       "chapter": "innen"
     },
@@ -322,6 +366,7 @@
         "28.000 Menschen rechnet der Verfassungsschutz allein im AfD-Umfeld dem Rechtsextremismus zu — doppelt so viele wie 2023 (VSB 2025).",
         "Die Gesamtpartei ist seit 2021 als rechtsextremistischer Verdachtsfall eingestuft — rechtskräftig in drei Instanzen (BfV, VG Köln, OVG NRW).",
         "Drei Landesverbände gelten als gesichert rechtsextremistisch; kein Gericht hat das gekippt (tagesschau).",
+        "Im Grundsatzprogramm steht der Austritt Deutschlands aus der EU als Ziel — falls die „Reformansätze“ scheitern.",
         "Im Wahlprogramm steht wörtlich: Ausstieg aus dem Pariser Klimaabkommen und aus dem Euro-System (AfD-Programm 2025).",
         "Sofortige Aufhebung der Russland-Sanktionen und Instandsetzung von Nord Stream stehen im offiziellen Wahlprogramm (S. 92).",
         "Björn Höcke wurde zweimal wegen Verwendens einer SA-Parole verurteilt — 13.000 € und 16.900 € (LG Halle 2024).",
@@ -340,6 +385,11 @@
         { "label": "tagesschau: Was die Gerichtsentscheidung zur AfD-Einstufung bedeutet (26.02.2026)", "url": "https://www.tagesschau.de/inland/innenpolitik/afd-einstufung-verfassungsschutz-106.html", "visited": "2026-09-03" },
         { "label": "tagesschau: FAQ zur Einstufung der AfD (Mai 2025)", "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html", "visited": "2026-09-03" },
         { "label": "AfD-Wahlprogramm Bundestagswahl 2025 (PDF, afd.de)", "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf", "visited": "2026-09-03" },
+        { "label": "AfD-Grundsatzprogramm „Programm für Deutschland“ (PDF)", "url": "https://rnk.afd-bw.de/afd-bw/wahlprogramme/afd-grundsatzprogramm_aktuelle-version.pdf", "visited": "2026-09-03" },
+        { "label": "tagesschau: Wahlprogramme im Vergleich — Migration", "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html", "visited": "2026-09-03" },
+        { "label": "DIE ZEIT: Parteimitglieder (07.03.2026)", "url": "https://www.zeit.de/politik/deutschland/2026-03/mitgliedszahlen-linke-afd-gruene-csu-cdu-spd-gxe", "visited": "2026-09-03" },
+        { "label": "Legal Tribune Online: Höcke-Urteil LG Halle (14.05.2024)", "url": "https://www.lto.de/recht/nachrichten/n/lg-halle-5kls623-hoecke-urteil", "visited": "2026-09-03" },
+        { "label": "Legal Tribune Online: Höcke erneut verurteilt (01.07.2024)", "url": "https://www.lto.de/recht/hintergruende/h/bjoern-hoecke-zweites-mal-verurteilt-lg-halle-alles-fuer-deutschland-sa-parole", "visited": "2026-09-03" },
         { "label": "Bundeswahlleiterin: Endgültiges Ergebnis BTW 2025 (PM 29/25)", "url": "https://bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html", "visited": "2026-09-03" },
         { "label": "wahlrecht.de: Wahlumfragen (Stand 01.09.2026)", "url": "https://www.wahlrecht.de/umfragen/", "visited": "2026-09-03" },
         { "label": "tagesschau: Höcke erneut wegen Nazi-Parole verurteilt (01.07.2024)", "url": "https://www.tagesschau.de/inland/innenpolitik/hoecke-urteil-geldstrafe-100.html", "visited": "2026-09-03" },
