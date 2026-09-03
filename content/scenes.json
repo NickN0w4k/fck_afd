@@ -436,6 +436,147 @@
     },
     {
       "type": "chapterbreak",
+      "chapter": "kosten"
+    },
+    {
+      "type": "statement",
+      "chapter": "kosten",
+      "text": "Die AfD sagt, sie kämpfe für den kleinen Mann. Die Wirtschaftsforschung sagt etwas anderes — und rechnet es bis auf den Euro vor.",
+      "note": "IW Köln · DIW Berlin · ZEW Mannheim",
+      "source": {
+        "label": "IW Köln, DIW Berlin, ZEW Mannheim — Analysen zu AfD-Programmpunkten (2023–2026)",
+        "url": "https://www.zew.de/presse/pressearchiv/wen-die-parteien-entlasten-wuerden/",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "data",
+      "chapter": "kosten",
+      "headline": "Steuerpläne: Wer bekommt wie viel zurück?",
+      "value": 19190,
+      "suffix": " €",
+      "caption": "ZEW-Rechnung für eine Familie mit 180.000 € Brutto: 19.190 € mehr im Jahr bei AfD-Steuerplänen. Eine Familie mit 40.000 € Brutto verliert dagegen 440 €. Fazit der Forscher: Die Entlastung steigt mit dem Einkommen — wer wenig hat, zahlt drauf.",
+      "chart": "bars",
+      "series": [
+        { "label": "Familie 180.000 €", "value": 95 },
+        { "label": "Familie 40.000 €", "value": 3 }
+      ],
+      "source": {
+        "label": "ZEW Mannheim, „Wen die Parteien entlasten würden“ (2025)",
+        "url": "https://www.zew.de/presse/pressearchiv/wen-die-parteien-entlasten-wuerden/",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "data",
+      "chapter": "kosten",
+      "headline": "Das reichste 1 % profitiert am meisten",
+      "value": 41000,
+      "suffix": " €",
+      "caption": "DIW-Berechnung: Das einkommensreichste Prozent bekäme bei den AfD-Steuerplänen im Schnitt 41.000 € pro Jahr zurück — rund acht Prozent seines Bruttoeinkommens. Die untere Einkommenshälfte geht fast leer aus.",
+      "chart": "donut",
+      "source": {
+        "label": "DIW Berlin, DIW aktuell 106 (Stefan Bach, Feb. 2025)",
+        "url": "https://www.diw.de/de/diw_01.c.936228.de/publikationen/diw_aktuell/2025_0106/steuerreformvorschlaege_der_parteien__ambitionierte_entlastungen_fuer_arbeitende_mitte_und_unternehmen_treiben_defizite.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "data",
+      "chapter": "kosten",
+      "headline": "Erbschaftsteuer abschaffen: Geschenk an die Erben von Milliardären",
+      "value": 8.5,
+      "suffix": " Mrd. €",
+      "caption": "Die AfD hat im Juli 2026 ein Gesetz zur Abschaffung der Erbschaftsteuer in den Bundestag gebracht (21/7251) — 8,5 Mrd. € Entlastung für Erben, 4,8 Mrd. € für Beschenkte. Wer erbt so viel? DIW: Die Hälfte aller Erbschaftssummen fließt an die reichsten 10 % der Empfänger. Nicht an dich.",
+      "chart": "bars",
+      "series": [
+        { "label": "Entlastung Erben", "value": 100 },
+        { "label": "Anteil Reichste 10 % an Erbschaften", "value": 50 }
+      ],
+      "source": {
+        "label": "Bundestag hib 608/2026 · DIW Wochenbericht 5/2021",
+        "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1201000",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "data",
+      "chapter": "kosten",
+      "headline": "Dexit: Der Preis für den EU-Austritt",
+      "value": 690,
+      "suffix": " Mrd. €",
+      "caption": "IW-Gutachten: Ein Dexit würde nach fünf Jahren 5,6 % des BIP kosten — 690 Milliarden Euro und 2,5 Millionen Arbeitsplätze. Und das ohne Euro-Austritt, den die AfD ebenfalls will. Zum Vergleich: Das ist mehr als der gesamte Bundeshaushalt eines Jahres.",
+      "chart": "bars",
+      "series": [
+        { "label": "BIP-Verlust nach 5 Jahren", "value": 90 },
+        { "label": "Bundeshaushalt 2025 (zum Vergleich)", "value": 80 }
+      ],
+      "source": {
+        "label": "IW Köln, Gutachten „Vielfalt ist Zukunft“ (2025, PDF)",
+        "url": "https://www.iwkoeln.de/fileadmin/user_upload/Studien/Gutachten/PDF/2025/IW-Gutachten_2025-Vielfalt-ist-Zukunft.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quote",
+      "chapter": "kosten",
+      "quote": "Das reale verfügbare Einkommen je Einwohner dürfte in Sachsen-Anhalt um rund 6,2 Prozent sinken — rund anderthalbmal so stark wie im Bundesschnitt.",
+      "author": "DIW Berlin, „Das AfD-Paradox“, Juli 2026",
+      "context": "Das DIW hat durchgerechnet, was AfD-Politik für Sachsen-Anhalt bedeutet: rund 1.600 € weniger Einkommen pro Kopf und Jahr, 10.000 Jobs weniger. In den AfD-Hochburg-Kreisen liegt der Verlust bei 7–8 %. Die eigenen Wähler würden es am härtesten treffen.",
+      "source": {
+        "label": "DIW Berlin, DIW aktuell 121 (24.07.2026)",
+        "url": "https://www.diw.de/de/diw_01.c.1014790.de/publikationen/diw_aktuell/2026_0121/sachsen-anhalt_zeigt_das_afd-paradox__strukturschwache_afd-hochburgen_wuerden_unter_ihrer_politik_am_staerksten_leiden.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quiz",
+      "chapter": "kosten",
+      "question": "Wer bekommt laut Datenanalyse den größten Teil der EU-Agrarmilliarden?",
+      "options": [
+        { "text": "Kleine Familienbetriebe", "correct": false },
+        { "text": "Das oberste 1 % der Empfänger", "correct": true },
+        { "text": "Gleichmäßig verteilt", "correct": false }
+      ],
+      "explanation": "NDR/WDR/SZ-Datenanalyse zu den EU-Agrarsubventionen: Das oberste 1 % der Empfänger erhielt über 12 Mrd. € — fast ein Viertel aller Subventionen, knapp 30.000 € pro Betrieb. Die untere Hälfte der Empfänger bekam zusammen unter 4 Mrd. €. Unter den Top-100-Empfängern: 24 Ex-DDR-Großbetriebe. Die AfD will diese Subventionen schützen — ihre Wähler auf dem Land zahlen dafür als Steuerzahler.",
+      "source": {
+        "label": "tagesschau (NDR/WDR/SZ, Farmsubsidies-Datenbank)",
+        "url": "https://www.tagesschau.de/investigativ/ndr-wdr/eu-agrarsubventionen-unternehmen-101.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "data",
+      "chapter": "kosten",
+      "headline": "Klimaschutz abschaffen — die Rechnung kommt später",
+      "value": 900,
+      "suffix": " Mrd. €",
+      "caption": "Studie für das BMWK: Klimaschäden bis 2050 kosten Deutschland je nach Erderwärmung 280–900 Mrd. €. Die AfD will 23 Klimagesetze kündigen (EEG, CO₂-Handel, Klimafonds — Bundestag lehnte 443:131 ab). Die Ahrtal-Flut 2021 allein: 40 Mrd. € Folgekosten. Ein Hitzetag kostet Sachsen-Anhalt 22 Mio. € Produktivität — Correctiv-Berechnung von Prognos.",
+      "chart": "bars",
+      "series": [
+        { "label": "Klimaschäden bis 2050 (obere Grenze)", "value": 100 },
+        { "label": "Ahrtal-Flut 2021", "value": 20 }
+      ],
+      "source": {
+        "label": "SZ zur BMWK-Studie (2023) · Bundestag 21/576 · Correctiv/Prognos (31.08.2026)",
+        "url": "https://correctiv.org/aktuelles/klimawandel/2026/08/31/afd-klimapolitik-gefaehrdet-sachsen-anhalts-wirtschaft/",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quote",
+      "chapter": "kosten",
+      "quote": "Die Hauptleidtragenden der AfD-Politik wären ihre eigenen Wählerinnen und Wähler.",
+      "author": "DIW Berlin, „Das AfD-Paradox“ (2023)",
+      "context": "Das DIW zeigt: AfD-Wähler gehören überdurchschnittlich zum unteren Rand der Einkommensverteilung — und wären von Arbeitsplatzverlusten, sinkenden Leistungen und geschwächter Infrastruktur am stärksten betroffen. Die Partei, die für die kleinen Leute kämpft, kostet gerade sie am meisten.",
+      "source": {
+        "label": "DIW Berlin, DIW aktuell 88 (21.08.2023)",
+        "url": "https://www.diw.de/de/diw_01.c.879742.de/publikationen/diw_aktuell/2023_0088/das_afd-paradox__die_hauptleidtragenden_der_afd-politik_waeren_ihre_eigenen_waehler_innen.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "chapterbreak",
       "chapter": "fazit"
     },
     {
@@ -447,11 +588,13 @@
         { "num": "03", "text": "Fünf Landesverbände gelten als gesichert rechtsextremistisch — von Thüringen bis Niedersachsen (Correctiv-Übersicht, Juni 2026)." },
         { "num": "04", "text": "Die AfD-Chefin will den Verfassungsschutz abschaffen — die Behörde, die ihre Partei beobachtet (Deutschlandfunk, Aug. 2026)." },
         { "num": "05", "text": "In Sachsen-Anhalt liegt die AfD kurz vor der Wahl bei 40–42 %: eine gesichert rechtsextremistische Partei vor der Regierungsmacht." },
-        { "num": "06", "text": "Im Grundsatzprogramm steht der Austritt Deutschlands aus der EU als Ziel — falls die „Reformansätze“ scheitern." },
-        { "num": "07", "text": "Im Wahlprogramm steht wörtlich: Ausstieg aus dem Pariser Klimaabkommen und aus dem Euro-System (AfD-Programm 2025)." },
-        { "num": "08", "text": "Sofortige Aufhebung der Russland-Sanktionen und Instandsetzung von Nord Stream stehen im offiziellen Wahlprogramm (S. 92)." },
-        { "num": "09", "text": "Björn Höcke wurde zweimal wegen Verwendens einer SA-Parole verurteilt — 13.000 € und 16.900 € (LG Halle 2024)." },
-        { "num": "10", "text": "Der Mitarbeiter des AfD-Europa-Spitzenkandidaten Krah spionierte für China — 4 Jahre 9 Monate Haft (OLG Dresden 2025)." }
+        { "num": "06", "text": "Kostenrechnung der Institute: Familie mit 40.000 € verliert 440 €/Jahr — Topverdiener-Familie gewinnt 19.190 € (ZEW)." },
+        { "num": "07", "text": "Ein Dexit würde laut IW Köln 690 Mrd. € und 2,5 Mio. Arbeitsplätze kosten; in AfD-Hochburgen sinkt das Einkommen um 7–8 % (DIW)." },
+        { "num": "08", "text": "Im Grundsatzprogramm steht der Austritt Deutschlands aus der EU als Ziel — falls die „Reformansätze“ scheitern." },
+        { "num": "09", "text": "Im Wahlprogramm steht wörtlich: Ausstieg aus dem Pariser Klimaabkommen und aus dem Euro-System (AfD-Programm 2025)." },
+        { "num": "10", "text": "Sofortige Aufhebung der Russland-Sanktionen und Instandsetzung von Nord Stream stehen im offiziellen Wahlprogramm (S. 92)." },
+        { "num": "11", "text": "Björn Höcke wurde zweimal wegen Verwendens einer SA-Parole verurteilt — 13.000 € und 16.900 € (LG Halle 2024)." },
+        { "num": "12", "text": "Der Mitarbeiter des AfD-Europa-Spitzenkandidaten Krah spionierte für China — 4 Jahre 9 Monate Haft (OLG Dresden 2025)." }
       ],
       "closing": "Jede Zahl hier hat eine Quelle — die Volltexte liegen öffentlich. Prüfe selbst."
     },
@@ -474,6 +617,17 @@
         { "label": "Bayerischer Rundfunk: AfD fordert Abschiebetrupp „ähnlich wie ICE“ (30.01.2026)", "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3", "visited": "2026-09-03" },
         { "label": "MDR: Analyse zum AfD-Wahlkampfauftakt Magdeburg (20.07.2026)", "url": "https://www.mdr.de/nachrichten/sachsen-anhalt/landtagswahl/analyse-wahlkampf-auftakt-wahl,afd-siegmund-magdeburg-102.html", "visited": "2026-09-03" },
         { "label": "dpa via ZEIT: AfD-Wahlkampfauftakt Magdeburg (18.07.2026)", "url": "https://www.zeit.de/news/2026-07/18/weidel-startet-offiziell-afd-wahlkampf-in-sachsen-anhalt", "visited": "2026-09-03" },
+        { "label": "ZEW Mannheim: Wen die Parteien entlasten würden (2025)", "url": "https://www.zew.de/presse/pressearchiv/wen-die-parteien-entlasten-wuerden/", "visited": "2026-09-03" },
+        { "label": "DIW Berlin: Steuerreformvorschläge der Parteien, DIW aktuell 106 (2025)", "url": "https://www.diw.de/de/diw_01.c.936228.de/publikationen/diw_aktuell/2025_0106/steuerreformvorschlaege_der_parteien__ambitionierte_entlastungen_fuer_arbeitende_mitte_und_unternehmen_treiben_defizite.html", "visited": "2026-09-03" },
+        { "label": "IW Köln: Gutachten „Vielfalt ist Zukunft“ (2025, PDF)", "url": "https://www.iwkoeln.de/fileadmin/user_upload/Studien/Gutachten/PDF/2025/IW-Gutachten_2025-Vielfalt-ist-Zukunft.pdf", "visited": "2026-09-03" },
+        { "label": "Bundestag: AfD-Gesetzentwurf Erbschaftsteuer, hib 608/2026", "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1201000", "visited": "2026-09-03" },
+        { "label": "DIW Berlin: Hälfte aller Erbschaften an die reichsten 10 % (2021)", "url": "https://www.diw.de/de/diw_01.c.809832.de/publikationen/wochenberichte/2021_05_1/haelfte_aller_erbschaften_und_schenkungen_geht_an_die_reichsten_zehn_prozent_aller_beguenstigten.html", "visited": "2026-09-03" },
+        { "label": "tagesschau/NDR/WDR/SZ: EU-Agrarsubventionen-Datenanalyse", "url": "https://www.tagesschau.de/investigativ/ndr-wdr/eu-agrarsubventionen-unternehmen-101.html", "visited": "2026-09-03" },
+        { "label": "DIW Berlin: Das AfD-Paradox — Sachsen-Anhalt (Juli 2026)", "url": "https://www.diw.de/de/diw_01.c.1014790.de/publikationen/diw_aktuell/2026_0121/sachsen-anhalt_zeigt_das_afd-paradox__strukturschwache_afd-hochburgen_wuerden_unter_ihrer_politik_am_staerksten_leiden.html", "visited": "2026-09-03" },
+        { "label": "DIW Berlin: Das AfD-Paradox — eigene Wähler Hauptleidtragende (2023)", "url": "https://www.diw.de/de/diw_01.c.879742.de/publikationen/diw_aktuell/2023_0088/das_afd-paradox__die_hauptleidtragenden_der_afd-politik_waeren_ihre_eigenen_waehler_innen.html", "visited": "2026-09-03" },
+        { "label": "SZ: Klimakosten-Studie für BMWK (2023)", "url": "https://www.sueddeutsche.de/politik/klimawandel-deutschland-kosten-1.5763352", "visited": "2026-09-03" },
+        { "label": "Bundestag: AfD-Antrag Klimaschutzfolgenbereinigung (21/576)", "url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw26-de-klimaschutzfolgenbereinigung-1084784", "visited": "2026-09-03" },
+        { "label": "Correctiv/Prognos: AfD-Klimapolitik gefährdet Sachsen-Anhalts Wirtschaft (31.08.2026)", "url": "https://correctiv.org/aktuelles/klimawandel/2026/08/31/afd-klimapolitik-gefaehrdet-sachsen-anhalts-wirtschaft/", "visited": "2026-09-03" },
         { "label": "AfD-Wahlprogramm Bundestagswahl 2025 (PDF, afd.de)", "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf", "visited": "2026-09-03" },
         { "label": "AfD-Grundsatzprogramm „Programm für Deutschland“ (PDF)", "url": "https://rnk.afd-bw.de/afd-bw/wahlprogramme/afd-grundsatzprogramm_aktuelle-version.pdf", "visited": "2026-09-03" },
         { "label": "tagesschau: Wahlprogramme im Vergleich — Migration", "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html", "visited": "2026-09-03" },

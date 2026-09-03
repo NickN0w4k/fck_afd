@@ -28,8 +28,15 @@
     "question": "Wer gibt dort den Ton an?"
   },
   {
-    "id": "fazit",
+    "id": "kosten",
     "num": "05",
+    "title": "Was es kostet",
+    "accent": "#5CFF8F",
+    "question": "Wer zahlt dafür — und wer kassiert?"
+  },
+  {
+    "id": "fazit",
+    "num": "06",
     "title": "Das Fazit",
     "accent": "#FF4D2E",
     "question": "Und jetzt?"

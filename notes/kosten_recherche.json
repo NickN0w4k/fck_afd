@@ -1,0 +1,108 @@
+{
+  "items": [
+    {
+      "thema": "Einkommensteuer: Wer profitiert (IW Köln)",
+      "claim": "IW-Gutachten: AfD-Pläne entlasten Doppelverdiener-Familie (90.000/40.000 €) mit 7.719 € (5,9 %); 42.000-€-Familien deutlich geringer; untere Einkommen anteilig weniger.",
+      "zitat": "Höhere Einkommen sollen stark und niedrigere Einkommen schwächer entlastet werden.",
+      "quelle_label": "IW Köln, Gutachten 'Rechtsaußen-Erstarken in Deutschland' (2025, PDF)",
+      "url": "https://www.iwkoeln.de/fileadmin/user_upload/Studien/Gutachten/PDF/2025/IW-Gutachten_2025-Vielfalt-ist-Zukunft.pdf",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "Einkommensteuer: DIW-Verteilungsrechnung Top-1-Prozent",
+      "claim": "DIW: AfD-Plan entlastet das reichste 1 % um Ø 41.000 €/Jahr (FDP fast 50.000 €, Union 34.000 €); untere Hälfte erhält nur einen kleinen Teil der Entlastungen.",
+      "zitat": "Das einkommensreichste Prozent wird bei der FDP um knapp zehn Prozent des Bruttoeinkommens entlastet, bei der AfD um acht Prozent und bei der Union um sieben Prozent.",
+      "quelle_label": "DIW Berlin, DIW aktuell 106 (Stefan Bach, Feb. 2025)",
+      "url": "https://www.diw.de/de/diw_01.c.936228.de/publikationen/diw_aktuell/2025_0106/steuerreformvorschlaege_der_parteien__ambitionierte_entlastungen_fuer_arbeitende_mitte_und_unternehmen_treiben_defizite.html",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "Einkommensteuer: ZEW-Haushaltsrechnung Verlierer/Gewinner",
+      "claim": "ZEW: Familie mit 40.000 € Brutto verliert unter AfD-Programm 440 €/Jahr; Familie mit 180.000 € gewinnt 19.190 € – Entlastungen steigen mit dem Einkommen.",
+      "zitat": "Ein Alleinverdiener-Ehepaar mit zwei Kindern erhielte bei einem beispielhaften Brutto-Jahreseinkommen von 180.000 Euro demnach ein finanzielles Plus von rund: 19.190 (AfD), 11.990 (FDP) bzw. 5.840 Euro (Union).",
+      "quelle_label": "ZEW Mannheim, Pressemitteilung 'Wen die Parteien entlasten würden' (2025)",
+      "url": "https://www.zew.de/presse/pressearchiv/wen-die-parteien-entlasten-wuerden/",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "Erbschaftsteuer-Abschaffung: AfD-Gesetzentwurf",
+      "claim": "AfD-Gesetzentwurf (21/7251, Juli 2026) zur Abschaffung der Erbschaft- und Schenkungsteuer erwartet Entlastung von Erben um 8,5 Mrd. € und Beschenkten um 4,8 Mrd. € (2024).",
+      "zitat": "Die AfD-Fraktion erwartet durch ihr „Erbschaftsteuernichterhebungsgesetz“ (ErbStNichtG) eine Entlastung von Erben in Höhe von 8,5 Milliarden Euro und von Beschenkten um 4,8 Milliarden Euro (Stand 2024).",
+      "quelle_label": "Deutscher Bundestag, hib 608/2026",
+      "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1201000",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "Erbschaftsteuer: Wer erbt die Milliarden (DIW)",
+      "claim": "DIW: Die Hälfte aller Erbschafts- und Schenkungssummen fließt an die reichsten 10 % der Begünstigten; jährlich könnten bis zu 400 Mrd. € vererbt oder verschenkt werden.",
+      "zitat": "So fließt die Hälfte aller Erbschafts- und Schenkungssummen an die reichsten zehn Prozent der Begünstigten.",
+      "quelle_label": "DIW Berlin, Wochenbericht 5/2021 (Grabka et al.)",
+      "url": "https://www.diw.de/de/diw_01.c.809832.de/publikationen/wochenberichte/2021_05_1/haelfte_aller_erbschaften_und_schenkungen_geht_an_die_reichsten_zehn_prozent_aller_beguenstigten.html",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "Rente: Junior-Spardepot der AfD",
+      "claim": "AfD-Antrag: Für jedes Neugeborene staatlicher Fondssparplan, bespart mit 100 € monatlich bis zum 18. Lebensjahr aus Bundessteuermitteln; Auszahlung erst ab Regelaltersgrenze.",
+      "zitat": "die Fondssparpläne aus Steuermitteln des Bundes bis zur Vollendung des 18. Lebensjahr des Kindes mit monatlichen zweckgebundenen Einzahlungen in Höhe von anfänglich 100 Euro bespart werden.",
+      "quelle_label": "Deutscher Bundestag, Bundestagsdebatte 4.12.2025 (Antrag 21/2163)",
+      "url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw49-de-rente-1128178",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "Dexit: BIP- und Beschäftigungskosten",
+      "claim": "IW-Gutachten: Ein Dexit würde nach fünf Jahren 690 Mrd. € kosten (5,6 % des realen BIP) und 2,5 Mio. Arbeitsplätze; ein Euro-Austritt ist noch nicht eingerechnet.",
+      "zitat": "Nach nur fünf Jahren würden die Kosten 5,6 Prozent des realen Bruttoinlandsprodukts (BIP) – umgerechnet 690 Milliarden Euro – betragen; 2,5 Millionen Arbeitsplätze würden wegfallen.",
+      "quelle_label": "IW Köln, Gutachten 'Rechtsaußen-Erstarken in Deutschland' (2025, PDF)",
+      "url": "https://www.iwkoeln.de/fileadmin/user_upload/Studien/Gutachten/PDF/2025/IW-Gutachten_2025-Vielfalt-ist-Zukunft.pdf",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "EU-Agrargelder: Verteilung konzentriert auf Großbetriebe",
+      "claim": "NDR/WDR/SZ-Datenanalyse (tagesschau): Das oberste 1 % der Empfänger erhielt über 12 Mrd. € (fast ¼ aller EU-Agrarsubventionen), die untere Hälfte unter 4 Mrd. €; 24 Ex-DDR-Betriebe unter den Top 100.",
+      "zitat": "Das oberste Prozent der Empfänger erhielt fast ein Viertel aller Subventionen - also mehr als zwölf Milliarden Euro oder knapp 30.000 Euro pro Betrieb im Monat.",
+      "quelle_label": "tagesschau.de (NDR/WDR/SZ, Farmsubsidies-Datenbank)",
+      "url": "https://www.tagesschau.de/investigativ/ndr-wdr/eu-agrarsubventionen-unternehmen-101.html",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "AfD-Paradox: Hochburgen träfen eigene Pläne am härtesten",
+      "claim": "DIW: AfD-Politik würde Sachsen-Anhalt rund 1.600 € Einkommen pro Kopf/Jahr kosten (−6,2 %) und 10.000 Arbeitsplätze; in AfD-Hochburg-Kreisen 7–8 % Einkommensverlust.",
+      "zitat": "Das reale verfügbare Einkommen je Einwohner*in dürfte in Sachsen-Anhalt um rund 6,2 Prozent sinken – rund anderthalbmal so stark wie im Bundesschnitt mit −4,0 Prozent.",
+      "quelle_label": "DIW Berlin, DIW aktuell 121 (Fratzscher, 24.7.2026)",
+      "url": "https://www.diw.de/de/diw_01.c.1014790.de/publikationen/diw_aktuell/2026_0121/sachsen-anhalt_zeigt_das_afd-paradox__strukturschwache_afd-hochburgen_wuerden_unter_ihrer_politik_am_staerksten_leiden.html",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "Klimaschutz-Rückabwicklung: künftige Schadenskosten",
+      "claim": "Studie für BMWK (IÖW/GWS/Prognos): kumulierte Klimaschäden bis 2050 je nach Szenario 280–900 Mrd. €; die Ahrtal-Flut 2021 verursachte allein etwa 40 Mrd. € Folgekosten.",
+      "zitat": "Je nach Ausmaß der Erderwärmung rechnen sie zwischen 2022 und 2050 mit volkswirtschaftlichen Schäden in Höhe von 280 bis 900 Milliarden Euro.",
+      "quelle_label": "Süddeutsche Zeitung zur BMWK-Klimakostenstudie (März 2023)",
+      "url": "https://www.sueddeutsche.de/politik/klimawandel-deutschland-kosten-1.5763352",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "Klimaschutz-Rückabwicklung: AfD-Gesetzentwürfe",
+      "claim": "AfD-Gesetzentwurf (21/576) will 23 Klimagesetze (EEG, Klima- und Transformationsfonds, CO2-Handel, GEG) abschaffen; der Bundestag lehnte mit 443 zu 131 Stimmen ab.",
+      "zitat": "sollen das Atomgesetz geändert und 23 Gesetze – unter anderem der Klima- und Transformationsfonds, das Erneuerbare-Energien-Gesetz (EEG), der Zertifikate-Handel, das Gebäudeenergiegesetz (GEG) sowie die Gesetze zum Atom- und Kohlestromausstieg – aufgehoben werden, die zum Erreichen der Klimaziele erlassen wurden.",
+      "quelle_label": "Deutscher Bundestag, Textarchiv KW26/2025",
+      "url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw26-de-klimaschutzfolgenbereinigung-1084784",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "Klimarückabwicklung regional: Kosten in Sachsen-Anhalt",
+      "claim": "Correctiv: Prognos beziffert einen Hitzetag in Sachsen-Anhalt auf 22 Mio. € Produktivitätsverlust; Erneuerbare brachten 2023 mind. 173 Mio. € Einnahmen ins Land – AfD will Ausbaustopp.",
+      "zitat": "Laut Berechnungen des Instituts Prognos kostete ein Hitzetag während der Hitzewelle Ende Juni in Sachsen-Anhalt etwa 22 Millionen Euro.",
+      "quelle_label": "correctiv.org, 'AfD-Klimapolitik gefährdet Sachsen-Anhalts Wirtschaft' (31.8.2026)",
+      "url": "https://correctiv.org/aktuelles/klimawandel/2026/08/31/afd-klimapolitik-gefaehrdet-sachsen-anhalts-wirtschaft/",
+      "datum_besucht": "2026-09-03"
+    },
+    {
+      "thema": "Bürgergeld-Kürzungen: AfD-Wähler selbst betroffen",
+      "claim": "AfD will das Bürgergeld beschneiden und auf sechs Monate begrenzen; DIW: AfD-Wähler*innen gehören häufig zum unteren Rand der Einkommensverteilung und wären am stärksten negativ betroffen.",
+      "zitat": "So wären vor allem AfD-Wähler*innen von Arbeitsplatzverlusten, einer schlechteren Infrastruktur und weniger Leistungen, einer Schwächung der Europäischen Union oder Steuersenkungen für Spitzenverdiener*innen stark negativ betroffen.",
+      "quelle_label": "DIW Berlin, DIW aktuell 88 (Fratzscher, 21.8.2023)",
+      "url": "https://www.diw.de/de/diw_01.c.879742.de/publikationen/diw_aktuell/2023_0088/das_afd-paradox__die_hauptleidtragenden_der_afd-politik_waeren_ihre_eigenen_waehler_innen.html",
+      "datum_besucht": "2026-09-03"
+    }
+  ]
+}
