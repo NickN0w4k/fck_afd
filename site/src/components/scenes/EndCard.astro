@@ -1,7 +1,6 @@
 ---
 // EndCard: Finale Aktions-Szene — Neustart, Teilen, Story-Karte generieren.
-import Scene from '../Scene.astro';
-
+// (Kein eigener Scene-Wrapper mehr — SceneBody wird immer von außen gewrappt.)
 interface Props {
   scene: { accent?: string };
   index?: number;
@@ -12,9 +11,9 @@ const { scene, index, total, chapter } = Astro.props;
 const accent = scene.accent ?? '#ff4d2e';
 ---
 
-<Scene kicker="Weiter so" index={index} total={total} chapter={chapter} accent={accent}>
-  <div class="endcard">
-    <h2 class="end-headline" data-anim="rise">Dein Zug.</h2>
+<div class="endcard">
+  <p class="endcard-kicker">Weiter so</p>
+  <h2 class="end-headline" data-anim="rise">Dein Zug.</h2>
     <p class="end-sub" data-anim="rise" style="--d: 120ms">Teile die Fakten — oder schau nochmal genau hin.</p>
 
     <div class="end-actions" data-anim="rise" style="--d: 260ms">
@@ -52,13 +51,20 @@ const accent = scene.accent ?? '#ff4d2e';
         <path d="M12 5v14" /><path d="m19 12-7 7-7-7" />
       </svg>
     </button>
-  </div>
-</Scene>
+</div>
 
 <style>
   .endcard {
     max-width: 44rem;
     width: 100%;
+  }
+  .endcard-kicker {
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 0.7rem;
   }
   .end-headline {
     font-size: clamp(2.6rem, 9vw, 5.5rem);

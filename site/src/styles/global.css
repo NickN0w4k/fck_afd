@@ -378,7 +378,7 @@ mark.hl {
 /* ===== Szenen-Sharing ===== */
 .scene-share {
   position: absolute;
-  top: 0.9rem;
+  top: 3.4rem; /* unter dem Szenen-Zähler */
   right: 0.9rem;
   width: 38px;
   height: 38px;
@@ -458,7 +458,7 @@ mark.hl {
 
 @media (max-width: 640px) {
   .scene-share {
-    top: 0.6rem;
+    top: 3.2rem;
     right: 0.6rem;
     width: 42px;
     height: 42px;
