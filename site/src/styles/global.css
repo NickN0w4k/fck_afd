@@ -465,6 +465,52 @@ mark.hl {
   }
 }
 
+/* ===== Stand-Badge + Skip-Link ===== */
+.stand-badge {
+  position: fixed;
+  left: 0.9rem;
+  bottom: 0.9rem;
+  z-index: 45;
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  background: color-mix(in srgb, var(--bg-elev) 82%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 0.45rem 0.85rem;
+  backdrop-filter: blur(6px);
+  transition: color 0.2s, border-color 0.2s;
+}
+.stand-badge:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+@media (max-width: 640px) {
+  .stand-badge {
+    left: 0.6rem;
+    bottom: 0.6rem;
+    font-size: 0.66rem;
+  }
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-family: var(--font-head);
+  font-weight: 700;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0 0 12px 12px;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 /* ===== Kapitel-Unterseiten (Lese-Modus) ===== */
 .doc-page {
   max-width: 52rem;

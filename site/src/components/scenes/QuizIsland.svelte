@@ -35,7 +35,7 @@
 </div>
 
 {#if picked !== null}
-  <p class="explanation" transition:slide>{explanation}</p>
+  <p class="explanation" role="status" aria-live="polite" transition:slide>{explanation}</p>
 {/if}
 
 {#if !anyCorrect}
