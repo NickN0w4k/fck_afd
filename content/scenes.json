@@ -15,79 +15,6 @@
       "note": "Alles mit Beleg. Immer."
     },
     {
-      "type": "data",
-      "chapter": "intro",
-      "headline": "Wo die AfD in den Umfragen steht",
-      "value": 28,
-      "suffix": " %",
-      "caption": "Sonntagsfrage, Stand 01.09.2026: Alle acht Institute sehen die AfD zwischen 27 und 29 Prozent — überall vor der Union. Die Partei ist keine Randerscheinung mehr.",
-      "chart": "bars",
-      "series": [
-        {
-          "label": "INSA",
-          "value": 29
-        },
-        {
-          "label": "Verian",
-          "value": 28
-        },
-        {
-          "label": "Forsa",
-          "value": 28
-        },
-        {
-          "label": "Infratest dimap",
-          "value": 28
-        },
-        {
-          "label": "GMS",
-          "value": 28
-        },
-        {
-          "label": "YouGov",
-          "value": 28
-        },
-        {
-          "label": "Allensbach",
-          "value": 27.5
-        },
-        {
-          "label": "FG Wahlen",
-          "value": 27
-        }
-      ],
-      "source": {
-        "label": "wahlrecht.de — Umfragenübersicht (Institute: Allensbach, Verian, Forsa, FG Wahlen, GMS, Infratest dimap, INSA, YouGov)",
-        "url": "https://www.wahlrecht.de/umfragen/",
-        "visited": "2026-09-03"
-      }
-    },
-    {
-      "type": "quiz",
-      "chapter": "intro",
-      "question": "Wie stark war die AfD bei der Bundestagswahl 2025?",
-      "options": [
-        {
-          "text": "11 %",
-          "correct": false
-        },
-        {
-          "text": "20,8 % — zweitstärkste Kraft",
-          "correct": true
-        },
-        {
-          "text": "15 %",
-          "correct": false
-        }
-      ],
-      "explanation": "Bei der Bundestagswahl am 23. Februar 2025 erhielt die AfD 20,8 % der Zweitstimmen (2021: 10,4 %) und zog mit 152 Abgeordneten in den Bundestag ein. Ende des offiziellen Endergebnisses.",
-      "source": {
-        "label": "Die Bundeswahlleiterin, Pressemitteilung Nr. 29/25 (endgültiges Ergebnis)",
-        "url": "https://bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html",
-        "visited": "2026-09-03"
-      }
-    },
-    {
       "type": "chapterbreak",
       "chapter": "verfassungsschutz"
     },
@@ -632,6 +559,79 @@
     {
       "type": "chapterbreak",
       "chapter": "fazit"
+    },
+    {
+      "type": "data",
+      "chapter": "fazit",
+      "headline": "Wo die AfD in den Umfragen steht",
+      "value": 28,
+      "suffix": " %",
+      "caption": "Sonntagsfrage, Stand 01.09.2026: Alle acht Institute sehen die AfD zwischen 27 und 29 Prozent — überall vor der Union. Die Partei ist keine Randerscheinung mehr.",
+      "chart": "bars",
+      "series": [
+        {
+          "label": "INSA",
+          "value": 29
+        },
+        {
+          "label": "Verian",
+          "value": 28
+        },
+        {
+          "label": "Forsa",
+          "value": 28
+        },
+        {
+          "label": "Infratest dimap",
+          "value": 28
+        },
+        {
+          "label": "GMS",
+          "value": 28
+        },
+        {
+          "label": "YouGov",
+          "value": 28
+        },
+        {
+          "label": "Allensbach",
+          "value": 27.5
+        },
+        {
+          "label": "FG Wahlen",
+          "value": 27
+        }
+      ],
+      "source": {
+        "label": "wahlrecht.de — Umfragenübersicht (Institute: Allensbach, Verian, Forsa, FG Wahlen, GMS, Infratest dimap, INSA, YouGov)",
+        "url": "https://www.wahlrecht.de/umfragen/",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "quiz",
+      "chapter": "fazit",
+      "question": "Wie stark war die AfD bei der Bundestagswahl 2025?",
+      "options": [
+        {
+          "text": "11 %",
+          "correct": false
+        },
+        {
+          "text": "20,8 % — zweitstärkste Kraft",
+          "correct": true
+        },
+        {
+          "text": "15 %",
+          "correct": false
+        }
+      ],
+      "explanation": "Bei der Bundestagswahl am 23. Februar 2025 erhielt die AfD 20,8 % der Zweitstimmen (2021: 10,4 %) und zog mit 152 Abgeordneten in den Bundestag ein. Ende des offiziellen Endergebnisses.",
+      "source": {
+        "label": "Die Bundeswahlleiterin, Pressemitteilung Nr. 29/25 (endgültiges Ergebnis)",
+        "url": "https://bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html",
+        "visited": "2026-09-03"
+      }
     },
     {
       "type": "summary",
