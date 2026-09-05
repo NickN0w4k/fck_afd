@@ -16,6 +16,7 @@ import EndCard from '../components/scenes/EndCard.astro';
 
 import chaptersRaw from '../../../content/chapters.json';
 import scenesRaw from '../../../content/scenes.json';
+import { sceneShareText } from '../lib/scene-text.js';
 
 const chapters = /** @type {any[]} */ (chaptersRaw);
 const scenes = /** @type {any[]} */ ((/** @type {any} */ (scenesRaw)).scenes);
@@ -30,7 +31,7 @@ const total = scenes.length;
       scenes.map((scene, i) => {
         const chapter = chapterById[scene.chapter];
         const accent = chapter?.accent;
-        const shared = { index: i, total, accent, chapter: scene.chapter };
+        const shared = { index: i, total, accent, chapter: scene.chapter, shareText: sceneShareText(scene, chapter?.title) };
         switch (scene.type) {
           case 'hero':
             return (

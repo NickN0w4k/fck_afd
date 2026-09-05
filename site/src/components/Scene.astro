@@ -1,5 +1,6 @@
 ---
 // Basis-Wrapper für jede Szene: 100vh, Kapitel-Akzent, Kicker + Szenen-Nummer via Slot.
+// Jede Szene bekommt eine Anker-ID (#scene-N) + optionalen Share-Text + Share-Button.
 interface Props {
   chapter?: string;
   accent?: string;
@@ -7,11 +8,23 @@ interface Props {
   index?: number;
   total?: number;
   id?: string;
+  shareText?: string;
 }
-const { chapter, accent, kicker, index, total, id } = Astro.props;
+const { chapter, accent, kicker, index, total, id, shareText } = Astro.props;
+const sceneId = id ?? (index !== undefined ? `scene-${index}` : undefined);
 ---
 
-<section class:list={['scene']} data-accent={accent} id={id} data-chapter={chapter}>
+<section class:list={['scene']} data-accent={accent} id={sceneId} data-chapter={chapter} data-share-text={shareText}>
+  {
+    shareText !== undefined && (
+      <button class="scene-share" data-share aria-label="Diese Szene teilen" title="Szene teilen">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.23" /><line x1="15.41" y1="8.77" x2="8.59" y2="12.49" />
+        </svg>
+      </button>
+    )
+  }
   {kicker && <p class="kicker">{kicker}</p>}
   <slot />
   {
