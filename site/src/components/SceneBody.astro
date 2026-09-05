@@ -1,0 +1,40 @@
+---
+// Rendert den INHALT einer Szene (ohne Scene-Wrapper).
+// Genutzt von index.astro (im Scene-Feed) und den Kapitel-Unterseiten (Lese-Modus).
+import Hero from './scenes/Hero.astro';
+import Statement from './scenes/Statement.astro';
+import Data from './scenes/Data.astro';
+import Contrast from './scenes/Contrast.astro';
+import Quote from './scenes/Quote.astro';
+import Quiz from './scenes/Quiz.astro';
+import Slider from './scenes/Slider.astro';
+import Reveal from './scenes/Reveal.astro';
+import ChapterBreak from './scenes/ChapterBreak.astro';
+import Summary from './scenes/Summary.astro';
+import Sources from './scenes/Sources.astro';
+import EndCard from './scenes/EndCard.astro';
+import Timeline from './scenes/Timeline.astro';
+import Action from './scenes/Action.astro';
+
+interface Props {
+  scene: any;
+  chapter?: { id: string; num: string; title: string; accent: string; question?: string };
+  chapters?: any[];
+}
+const { scene, chapter, chapters = [] } = Astro.props;
+---
+
+{scene.type === 'hero' && <Hero scene={scene} />}
+{scene.type === 'statement' && <Statement scene={scene} />}
+{scene.type === 'data' && <Data scene={scene} />}
+{scene.type === 'contrast' && <Contrast scene={scene} />}
+{scene.type === 'quote' && <Quote scene={scene} />}
+{scene.type === 'quiz' && <Quiz scene={scene} />}
+{scene.type === 'slider' && <Slider scene={scene} />}
+{scene.type === 'reveal' && <Reveal scene={scene} />}
+{scene.type === 'chapterbreak' && <ChapterBreak chapter={chapter} />}
+{scene.type === 'summary' && <Summary scene={scene} chapters={chapters} />}
+{scene.type === 'sources' && <Sources scene={scene} />}
+{scene.type === 'endcard' && <EndCard scene={{ ...scene, accent: chapter?.accent }} />}
+{scene.type === 'timeline' && <Timeline scene={scene} />}
+{scene.type === 'action' && <Action scene={scene} />}

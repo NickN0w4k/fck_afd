@@ -35,8 +35,15 @@
     "question": "Wer zahlt für die AfD-Pläne — und wer geht leer aus? Die Institute haben durchgerechnet."
   },
   {
-    "id": "fazit",
+    "id": "einwaende",
     "num": "06",
+    "title": "Einwände",
+    "accent": "#E8A34D",
+    "question": "Diese Argumente hörst du oft, wenn es um die AfD geht — hier sind sie mit Belegen geprüft."
+  },
+  {
+    "id": "fazit",
+    "num": "07",
     "title": "Das Fazit",
     "accent": "#FF4D2E",
     "question": "Und jetzt? Du kennst die Fakten. Was machst du damit?"

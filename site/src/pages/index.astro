@@ -1,18 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Scene from '../components/Scene.astro';
-import Hero from '../components/scenes/Hero.astro';
-import Statement from '../components/scenes/Statement.astro';
-import Data from '../components/scenes/Data.astro';
-import Contrast from '../components/scenes/Contrast.astro';
-import Quote from '../components/scenes/Quote.astro';
-import Quiz from '../components/scenes/Quiz.astro';
-import Slider from '../components/scenes/Slider.astro';
-import Reveal from '../components/scenes/Reveal.astro';
-import ChapterBreak from '../components/scenes/ChapterBreak.astro';
-import Summary from '../components/scenes/Summary.astro';
-import Sources from '../components/scenes/Sources.astro';
-import EndCard from '../components/scenes/EndCard.astro';
+import SceneBody from '../components/SceneBody.astro';
 
 import chaptersRaw from '../../../content/chapters.json';
 import scenesRaw from '../../../content/scenes.json';
@@ -30,84 +19,19 @@ const total = scenes.length;
     {
       scenes.map((scene, i) => {
         const chapter = chapterById[scene.chapter];
-        const accent = chapter?.accent;
-        const shared = { index: i, total, accent, chapter: scene.chapter, shareText: sceneShareText(scene, chapter?.title) };
-        switch (scene.type) {
-          case 'hero':
-            return (
-              <Scene {...shared} id="scene-0">
-                <Hero scene={scene} />
-              </Scene>
-            );
-          case 'statement':
-            return (
-              <Scene {...shared}>
-                <Statement scene={scene} />
-              </Scene>
-            );
-          case 'data':
-            return (
-              <Scene {...shared}>
-                <Data scene={scene} />
-              </Scene>
-            );
-          case 'contrast':
-            return (
-              <Scene {...shared}>
-                <Contrast scene={scene} />
-              </Scene>
-            );
-          case 'quote':
-            return (
-              <Scene {...shared}>
-                <Quote scene={scene} />
-              </Scene>
-            );
-          case 'quiz':
-            return (
-              <Scene {...shared}>
-                <Quiz scene={scene} />
-              </Scene>
-            );
-          case 'slider':
-            return (
-              <Scene {...shared}>
-                <Slider scene={scene} />
-              </Scene>
-            );
-          case 'reveal':
-            return (
-              <Scene {...shared}>
-                <Reveal scene={scene} />
-              </Scene>
-            );
-          case 'chapterbreak':
-            return (
-              <Scene {...shared} kicker={`Kapitel ${chapter?.num ?? ''}`}>
-                <ChapterBreak chapter={chapter} />
-              </Scene>
-            );
-          case 'summary':
-            return (
-              <Scene {...shared}>
-                <Summary scene={scene} chapters={chapters} />
-              </Scene>
-            );
-          case 'sources':
-            return (
-              <Scene {...shared}>
-                <Sources scene={scene} />
-              </Scene>
-            );
-          case 'endcard':
-            return (
-              <Scene {...shared}>
-                <EndCard scene={{ ...scene, accent }} />
-              </Scene>
-            );
-          default:
-            return null;
-        }
+        return (
+          <Scene
+            index={i}
+            total={total}
+            accent={chapter?.accent}
+            chapter={scene.chapter}
+            shareText={sceneShareText(scene, chapter?.title)}
+            id={i === 0 ? 'scene-0' : undefined}
+            kicker={scene.type === 'chapterbreak' ? `Kapitel ${chapter?.num ?? ''}` : undefined}
+          >
+            <SceneBody scene={scene} chapter={chapter} chapters={chapters} />
+          </Scene>
+        );
       })
     }
   </main>

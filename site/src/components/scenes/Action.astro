@@ -1,0 +1,98 @@
+---
+// Action: „Was du jetzt tun kannst" — 2x2 Karten mit optionalen Links.
+interface Props {
+  scene: {
+    headline: string;
+    intro?: string;
+    cards: { title: string; text: string; link?: { label: string; url: string } }[];
+  };
+}
+const { scene } = Astro.props;
+---
+
+<div class="action">
+  <h2 class="action-headline" data-anim="rise">{scene.headline}</h2>
+  {scene.intro && <p class="action-intro" data-anim="rise">{scene.intro}</p>}
+
+  <div class="action-grid">
+    {
+      scene.cards.map((card, i) => (
+        <div class="action-card" data-anim="rise" style={`--d: ${i * 90}ms`}>
+          <p class="action-card-title">{card.title}</p>
+          <p class="action-card-text">{card.text}</p>
+          {card.link && (
+            <a class="action-link" href={card.link.url} target="_blank" rel="noopener noreferrer">
+              {card.link.label}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" />
+              </svg>
+            </a>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .action {
+    width: 100%;
+    max-width: 56rem;
+  }
+  .action-headline {
+    font-size: clamp(1.6rem, 4.4vw, 2.8rem);
+  }
+  .action-intro {
+    margin-top: 0.7rem;
+    color: var(--fg-muted);
+    max-width: 52ch;
+  }
+  .action-grid {
+    margin-top: 1.8rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  @media (min-width: 768px) {
+    .action-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .action-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.15rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.55rem;
+  }
+  .action-card-title {
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .action-card-text {
+    color: var(--fg);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.2rem;
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--fg);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .action-link:hover {
+    color: var(--accent);
+  }
+</style>

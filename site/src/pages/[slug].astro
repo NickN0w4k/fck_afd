@@ -1,0 +1,64 @@
+---
+// Kapitel-Unterseiten (SEO/Lese-Modus): rendern die Szenen eines Kapitels
+// als lesbare Seite ohne Snap-Feed. Datenquelle: dieselben content/*.json.
+import Base from '../layouts/Base.astro';
+import SceneBody from '../components/SceneBody.astro';
+import chaptersRaw from '../../../content/chapters.json';
+import scenesRaw from '../../../content/scenes.json';
+import { SITE_STAND } from '../lib/meta.js';
+
+const chapters = /** @type {any[]} */ (chaptersRaw);
+const allScenes = /** @type {any[]} */ ((/** @type {any} */ (scenesRaw)).scenes);
+
+export function getStaticPaths() {
+  return (chaptersRaw as any[]).map((chapter) => ({
+    params: { slug: chapter.id },
+    props: { chapter },
+  }));
+}
+
+const { chapter } = Astro.props;
+const scenes = allScenes.filter((s) => s.chapter === chapter.id && s.type !== 'chapterbreak');
+const idx = chapters.findIndex((c) => c.id === chapter.id);
+const prev = chapters[idx - 1];
+const next = chapters[idx + 1];
+---
+
+<Base
+  title={`Kapitel ${chapter.num}: ${chapter.title} — Die AfD. Die Fakten.`}
+  description={chapter.question}
+>
+  <div class="doc-page" style={`--accent: ${chapter.accent}`}>
+    <header class="doc-header">
+      <p class="doc-kicker">Kapitel {chapter.num} / {String(chapters.length).padStart(2, '0')}</p>
+      <h1 class="doc-title">{chapter.title}</h1>
+      <p class="doc-question">{chapter.question}</p>
+      <a class="doc-tour-link" href="/">→ Zur kompletten Tour (mit Animation & Quiz)</a>
+    </header>
+
+    <div class="doc-scenes">
+      {
+        scenes.map((scene) => (
+          <section class="doc-scene">
+            <SceneBody scene={scene} chapter={chapter} chapters={chapters} />
+          </section>
+        ))
+      }
+    </div>
+
+    <nav class="doc-nav" aria-label="Kapitel-Navigation">
+      {
+        prev ? (
+          <a class="doc-nav-link" href={`/${prev.id}/`}>← Kapitel {prev.num}: {prev.title}</a>
+        ) : (
+          <span />
+        )
+      }
+      {next && <a class="doc-nav-link" href={`/${next.id}/`}>Kapitel {next.num}: {next.title} →</a>}
+    </nav>
+
+    <footer class="doc-footer">
+      <p>Stand: {SITE_STAND} · Alle Quellen archiviert · <a href="/quellen/">Quellenverzeichnis</a></p>
+    </footer>
+  </div>
+</Base>

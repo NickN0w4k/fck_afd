@@ -1,0 +1,135 @@
+---
+// Timeline: horizontale Karte mit Eckpunkten (Swipe mobile, Drag desktop).
+// Jede Karte trägt ihr eigenes Source-Tag.
+import SourceTag from '../SourceTag.astro';
+
+interface Props {
+  scene: {
+    headline: string;
+    intro?: string;
+    items: { date: string; title: string; text: string; source?: { label: string; url: string; visited?: string } }[];
+    source?: { label: string; url: string; visited?: string };
+  };
+}
+const { scene } = Astro.props;
+---
+
+<div class="timeline-scene">
+  <h2 class="tl-headline" data-anim="rise">{scene.headline}</h2>
+  {scene.intro && <p class="tl-intro" data-anim="rise">{scene.intro}</p>}
+
+  <div class="tl-track" data-timeline role="region" aria-label="Zeitstrahl — horizontal scrollen" tabindex="0">
+    {
+      scene.items.map((item, i) => (
+        <article class="tl-card" data-anim="rise" style={`--d: ${i * 70}ms`}>
+          <p class="tl-date">{item.date}</p>
+          <p class="tl-title">{item.title}</p>
+          <p class="tl-text">{item.text}</p>
+          {item.source && <SourceTag source={item.source} />}
+        </article>
+      ))
+    }
+  </div>
+  <p class="tl-hint" aria-hidden="true">Wischen →</p>
+</div>
+
+<style>
+  .timeline-scene {
+    width: 100%;
+    max-width: 72rem;
+  }
+  .tl-headline {
+    font-size: clamp(1.5rem, 4vw, 2.6rem);
+  }
+  .tl-intro {
+    margin-top: 0.7rem;
+    color: var(--fg-muted);
+    max-width: 52ch;
+  }
+  .tl-track {
+    display: flex;
+    gap: 0.9rem;
+    margin-top: 1.6rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.4rem 0.2rem 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+    cursor: grab;
+  }
+  .tl-track:active {
+    cursor: grabbing;
+  }
+  .tl-card {
+    flex: 0 0 auto;
+    width: min(76vw, 320px);
+    scroll-snap-align: center;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .tl-date {
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .tl-title {
+    font-family: var(--font-head);
+    font-size: clamp(1.02rem, 2.6vw, 1.25rem);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .tl-text {
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+  .tl-card :global(.source-tag) {
+    margin-top: 0.3rem;
+  }
+  .tl-hint {
+    margin-top: 0.4rem;
+    color: var(--fg-muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tl-track {
+      scroll-snap-type: none;
+    }
+  }
+</style>
+
+<script>
+  // Drag-Scroll am Desktop (Touch scrollt nativ)
+  document.querySelectorAll('[data-timeline]').forEach((track) => {
+    let down = false;
+    let startX = 0;
+    let startScroll = 0;
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      down = true;
+      startX = e.clientX;
+      startScroll = track.scrollLeft;
+      track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      track.scrollLeft = startScroll - (e.clientX - startX);
+    });
+    ['pointerup', 'pointercancel'].forEach((ev) =>
+      track.addEventListener(ev, () => {
+        down = false;
+      }),
+    );
+  });
+</script>

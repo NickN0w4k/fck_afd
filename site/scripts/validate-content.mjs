@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs';
 
 const CLAIM_TYPES = new Set(['data', 'contrast', 'quote', 'quiz', 'slider', 'reveal', 'statement']);
-const NO_CLAIM_TYPES = new Set(['hero', 'chapterbreak', 'summary', 'sources', 'endcard']);
+const NO_CLAIM_TYPES = new Set(['hero', 'chapterbreak', 'summary', 'sources', 'endcard', 'action']);
 
 const raw = JSON.parse(readFileSync(new URL('../../content/scenes.json', import.meta.url), 'utf-8'));
 const scenes = raw.scenes ?? raw;
@@ -21,6 +21,23 @@ scenes.forEach((scene, i) => {
   }
   if (NO_CLAIM_TYPES.has(scene.type) && scene.source) {
     warnings.push(`${where}: hat source, obwohl Typ keine Behauptung enthält`);
+  }
+  // Timeline: jede Karte braucht date + title + text; Quellen je Karte prüfen
+  if (scene.type === 'timeline') {
+    if (!Array.isArray(scene.items) || scene.items.length < 3) {
+      errors.push(`${where}: timeline braucht mindestens 3 items`);
+    }
+    (scene.items ?? []).forEach((item, j) => {
+      if (!item.date || !item.title || !item.text) errors.push(`${where}: item #${j + 1} braucht date + title + text`);
+      const src = item.source;
+      if (src) {
+        if (!src.url || !src.label) errors.push(`${where}: item #${j + 1} source braucht label + url`);
+        if (!src.visited) warnings.push(`${where}: item #${j + 1} source ohne visited-Datum`);
+        if (src.url && !/^https?:\/\//.test(src.url)) errors.push(`${where}: item #${j + 1} source.url kein http(s)-Link`);
+      } else {
+        warnings.push(`${where}: item #${j + 1} ohne Quelle`);
+      }
+    });
   }
 });
 

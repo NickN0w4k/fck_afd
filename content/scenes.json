@@ -179,6 +179,74 @@
       }
     },
     {
+      "type": "timeline",
+      "chapter": "verfassungsschutz",
+      "headline": "Drei Instanzen, ein Ergebnis",
+      "intro": "Die Einstufungen der Verfassungsschutzbehörden haben Gerichte mehrfach bestätigt. Der Weg im Zeitraffer:",
+      "items": [
+        {
+          "date": "03/2021",
+          "title": "Verdachtsfall",
+          "text": "Das Bundesamt für Verfassungsschutz beobachtet die Gesamtpartei als rechtsextremistischen Verdachtsfall.",
+          "source": {
+            "label": "tagesschau: FAQ — Was bedeutet die neue Einstufung der AfD?",
+            "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html",
+            "visited": "2026-09-03"
+          }
+        },
+        {
+          "date": "03/2022",
+          "title": "VG Köln bestätigt",
+          "text": "Das Verwaltungsgericht Köln weist die Klage der AfD gegen die Beobachtung ab.",
+          "source": {
+            "label": "tagesschau: FAQ — Was bedeutet die neue Einstufung der AfD?",
+            "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html",
+            "visited": "2026-09-03"
+          }
+        },
+        {
+          "date": "05/2024",
+          "title": "OVG NRW bestätigt",
+          "text": "Das Oberverwaltungsgericht Münster bestätigt die Einstufung in zweiter Instanz.",
+          "source": {
+            "label": "BfV: BfV obsiegt vor dem OVG NRW gegen die AfD (PM 13.05.2024)",
+            "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html",
+            "visited": "2026-09-03"
+          }
+        },
+        {
+          "date": "02.05.2025",
+          "title": "Gesichert rechtsextremistisch",
+          "text": "Das BfV stuft die Gesamtpartei als gesichert rechtsextremistische Bestrebung ein.",
+          "source": {
+            "label": "BfV: BfV obsiegt vor dem OVG NRW gegen die AfD (PM 13.05.2024)",
+            "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html",
+            "visited": "2026-09-03"
+          }
+        },
+        {
+          "date": "05/2025",
+          "title": "Rechtskräftig",
+          "text": "Das BVerwG lässt die Revision nicht zu (Az. 6 B 23.24) — der Verdachtsfall ist in drei Instanzen bestätigt.",
+          "source": {
+            "label": "tagesschau: Verfassungsschutz-Einstufung — Wie das AfD-Verfahren weitergeht",
+            "url": "https://www.tagesschau.de/inland/innenpolitik/afd-verfahren-verfassungsschutz-100.html",
+            "visited": "2026-09-03"
+          }
+        },
+        {
+          "date": "26.02.2026",
+          "title": "Hochstufung vorläufig ausgesetzt",
+          "text": "Das VG Köln stellt die Einstufung als „gesichert“ im Eilverfahren vorläufig aus — die Hauptsache läuft, der Verdachtsfall bleibt.",
+          "source": {
+            "label": "ZEIT: AfD-Hochstufung — Teilsieg für Rechtsaußen (VG Köln, 26.02.2026)",
+            "url": "https://www.zeit.de/politik/deutschland/2026-02/afd-einstufung-rechtsextremistisch-verwaltungsgericht-koeln-urteil",
+            "visited": "2026-09-03"
+          }
+        }
+      ]
+    },
+    {
       "type": "reveal",
       "chapter": "verfassungsschutz",
       "teaser": "Tippen, um aufzudecken",
@@ -703,6 +771,67 @@
     },
     {
       "type": "chapterbreak",
+      "chapter": "einwaende"
+    },
+    {
+      "type": "statement",
+      "chapter": "einwaende",
+      "text": "Gegen die Fakten dieser Tour gibt es eine Handvoll Standard-Antworten. Alle drei klingen plausibel — alle drei halten der Prüfung nicht stand.",
+      "note": "Die häufigsten Einwände"
+    },
+    {
+      "type": "contrast",
+      "chapter": "einwaende",
+      "claim": "„Der Verfassungsschutz ist doch parteiisch — das sind politische Gegner, die da urteilen.“",
+      "reality": "Gerichte haben die Einstufung bestätigt — in erster, zweiter und dritter Instanz. Nicht der Verfassungsschutz hat das letzte Wort, die Justiz.",
+      "source": {
+        "label": "tagesschau: Verfassungsschutz-Einstufung — Wie das AfD-Verfahren weitergeht",
+        "url": "https://www.tagesschau.de/inland/innenpolitik/afd-verfahren-verfassungsschutz-100.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "reveal",
+      "chapter": "einwaende",
+      "teaser": "Tippen für den Rechtsstand",
+      "headline": "Rechtskräftig in drei Instanzen",
+      "body": "VG Köln (2022) und OVG NRW (2024) wiesen die Klagen ab. Das Bundesverwaltungsgericht ließ die Revision nicht zu (Beschluss 20.05.2025, Az. 6 B 23.24) — der Verdachtsfall ist damit rechtskräftig. Die Hochstufung als „gesichert“ ist im Eilverfahren vorläufig ausgesetzt, die Hauptsache läuft.",
+      "source": {
+        "label": "tagesschau: Verfassungsschutz-Einstufung — Wie das AfD-Verfahren weitergeht",
+        "url": "https://www.tagesschau.de/inland/innenpolitik/afd-verfahren-verfassungsschutz-100.html",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "contrast",
+      "chapter": "einwaende",
+      "claim": "„Höcke, Krah — das sind Einzelfälle. Die Partei als Ganzes ist doch normal.“",
+      "reality": "Der Verfassungsschutz schreibt im Bericht 2025: Liberal-konservative Positionen sind in der Partei „öffentlich kaum noch wahrnehmbar“. Eingestuft wird das Gesamtbild — nicht ein einzelner Funktionär.",
+      "source": {
+        "label": "Verfassungsschutzbericht 2025 (BMI, PDF, S. 131)",
+        "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "contrast",
+      "chapter": "einwaende",
+      "claim": "„Das sind alles nur Wahlkampfforderungen. Die AfD wird das nie durchsetzen können.“",
+      "reality": "Im Bundestag sind die Anträge längst eingebracht und debattiert: Erbschaftsteuer abschaffen, ein staatliches Aktien-Depot für die Rente, den Klimaschutz ausbremsen. Das Programm ist nicht Theorie — es ist eingereicht.",
+      "source": {
+        "label": "Bundestag: AfD will Erbschaftsteuer abschaffen (HIB)",
+        "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1201000",
+        "visited": "2026-09-03"
+      }
+    },
+    {
+      "type": "statement",
+      "chapter": "einwaende",
+      "text": "Man muss nicht jeder Bewertung folgen. Aber man sollte wissen, wofür man stimmt — und wo das belegbar endet.",
+      "note": "Weiter zum Fazit"
+    },
+    {
+      "type": "chapterbreak",
       "chapter": "fazit"
     },
     {
@@ -759,6 +888,42 @@
         }
       ],
       "closing": "Jede Zahl hier hat eine Quelle — die Volltexte liegen öffentlich. Prüfe selbst."
+    },
+    {
+      "type": "action",
+      "chapter": "fazit",
+      "headline": "Was du jetzt tun kannst",
+      "intro": "Wissen ist der erste Schritt. Der zweite ist eine Entscheidung. Hier sind die nächsten Schritte:",
+      "cards": [
+        {
+          "title": "Wählen gehen",
+          "text": "Die Landtagswahl in Sachsen-Anhalt am 6. September 2026 ist der nächste Test — laut Sonntagsfragen liegt die AfD dort vorn. Egal wo du wohnst: Informiert wählen ist die direkteste Antwort.",
+          "link": {
+            "label": "Aktuelle Umfragen (wahlrecht.de)",
+            "url": "https://www.wahlrecht.de/umfragen/landtage/sachsen-anhalt.htm"
+          }
+        },
+        {
+          "title": "Selbst nachprüfen",
+          "text": "Ziehe jede Zahl dieser Tour nach: Alle Quellen sind verlinkt und die Volltexte sind archiviert. Eine Behauptung prüfen dauert zwei Minuten.",
+          "link": {
+            "label": "Zum Quellenverzeichnis",
+            "url": "/quellen/"
+          }
+        },
+        {
+          "title": "Das Gespräch suchen",
+          "text": "Fakten wirken am stärksten im Gespräch mit Leuten, die du kennst. Jede Szene hat oben rechts einen Teilen-Button — schicke genau das Argument, das zählt."
+        },
+        {
+          "title": "Weiterlesen",
+          "text": "Der Verfassungsschutzbericht 2025 und die tagesschau-FAQ fassen den rechtskräftigen Stand zusammen — beides als Volltext archiviert.",
+          "link": {
+            "label": "VSB 2025 (PDF, BMI)",
+            "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf"
+          }
+        }
+      ]
     },
     {
       "type": "endcard",

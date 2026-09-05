@@ -1,0 +1,70 @@
+---
+// Quellen-Übersicht: alle Belege der Tour als flache, verlinkbare Liste.
+import Base from '../layouts/Base.astro';
+import scenesRaw from '../../../content/scenes.json';
+import { SITE_STAND } from '../lib/meta.js';
+
+const allScenes = /** @type {any[]} */ ((/** @type {any} */ (scenesRaw)).scenes);
+
+// Quellen einsammeln: scene.source + scene.sources[] + timeline items
+const seen = new Map();
+const chapterSources = /** @type {Map<string, any[]>} */ (new Map());
+
+function addSource(chapter, src) {
+  if (!src?.url || src.url.startsWith('/')) return; // interne Links sind keine Belege
+  if (!seen.has(src.url)) {
+    seen.set(src.url, { ...src, chapters: new Set() });
+  }
+  seen.get(src.url).chapters.add(chapter);
+}
+
+for (const s of allScenes) {
+  addSource(s.chapter, s.source);
+  for (const src of s.sources ?? []) addSource(s.chapter, src);
+  for (const item of s.items ?? []) addSource(s.chapter, item.source);
+  for (const card of s.cards ?? []) {
+    if (card.link?.url) {
+      addSource(s.chapter, { label: card.link.label, url: card.link.url });
+    }
+  }
+}
+const sources = [...seen.values()].map((s) => ({ ...s, chapters: [...s.chapters] }));
+---
+
+<Base title="Quellen — Die AfD. Die Fakten." description="Alle Belege der Fakten-Tour: 40+ Quellen mit Abrufdatum. Volltexte archiviert.">
+  <div class="doc-page" style="--accent: #FF4D2E">
+    <header class="doc-header">
+      <p class="doc-kicker">Transparenz</p>
+      <h1 class="doc-title">Quellen</h1>
+      <p class="doc-question">
+        Jede Behauptung in dieser Tour hat einen Beleg. Hier sind alle {sources.length} Quellen
+        mit Abrufdatum — die Volltexte liegen archiviert vor (SHA256-geprüft), damit nichts
+        verloren geht, wenn eine Seite offline geht.
+      </p>
+      <a class="doc-tour-link" href="/">→ Zur Tour</a>
+    </header>
+
+    <ol class="sources-list">
+      {
+        sources.map((src, i) => (
+          <li class="sources-item">
+            <span class="sources-num">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <a class="sources-link" href={src.url} target="_blank" rel="noopener noreferrer">
+                {src.label}
+              </a>
+              <p class="sources-meta">
+                {src.visited ? `abgerufen ${src.visited}` : 'Abrufdatum s. Tour'} · Kapitel:{' '}
+                {src.chapters.join(', ')}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <footer class="doc-footer">
+      <p>Stand: {SITE_STAND} · <a href="/">Zur Tour</a></p>
+    </footer>
+  </div>
+</Base>
