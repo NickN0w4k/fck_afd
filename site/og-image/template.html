@@ -1,0 +1,100 @@
+<!doctype html>
+<!-- og:image Vorlage (1200x630). Render: node scripts/og-image.mjs -->
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <style>
+    @font-face {
+      font-family: 'SpaceGrotesk';
+      src: url('file:///root/fck_afd/node_modules/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2') format('woff2');
+      font-weight: 300 700;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    body {
+      background: #0a0a0a;
+      color: #f5f2ec;
+      font-family: 'SpaceGrotesk', sans-serif;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 44px 72px 32px;
+    }
+    .glow1, .glow2 {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .glow1 { width: 700px; height: 700px; top: -380px; left: -200px; background: radial-gradient(circle, rgba(255,77,46,0.5), transparent 70%); }
+    .glow2 { width: 620px; height: 620px; bottom: -360px; right: -160px; background: radial-gradient(circle, rgba(92,255,143,0.28), transparent 70%); }
+    .grain { position: absolute; inset: 0; opacity: 0.5;
+      background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.014) 0 1px, transparent 1px 3px); }
+    .kicker {
+      font-size: 24px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #9b968c;
+      margin-bottom: 22px;
+      position: relative;
+    }
+    .kicker b { color: #ff4d2e; font-weight: 700; }
+    h1 {
+      font-size: 88px;
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+    h1 .accent { color: #ff4d2e; }
+    .sub {
+      margin-top: 20px;
+      font-size: 27px;
+      font-weight: 500;
+      color: #c9c4ba;
+      position: relative;
+      max-width: 980px;
+      line-height: 1.35;
+    }
+    .facts {
+      margin-top: 32px;
+      display: flex;
+      gap: 40px;
+      position: relative;
+    }
+    .fact b { display: block; font-size: 38px; font-weight: 700; color: #ff4d2e; }
+    .fact span { display: block; font-size: 17px; color: #9b968c; margin-top: 4px; max-width: 300px; line-height: 1.3; }
+    .url {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 22px;
+      color: #9b968c;
+      letter-spacing: 0.06em;
+      border-top: 1px solid rgba(245,242,236,0.14);
+      padding-top: 16px;
+    }
+    .url .site { color: #f5f2ec; font-weight: 600; }
+    .url .stand { font-size: 20px; }
+  </style>
+</head>
+<body>
+  <div class="glow1"></div>
+  <div class="glow2"></div>
+  <div class="grain"></div>
+  <p class="kicker">Keine Meinung <b>·</b> Nur Quellen</p>
+  <h1>Die AfD.<br /><span class="accent">Die Fakten.</span></h1>
+  <p class="sub">Jede Behauptung mit Quelle. Was die Partei plant — und was sie kostet, steht in den Gutachten.</p>
+  <div class="facts">
+    <div class="fact"><b>28.000</b><span>Rechtsextremismus-Potenzial im AfD-Umfeld (VSB 2025)</span></div>
+    <div class="fact"><b>690 Mrd. €</b><span>Kosten eines Dexit (IW Köln)</span></div>
+    <div class="fact"><b>+440 €</b><span>Mehr Jahresbelastung für eine 40.000-€-Familie (Steuerpläne)</span></div>
+  </div>
+  <div class="url">
+    <span class="site">fck-afd.example</span>
+    <span class="stand">Stand: 05.09.2026 · Alle Quellen archiviert</span>
+  </div>
+</body>
+</html>
