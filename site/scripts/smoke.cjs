@@ -49,8 +49,8 @@ function check(name, cond) {
     check('Share: Escape schließt', !(await page.locator('#share-sheet').isVisible()));
   }
 
-  // Quiz: Antwort klicken → Erklärung mit aria-live
-  const quizOpt = page.locator('.scene[data-chapter="intro"] .option').first();
+  // Quiz: Antwort klicken → Erklärung mit aria-live (erstes Quiz, wo auch immer)
+  const quizOpt = page.locator('.quiz .option').first();
   await quizOpt.scrollIntoViewIfNeeded();
   await quizOpt.click();
   await page.waitForTimeout(400);
