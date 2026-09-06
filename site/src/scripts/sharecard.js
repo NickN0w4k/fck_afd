@@ -1,6 +1,6 @@
-// ShareCard: generiert eine 1080×1920 Story-Karte (PNG) mit 6 Kernfakten.
-// Kein QR (auf einem geteilten Bild unscanbar) — stattdessen mehr Raum für die
-// Fakten und die URL als Footer-Zeile. Läuft komplett clientseitig im Canvas.
+// ShareCard: generiert eine 1080×1920 Story-Karte (PNG) — reißerische
+// Fakten-Übersicht im "Alarm"-Look. Kein QR (auf geteilten Bildern unscanbar),
+// die URL steht als Text im Footer. Läuft komplett clientseitig im Canvas.
 
 const W = 1080;
 const H = 1920;
@@ -25,6 +25,39 @@ function wrapText(ctx, text, maxWidth) {
   return lines;
 }
 
+// Schriftgröße verkleinern, bis der Text passt
+function fitFont(ctx, text, weight, family, startSize, maxWidth) {
+  let size = startSize;
+  do {
+    ctx.font = `${weight} ${size}px ${family}`;
+    if (ctx.measureText(text).width <= maxWidth) break;
+    size -= 2;
+  } while (size > 28);
+  return size;
+}
+
+const HEAD_FONT = '"Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
+const BODY_FONT = '"Inter Variable", Inter, system-ui, sans-serif';
+
+// Warnstreifen-Band (diagonal, akzentfarben) — dezenter Alarm-Look
+function warningStripes(ctx, y, h) {
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(0, y, W, h);
+  ctx.clip();
+  ctx.fillStyle = BG;
+  ctx.fillRect(0, y, W, h);
+  ctx.strokeStyle = 'rgba(255,77,46,0.55)';
+  ctx.lineWidth = 16;
+  for (let x = -h; x < W + h; x += 44) {
+    ctx.beginPath();
+    ctx.moveTo(x, y + h);
+    ctx.lineTo(x + h, y);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
 export async function renderShareCard({ accent = '#ff4d2e', url }) {
   const canvas = document.createElement('canvas');
   canvas.width = W;
@@ -32,62 +65,98 @@ export async function renderShareCard({ accent = '#ff4d2e', url }) {
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('canvas unavailable');
 
-  // Hintergrund
+  // Hintergrund + dunkler Glow-Hauch
   ctx.fillStyle = BG;
   ctx.fillRect(0, 0, W, H);
-
-  // Glow-Hauch (wie die Site, dezent)
-  const g1 = ctx.createRadialGradient(0, H * 0.06, 0, 0, H * 0.06, W * 0.95);
-  g1.addColorStop(0, `${accent}26`);
+  const g1 = ctx.createRadialGradient(0, 0, 0, 0, 0, W);
+  g1.addColorStop(0, `${accent}30`);
   g1.addColorStop(1, 'transparent');
   ctx.fillStyle = g1;
-  ctx.fillRect(0, 0, W, H * 0.55);
+  ctx.fillRect(0, 0, W, H * 0.6);
+
+  // Warnstreifen oben + unten (Rahmen des Alarms)
+  warningStripes(ctx, 0, 26);
+  warningStripes(ctx, H - 26, 26);
+
+  ctx.textBaseline = 'top';
+
+  // Stempel "BEVOR DU WÄHLST" (leicht rotiert, rahmen)
+  ctx.save();
+  ctx.translate(W - 300, 96);
+  ctx.rotate(-0.07);
+  ctx.strokeStyle = accent;
+  ctx.lineWidth = 6;
+  ctx.strokeRect(0, 0, 236, 74);
+  ctx.fillStyle = accent;
+  ctx.font = `700 30px ${HEAD_FONT}`;
+  ctx.textAlign = 'center';
+  ctx.fillText('BEVOR DU', 118, 16);
+  ctx.fillText('WÄHLST', 118, 44);
+  ctx.restore();
+  ctx.textAlign = 'left';
 
   // Headline
-  ctx.textBaseline = 'top';
-  ctx.fillStyle = accent;
-  ctx.font = '700 76px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
-  ctx.fillText('DIE AFD.', 84, 120);
   ctx.fillStyle = FG;
-  ctx.fillText('DIE FAKTEN.', 84, 205);
+  ctx.font = `700 110px ${HEAD_FONT}`;
+  ctx.fillText('DIE AFD.', 84, 84);
+  ctx.fillStyle = accent;
+  ctx.font = `700 96px ${HEAD_FONT}`;
+  ctx.fillText('DIE FAKTEN.', 84, 196);
 
   ctx.fillStyle = MUTED;
-  ctx.font = '400 30px "Inter Variable", Inter, system-ui, sans-serif';
-  ctx.fillText('Sechs Fakten. Jede mit Quelle.', 84, 305);
+  ctx.font = `500 32px ${BODY_FONT}`;
+  ctx.fillText('Sechs Fakten. Jede mit Quelle. Alles prüfbar.', 84, 330);
 
-  // 6 Kernfakten — große Zahl, kurzer Text, jetzt mehr Raum pro Zeile
+  // 6 Kernfakten: RIESIGE Zahl + Uppercase-Label + punchy Zeile
   const facts = (window.__fckafd_facts6 ?? []).slice(0, 6);
-  let y = 375;
-  const rowH = 195;
+  let y = 425;
+  const rowH = 198;
   facts.forEach((f) => {
-    // Große Akzent-Zahl/Keyword
+    // Riesige Zahl (auto-fit)
+    const size = fitFont(ctx, f.big, '700', HEAD_FONT, 84, W - 168);
     ctx.fillStyle = accent;
-    ctx.font = '700 72px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
+    ctx.font = `700 ${size}px ${HEAD_FONT}`;
     ctx.fillText(f.big, 84, y);
-    // Beschreibung (max 2 Zeilen)
+
+    // Uppercase-Label
+    const labelY = y + size + 12;
     ctx.fillStyle = FG;
-    ctx.font = '500 30px "Inter Variable", Inter, system-ui, sans-serif';
+    ctx.font = `700 32px ${HEAD_FONT}`;
+    ctx.fillText(f.label.toUpperCase(), 84, labelY);
+
+    // Punchline (max 2 Zeilen)
+    ctx.fillStyle = MUTED;
+    ctx.font = `500 28px ${BODY_FONT}`;
     const lines = wrapText(ctx, f.small, W - 84 * 2).slice(0, 2);
     lines.forEach((line, li) => {
-      ctx.fillText(line, 84, y + 92 + li * 40);
+      ctx.fillText(line, 84, labelY + 46 + li * 36);
     });
-    // Trennlinie
-    ctx.strokeStyle = 'rgba(245,242,236,0.10)';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(84, y + 172);
-    ctx.lineTo(W - 84, y + 172);
-    ctx.stroke();
-    y += rowH;
+
+    y += rowH + (lines.length > 1 ? 18 : 0);
+    if (f !== facts[facts.length - 1]) {
+      ctx.strokeStyle = 'rgba(245,242,236,0.12)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(84, y + 4);
+      ctx.lineTo(W - 84, y + 4);
+      ctx.stroke();
+      y += 34;
+    }
   });
 
-  // Footer: URL als Text (auf einem geteilten Bild der sinnvollste Verweis)
-  ctx.fillStyle = MUTED;
-  ctx.font = '500 28px "Inter Variable", Inter, system-ui, sans-serif';
-  ctx.fillText('Die ganze Tour mit allen Quellen:', 84, H - 170);
+  // Footer: Akzent-Balken mit URL (kontrastig, teilbar)
+  const barH = 128;
+  const barY = H - 26 - barH - 40;
   ctx.fillStyle = accent;
-  ctx.font = '700 34px "Space Grotesk Variable", "Space Grotesk", system-ui, sans-serif';
-  ctx.fillText(url.replace(/^https?:\/\//, ''), 84, H - 115);
+  ctx.fillRect(84, barY, W - 168, barH);
+  ctx.fillStyle = '#0a0a0a';
+  ctx.font = `700 40px ${HEAD_FONT}`;
+  ctx.fillText('DIE GANZE TOUR:', 84 + 40, barY + 18);
+  fitFont(ctx, url.replace(/^https?:\/\//, ''), '700', HEAD_FONT, 46, W - 168 - 80);
+  ctx.fillText(url.replace(/^https?:\/\//, ''), 84 + 40, barY + 68);
+  ctx.fillStyle = MUTED;
+  ctx.font = `700 26px ${BODY_FONT}`;
+  ctx.fillText('44 QUELLEN. ALLES SELBST PRÜFBAR.', 84, barY + barH + 18);
 
   return canvas;
 }
