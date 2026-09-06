@@ -29,7 +29,7 @@ function check(name, cond) {
   // --- Tour ---
   await page.goto(BASE + '/', { waitUntil: 'networkidle' });
   const scenesCount = await page.evaluate(() => document.querySelectorAll('.scene').length);
-  check(`Tour: Share-Button je Szene (${scenesCount})`, (await page.locator('.scene-share').count()) === scenesCount && scenesCount > 40);
+  check(`Tour: Share-Button je Szene (${scenesCount})`, (await page.locator('.scene-share').count()) === scenesCount && scenesCount >= 25);
   check('Tour: Stand-Badge', await page.locator('.stand-badge').isVisible());
   check('Tour: Skip-Link', (await page.locator('.skip-link').count()) === 1);
   check('Tour: Timeline mit 6 Karten', (await page.locator('.tl-card').count()) === 6);

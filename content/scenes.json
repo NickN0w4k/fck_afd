@@ -46,31 +46,6 @@
       }
     },
     {
-      "type": "quiz",
-      "chapter": "verfassungsschutz",
-      "question": "Wie bewertet das Bundesamt für Verfassungsschutz die AfD?",
-      "options": [
-        {
-          "text": "Gar nicht — das ist unzulässig",
-          "correct": false
-        },
-        {
-          "text": "Als „Verdachtsfall“ rechtsextremistischer Bestrebungen — rechtskräftig bestätigt",
-          "correct": true
-        },
-        {
-          "text": "Nur der Thüringer Landesverband",
-          "correct": false
-        }
-      ],
-      "explanation": "Seit dem 3. März 2021 gilt die Gesamtpartei als Verdachtsfall. VG Köln (2022) und OVG NRW (2024) bestätigten die Einstufung, das Bundesverwaltungsgericht ließ die Revision nicht zu (Mai 2025). Die AfD war mit ihrer Klage in drei Instanzen erfolglos. Eine Hochstufung zur „gesichert rechtsextremistischen Bestrebung“ (Mai 2025) wurde im Eilverfahren vorläufig ausgesetzt — die Hauptsache läuft. Einordnung: Die AfD nennt das „linksgrüne Hetzbehörde“. Die Gerichte — konservativ besetzt, unabhängig — haben dreimal anders entschieden.",
-      "source": {
-        "label": "BfV-Pressemitteilung 13.05.2024 + tagesschau-Analyse 26.02.2026",
-        "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html",
-        "visited": "2026-09-03"
-      }
-    },
-    {
       "type": "timeline",
       "chapter": "verfassungsschutz",
       "headline": "Drei Instanzen, ein Ergebnis",
@@ -139,29 +114,6 @@
       ]
     },
     {
-      "type": "reveal",
-      "chapter": "verfassungsschutz",
-      "teaser": "Tippen, um aufzudecken",
-      "headline": "Fünf Landesverbände gelten als gesichert rechtsextremistisch",
-      "body": "Thüringen, Sachsen und Sachsen-Anhalt führen die Landesbehörden seit Jahren als „gesichert extremistisch“ — von keinem Gericht gekippt. 2025/26 kamen Brandenburg (Vermerk 14.04.2025) und Niedersachsen hinzu (Gerichts-Eilentscheidung Juni 2026, erster westdeutscher Verband). Belege der Gerichte u. a.: Schlagworte wie „Bevölkerungsaustausch“, „Umvolkung“, „Volkstod“. (Correctiv-Länderübersicht, Juni 2026)",
-      "source": {
-        "label": "CORRECTIV — Verfassungsschutz-Einstufungen der AfD in den Bundesländern (17.06.2026)",
-        "url": "https://correctiv.org/aktuelles/afd/2026/06/17/wie-stuft-der-verfassungsschutz-die-afd-in-den-bundeslaendern-ein/",
-        "visited": "2026-09-03"
-      }
-    },
-    {
-      "type": "statement",
-      "chapter": "verfassungsschutz",
-      "text": "Der Verfassungsschutz schreibt, in der AfD komme ein Volksverständnis zum Ausdruck, das im Widerspruch zum Grundgesetz stehe — der Mensch als Teil einer Abstammungsgemeinschaft, nicht als Träger gleicher Würde.",
-      "note": "VSB 2025, S. 131–132 · OVG NRW, Urteil 13.05.2024",
-      "source": {
-        "label": "Verfassungsschutzbericht 2025 (BMI), S. 131–132",
-        "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
-        "visited": "2026-09-03"
-      }
-    },
-    {
       "type": "quote",
       "chapter": "verfassungsschutz",
       "quote": "Unsere Dörfer sterben nicht nur leise aus. Sie werden gezielt umgewandelt. … Die Politik schaut nicht nur dabei zu, sie fördert aktiv den Austausch unserer Bevölkerung.",
@@ -170,18 +122,6 @@
       "source": {
         "label": "Verfassungsschutzbericht 2025 (BMI), S. 131",
         "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
-        "visited": "2026-09-03"
-      }
-    },
-    {
-      "type": "quote",
-      "chapter": "verfassungsschutz",
-      "quote": "Der Verfassungsschutz gehört in seiner jetzigen Form abgeschafft beziehungsweise grundlegend reformiert.",
-      "author": "Alice Weidel, AfD-Bundesvorsitzende, August 2026",
-      "context": "Weidel behauptete, der Verfassungsschutz werde „zur Beobachtung und Unterdrückung der politischen Opposition eingesetzt“. Diese Forderung begleitete ihren ganzen Wahlkampf — beim offiziellen Wahlkampfauftakt am 18.07.2026 in der Magdeburger Messehalle, vor rund 3.000 Anhängern. Übersetzt: Die AfD will genau die Behörde abschaffen, die ihre Partei als rechtsextremistisch einstuft.",
-      "source": {
-        "label": "Deutschlandfunk 17.08.2026 · dpa/MDR zum Wahlkampfauftakt 18.07.2026",
-        "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html",
         "visited": "2026-09-03"
       }
     },
@@ -218,17 +158,6 @@
       "chapter": "programm"
     },
     {
-      "type": "statement",
-      "chapter": "programm",
-      "text": "Was würde die AfD mit Deutschland machen? Steht in ihrem Wahlprogramm. Wort für Wort.",
-      "note": "„Zeit für Deutschland“, 16. Bundesparteitag Riesa, Januar 2025",
-      "source": {
-        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de) — Beratungs- und Beschlussdokument",
-        "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
-        "visited": "2026-09-03"
-      }
-    },
-    {
       "type": "contrast",
       "chapter": "programm",
       "claim": "„Das Klima kann der Mensch nicht schützen.“",
@@ -236,17 +165,6 @@
       "source": {
         "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 53",
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
-        "visited": "2026-09-03"
-      }
-    },
-    {
-      "type": "contrast",
-      "chapter": "programm",
-      "claim": "„Wir wollen Europa — nur ein anderes.“",
-      "reality": "Im Grundsatzprogramm steht wörtlich: „Sollten sich unsere grundlegenden Reformansätze im bestehenden System der EU nicht verwirklichen lassen, streben wir einen Austritt Deutschlands oder eine demokratische Auflösung der Europäischen Union … an.“ Das ist Dexit — als offizielles Ziel.",
-      "source": {
-        "label": "AfD-Grundsatzprogramm „Programm für Deutschland“, Kapitel Europa",
-        "url": "https://rnk.afd-bw.de/afd-bw/wahlprogramme/afd-grundsatzprogramm_aktuelle-version.pdf",
         "visited": "2026-09-03"
       }
     },
@@ -259,17 +177,6 @@
       "source": {
         "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 92 · VSB 2025, S. 86–87",
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
-        "visited": "2026-09-03"
-      }
-    },
-    {
-      "type": "contrast",
-      "chapter": "programm",
-      "claim": "„Wir sind für Freiheit — auch in Schulen und Straßen.“",
-      "reality": "Im Wahlprogramm steht wörtlich: „Der Bau von Minaretten und der Muezzinruf sind zu untersagen.“ und „Wir fordern ein Kopftuchverbot in öffentlichen Einrichtungen und insbesondere in Schulen.“ Widerspruch inklusive: Die Partei, die sich als Hüterin der Grundrechte verkauft, würde Muslimen gezielt Grundrechte nehmen — für die Ausübung ihrer Religion. Das Verwaltungsgericht Köln hat genau diese Forderungen 2026 in seinem Beschluss zitiert.",
-      "source": {
-        "label": "AfD-Wahlprogramm 2025 (S. ~105) · tagesschau 26.02.2026 zum VG-Köln-Beschluss",
-        "url": "https://www.tagesschau.de/inland/innenpolitik/afd-einstufung-verfassungsschutz-106.html",
         "visited": "2026-09-03"
       }
     },
@@ -342,30 +249,6 @@
       }
     },
     {
-      "type": "reveal",
-      "chapter": "innen",
-      "teaser": "Tippen, um aufzudecken",
-      "headline": "„Abschieben, bis die Startbahnen glühen“",
-      "body": "Die Bayerische AfD-Fraktion forderte im Januar 2026 offiziell eine Abschiebe-Truppe „ähnlich wie das ICE“ — die US-Behörde, deren gewaltsame Einsätze weltweit für Schlagzeilen sorgen. Name: „AFA“. Fraktionschefin Ebner-Steiner: „Damit meinen wir Straftäter, Ausreisepflichtige und Personen, die sich den deutschen Pass erschlichen haben.“ Ihr Parteitag 2024: „umfassende Remigration im Millionenbereich für die kommenden zehn Jahre“. Polizei-Gewerkschaften und das Innenministerium lehnten den Vorstoß ab — rechtlich gäbe es dafür keine Grundlage. Der Politologe Schammann: „Man kann die Forderungen der AfD nur erfüllen, wenn man ein anderes politisches System wählt.“ (BR24, 30.01.2026)",
-      "source": {
-        "label": "Bayerischer Rundfunk BR24 (30.01.2026)",
-        "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3",
-        "visited": "2026-09-03"
-      }
-    },
-    {
-      "type": "quote",
-      "chapter": "innen",
-      "quote": "Man erlebe aktuell einen Angriff auf die weißen Europäer, auf die weißen Menschen in dieser Welt.",
-      "author": "Dennis Hohloch, AfD-Landtagsabgeordneter, beim offiziellen AfD-Wahlkampfauftakt Magdeburg, 18.07.2026",
-      "context": "Dokumentiert vom MDR. Hohloch bedient damit die rechtsextreme „Großer Austausch“-Verschwörungserzählung — auf der offiziellen Bühne der Partei, vor rund 3.000 Anhängern. „Jubel im Saal. Es widerspricht niemand.“ (MDR, 20.07.2026)",
-      "source": {
-        "label": "MDR-Analyse zum Wahlkampfauftakt (20.07.2026)",
-        "url": "https://www.mdr.de/nachrichten/sachsen-anhalt/landtagswahl/analyse-wahlkampf-auftakt-wahl,afd-siegmund-magdeburg-102.html",
-        "visited": "2026-09-03"
-      }
-    },
-    {
       "type": "chapterbreak",
       "chapter": "kosten"
     },
@@ -405,54 +288,6 @@
       }
     },
     {
-      "type": "data",
-      "chapter": "kosten",
-      "headline": "Erbschaftsteuer abschaffen: Geschenk an die Erben von Milliardären",
-      "value": 8.5,
-      "suffix": " Mrd. €",
-      "caption": "Die AfD hat im Juli 2026 ein Gesetz zur Abschaffung der Erbschaftsteuer in den Bundestag gebracht (21/7251) — 8,5 Mrd. € Entlastung für Erben, 4,8 Mrd. € für Beschenkte. Wer erbt so viel? DIW: Die Hälfte aller Erbschaftssummen fließt an die reichsten 10 % der Empfänger. Nicht an dich.",
-      "chart": "bars",
-      "series": [
-        {
-          "label": "Entlastung Erben",
-          "value": 100
-        },
-        {
-          "label": "Anteil Reichste 10 % an Erbschaften",
-          "value": 50
-        }
-      ],
-      "source": {
-        "label": "Bundestag hib 608/2026 · DIW Wochenbericht 5/2021",
-        "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1201000",
-        "visited": "2026-09-03"
-      }
-    },
-    {
-      "type": "data",
-      "chapter": "kosten",
-      "headline": "Dexit: Der Preis für den EU-Austritt",
-      "value": 690,
-      "suffix": " Mrd. €",
-      "caption": "IW-Gutachten: Ein Dexit würde nach fünf Jahren 5,6 % des BIP kosten — 690 Milliarden Euro und 2,5 Millionen Arbeitsplätze. Und das ohne Euro-Austritt, den die AfD ebenfalls will. Zum Vergleich: Das ist mehr als der gesamte Bundeshaushalt eines Jahres.",
-      "chart": "bars",
-      "series": [
-        {
-          "label": "BIP-Verlust nach 5 Jahren",
-          "value": 90
-        },
-        {
-          "label": "Bundeshaushalt 2025 (zum Vergleich)",
-          "value": 80
-        }
-      ],
-      "source": {
-        "label": "IW Köln, Gutachten „Vielfalt ist Zukunft“ (2025, PDF)",
-        "url": "https://www.iwkoeln.de/fileadmin/user_upload/Studien/Gutachten/PDF/2025/IW-Gutachten_2025-Vielfalt-ist-Zukunft.pdf",
-        "visited": "2026-09-03"
-      }
-    },
-    {
       "type": "quiz",
       "chapter": "kosten",
       "question": "Wer bekommt laut Datenanalyse den größten Teil der EU-Agrarmilliarden?",
@@ -478,30 +313,6 @@
       }
     },
     {
-      "type": "data",
-      "chapter": "kosten",
-      "headline": "Klimaschutz abschaffen — die Rechnung kommt später",
-      "value": 900,
-      "suffix": " Mrd. €",
-      "caption": "Studie für das BMWK: Klimaschäden bis 2050 kosten Deutschland je nach Erderwärmung 280–900 Mrd. €. Die AfD will 23 Klimagesetze kündigen (EEG, CO₂-Handel, Klimafonds — Bundestag lehnte 443:131 ab). Die Ahrtal-Flut 2021 allein: 40 Mrd. € Folgekosten. Ein Hitzetag kostet Sachsen-Anhalt 22 Mio. € Produktivität — Correctiv-Berechnung von Prognos.",
-      "chart": "bars",
-      "series": [
-        {
-          "label": "Klimaschäden bis 2050 (obere Grenze)",
-          "value": 100
-        },
-        {
-          "label": "Ahrtal-Flut 2021",
-          "value": 20
-        }
-      ],
-      "source": {
-        "label": "SZ zur BMWK-Studie (2023) · Bundestag 21/576 · Correctiv/Prognos (31.08.2026)",
-        "url": "https://correctiv.org/aktuelles/klimawandel/2026/08/31/afd-klimapolitik-gefaehrdet-sachsen-anhalts-wirtschaft/",
-        "visited": "2026-09-03"
-      }
-    },
-    {
       "type": "quote",
       "chapter": "kosten",
       "quote": "Die Hauptleidtragenden der AfD-Politik wären ihre eigenen Wählerinnen und Wähler.",
@@ -518,12 +329,6 @@
       "chapter": "einwaende"
     },
     {
-      "type": "statement",
-      "chapter": "einwaende",
-      "text": "Gegen die Fakten dieser Tour gibt es eine Handvoll Standard-Antworten. Alle drei klingen plausibel — alle drei halten der Prüfung nicht stand.",
-      "note": "Die häufigsten Einwände"
-    },
-    {
       "type": "contrast",
       "chapter": "einwaende",
       "claim": "„Der Verfassungsschutz ist doch parteiisch — das sind politische Gegner, die da urteilen.“",
@@ -531,17 +336,6 @@
       "source": {
         "label": "tagesschau: Verfassungsschutz-Einstufung — Wie das AfD-Verfahren weitergeht",
         "url": "https://www.tagesschau.de/inland/innenpolitik/afd-verfahren-verfassungsschutz-100.html",
-        "visited": "2026-09-03"
-      }
-    },
-    {
-      "type": "contrast",
-      "chapter": "einwaende",
-      "claim": "„Höcke, Krah — das sind Einzelfälle. Die Partei als Ganzes ist doch normal.“",
-      "reality": "Der Verfassungsschutz schreibt im Bericht 2025: Liberal-konservative Positionen sind in der Partei „öffentlich kaum noch wahrnehmbar“. Eingestuft wird das Gesamtbild — nicht ein einzelner Funktionär.",
-      "source": {
-        "label": "Verfassungsschutzbericht 2025 (BMI, PDF, S. 131)",
-        "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
         "visited": "2026-09-03"
       }
     },
@@ -643,23 +437,23 @@
         },
         {
           "num": "02",
-          "text": "Die Partei ist rechtsextremistischer Verdachtsfall — rechtskräftig in drei Instanzen. Fünf Landesverbände gelten als gesichert rechtsextremistisch."
+          "text": "Rechtsextremistischer Verdachtsfall — rechtskräftig in drei Instanzen (VG Köln, OVG NRW, BVerwG)."
         },
         {
           "num": "03",
-          "text": "Die AfD-Chefin will genau diese Behörde abschaffen (Deutschlandfunk, Aug. 2026)."
+          "text": "In Sachsen-Anhalt liegt die Partei kurz vor der Wahl bei 40–42 % — vor der Regierungsmacht."
         },
         {
           "num": "04",
-          "text": "In Sachsen-Anhalt liegt sie kurz vor der Wahl bei 40–42 % — vor der Regierungsmacht."
+          "text": "Familie mit 40.000 € brutto: minus 440 €/Jahr. Topverdiener: plus 19.190 € (ZEW)."
         },
         {
           "num": "05",
-          "text": "Familie mit 40.000 € brutto: minus 440 €/Jahr. Topverdiener: plus 19.190 € (ZEW). Ein Dexit: 690 Mrd. € und 2,5 Mio. Jobs (IW)."
+          "text": "DIW: Die Hauptleidtragenden der AfD-Politik wären ihre eigenen Wähler — gerade in strukturschwachen Regionen."
         },
         {
           "num": "06",
-          "text": "Björn Höcke wurde zweimal wegen einer SA-Parole verurteilt. Krahs Mitarbeiter spionierte für China — aus dem EU-Büro des AfD-Spitzenkandidaten."
+          "text": "Björn Höcke: zweimal wegen einer SA-Parole verurteilt. Krahs Mitarbeiter spionierte für China — aus dem EU-Büro des AfD-Spitzenkandidaten."
         }
       ],
       "closing": "Jede Zahl hier hat eine Quelle — die Volltexte liegen öffentlich. Prüfe selbst."
