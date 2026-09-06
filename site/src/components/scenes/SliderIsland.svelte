@@ -1,5 +1,5 @@
 <script>
-  import { factList } from '../../../scripts/textsplit.js';
+  import { factList } from '../../scripts/textsplit.js';
   let { min = 0, max = 100, answer, unit = '', explanation } = $props();
 
   let val = $state(Math.round((min + max) / 2));

@@ -1,6 +1,6 @@
 <script>
   import { scale } from 'svelte/transition';
-  import { factList } from '../../../scripts/textsplit.js';
+  import { factList } from '../../scripts/textsplit.js';
   let { teaser, headline, body } = $props();
   let open = $state(false);
   const items = $derived(open ? factList(body, 200) : []);

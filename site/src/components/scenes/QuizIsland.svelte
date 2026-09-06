@@ -1,6 +1,6 @@
 <script>
   import { slide } from 'svelte/transition';
-  import { factList } from '../../../scripts/textsplit.js';
+  import { factList } from '../../scripts/textsplit.js';
   // Svelte 5: runes-lose, einfache Props + State
   let { options, explanation } = $props();
 

@@ -14,10 +14,12 @@ interface Props {
 const { scene } = Astro.props;
 const isMyth = scene.reality.startsWith('!');
 const reality = isMyth ? scene.reality.slice(1) : scene.reality;
-// Aufzählungs-Realität: an " — " splitten (max 4 Punkte), nur wenn lang genug
-const realityItems = reality.length > 180
-  ? reality.split(/\s+—\s+/).slice(0, 4)
-  : null;
+// Aufzählungs-Realität: an " — " splitten (max 4 Punkte), nur wenn lang genug.
+// Als fertiges HTML vorberechnen (umgeht Astro-Compiler-Falle bei each+if-Nesting).
+const items = reality.length > 180 ? reality.split(/\s+—\s+/).slice(0, 4) : null;
+const realityHtml = items && items.length > 1
+  ? `<ul class="reality-list">${items.map((item) => `<li>${hl('✓ ' + item)}</li>`).join('')}</ul>`
+  : `<p class="reality-text">${hl(reality)}</p>`;
 ---
 
 <div class="contrast">
@@ -27,20 +29,7 @@ const realityItems = reality.length > 180
   </div>
   <div class="reality">
     <p class="side-label">Realität</p>
-    {#if realityItems && realityItems.length > 1}
-      <ul class="reality-list">
-        {#each realityItems as item}
-          <li>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
-              <path d="M20 6 9 17l-5-5" />
-            </svg>
-            <span set:html={hl(item)} />
-          </li>
-        {/each}
-      </ul>
-    {:else}
-      <p class="reality-text" set:html={hl(reality)} />
-    {/if}
+    <Fragment set:html={realityHtml} />
   </div>
   {scene.source && <SourceTag source={scene.source} />}
 </div>
