@@ -110,7 +110,7 @@ export async function renderShareCard({ accent = '#ff4d2e', url }) {
   // 6 Kernfakten: RIESIGE Zahl + Uppercase-Label + punchy Zeile
   const facts = (window.__fckafd_facts6 ?? []).slice(0, 6);
   let y = 425;
-  const rowH = 198;
+  const rowH = 190;
   facts.forEach((f) => {
     // Riesige Zahl (auto-fit)
     const size = fitFont(ctx, f.big, '700', HEAD_FONT, 84, W - 168);
@@ -124,39 +124,38 @@ export async function renderShareCard({ accent = '#ff4d2e', url }) {
     ctx.font = `700 32px ${HEAD_FONT}`;
     ctx.fillText(f.label.toUpperCase(), 84, labelY);
 
-    // Punchline (max 2 Zeilen)
+    // Punchline (1 Zeile, kurz gehalten in facts6)
     ctx.fillStyle = MUTED;
     ctx.font = `500 28px ${BODY_FONT}`;
-    const lines = wrapText(ctx, f.small, W - 84 * 2).slice(0, 2);
-    lines.forEach((line, li) => {
-      ctx.fillText(line, 84, labelY + 46 + li * 36);
-    });
+    ctx.fillText(f.small, 84, labelY + 46);
 
-    y += rowH + (lines.length > 1 ? 18 : 0);
+    y += rowH;
     if (f !== facts[facts.length - 1]) {
       ctx.strokeStyle = 'rgba(245,242,236,0.12)';
       ctx.lineWidth = 2;
       ctx.beginPath();
-      ctx.moveTo(84, y + 4);
-      ctx.lineTo(W - 84, y + 4);
+      ctx.moveTo(84, y + 2);
+      ctx.lineTo(W - 84, y + 2);
       ctx.stroke();
       y += 34;
     }
   });
 
-  // Footer: Akzent-Balken mit URL (kontrastig, teilbar)
-  const barH = 128;
-  const barY = H - 26 - barH - 40;
+  // Footer: Akzent-Balken mit URL — rechts die Quellen-Anzahl
+  const barY = 1760;
+  const barH = 100;
   ctx.fillStyle = accent;
   ctx.fillRect(84, barY, W - 168, barH);
   ctx.fillStyle = '#0a0a0a';
-  ctx.font = `700 40px ${HEAD_FONT}`;
-  ctx.fillText('DIE GANZE TOUR:', 84 + 40, barY + 18);
-  fitFont(ctx, url.replace(/^https?:\/\//, ''), '700', HEAD_FONT, 46, W - 168 - 80);
-  ctx.fillText(url.replace(/^https?:\/\//, ''), 84 + 40, barY + 68);
-  ctx.fillStyle = MUTED;
-  ctx.font = `700 26px ${BODY_FONT}`;
-  ctx.fillText('44 QUELLEN. ALLES SELBST PRÜFBAR.', 84, barY + barH + 18);
+  ctx.font = `700 24px ${HEAD_FONT}`;
+  ctx.fillText('DIE GANZE TOUR:', 124, barY + 16);
+  const urlSize = fitFont(ctx, url.replace(/^https?:\/\//, ''), '700', HEAD_FONT, 40, W - 168 - 300);
+  ctx.font = `700 ${urlSize}px ${HEAD_FONT}`;
+  ctx.fillText(url.replace(/^https?:\/\//, ''), 124, barY + 58);
+  ctx.font = `700 30px ${HEAD_FONT}`;
+  ctx.textAlign = 'right';
+  ctx.fillText('44 QUELLEN', W - 124, barY + 56);
+  ctx.textAlign = 'left';
 
   return canvas;
 }
