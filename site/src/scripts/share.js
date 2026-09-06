@@ -12,6 +12,7 @@ function ensureSheet() {
   if (sheet) return sheet;
   sheet = document.createElement('div');
   sheet.id = SHARE_SHEET_ID;
+  sheet.className = 'share-sheet';
   sheet.setAttribute('role', 'menu');
   sheet.hidden = true;
   sheet.innerHTML = `
@@ -112,7 +113,7 @@ function openSheetFor(anchor, text, url) {
   if (top + sh > window.innerHeight - 12) top = Math.max(12, r.top - sh - 10);
   sheet.style.left = `${left}px`;
   sheet.style.top = `${top}px`;
-  sheet.querySelector('button')?.focus();
+  sheet.querySelector('button')?.focus({ preventScroll: true });
 }
 
 /** Globale API für Komponenten (EndCard-Fallback): window.__sceneShare(text, url, anchorEl) */
