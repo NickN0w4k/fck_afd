@@ -82,7 +82,7 @@ function check(name, cond) {
   check('Deep-Link: Hash folgt Scrollen', hashCleared);
 
   // --- Unterseiten ---
-  for (const p of ['/einwaende/', '/verfassungsschutz/', '/quellen/', '/fazit/']) {
+  for (const p of ['/einwaende/', '/verfassungsschutz/', '/quellen/', '/fazit/', '/impressum/']) {
     await page.goto(BASE + p, { waitUntil: 'networkidle' });
     const h1 = await page.locator('h1').first().textContent();
     check(`Seite ${p}: H1 da (${(h1 || '').trim().slice(0, 30)})`, !!h1 && h1.trim().length > 2);
@@ -99,7 +99,7 @@ function check(name, cond) {
   // Sitemap + robots (base-aware: BASE enthält ggf. /fck_afd)
   const basePath = new URL(BASE + '/').pathname; // z.B. /fck_afd/
   const sm = await page.evaluate(async (u) => (await fetch(u)).text(), `${basePath}sitemap.xml`);
-  check('sitemap.xml: 9 URLs', (sm.match(/<loc>/g) || []).length === 9);
+  check('sitemap.xml: 10 URLs', (sm.match(/<loc>/g) || []).length === 10);
   const rb = await page.evaluate(async (u) => (await fetch(u)).text(), `${basePath}robots.txt`);
   check('robots.txt: Sitemap-Zeile', rb.includes('Sitemap:'));
 

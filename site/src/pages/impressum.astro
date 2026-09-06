@@ -1,0 +1,153 @@
+---
+// Impressum (§ 5 DDG + § 18 Abs. 2 MStV). Daten: site/src/lib/impressum.js — dort EINMAL ausfüllen.
+import Base from '../layouts/Base.astro';
+import { IMPRESSUM, IMPRESSUM_UNVOLLSTAENDIG } from '../lib/impressum.js';
+import { SITE_STAND } from '../lib/meta.js';
+---
+
+<Base
+  title="Impressum — Die AfD. Die Fakten."
+  description="Impressum und Anbieterkennzeichnung von info-afd.de nach § 5 DDG und § 18 Abs. 2 MStV."
+>
+  <div class="doc-page" style="--accent: #FF4D2E">
+    <header class="doc-header">
+      <p class="doc-kicker">Rechtliches</p>
+      <h1 class="doc-title">Impressum</h1>
+      <p class="doc-question">
+        Anbieterkennzeichnung für info-afd.de nach § 5 Digitale-Dienste-Gesetz (DDG) und
+        § 18 Abs. 2 Medienstaatsvertrag (MStV).
+      </p>
+      <a class="doc-tour-link" href={import.meta.env.BASE_URL}>→ Zur Tour</a>
+    </header>
+
+    {IMPRESSUM_UNVOLLSTAENDIG && (
+      <div class="impressum-warnung" role="alert">
+        <strong>Platzhalter noch nicht ausgefüllt.</strong> Die Kontaktdaten müssen in
+        <code>site/src/lib/impressum.js</code> eingetragen werden, bevor diese Seite live geht —
+        Details siehe <code>notes/UPDATE-PFAD.md</code>.
+      </div>
+    )}
+
+    <section class="impressum-block">
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <dl class="impressum-daten">
+        <dt>Anbieter</dt>
+        <dd>{IMPRESSUM.name}</dd>
+        <dt>Anschrift</dt>
+        <dd>{IMPRESSUM.anschrift}</dd>
+        <dt>Kontakt</dt>
+        <dd><a href={`mailto:${IMPRESSUM.email}`}>{IMPRESSUM.email}</a></dd>
+      </dl>
+    </section>
+
+    <section class="impressum-block">
+      <h2>Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV</h2>
+      <p>
+        Für die journalistisch-redaktionellen Inhalte dieser Seite ist verantwortlich:
+      </p>
+      <dl class="impressum-daten">
+        <dt>Name</dt>
+        <dd>{IMPRESSUM.verantwortlichName}</dd>
+        <dt>Anschrift</dt>
+        <dd>{IMPRESSUM.verantwortlichAnschrift}</dd>
+      </dl>
+      <p class="impressum-hinweis">
+        Ein Postfach genügt nicht — die Angabe einer ladungsfähigen Anschrift ist
+        Voraussetzung für die Anbieterkennzeichnung.
+      </p>
+    </section>
+
+    <section class="impressum-block">
+      <h2>Über dieses Angebot</h2>
+      <p>
+        info-afd.de ist ein nichtkommerzielles, privates Informationsangebot. Alle Inhalte
+        werden ehrenamtlich erstellt. Die Seite erhält keine Förderung, schaltet keine
+        Werbung und nimmt keine Auftragsinhalte entgegen. Finanzierung: ausschließlich
+        privat. Es bestehen keine Verbindungen zu politischen Parteien, Wählervereinigungen
+        oder deren Gliederungen — insbesondere nicht zur im Fokus der Berichterstattung
+        stehenden Partei.
+      </p>
+      <p>
+        Alle Behauptungen auf dieser Seite sind mit Primärquellen belegt; die Volltexte
+        liegen als archivierte Kopien mit SHA256-Prüfung vor
+        (<a href={`${import.meta.env.BASE_URL}quellen/`}>Quellenverzeichnis</a>).
+      </p>
+    </section>
+
+    <section class="impressum-block">
+      <h2>Haftung für Inhalte und Links</h2>
+      <p>
+        Die Inhalte dieser Seite wurden mit Sorgfalt erstellt. Für Richtigkeit,
+        Vollständigkeit und Aktualität wird jedoch keine Gewähr übernommen. Für externe
+        Links auf fremde Inhalte kann die Haftung nur im Moment der Verlinkung begründet
+        werden; rechtswidrige Inhalte waren zum Verlinkungszeitpunkt nicht erkennbar.
+      </p>
+    </section>
+
+    <footer class="doc-footer">
+      <p>
+        Stand: {SITE_STAND} · <a href={`${import.meta.env.BASE_URL}quellen/`}>Quellenverzeichnis</a>
+      </p>
+    </footer>
+  </div>
+</Base>
+
+<style>
+  .impressum-warnung {
+    background: rgba(255, 77, 46, 0.12);
+    border: 1px solid rgba(255, 77, 46, 0.45);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+  .impressum-warnung code {
+    font-family: var(--font-head);
+    font-size: 0.85em;
+    color: var(--accent);
+  }
+  .impressum-block {
+    margin-top: 2.4rem;
+    max-width: 46rem;
+  }
+  .impressum-block h2 {
+    font-family: var(--font-head);
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.9rem;
+  }
+  .impressum-daten {
+    display: grid;
+    grid-template-columns: minmax(7rem, 10rem) 1fr;
+    gap: 0.5rem 1.2rem;
+    margin: 0.8rem 0;
+  }
+  .impressum-daten dt {
+    color: var(--fg-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding-top: 0.15rem;
+  }
+  .impressum-daten dd {
+    margin: 0;
+    font-weight: 600;
+  }
+  .impressum-block p {
+    line-height: 1.65;
+    margin: 0.6rem 0;
+  }
+  .impressum-hinweis {
+    font-size: 0.82rem;
+    color: var(--fg-muted);
+  }
+  @media (max-width: 640px) {
+    .impressum-daten {
+      grid-template-columns: 1fr;
+      gap: 0.15rem 0;
+    }
+    .impressum-daten dt {
+      margin-top: 0.5rem;
+    }
+  }
+</style>
