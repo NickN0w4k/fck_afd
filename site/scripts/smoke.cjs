@@ -24,7 +24,13 @@ function check(name, cond) {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } }); // Mobile
   const errors = [];
   page.on('pageerror', (e) => errors.push('pageerror: ' + e.message));
-  page.on('console', (m) => { if (m.type() === 'error') errors.push('console: ' + m.text()); });
+  page.on('response', (r) => {
+    if (r.status() >= 400) errors.push(`http ${r.status()}: ${r.url()}`);
+  });
+  page.on('console', (m) => {
+    if (m.type() !== 'error') return;
+    errors.push('console: ' + m.text());
+  });
 
   // --- Tour ---
   await page.goto(BASE + '/', { waitUntil: 'networkidle' });
@@ -84,14 +90,17 @@ function check(name, cond) {
     check(`Seite ${p}: og:image`, await page.locator('meta[property="og:image"]').count() === 1);
     await page.locator('.doc-tour-link').click({ timeout: 3000 }).catch(() => {});
     await page.waitForTimeout(300);
-    check(`Seite ${p}: Tour-Link zurück zur /`, page.url().replace(/#.*$/, '') === BASE + '/');
+    // Base-korrekt: /fck_afd ODER /fck_afd/ sind beides gültige Tour-Ziele
+    const landed = page.url().replace(/#.*$/, '').replace(/\/$/, '');
+    check(`Seite ${p}: Tour-Link zurück zur /`, landed === BASE.replace(/\/$/, ''));
     await page.goto(BASE + p, { waitUntil: 'networkidle' });
   }
 
-  // Sitemap + robots
-  const sm = await page.evaluate(async () => (await fetch('/sitemap.xml')).text());
+  // Sitemap + robots (base-aware: BASE enthält ggf. /fck_afd)
+  const basePath = new URL(BASE + '/').pathname; // z.B. /fck_afd/
+  const sm = await page.evaluate(async (u) => (await fetch(u)).text(), `${basePath}sitemap.xml`);
   check('sitemap.xml: 9 URLs', (sm.match(/<loc>/g) || []).length === 9);
-  const rb = await page.evaluate(async () => (await fetch('/robots.txt')).text());
+  const rb = await page.evaluate(async (u) => (await fetch(u)).text(), `${basePath}robots.txt`);
   check('robots.txt: Sitemap-Zeile', rb.includes('Sitemap:'));
 
   console.log('\nJS-Fehler gesamt:', errors.length ? errors.slice(0, 10) : 'keine');
