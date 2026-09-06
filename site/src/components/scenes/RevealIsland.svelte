@@ -1,7 +1,9 @@
 <script>
   import { scale } from 'svelte/transition';
+  import { factList } from '../../../scripts/textsplit.js';
   let { teaser, headline, body } = $props();
   let open = $state(false);
+  const items = $derived(open ? factList(body, 200) : []);
 </script>
 
 {#if !open}
@@ -12,7 +14,11 @@
 {:else}
   <div class="card" transition:scale>
     <h2>{@html headline}</h2>
-    <p>{@html body}</p>
+    <ul class="fact-list">
+      {#each items as item, i}
+        <li style="--i:{i}">{@html item}</li>
+      {/each}
+    </ul>
   </div>
 {/if}
 
@@ -76,5 +82,24 @@
   .card p {
     margin-top: 1rem;
     color: var(--fg);
+  }
+  .fact-list {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+  }
+  .fact-list li {
+    border-left: 3px solid var(--accent);
+    padding-left: 0.9rem;
+    margin: 0.8rem 0;
+    line-height: 1.5;
+    animation: fact-in 0.5s var(--ease-out) both;
+    animation-delay: calc(var(--i) * 120ms);
+  }
+  @keyframes fact-in {
+    from { opacity: 0; transform: translateX(-8px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fact-list li { animation: none; }
   }
 </style>
