@@ -79,4 +79,6 @@ Quelle: AfD „Zeit für Deutschland" BTW-Programm 2025 (afd.de PDF, 16. Bundesp
 
 **04 innen (#B44DFF):** chapterbreak → quote (Höcke SA-Parole, 2× LG Halle verurteilt) → quote (Gauland „Vogelschiss") → reveal (Jian G.: 4 J. 9 M., OLG Dresden — Spionage aus Krahs EU-Büro) → data (prorussische Narrative + „Stoppt die Sanktionen", VSB 2025 S. 86–87)
 
+**06 einwaende (#E8A34D):** chapterbreak → contrast (VS parteiisch? → Gerichte 3 Instanzen) → contrast (nur Wahlkampf? → Anträge längst im Bundestag) → contrast („nur Rhetorik"? → Gauland „Wir werden sie jagen" wörtlich, BR24 24.09.2017 + tagesschau-Rückblick 02.10.2024 mit Klingbeil-Einordnung; platziert 06.09.2026)
+
 **05 fazit (#FF4D2E):** chapterbreak → summary (TL;DR 6–7 belegte Punkte) → sources (alle archivierten URLs, ~15)

@@ -387,6 +387,17 @@
       }
     },
     {
+      "type": "contrast",
+      "chapter": "einwaende",
+      "claim": "„Solche Sprüche sind doch nur Rhetorik. Das nimmt doch niemand wörtlich.“",
+      "reality": "Gaulands Kampfansage nach dem Einzug in den Bundestag (Wahlparty Berlin, 24.09.2017), wörtlich: „Wir werden sie jagen, wir werden Frau Merkel oder wen auch immer jagen – und wir werden uns unser Land und unser Volk zurückholen.“ — SPD-Chef Klingbeil sieht darin einen Grund für die zunehmende politische Gewalt von rechts, sagte er im tagesschau-Interview nach dem Angriff auf Matthias Ecke. — Kein Einzelfall: Vogelschiss-Rede, Höckes SA-Parole, „AFA“-Abschiebetrupp. Die Tonlage ist System.",
+      "source": {
+        "label": "BR24 (24.09.2017) + tagesschau-Rückblick (02.10.2024)",
+        "url": "https://www.br.de/bundestagswahl/afd-politiker-gauland-ueber-merkel-wir-werden-sie-jagen-100.html",
+        "visited": "2026-09-06"
+      }
+    },
+    {
       "type": "chapterbreak",
       "chapter": "fazit"
     },
@@ -752,6 +763,16 @@
           "label": "Der Tagesspiegel: Gerichtliche Einordnung der Correctiv-Enthüllung (18.12.2025)",
           "url": "https://www.tagesspiegel.de/politik/umstrittene-correctiv-enthullung-zur-remigration-ein-urteil-uber-einen-fall-zu-dem-jeder-seine-wahrheit-hat-15059842.html",
           "visited": "2026-09-03"
+        },
+        {
+          "label": "Bayerischer Rundfunk: Gauland über Merkel: „Wir werden sie jagen“ (24.09.2017)",
+          "url": "https://www.br.de/bundestagswahl/afd-politiker-gauland-ueber-merkel-wir-werden-sie-jagen-100.html",
+          "visited": "2026-09-06"
+        },
+        {
+          "label": "tagesschau: Gauland zieht sich aus der aktiven Politik zurück — Kritik an „Jagen“-Äußerung (02.10.2024)",
+          "url": "https://www.tagesschau.de/inland/gauland-212.html",
+          "visited": "2026-09-06"
         }
       ]
     }
