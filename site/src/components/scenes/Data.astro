@@ -52,6 +52,17 @@ const { scene } = Astro.props;
     )
   }
 
+  {
+    scene.caption && !scene.value && (() => {
+      // Pull-Number: erste Zahl mit Einheit aus langer Caption herausziehen (nur wenn kein value/Count-up)
+      const m = scene.caption.match(/(\d[\d.,]*\s?(?:%|€|Mrd\.?|Mio\.?|Millionen|Milliarden)?)/);
+      const pull = m ? m[0].trim() : null;
+      return pull && scene.caption.length > 220 && (
+        <p class="data-pull" data-anim="rise">{pull}</p>
+      );
+    })()
+  }
+
   {scene.caption && <p class="data-caption" data-anim="rise">{scene.caption}</p>}
   {scene.source && <SourceTag source={scene.source} />}
 </div>
@@ -127,5 +138,14 @@ const { scene } = Astro.props;
     margin-top: 1.25rem;
     color: var(--fg-muted);
     max-width: 46ch;
+    line-height: 1.6;
+  }
+  .data-pull {
+    margin-top: 0.6rem;
+    font-family: var(--font-head);
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
   }
 </style>
