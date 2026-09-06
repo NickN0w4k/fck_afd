@@ -1,8 +1,11 @@
 <script>
+  import { factList } from '../../../scripts/textsplit.js';
   let { min = 0, max = 100, answer, unit = '', explanation } = $props();
 
   let val = $state(Math.round((min + max) / 2));
   let revealed = $state(false);
+
+  const explItems = $derived(revealed ? factList(explanation ?? '', 160) : []);
 
   const diff = $derived(Math.abs(val - answer));
   const verdict = $derived(
@@ -35,7 +38,11 @@
     <div class="result" transition:slide>
       <p class="verdict">{verdict}</p>
       <p class="answer">Antwort: <strong>{answer}{unit}</strong></p>
-      <p class="expl">{explanation}</p>
+      <div class="expl">
+        {#each explItems as item, i}
+          <p style="--i:{i}">{@html item}</p>
+        {/each}
+      </div>
     </div>
   {/if}
 </div>
@@ -98,5 +105,25 @@
   .expl {
     margin-top: 0.6rem;
     color: var(--fg-muted);
+  }
+  .expl p {
+    margin: 0.4rem 0;
+    padding-left: 0.9rem;
+    border-left: 2px solid var(--accent);
+    animation: fact-in 0.45s var(--ease-out) both;
+    animation-delay: calc(var(--i) * 140ms);
+    line-height: 1.5;
+  }
+  .expl p:first-child {
+    margin-top: 0;
+  }
+  .expl p:last-child {
+    margin-bottom: 0;
+  }
+  @keyframes fact-in {
+    from { opacity: 0; transform: translateX(-8px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .expl p { animation: none; }
   }
 </style>

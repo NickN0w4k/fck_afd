@@ -1,5 +1,6 @@
 <script>
   import { slide } from 'svelte/transition';
+  import { factList } from '../../../scripts/textsplit.js';
   // Svelte 5: runes-lose, einfache Props + State
   let { options, explanation } = $props();
 
@@ -9,6 +10,8 @@
     if (picked !== null) return; // nur einmal antworten
     picked = i;
   }
+
+  const items = $derived(picked !== null ? factList(explanation ?? '', 160) : []);
 
   const anyCorrect = options.some((o) => o.correct);
 </script>
@@ -35,7 +38,11 @@
 </div>
 
 {#if picked !== null}
-  <p class="explanation" role="status" aria-live="polite" transition:slide>{explanation}</p>
+  <div class="explanation" role="status" aria-live="polite" transition:slide>
+    {#each items as item, i}
+      <p style="--i:{i}">{@html item}</p>
+    {/each}
+  </div>
 {/if}
 
 {#if !anyCorrect}
@@ -103,5 +110,25 @@
     border-left: 3px solid var(--accent);
     border-radius: 0 12px 12px 0;
     color: var(--fg);
+  }
+  .explanation p {
+    margin: 0.4rem 0;
+    padding-left: 0.9rem;
+    border-left: 2px solid var(--accent);
+    animation: fact-in 0.45s var(--ease-out) both;
+    animation-delay: calc(var(--i) * 140ms);
+    line-height: 1.5;
+  }
+  .explanation p:first-child {
+    margin-top: 0;
+  }
+  .explanation p:last-child {
+    margin-bottom: 0;
+  }
+  @keyframes fact-in {
+    from { opacity: 0; transform: translateX(-8px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .explanation p { animation: none; }
   }
 </style>
