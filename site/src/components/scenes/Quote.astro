@@ -1,5 +1,5 @@
 ---
-// Quote: Vollbild-Zitat, Wörter sliden einzeln rein.
+// Quote: Vollbild-Zitat, Wörter sliden einzeln rein. Kontext als Einordnung-Karte.
 import SourceTag from '../SourceTag.astro';
 
 interface Props {
@@ -17,7 +17,12 @@ const { scene } = Astro.props;
   <p class="quote-text" data-quote data-hl>„{scene.quote}“</p>
   <footer class="quote-footer" data-anim="rise">
     <p class="quote-author">{scene.author}</p>
-    {scene.context && <p class="quote-context">{scene.context}</p>}
+    {scene.context && (
+      <div class="quote-context">
+        <p class="context-kicker">Einordnung</p>
+        <p class="context-text" data-hl>{scene.context}</p>
+      </div>
+    )}
   </footer>
   {scene.source && <SourceTag source={scene.source} />}
 </blockquote>
@@ -47,8 +52,25 @@ const { scene } = Astro.props;
     font-weight: 600;
   }
   .quote-context {
+    margin-top: 0.9rem;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem;
+    background: var(--bg-elev);
+    max-width: 46ch;
+  }
+  .context-kicker {
+    font-family: var(--font-head);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .context-text {
+    font-size: 0.92rem;
     color: var(--fg-muted);
-    font-size: 0.9rem;
-    margin-top: 0.25rem;
+    line-height: 1.55;
   }
 </style>
