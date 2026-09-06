@@ -14,6 +14,10 @@ interface Props {
 const { scene } = Astro.props;
 const isMyth = scene.reality.startsWith('!');
 const reality = isMyth ? scene.reality.slice(1) : scene.reality;
+// Aufzählungs-Realität: an " — " splitten (max 4 Punkte), nur wenn lang genug
+const realityItems = reality.length > 180
+  ? reality.split(/\s+—\s+/).slice(0, 4)
+  : null;
 ---
 
 <div class="contrast">
@@ -23,7 +27,20 @@ const reality = isMyth ? scene.reality.slice(1) : scene.reality;
   </div>
   <div class="reality">
     <p class="side-label">Realität</p>
-    <p class="reality-text" set:html={hl(reality)} />
+    {#if realityItems && realityItems.length > 1}
+      <ul class="reality-list">
+        {#each realityItems as item}
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+            <span set:html={hl(item)} />
+          </li>
+        {/each}
+      </ul>
+    {:else}
+      <p class="reality-text" set:html={hl(reality)} />
+    {/if}
   </div>
   {scene.source && <SourceTag source={scene.source} />}
 </div>
@@ -89,6 +106,24 @@ const reality = isMyth ? scene.reality.slice(1) : scene.reality;
     font-size: clamp(1.3rem, 3.4vw, 2.2rem);
     font-weight: 600;
     line-height: 1.15;
+  }
+  .reality-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.6rem 0 0;
+  }
+  .reality-list li {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    margin: 0.55rem 0;
+    font-size: clamp(0.95rem, 2.6vw, 1.15rem);
+    font-weight: 600;
+    line-height: 1.45;
+  }
+  .reality-list svg {
+    flex-shrink: 0;
+    margin-top: 0.18em;
   }
   :global(.scene[data-accent]) .source-tag {
     color: rgba(245, 242, 236, 0.75);
