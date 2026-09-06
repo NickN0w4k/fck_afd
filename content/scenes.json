@@ -140,29 +140,29 @@
     {
       "type": "data",
       "chapter": "verfassungsschutz",
-      "headline": "Wo das schon fast Realität ist: Sachsen-Anhalt, 6. September 2026",
-      "value": 42,
+      "headline": "Wo das schon Realität ist: Sachsen-Anhalt, 6. September 2026",
+      "value": 44,
       "suffix": " %",
-      "caption": "Sonntagsfragen kurz vor der Landtagswahl: Infratest dimap (ARD) 42 %, Forschungsgruppe Wahlen (ZDF) 40 % für die gesichert rechtsextremistische AfD — um die 20 Punkte vor der CDU. Eine absolute Mehrheit ist greifbar nah. Die Partei, die den Verfassungsschutz abschaffen will, könnte bald die Regierung stellen.",
+      "caption": "Wahlergebnis (ARD-Hochrechnung, 6. September 2026): Die gesichert rechtsextremistische AfD gewinnt die Landtagswahl in Sachsen-Anhalt mit 44,0 % — ihr bestes Ergebnis bei einer Landtagswahl überhaupt (2021: 20,8 %). Die CDU stürzt auf historisch niedrige 17,8 %. Die absolute Mehrheit der Sitze verfehlt die AfD laut Hochrechnung knapp; alle anderen Parteien lehnen eine Zusammenarbeit ab. Würde sie trotzdem regieren, wäre es das erste Mal, dass eine als rechtsextremistisch eingestufte Partei ein Bundesland regiert.",
       "chart": "bars",
       "series": [
         {
           "label": "AfD",
-          "value": 42
+          "value": 44
         },
         {
           "label": "CDU",
-          "value": 22
+          "value": 17.8
         },
         {
-          "label": "Linke",
-          "value": 11
+          "label": "SPD",
+          "value": 9.1
         }
       ],
       "source": {
-        "label": "wahlrecht.de — Landtagswahl Sachsen-Anhalt (Infratest dimap/ARD, FG Wahlen/ZDF)",
-        "url": "https://www.wahlrecht.de/umfragen/landtage/sachsen-anhalt.htm",
-        "visited": "2026-09-03"
+        "label": "tagesschau.de — ARD-Hochrechnung Landtagswahl Sachsen-Anhalt (infratest dimap, 06.09.2026)",
+        "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-172.html",
+        "visited": "2026-09-06"
       }
     },
     {
@@ -477,7 +477,7 @@
         },
         {
           "num": "03",
-          "text": "In Sachsen-Anhalt liegt die Partei kurz vor der Wahl bei 40–42 % — vor der Regierungsmacht."
+          "text": "Landtagswahl Sachsen-Anhalt (6.9.2026): Die AfD gewinnt mit 44,0 % — stärkste Kraft, die absolute Sitze-Mehrheit verfehlt sie knapp (ARD-Hochrechnung)."
         },
         {
           "num": "04",
@@ -501,11 +501,11 @@
       "intro": "Wissen ist der erste Schritt. Der zweite ist eine Entscheidung. Hier sind die nächsten Schritte:",
       "cards": [
         {
-          "title": "Wählen gehen",
-          "text": "Die Landtagswahl in Sachsen-Anhalt am 6. September 2026 ist der nächste Test — laut Sonntagsfragen liegt die AfD dort vorn. Egal wo du wohnst: Informiert wählen ist die direkteste Antwort.",
+          "title": "Dranbleiben",
+          "text": "Die AfD hat die Landtagswahl in Sachsen-Anhalt mit 44,0 % gewonnen (ARD-Hochrechnung). Alle anderen Parteien lehnen eine Zusammenarbeit ab — wie es in Magdeburg weitergeht, entscheidet sich in den nächsten Wochen. Informiert bleiben ist die direkteste Antwort.",
           "link": {
-            "label": "Aktuelle Umfragen (wahlrecht.de)",
-            "url": "https://www.wahlrecht.de/umfragen/landtage/sachsen-anhalt.htm"
+            "label": "tagesschau: Wahl in Sachsen-Anhalt",
+            "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-172.html"
           }
         },
         {
@@ -594,9 +594,9 @@
           "visited": "2026-09-03"
         },
         {
-          "label": "wahlrecht.de: Landtagswahl Sachsen-Anhalt, Sonntagsfragen (Stand 02.09.2026)",
-          "url": "https://www.wahlrecht.de/umfragen/landtage/sachsen-anhalt.htm",
-          "visited": "2026-09-03"
+          "label": "tagesschau.de: ARD-Hochrechnung Landtagswahl Sachsen-Anhalt (06.09.2026)",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-172.html",
+          "visited": "2026-09-06"
         },
         {
           "label": "Bayerischer Rundfunk: AfD fordert Abschiebetrupp „ähnlich wie ICE“ (30.01.2026)",
