@@ -45,7 +45,7 @@ Alle Behauptungen mit Primärquelle. Jede Quelle als Volltext-Archiv unter `sour
 ### Gauland (zeit.de + dw.com archiviert)
 - „Hitler und die Nazis sind nur ein Vogelschiss in über 1000 Jahren erfolgreicher deutscher Geschichte." (JA-Bundeskongress Seebach, 02.06.2018)
 - Ebenfalls dokumentiert (DW): „in Anatolien entsorgen" (Özoguz); „stolz … auf Leistungen deutscher Soldaten in zwei Weltkriegen" (Der Flügel).
-- „Wir werden sie jagen" (Wahlkampf 2018) — Quelle noch zu archivieren, kommt vom Subagent.
+- „Wir werden sie jagen“ (Gauland, Wahlparty Berlin-Alexanderplatz, 24.09.2017): Wörtlich verifiziert in BR24-Archiv („Da wir ja nun offensichtlich drittstärkste Partei sind, kann sich diese Bundesregierung (…) warm anziehen. Wir werden sie jagen, wir werden Frau Merkel oder wen auch immer jagen…“) + tagesschau-Rückblick 2024 als Zweitbeleg. Beide archiviert 06.09.2026.
 
 ### Krah / Jian G. (GBA-PMs + tagesschau archiviert)
 - Festnahme Mitarbeiter Jian G. 22.04.2024 (GBA-PM 23.04.2024); Anklage 09.04.2025 OLG Dresden (GBA-PM 29.04.2025); **Urteil 30.09.2025: 4 Jahre 9 Monate**, geheimdienstliche Agententätigkeit in besonders schwerem Fall; sammelte 2019–2024 Infos in Krahs EU-Büro, spähte chinesische Dissidenten aus (tagesschau).
