@@ -163,7 +163,6 @@ const accent = scene.accent ?? '#ff4d2e';
   const btns = document.querySelectorAll('.endcard [data-action]');
   const resultBox = document.querySelector('.card-result');
   const resultImg = document.querySelector('.card-result img');
-  const SITE_URL = 'https://fck-afd.example'; // Deploy-URL, wird beim Build ersetzt — siehe index.astro
 
   btns.forEach((b) => {
     b.addEventListener('click', async () => {
@@ -173,7 +172,7 @@ const accent = scene.accent ?? '#ff4d2e';
       } else if (action === 'share') {
         const shareData = {
           title: 'Die AfD. Die Fakten.',
-          text: '48 Szenen, jede Behauptung mit Quelle. Prüf es selbst.',
+          text: '44 Szenen, jede Behauptung mit Quelle. Prüf es selbst.',
           url: window.location.origin + window.location.pathname,
         };
         if (navigator.share) {
@@ -181,8 +180,9 @@ const accent = scene.accent ?? '#ff4d2e';
         } else {
           try {
             await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+            const original = b.innerHTML; // inkl. Icon
             b.textContent = 'Link kopiert ✓';
-            setTimeout(() => (b.querySelector('span') ? (b.innerHTML = b.innerHTML) : null), 1800);
+            setTimeout(() => (b.innerHTML = original), 1800);
           } catch {}
         }
       } else if (action === 'card') {

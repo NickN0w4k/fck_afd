@@ -17,7 +17,6 @@ export function initHighlights() {
   }
   document.querySelectorAll('[data-hl]').forEach((el) => {
     if (el.dataset.hlDone) return;
-    el.dataset.hlDone = '1';
     let html = esc(el.textContent.trim());
     for (const re of PATTERNS) {
       html = html.replace(re, '<mark class="hl">$1</mark>');
@@ -25,5 +24,6 @@ export function initHighlights() {
     // Doppel-Markierungen durch überlappende Patterns auflösen
     html = html.replace(/<\/mark>\s*<mark class="hl">/g, ' ');
     el.innerHTML = html;
+    el.dataset.hlDone = '1';
   });
 }

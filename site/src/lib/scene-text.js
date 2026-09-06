@@ -16,7 +16,7 @@ export function sceneShareText(scene, chapterTitle) {
     case 'quote':
       return clean(`„${scene.quote}" — ${scene.author}`);
     case 'reveal':
-      return clean(scene.headline || scene.teaser);
+      return clean(scene.headline || scene.teaser || scene.body);
     case 'contrast':
       return clean(`Behauptung: ${scene.claim} — Realität: ${scene.reality.replace(/^!/, '')}`);
     case 'slider':

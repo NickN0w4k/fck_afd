@@ -52,6 +52,8 @@ function check(name, cond) {
   // Quiz: Antwort klicken → Erklärung mit aria-live (erstes Quiz, wo auch immer)
   const quizOpt = page.locator('.quiz .option').first();
   await quizOpt.scrollIntoViewIfNeeded();
+  // client:visible-Insel hydratisiert asynchron — erst auf Hydration warten (sonst Click-Race)
+  await page.waitForSelector('.quiz astro-island:not([ssr])', { timeout: 5000 });
   await quizOpt.click();
   await page.waitForTimeout(400);
   const live = page.locator('.explanation[aria-live="polite"]');

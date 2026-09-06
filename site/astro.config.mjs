@@ -8,6 +8,7 @@ const site = process.env.SITE_URL || 'https://fck-afd.example';
 // https://astro.build/config
 export default defineConfig({
   site,
-  trailingSlash: 'never',
+  // 'ignore': Site-Links + Sitemap nutzen Trailing-Slashes (/kapitel/) — 'never' würde alle Unterseiten 404n.
+  trailingSlash: 'ignore',
   integrations: [svelte()],
 });

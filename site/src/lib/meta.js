@@ -4,7 +4,7 @@
 export const SITE_STAND = '05.09.2026';
 
 export const SHARE_TITLE = 'Die AfD. Die Fakten.';
-export const SHARE_TEXT = '48 Szenen belegte Fakten über die AfD — jede Behauptung mit Quelle. Prüf es selbst.';
+export const SHARE_TEXT = '44 Szenen belegte Fakten über die AfD — jede Behauptung mit Quelle. Prüf es selbst.';
 
 /** Fakten-Kurzliste für ShareCard + Action-Szene (Kernaussagen mit Quelle im Text) */
 export const FACTS6 = [

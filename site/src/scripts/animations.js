@@ -26,27 +26,30 @@ function initRise() {
   });
 }
 
+/** Wörter in Spans wrappen (einmalig) — mark-Tags bleiben als Einheit erhalten */
+function splitWordsMarkAware(el) {
+  if (el.dataset.wordSplit) return;
+  const frag = el.innerHTML.split(/(<mark class="hl">.*?<\/mark>)/g);
+  el.innerHTML = frag
+    .map((chunk) => {
+      if (chunk.startsWith('<mark')) return chunk; // Highlight-Block unangetastet
+      return chunk
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean)
+        .map((w) => `<span class="word">${w}</span>`)
+        .join(' ');
+    })
+    .join(' ');
+  el.dataset.wordSplit = '1';
+}
+
 /** Statement-Szenen: Wörter bauen sich beim Scrollen auf (scrubbed).
  *  Mark-aware: bereits bestehende <mark.hl>-Highlights bleiben erhalten. */
 function initWords() {
   document.querySelectorAll('[data-words]').forEach((el) => {
     if (prefersReduced) return;
-    // Wörter in Spans wrappen (einmalig) — mark-Tags bleiben als Einheit erhalten
-    if (!el.dataset.wordSplit) {
-      const frag = el.innerHTML.split(/(<mark class="hl">.*?<\/mark>)/g);
-      el.innerHTML = frag
-        .map((chunk) => {
-          if (chunk.startsWith('<mark')) return chunk; // Highlight-Block unangetastet
-          return chunk
-            .trim()
-            .split(/\s+/)
-            .filter(Boolean)
-            .map((w) => `<span class="word">${w}</span>`)
-            .join(' ');
-        })
-        .join(' ');
-      el.dataset.wordSplit = '1';
-    }
+    splitWordsMarkAware(el);
     gsap.fromTo(
       el.querySelectorAll('.word'),
       { autoAlpha: 0.12 },
@@ -177,10 +180,11 @@ function initStrike() {
   });
 }
 
-/** Zitate: Buchstaben-sliden — mark-aware (Highlights bleiben Einheiten) */
+/** Zitate: Wörter sliden einzeln rein — mark-aware (Highlights bleiben Einheiten) */
 function initQuote() {
   document.querySelectorAll('[data-quote]').forEach((el) => {
     if (prefersReduced) return;
+    splitWordsMarkAware(el);
     const words = el.querySelectorAll('.word');
     if (!words.length) return;
     gsap.from(words, {
@@ -236,7 +240,12 @@ function initProgress() {
         }
       });
       if (counter) counter.textContent = `${nearest + 1}/${scenes.length}`;
-      dots.forEach((d, i) => d.setAttribute('aria-current', String(i === nearest)));
+      if (dots.length) {
+        // Dots sind Kapitel-, nicht Szenen-Indizes: aktive Szene → Kapitel-Index
+        const chapterOrder = Array.from(dots, (d) => (d.dataset.goto ?? '').replace('chapter-', ''));
+        const chapterIdx = chapterOrder.indexOf(scenes[nearest].dataset.chapter);
+        dots.forEach((d, i) => d.setAttribute('aria-current', String(i === chapterIdx)));
+      }
     }
   };
   window.addEventListener('scroll', update, { passive: true });
