@@ -11,4 +11,7 @@ export default defineConfig({
   // 'ignore': Site-Links + Sitemap nutzen Trailing-Slashes (/kapitel/) — 'never' würde alle Unterseiten 404n.
   trailingSlash: 'ignore',
   integrations: [svelte()],
+  // LAN-Erreichbarkeit (192.168.178.133) — sonst lauscht der Server nur auf localhost
+  server: { host: true, port: 4321 },
+  preview: { host: true, port: 4173 },
 });
