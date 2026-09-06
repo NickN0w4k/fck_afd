@@ -65,14 +65,6 @@ const sourceCount = seenUrls.size;
     }
   </nav>
 
-  <button
-    class="stand-badge"
-    aria-label={`Inhaltsstand ${SITE_STAND}, ${sourceCount} archivierte Quellen — zum Quellenverzeichnis springen`}
-    data-goto-sources={sourcesIndex >= 0 ? `scene-${sourcesIndex}` : undefined}
-  >
-    Stand: {SITE_STAND} · {sourceCount} Quellen archiviert
-  </button>
-
   <script define:vars={{ scenesRaw }}>
     // TL;DR global für die ShareCard-Generierung (EndCard)
     const summary = (scenesRaw.scenes ?? scenesRaw).find((s) => s.type === 'summary');

@@ -36,7 +36,7 @@ function check(name, cond) {
   await page.goto(BASE + '/', { waitUntil: 'networkidle' });
   const scenesCount = await page.evaluate(() => document.querySelectorAll('.scene').length);
   check(`Tour: Share-Button je Szene (${scenesCount})`, (await page.locator('.scene-share').count()) === scenesCount && scenesCount >= 25);
-  check('Tour: Stand-Badge', await page.locator('.stand-badge').isVisible());
+  check('Tour: kein Stand-Badge-Overlay mehr (entfernt auf User-Wunsch)', (await page.locator('.stand-badge').count()) === 0);
   check('Tour: Skip-Link', (await page.locator('.skip-link').count()) === 1);
   check('Tour: Timeline mit 6 Karten', (await page.locator('.tl-card').count()) === 6);
   check('Tour: Action-Szene mit 4 Karten', (await page.locator('.action-card').count()) === 4);
