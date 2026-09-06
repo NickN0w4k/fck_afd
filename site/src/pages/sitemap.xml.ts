@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import chapters from '../../../content/chapters.json';
 
-const site = import.meta.env.SITE ?? 'https://nickn0w4k.github.io/fck_afd/';
+const site = import.meta.env.SITE ?? 'https://info-afd.de/';
 // SITE enthält bei GitHub Pages keinen Base-Pfad — hier anhängen, damit loc-URLs stimmen.
 const base = import.meta.env.BASE_URL ?? '/';
 const siteWithBase = site.endsWith('/') ? site : `${site}/`;

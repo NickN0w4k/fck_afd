@@ -13,7 +13,7 @@ const {
   description = 'Belegte Fakten über die AfD — als scrollbare Tour. Keine Meinung, nur Quellen.',
 } = Astro.props;
 
-const site = Astro.site ?? new URL('https://nickn0w4k.github.io/fck_afd/');
+const site = Astro.site ?? new URL('https://info-afd.de/');
 // Astro.url.pathname enthält base bereits (z.B. /fck_afd/quellen/); für og:image BASE_URL anhängen.
 const canonical = new URL(Astro.url.pathname, site);
 const base = import.meta.env.BASE_URL;

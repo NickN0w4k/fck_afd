@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-const site = import.meta.env.SITE ?? 'https://nickn0w4k.github.io/fck_afd/';
+const site = import.meta.env.SITE ?? 'https://info-afd.de/';
 const base = import.meta.env.BASE_URL ?? '/';
 const baseNorm = base.endsWith('/') ? base : `${base}/`;
 

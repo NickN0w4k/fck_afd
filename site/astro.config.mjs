@@ -3,9 +3,10 @@ import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 
 // Deploy-Domain: EINMAL hier setzen (og:image/canonical/sitemap leiten sich davon ab).
-// GitHub Pages (Projekt-Repo) serviert unter /fck_afd/ — base zieht alle Assets/Links nach.
-const site = process.env.SITE_URL || 'https://nickn0w4k.github.io/fck_afd/';
-const base = process.env.SITE_BASE || '/fck_afd';
+// Eigene Domain info-afd.de (CNAME in site/public/) — Pages serviert vom Branch-Root,
+// daher KEIN base mehr; SITE_BASE nur für lokale Subpfad-Tests nötig.
+const site = process.env.SITE_URL || 'https://info-afd.de/';
+const base = process.env.SITE_BASE || '/';
 
 // https://astro.build/config
 export default defineConfig({

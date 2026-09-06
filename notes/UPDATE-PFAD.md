@@ -47,7 +47,7 @@ Wie Zahlen, Szenen und Quellen dieser Site aktualisiert werden. Gilt für alle, 
 ## Spezialfälle
 
 - **Neues Kapitel**: in `chapters.json` ergänzen (id, num, title, accent, question) → Unterseite `/[id]/` entsteht automatisch, Sitemap via `npm run build` mitbauen (paths in `site/src/pages/sitemap.xml.ts` manuell ergänzen!). Szenen mit `"chapter": "<id>"` in scenes.json anlegen.
-- **Deploy-Domain ändern**: EINMAL in `site/astro.config.mjs` (`site:`) — canonical, og:image-URL und sitemap ziehen automatisch mit. Danach im og-Template (`site/og-image/template.html`) die URL-Zeile anpassen und og neu rendern.
+- **Deploy-Domain ändern**: EINMAL in `site/astro.config.mjs` (`site:`) — canonical, og:image-URL und sitemap ziehen automatisch mit. Danach im og-Template (`site/og-image/template.html`) die URL-Zeile anpassen und og neu rendern. Domain seit 06.09.2026: **info-afd.de** (eigene Domain, Pages serviert vom Branch-Root → `base: '/'`, KEIN `/fck_afd/`-Präfix mehr). Die `CNAME` liegt in `site/public/` und muss bei jedem Deploy mit im dist landen — fehlt sie, verliert die Domain ihre Verknüpfung.
 - **Quiz ergänzen**: `options` (mindestens eine `correct: true`), `explanation`, `source`. Die Insel zeigt Erklärung erst nach dem Klick (aria-live ist gesetzt).
 - **Timeline ergänzen**: `items` mit `date, title, text, source`. Reihenfolge = Kartenreihenfolge.
 
