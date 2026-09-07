@@ -1,10 +1,8 @@
 // Validiert content/scenes.json: Jede Behauptung braucht eine Quelle.
-// Prüft zusätzlich: Impressum-Vollständigkeit (site/src/lib/impressum.js).
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
-const { IMPRESSUM, IMPRESSUM_UNVOLLSTAENDIG } = require('../src/lib/impressum.js');
 
 const CLAIM_TYPES = new Set(['data', 'contrast', 'quote', 'quiz', 'slider', 'reveal', 'statement']);
 const NO_CLAIM_TYPES = new Set(['hero', 'chapterbreak', 'summary', 'sources', 'endcard', 'action']);
@@ -46,9 +44,6 @@ scenes.forEach((scene, i) => {
   }
 });
 
-if (IMPRESSUM_UNVOLLSTAENDIG) {
-  warnings.push('Impressum: Platzhalter in site/src/lib/impressum.js noch nicht ausgefüllt (Name/Anschrift) — /impressum/ zeigt Warnung, bis echte Daten drin stehen.');
-}
 if (warnings.length) console.warn('⚠ Quellen-Warnungen:\n' + warnings.map((w) => '  - ' + w).join('\n'));
 if (errors.length) {
   console.error('✗ Content-Fehler:\n' + errors.map((e) => '  - ' + e).join('\n'));

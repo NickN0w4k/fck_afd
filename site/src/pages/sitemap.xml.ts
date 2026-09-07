@@ -9,7 +9,7 @@ const chaptersAny = chapters as any[];
 
 /** Statische XML-Sitemap: Startseite + Kapitel-Unterseiten + Quellen. */
 export const GET: APIRoute = () => {
-  const paths = ['/', ...chaptersAny.map((c) => `/${c.id}/`), '/quellen/', '/impressum/'];
+  const paths = ['/', ...chaptersAny.map((c) => `/${c.id}/`), '/quellen/'];
   const urls = paths
     .map((p) => `  <url><loc>${new URL(p.slice(1), siteWithBase).href}</loc><changefreq>monthly</changefreq></url>`)
     .join('\n');
