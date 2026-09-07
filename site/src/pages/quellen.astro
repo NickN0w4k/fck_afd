@@ -31,15 +31,14 @@ for (const s of allScenes) {
 const sources = [...seen.values()].map((s) => ({ ...s, chapters: [...s.chapters] }));
 ---
 
-<Base title="Quellen — Die AfD. Die Fakten." description="Alle Belege der Fakten-Tour: 40+ Quellen mit Abrufdatum. Volltexte archiviert.">
+<Base title="Quellen — Die AfD. Die Fakten." description="Alle Belege der Fakten-Tour. Jede Quelle mit Abrufdatum, Volltexte archiviert.">
   <div class="doc-page" style="--accent: #FF4D2E">
     <header class="doc-header">
       <p class="doc-kicker">Transparenz</p>
       <h1 class="doc-title">Quellen</h1>
       <p class="doc-question">
-        Jede Behauptung in dieser Tour hat einen Beleg. Hier sind alle {sources.length} Quellen
-        mit Abrufdatum — die Volltexte liegen archiviert vor (SHA256-geprüft), damit nichts
-        verloren geht, wenn eine Seite offline geht.
+        Jede Behauptung hat einen Beleg. Hier stehen alle {sources.length} Quellen mit
+        Abrufdatum. Die Volltexte sind archiviert, falls eine Seite mal offline geht.
       </p>
       <a class="doc-tour-link" href={import.meta.env.BASE_URL}>→ Zur Tour</a>
     </header>

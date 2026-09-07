@@ -4,48 +4,48 @@
     "num": "01",
     "title": "Der Anlass",
     "accent": "#FF4D2E",
-    "question": "Was wäre, wenn du wüsstest, wofür diese Partei wirklich steht?"
+    "question": "Wofür steht diese Partei wirklich?"
   },
   {
     "id": "verfassungsschutz",
     "num": "02",
     "title": "Verfassungsschutz",
     "accent": "#FFB02E",
-    "question": "Warum sagt der Staat, diese Partei ist rechtsextremistisch — und was hat das mit dir zu tun?"
+    "question": "Warum stuft der Staat diese Partei als rechtsextremistisch ein?"
   },
   {
     "id": "programm",
     "num": "03",
     "title": "Das Programm",
     "accent": "#4DE0FF",
-    "question": "Was plant die AfD für dein Geld, deine Rente, dein Klima? Steht schwarz auf weiß in ihrem Programm."
+    "question": "Was plant die AfD für dein Geld, deine Rente, dein Klima?"
   },
   {
     "id": "innen",
     "num": "04",
     "title": "Innenleben",
     "accent": "#B44DFF",
-    "question": "Wer gibt dort den Ton an? Die Namen, die Urteile, die Zitate — dokumentiert."
+    "question": "Wer gibt dort den Ton an?"
   },
   {
     "id": "kosten",
     "num": "05",
     "title": "Was es kostet",
     "accent": "#5CFF8F",
-    "question": "Wer zahlt für die AfD-Pläne — und wer geht leer aus? Die Institute haben durchgerechnet."
+    "question": "Wer zahlt für die AfD-Pläne? Institute haben es durchgerechnet."
   },
   {
     "id": "einwaende",
     "num": "06",
     "title": "Einwände",
     "accent": "#E8A34D",
-    "question": "Diese Argumente hörst du oft, wenn es um die AfD geht — hier sind sie mit Belegen geprüft."
+    "question": "Argumente, die du im Gespräch hörst. Hier geprüft."
   },
   {
     "id": "fazit",
     "num": "07",
     "title": "Das Fazit",
     "accent": "#FF4D2E",
-    "question": "Und jetzt? Du kennst die Fakten. Was machst du damit?"
+    "question": "Du kennst die Fakten. Und jetzt?"
   }
 ]
