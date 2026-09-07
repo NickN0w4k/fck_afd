@@ -11,8 +11,8 @@
     {
       "type": "statement",
       "chapter": "intro",
-      "text": "Diese Seite hat keine Meinung. Nur Zahlen, Zitate und Gerichtsurteile. Alle mit Quelle.",
-      "note": "Alles belegt. Immer."
+      "text": "Diese Seite ist keine Meinungsseite. Hier steht nur, was sich belegen lässt — mit Quelle. Aber die Belege sprechen eine ziemlich deutliche Sprache.",
+      "note": "Alles mit Beleg. Immer."
     },
     {
       "type": "chapterbreak",
@@ -513,7 +513,7 @@
       "cards": [
         {
           "title": "Dranbleiben",
-          "text": "Die AfD hat Sachsen-Anhalt gewonnen. Alle anderen Parteien lehnen eine Zusammenarbeit ab. Wie es in Magdeburg weitergeht, entscheidet sich in den nächsten Wochen.",
+          "text": "Die AfD hat die Landtagswahl in Sachsen-Anhalt gewonnen. Alle anderen Parteien lehnen eine Zusammenarbeit ab. Wie es in Magdeburg weitergeht, entscheidet sich in den nächsten Wochen.",
           "link": {
             "label": "tagesschau: Wahl in Sachsen-Anhalt",
             "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-172.html"
@@ -521,7 +521,7 @@
         },
         {
           "title": "Selbst nachprüfen",
-          "text": "Ziehe jede Zahl nach: Alle Quellen sind verlinkt, die Volltexte sind archiviert. Eine Prüfung dauert zwei Minuten.",
+          "text": "Jede Zahl in dieser Tour hat eine Quelle — verlinkt und als Volltext archiviert. Eine Behauptung prüfen dauert zwei Minuten.",
           "link": {
             "label": "Zum Quellenverzeichnis",
             "url": "/quellen/"
@@ -529,11 +529,11 @@
         },
         {
           "title": "Das Gespräch suchen",
-          "text": "Fakten wirken am stärksten bei Leuten, die du kennst. Jede Szene hat einen Teilen-Button. Schick genau das Argument, das zählt."
+          "text": "Fakten wirken am stärksten, wenn du sie Leuten erzählst, die du kennst. Jede Szene hat oben rechts einen Teilen-Button. Schick genau das Argument, das zählt."
         },
         {
           "title": "Weiterlesen",
-          "text": "Der Verfassungsschutzbericht 2025 und die tagesschau-FAQ fassen den Stand zusammen. Beides als Volltext archiviert.",
+          "text": "Der Verfassungsschutzbericht 2025 und die tagesschau-FAQ fassen den aktuellen Stand zusammen. Beides als Volltext archiviert.",
           "link": {
             "label": "VSB 2025 (PDF, BMI)",
             "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf"
