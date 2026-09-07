@@ -21,7 +21,7 @@ const { scene } = Astro.props;
           <p class="action-card-title">{card.title}</p>
           <p class="action-card-text">{card.text}</p>
           {card.link && (
-            <a class="action-link" href={card.link.url} target="_blank" rel="noopener noreferrer">
+            <a class="action-link" href={card.link.url.startsWith('/') ? (import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL) + card.link.url : card.link.url} target="_blank" rel="noopener noreferrer">
               {card.link.label}
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" />
