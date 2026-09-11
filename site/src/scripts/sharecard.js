@@ -111,6 +111,7 @@ export async function renderShareCard({ accent = '#ff4d2e', url }) {
   const facts = (window.__fckafd_facts6 ?? []).slice(0, 6);
   let y = 425;
   const rowH = 190;
+  const sourceCount = window.__fckafd_sourceCount ?? facts.length * 8;
   facts.forEach((f) => {
     // Riesige Zahl (auto-fit)
     const size = fitFont(ctx, f.big, '700', HEAD_FONT, 84, W - 168);
@@ -154,7 +155,7 @@ export async function renderShareCard({ accent = '#ff4d2e', url }) {
   ctx.fillText(url.replace(/^https?:\/\//, ''), 124, barY + 58);
   ctx.font = `700 30px ${HEAD_FONT}`;
   ctx.textAlign = 'right';
-  ctx.fillText('44 QUELLEN', W - 124, barY + 56);
+  ctx.fillText(`${sourceCount} QUELLEN`, W - 124, barY + 56);
   ctx.textAlign = 'left';
 
   return canvas;

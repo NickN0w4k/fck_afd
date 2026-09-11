@@ -8,10 +8,10 @@ export const SHARE_TEXT = 'Die Fakten über die AfD. Jede mit Quelle. Prüf es s
 
 /** Fakten-Kurzliste für ShareCard + Action-Szene (Kernaussagen mit Quelle im Text) */
 export const FACTS6 = [
+  { big: '44 %', small: 'AfD gewinnt die Landtagswahl in Sachsen-Anhalt — bestes Ergebnis ihrer Geschichte.' },
   { big: '28.000', small: 'Menschen im AfD-Umfeld ordnet der Verfassungsschutz dem Rechtsextremismus zu.' },
   { big: '5×', small: 'Fünf Landesverbände gelten als gesichert rechtsextremistisch.' },
   { big: '+440 €', small: 'Eine 40.000-€-Familie verliert pro Jahr. Topverdiener gewinnen 19.190 €.' },
   { big: '690 Mrd. €', small: 'Kosten eines Dexit laut IW Köln. Plus 2,5 Millionen Jobs weniger.' },
-  { big: '2×', small: 'Höcke wegen einer Nazi-Parole verurteilt: 13.000 € und 16.900 € Strafe.' },
   { big: '4 J. 9 M.', small: 'Haft für Krahs Mitarbeiter. Spionage für China.' },
 ];

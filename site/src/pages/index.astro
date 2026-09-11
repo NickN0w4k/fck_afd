@@ -68,17 +68,18 @@ const sourceCount = seenUrls.size;
     }
   </nav>
 
-  <script define:vars={{ scenesRaw }}>
+  <script define:vars={{ scenesRaw, sourceCount }}>
     // TL;DR global für die ShareCard-Generierung (EndCard)
     const summary = (scenesRaw.scenes ?? scenesRaw).find((s) => s.type === 'summary');
     if (summary) window.__fckafd_tldr = summary.tldr;
+    window.__fckafd_sourceCount = sourceCount;
     // 6 Kernfakten für die ShareCard (kurz, grafisch, eindrücklich)
     window.__fckafd_facts6 = [
+      { big: '44 %', label: 'AfD-Sieg in Sachsen-Anhalt', small: 'Bestes Ergebnis ihrer Geschichte — 06.09.2026.' },
       { big: '28.000', label: 'Rechtsextremisten im AfD-Umfeld', small: 'Doppelt so viele wie 2023 — Verfassungsschutzbericht 2025.' },
       { big: '5×', label: 'Landesverbände gesichert rechtsextremistisch', small: 'Thüringen bis Niedersachsen — von keinem Gericht gekippt.' },
       { big: '−440 €', label: 'Verlust pro Jahr für Normalverdiener', small: 'Topverdiener gewinnen 19.190 € — laut ZEW-Berechnung.' },
       { big: '690 Mrd. €', label: 'Kosten eines Dexit', small: '5,6 % des BIP und 2,5 Mio. Jobs weg — laut IW Köln.' },
-      { big: 'Potsdam', label: 'Vertreibung von Millionen geplant', small: 'AfD trafen Neonazis + Unternehmer — Correctiv-Recherche.' },
       { big: 'VS abschaffen', label: 'Weidels Rezept gegen die Beobachtung', small: 'Die Behörde soll weg, die sie als rechtsextrem einstuft.' },
     ];
     // Kapitel-Dots: scrollt zur ersten Szene des jeweiligen Kapitels
