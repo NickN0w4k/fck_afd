@@ -13,7 +13,6 @@ const { chapter, scene } = Astro.props;
     <h2 class="ch-title" data-anim="rise">{chapter.title}</h2>
     <p class="ch-question" data-anim="rise">{chapter.question}</p>
     {scene?.summary && <p class="ch-summary" data-anim="rise">{scene.summary}</p>}
-    {scene?.next_title && <p class="ch-next" data-anim="rise">{scene.next_title}</p>}
   </div>
 </div>
 
@@ -55,11 +54,5 @@ const { chapter, scene } = Astro.props;
     font-weight: 500;
     max-width: 30ch;
     opacity: 0.95;
-  }
-  .ch-next {
-    margin-top: 0.6rem;
-    font-size: clamp(0.85rem, 2vw, 1rem);
-    letter-spacing: 0.04em;
-    opacity: 0.7;
   }
 </style>

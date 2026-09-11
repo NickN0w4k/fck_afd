@@ -17,8 +17,7 @@
     {
       "type": "chapterbreak",
       "chapter": "verfassungsschutz",
-      "summary": "Du weißt jetzt: Hier steht nichts ohne Beleg — jede Zahl hat ihre Quelle.",
-      "next_title": "Weiter: Verfassungsschutz"
+      "summary": "Du weißt jetzt: Hier steht nichts ohne Beleg — jede Zahl hat ihre Quelle."
     },
     {
       "type": "data",
@@ -95,7 +94,7 @@
         "url": "https://correctiv.org/aktuelles/afd/2026/06/17/wie-stuft-der-verfassungsschutz-die-afd-in-den-bundeslaendern-ein/",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Die Gerichte zitieren als Beleg Wörter wie „Bevölkerungsaustausch“ und „Umvolkung“. Niedersachsen ist der erste westdeutsche Verband."
+      "context_tooltip": "„Gesichert“ ist die höchste Beobachtungsstufe: Der Verdacht gilt als zur Gewissheit verdichtet. Wo Gerichte das prüften, hielt es stand — in Sachsen bestätigte das OVG Bautzen die Einstufung rechtsverbindlich, in Niedersachsen wertete das VG Hannover Begriffe wie „Umvolkung“ und „Volkstod“ als Belege für eine rassistische Weltanschauung."
     },
     {
       "type": "quote",
@@ -108,7 +107,7 @@
         "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Der „Große Austausch“ ist eine Verschwörungserzählung — der Verfassungsschutz ordnet sie als rechtsextremistisch ein. Das Zitat stammt nicht von einem Einzelnen, sondern vom offiziellen AfD-Kanal."
+      "context_tooltip": "Der Verfassungsschutz zitiert das Video als Beleg für ein ethnisch-abstammungsmäßiges Volksverständnis, das dem Grundgesetz widerspricht. Narrative wie „Großer Austausch“ und „Umvolkung“ nennt der Bericht rechtsextremistische und verschwörungstheoretische Erzählungen — gesprochen von keinem Einzelnen, sondern vom offiziellen Kanal der Partei."
     },
     {
       "type": "data",
@@ -149,13 +148,12 @@
         "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Weidels Behauptung: Der Verfassungsschutz beobachte nur „die politische Opposition“. Übersetzt: Die AfD will genau die Behörde abschaffen, die sie als rechtsextremistisch einstuft."
+      "context_tooltip": "Die Forderung richtet sich gegen genau die Behörde, die die AfD als rechtsextremistisch einstuft: Der Landesverband in Sachsen-Anhalt gilt als gesichert rechtsextremistisch, die Bundespartei als Verdachtsfall — dreifach gerichtlich bestätigt. Wer die Behörde abschaffen will, will die Beobachtung loswerden, nicht reformieren."
     },
     {
       "type": "chapterbreak",
       "chapter": "programm",
-      "summary": "Du weißt jetzt, warum der Verfassungsschutz die Partei im Blick hat.",
-      "next_title": "Weiter: Das Programm"
+      "summary": "Du weißt jetzt, warum der Verfassungsschutz die Partei im Blick hat."
     },
     {
       "type": "contrast",
@@ -167,7 +165,7 @@
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Dürren, Fluten und Hitzetote gibt es schon jetzt."
+      "context_tooltip": "Keine Randbemerkung, sondern die Grundannahme der AfD-Klimapolitik. In der Bundestagsdebatte über ihre Entwürfe hieß es, ein Ausstieg aus dem Pariser Abkommen wäre der „sichere Weg“ in die Isolation — und die vom Bundeswirtschaftsministerium beauftragte Studie rechnet bis 2050 mit Klimaschäden von 280 bis 900 Milliarden Euro."
     },
     {
       "type": "quote",
@@ -180,7 +178,7 @@
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Die AfD will die Sanktionen sofort kippen und die Nord-Stream-Leitungen wieder in Betrieb nehmen — das hieße: Europa hilft, Russlands Krieg zu finanzieren. Der Verfassungsschutz nennt die AfD-Außenpolitik „eindeutig prorussisch“."
+      "context_tooltip": "Der Verfassungsschutz ordnet genau diese Linie ein: Teile des Verdachtsfalls „AfD“ vertraten „eindeutig prorussische Narrative“, mehrere Abgeordnete beteiligten sich an der Kampagne „Stoppt die Sanktionen“. Die Forderung läuft also darauf hinaus, Russlands Krieg zu finanzieren, während er läuft."
     },
     {
       "type": "slider",
@@ -196,7 +194,7 @@
         "url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw49-de-rente-1128178",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Bezahlt wird das mit Steuergeld, das alle zahlen. Profitieren können nur die einen Kinder."
+      "context_tooltip": "Nicht Wahlkampfgerücht, sondern ausgearbeiteter Antrag, über den der Bundestag debattiert hat. Die Pointe: Alle Steuerzahler zahlen ein — auch Eltern, deren Kinder ohne deutschen Pass nichts bekommen. Der Unterschied zwischen Kindern besteht hier genau in einem Dokument."
     },
     {
       "type": "quiz",
@@ -222,13 +220,12 @@
         "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Krah hat vorgerechnet, was das bedeutet: „25 Millionen Menschen, davon 15 Millionen deutsche Staatsangehörige.“"
+      "context_tooltip": "Der Begriff kommt nicht aus der klassischen Asylpolitik, sondern aus einem Geheimtreffen in Potsdam, auf dem AfD-Politiker mit Neonazis und dem Kopf der Identitären Bewegung das „Remigrations“-Konzept berieten — auch über Menschen mit deutschem Pass. Die Unwort-Jury wählte ihn deshalb zum Unwort des Jahres: eine „beschönigende Tarnvokabel“."
     },
     {
       "type": "chapterbreak",
       "chapter": "innen",
-      "summary": "Du weißt jetzt, was die AfD schriftlich plant — es steht alles im Programm.",
-      "next_title": "Weiter: Innenleben"
+      "summary": "Du weißt jetzt, was die AfD schriftlich plant — es steht alles im Programm."
     },
     {
       "type": "quote",
@@ -241,7 +238,7 @@
         "url": "https://www.zeit.de/news/2018-06/03/empoerung-wegen-gaulands-relativierung-der-ns-zeit-180603-99-560879",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Ausgerechnet die Partei, die gern von deutscher Geschichte spricht, verharmlost die NS-Zeit. Ihre Jugend jubelt dazu."
+      "context_tooltip": "Derselbe Gauland forderte später öffentlich das Recht ein, stolz auf die Leistungen deutscher Soldaten in zwei Weltkriegen zu sein — und verteidigte den Vogelschiss als eine der verachtungsvollsten Charakterisierungen, die die deutsche Sprache kennt. Das Internationale Auschwitz-Komitee nannte den Satz „widerlich“."
     },
     {
       "type": "reveal",
@@ -254,7 +251,7 @@
         "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Ebner-Steiner: raus sollen „Straftäter, Ausreisepflichtige und Personen, die sich den deutschen Pass erschlichen haben“. Der Parteitag 2024 sprach von „umfassender Remigration im Millionenbereich“. Politologe Schammann: „Man kann die Forderungen der AfD nur erfüllen, wenn man ein anderes politisches System wählt.“"
+      "context_tooltip": "Die Forderung zeigt, wo der Rechtsstaat endet: Der Politologe Schammann urteilt, man könne die Forderungen der AfD nur erfüllen, wenn man ein anderes politisches System wählt. Der Maßstab: Bayerns AfD will „umfassende Remigration im Millionenbereich“ — Mitte 2025 waren in Bayern aber nur rund 24.500 Menschen ausreisepflichtig."
     },
     {
       "type": "reveal",
@@ -267,13 +264,12 @@
         "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Vom OLG Dresden verurteilt. Krah saß trotzdem im EU-Ausschuss für Menschenrechte."
+      "context_tooltip": "Bestraft wurde der Mitarbeiter, nicht der Arbeitgeber: Gegen Krah selbst ermittelt die Generalstaatsanwaltschaft Dresden in einem separaten Verfahren wegen Bestechlichkeit und Geldwäsche im Zusammenhang mit chinesischen Zahlungen. Und während der Fall lief, saß Krah im EU-Unterausschuss für Menschenrechte."
     },
     {
       "type": "chapterbreak",
       "chapter": "kosten",
-      "summary": "Noch da? Du hast vier Kapitel geschafft — und weißt jetzt, wer den Ton angibt.",
-      "next_title": "Weiter: Was es kostet"
+      "summary": "Noch da? Du hast vier Kapitel geschafft — und weißt jetzt, wer den Ton angibt."
     },
     {
       "type": "statement",
@@ -336,7 +332,7 @@
         "url": "https://www.tagesschau.de/investigativ/ndr-wdr/eu-agrarsubventionen-unternehmen-101.html",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Unter den Top 100: 24 Ex-DDR-Großbetriebe."
+      "context_tooltip": "Die Partei der „kleinen Leute“ verteidigt ein System, das nach oben zahlt: Unter den 100 größten Empfängern sind mindestens 24 Ex-DDR-Großbetriebe — und selbst RWE, BASF und Bayer erhielten Agrargelder. Die untere Hälfte der Betriebe kommt im Schnitt auf 200 Euro im Monat."
     },
     {
       "type": "quote",
@@ -349,13 +345,12 @@
         "url": "https://www.diw.de/de/diw_01.c.879742.de/publikationen/diw_aktuell/2023_0088/das_afd-paradox__die_hauptleidtragenden_der_afd-politik_waeren_ihre_eigenen_waehler_innen.html",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Die Partei, die für die kleinen Leute kämpft, kostet gerade sie am meisten: Arbeitsplatzverluste und sinkende Leistungen."
+      "context_tooltip": "Das DIW erklärt das Paradox: Die AfD redet ihren Unterstützern ein, sie würden gewinnen, wenn Leistungen und Grundrechte für andere gestrichen werden — eine kollektive Fehleinschätzung, so die Analyse. Und ihr nüchternes Fazit: Kaum eine Partei hat in 70 Jahren so hart nach unten getreten wie diese."
     },
     {
       "type": "chapterbreak",
       "chapter": "einwaende",
-      "summary": "Du weißt jetzt, wer draufzahlt. Und wer kassiert.",
-      "next_title": "Weiter: Einwände"
+      "summary": "Du weißt jetzt, wer draufzahlt. Und wer kassiert."
     },
     {
       "type": "contrast",
@@ -378,7 +373,7 @@
         "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1201000",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Alles eingebracht und im Parlament debattiert."
+      "context_tooltip": "Keine Parole, sondern Drucksache: Die AfD-Fraktion hat diese Gesetzentwürfe offiziell in den Bundestag eingebracht. Allein ihr Erbschaftsteuer-Entwurf soll Erben um 8,5 Milliarden Euro entlasten — eine Rechnung, die die Verfasser selbst vorlegen. Aus dem offiziellen AfD-Antrag, nicht aus einem Chat."
     },
     {
       "type": "contrast",
@@ -390,13 +385,12 @@
         "url": "https://www.br.de/bundestagswahl/afd-politiker-gauland-ueber-merkel-wir-werden-sie-jagen-100.html",
         "visited": "2026-09-06"
       },
-      "context_tooltip": "Klingbeil sieht in der Parole einen Grund für die zunehmende Gewalt von rechts. Und: Vogelschiss-Rede, Höckes SA-Parole, der AFA-Abschiebetrupp."
+      "context_tooltip": "Als Metapher abtun? Nach dem Angriff auf den SPD-Politiker Matthias Ecke zog SPD-Chef Klingbeil genau diese Linie: „Es gibt Vertreter beispielsweise auch der AfD, die offen dazu auffordern, andere Politiker zu jagen. Und dann sind das vielleicht nicht diejenigen, die so eine Tat unmittelbar zu verantworten haben.“"
     },
     {
       "type": "chapterbreak",
       "chapter": "fazit",
-      "summary": "Die drei Einwände vom Familienessen? Du weißt jetzt, was darauf passt.",
-      "next_title": "Weiter: Das Fazit"
+      "summary": "Die drei Einwände vom Familienessen? Du weißt jetzt, was darauf passt."
     },
     {
       "type": "data",
