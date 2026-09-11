@@ -353,7 +353,7 @@
       "max": 1000,
       "answer": 690,
       "unit": " Mrd. €",
-      "explanation": "690 Milliarden €. Das IW Köln simulierte den EU-Austritt wie beim Brexit: Im 5. Jahr wäre das BIP um 5,6 % geschrumpft, rund 2,5 Mio. Jobs weg. Die AfD fordert den Austritt trotzdem — seit 2025 offiziell im Bundesprogramm.",
+      "explanation": "690 Milliarden €. Das IW Köln simulierte den EU-Austritt wie beim Brexit: Im 5. Jahr wäre das BIP um 5,6 % geschrumpft, rund 2,5 Mio. Jobs weg — allein 2021 kostete der Austritt ~200 Mrd. €. Die AfD fordert ihn trotzdem.",
       "source": {
         "label": "IW Köln (iwd.de): Dexit — Teurer Ausstieg aus der Staatengemeinschaft",
         "url": "https://www.iwd.de/artikel/dexit-teurer-ausstieg-aus-der-staatengemeinschaft-622782/",
@@ -361,28 +361,6 @@
       },
       "context_tooltip": "Die AfD fordert den Euro- und EU-Austritt im Bundesprogramm (seit Riesa 01/2025). Das IW Köln simulierte 2024 den Austritt nach Brexit-Vorbild: 5,6 % weniger BIP im 5. Jahr, summiert 690 Mrd. €, rund 2,5 Mio. Jobs weniger. Die Kosten eines künftigen Dexits hält das IW für mindestens ähnlich hoch. Die meisten tippen hier weit unter 500.",
       "next_hook": "Und woher die 690 Milliarden? Nächste Szene."
-    },
-    {
-      "type": "data",
-      "chapter": "kosten",
-      "headline": "Ein Dexit kostet 690 Milliarden Euro",
-      "value": 690,
-      "suffix": " Mrd. €",
-      "caption": "IW-Simulation nach Brexit-Vorbild: 5 Jahre nach dem Austritt wäre das BIP um 5,6 % kleiner — rund 2,5 Mio. Jobs weg. Corona und Energiekrise kosteten zusammen ähnlich viel.",
-      "chart": "compare",
-      "series": [
-        {
-          "label": "Allein 2021",
-          "value": 200
-        }
-      ],
-      "source": {
-        "label": "IW Köln (iwd.de): Dexit — Teurer Ausstieg aus der Staatengemeinschaft (05.06.2024)",
-        "url": "https://www.iwd.de/artikel/dexit-teurer-ausstieg-aus-der-staatengemeinschaft-622782/",
-        "visited": "2026-09-10"
-      },
-      "context_tooltip": "Die Referenz zieht das IW selbst: Die Verluste durch Corona- und Energiekrise 2020–2023 fielen zusammen in etwa ähnlich hoch aus. Für 2021 allein beziffert der iwd-Artikel ein Minus von rund 200 Mrd. € — das ist der Referenz-Balken. Bundeshaushalt und Corona-Hilfen fehlen bewusst: dafür gibt es hier keinen archivierten Beleg.",
-      "share": "Ein Dexit kostet 690 Mrd. € — das rechnet das IW Köln vor. Quelle: iwd.de"
     },
     {
       "type": "data",
