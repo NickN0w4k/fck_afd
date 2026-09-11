@@ -1,9 +1,12 @@
 ---
-// Summary: TL;DR als Flip-Karten (tap zum Aufklappen), animiert nacheinander.
+// Summary: TL;DR-Karten (Bestand) + optional facts [{big,label}] als StatTile-Grid (Welle 2, apex §2).
+import StatTile from '../StatTile.astro';
+
 interface Props {
   scene: {
     tldr: { num: string; text: string }[];
     closing?: string;
+    facts?: { big: string; label: string }[];
   };
   chapters: { id: string; num: string; title: string; accent: string }[];
 }
@@ -25,6 +28,17 @@ const tldrItems = scene.tldr.map((p, i) =>
       ))
     }
   </div>
+
+  {
+    scene.facts && scene.facts.length > 0 && (
+      <div class="facts">
+        {scene.facts.map((f, i) => (
+          <StatTile big={f.big} label={f.label} delay={i * 90} />
+        ))}
+      </div>
+    )
+  }
+
   <p class="closing" data-anim="rise">{scene.closing}</p>
 </div>
 
@@ -69,6 +83,17 @@ const tldrItems = scene.tldr.map((p, i) =>
     font-size: clamp(0.98rem, 2.4vw, 1.25rem);
     font-weight: 600;
     line-height: 1.35;
+  }
+  .facts {
+    margin-top: 1.6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+  }
+  @media (min-width: 640px) {
+    .facts {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
   .closing {
     margin-top: 2rem;

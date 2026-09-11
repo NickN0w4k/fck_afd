@@ -3,6 +3,12 @@ const { chromium } = require('playwright-core');
 const { existsSync } = require('fs');
 const path = require('path');
 const os = require('os');
+// Erwartungen an Content-Mengen aus scenes.json ableisten (Welle 2: mehrere Timeline-Szenen möglich)
+const scenesJson = require('../../content/scenes.json');
+const scenesData = scenesJson.scenes ?? scenesJson;
+const expectedTlCards = scenesData
+  .filter((s) => s.type === 'timeline')
+  .reduce((n, s) => n + (s.items?.length ?? 0), 0);
 
 const candidates = [
   process.env.CHROME_PATH,
@@ -38,7 +44,7 @@ function check(name, cond) {
   check(`Tour: Share-Button je Szene (${scenesCount})`, (await page.locator('.scene-share').count()) === scenesCount && scenesCount >= 25);
   check('Tour: kein Stand-Badge-Overlay mehr (entfernt auf User-Wunsch)', (await page.locator('.stand-badge').count()) === 0);
   check('Tour: Skip-Link', (await page.locator('.skip-link').count()) === 1);
-  check('Tour: Timeline mit 3 Karten (Welle 1: 6→3 Punkte)', (await page.locator('.tl-card').count()) === 3);
+  check(`Tour: Timeline mit ${expectedTlCards} Karten (aus scenes.json abgeleitet)`, (await page.locator('.tl-card').count()) === expectedTlCards);
   check('Tour: Action-Szene mit 3 Karten (Welle 1: 4→3)', (await page.locator('.action-card').count()) === 3);
 
   // Share-Popover (Desktop-Chromium hat kein navigator.share)

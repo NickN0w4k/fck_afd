@@ -197,6 +197,30 @@
       "context_tooltip": "Nicht Wahlkampfgerücht, sondern ausgearbeiteter Antrag, über den der Bundestag debattiert hat. Die Pointe: Alle Steuerzahler zahlen ein — auch Eltern, deren Kinder ohne deutschen Pass nichts bekommen. Der Unterschied zwischen Kindern besteht hier genau in einem Dokument."
     },
     {
+      "type": "contrast",
+      "chapter": "programm",
+      "claim": "„Die Rundfunkstaatsverträge werden als erste Amtshandlung gekündigt, um echten Reformdruck zu erzeugen!“",
+      "reality": "Steht wörtlich im Regierungsprogramm „Das Land zuerst.“ (Sofortmaßnahme Nr. 3). Die DW nennt den Kurs einen „radikalen Gesellschaftsumbau“ — der Kampf gilt dem öffentlich-rechtlichen Rundfunk.",
+      "source": {
+        "label": "AfD Sachsen-Anhalt, Regierungsprogramm „Das Land zuerst.“ (11.04.2026, PDF) · DW 10.09.2026",
+        "url": "https://afd-lsa.de/wp-content/uploads/2026/07/AfD_Sachsen-Anhalt_Regierungsprogramm_2026_230726-web.pdf",
+        "visited": "2026-09-10"
+      },
+      "context_tooltip": "Das Programm zielt auf das Ende von „Posten und Pflichtgebühren“ im Öffentlich-Rechtlichen — beschlossen auf dem Landesparteitag Magdeburg (11.04.2026), PDF-Stand 23.07.2026. Die DW nach der Wahl: Die AfD sagt dem öffentlich-rechtlichen Rundfunk „den Kampf an“ — Teil eines „radikalen Gesellschaftsumbaus“ (10.09.2026)."
+    },
+    {
+      "type": "contrast",
+      "chapter": "programm",
+      "claim": "„Wir werden deshalb als eine dritte Säule der Sicherheitsarchitektur vor Ort eine freiwillige Bürgerwacht aufbauen.“",
+      "reality": "Verfassungsrechtler Markus Thiel warnt: verfassungsrechtlich problematisch (Grundrechte, Funktionsvorbehalt) — und der Begriff „erinnert, absichtlich oder unabsichtlich, an Bürgerwehr“.",
+      "source": {
+        "label": "AfD Sachsen-Anhalt, Regierungsprogramm „Das Land zuerst.“ (Punkt 20) · ZDF heute 27.07.2026",
+        "url": "https://www.zdfheute.de/politik/deutschland/afd-sachsen-anhalt-buergerwacht-plan-100.html",
+        "visited": "2026-09-10"
+      },
+      "context_tooltip": "Polizeirechtler Markus Thiel (Polizeihochschule Münster) in zdfheute: Der Plan ist „verfassungsrechtlich problematisch, und zwar mit Blick auf die Grundrechte und den sogenannten Funktionsvorbehalt“ — Hoheitsrechte gehören nach Art. 33 GG in den öffentlichen Dienst. Eine „Bürgerwehr“ mit hoheitlichen Befugnissen sei „nicht erlaubt“."
+    },
+    {
       "type": "quiz",
       "chapter": "programm",
       "question": "Wie nennt die AfD ihre Migrationspolitik?",
@@ -267,6 +291,58 @@
       "context_tooltip": "Bestraft wurde der Mitarbeiter, nicht der Arbeitgeber: Gegen Krah selbst ermittelt die Generalstaatsanwaltschaft Dresden in einem separaten Verfahren wegen Bestechlichkeit und Geldwäsche im Zusammenhang mit chinesischen Zahlungen. Und während der Fall lief, saß Krah im EU-Unterausschuss für Menschenrechte."
     },
     {
+      "type": "quote",
+      "chapter": "innen",
+      "quote": "Schwarz-Rot ist vorbei.",
+      "author": "Alice Weidel, AfD-Bundesvorsitzende, Bundestag 09.09.2026",
+      "context": "Wörtlich im Protokoll 21/92. Weidel fordert im selben Beitrag Gas aus Russland. Merz: „eine destruktive Kraft“.",
+      "source": {
+        "label": "Deutscher Bundestag, Plenarprotokoll 21/92 (09.09.2026) · tagesschau zur Generaldebatte",
+        "url": "https://dserver.bundestag.de/btp/21/21092.pdf",
+        "visited": "2026-09-10"
+      },
+      "context_tooltip": "Wörtlich im Plenarprotokoll 21/92 (09.09.2026): Weidel eröffnet die Generaldebatte — \"Schwarz-Rot ist vorbei\", \"Ihre Zeit ist ohnehin abgelaufen\", dazu \"günstiges Gas aus Russland\". Merz: \"Sie sind und Sie bleiben, Frau Weidel, eine destruktive Kraft\", wirft der AfD \"ethnische Säuberung\" vor. Klöckner droht AfD-Abgeordneten mit Rauswurf."
+    },
+    {
+      "type": "quote",
+      "chapter": "innen",
+      "quote": "Wow, die populistische Partei in Deutschland hatte eine wirklich große Nacht. … MGGA!!!",
+      "author": "Donald Trump, US-Präsident, Truth Social 09.09.2026",
+      "context": "Zwei Tage nach der Wahl feiert der US-Präsident eine Partei, die der Verfassungsschutz als rechtsextremistisch einstuft.",
+      "source": {
+        "label": "DIE ZEIT (dpa): Trump gratuliert AfD — Bewegung „im Aufwind“ (09.09.2026)",
+        "url": "https://www.zeit.de/news/2026-09/09/trump-gratuliert-afd-bewegung-im-aufwind",
+        "visited": "2026-09-10"
+      },
+      "context_tooltip": "Trumps Post auf Truth Social, zwei Tage nach der Wahl (ZEIT/dpa). Weiter: \"SIE BEFINDEN SICH IM AUFWIND\" — Abschluss \"MGGA!!!\" (\"Make Germany Great Again\"). Musk kommentiert Weidels Siegespost mit \"Gut gemacht!\", Ex-Botschafter Grenell nennt es \"einen großen Sieg\". Die SPD nennt die Gratulation \"extremst befremdlich\"."
+    },
+    {
+      "type": "quote",
+      "chapter": "innen",
+      "quote": "Wir müssen endlich aus der Opposition in die Regierung kommen.",
+      "author": "Tino Chrupalla, AfD-Bundesvorsitzender, Parteitag 05.07.2026",
+      "context": "Der Machtanspruch, ausgesprochen vor den Delegierten. Drei Monate später gewinnt die AfD in Sachsen-Anhalt mit 44 %.",
+      "source": {
+        "label": "DIE ZEIT (dpa): AfD-Parteitag zu Ende (05.07.2026)",
+        "url": "https://www.zeit.de/news/2026-07/05/afd-parteitag-zu-ende",
+        "visited": "2026-09-10"
+      },
+      "context_tooltip": "Gesagt auf dem AfD-Bundesparteitag in Erfurt (ZEIT/dpa): Chrupalla wurde tags zuvor mit 70,05 % wiedergewählt, Weidel mit 81,3 %. Der Satz ist Programm: Im Bundesprogramm steht der EU-Austritt, in Sachsen-Anhalt das \"Regierungsprogramm Das Land zuerst.\" Höcke bot der BSW-Chefin Thüringen öffentlich das Ministerpräsidenten-Amt an (ZEIT, 13.08.2026)."
+    },
+    {
+      "type": "quote",
+      "chapter": "innen",
+      "quote": "Die größte Bedrohung für unsere Demokratie kommt weiterhin von Rechtsextremisten.",
+      "author": "Alexander Dobrindt, Bundesinnenminister, 30.06.2026",
+      "context": "Der Innenminister selbst: Sein Verfassungsschutzbericht zählt 28.000 Rechtsextremisten im AfD-Umfeld, mehr als je zuvor.",
+      "source": {
+        "label": "BMI: Verfassungsschutzbericht 2025 vorgestellt (30.06.2026)",
+        "url": "https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2026/06/vsb2025-pm.html",
+        "visited": "2026-09-10"
+      },
+      "context_tooltip": "Gesagt zur Vorstellung des Verfassungsschutzberichts 2025 (BMI-PM, 30.06.2026). Der Bericht zählt im AfD-Umfeld 28.000 Rechtsextremisten, das Potenzial stieg auf 58.700 (+17 %), 15.600 gewaltorientiert. Fünf Landesverbände gelten als gesichert rechtsextremistisch — die Behörde des Innenministers sieht in der Partei die größte Gefahr."
+    },
+    {
       "type": "chapterbreak",
       "chapter": "kosten",
       "summary": "Noch da? Du hast vier Kapitel geschafft — und weißt jetzt, wer den Ton angibt."
@@ -281,6 +357,60 @@
         "url": "https://www.zew.de/presse/pressearchiv/wen-die-parteien-entlasten-wuerden/",
         "visited": "2026-09-03"
       }
+    },
+    {
+      "type": "slider",
+      "chapter": "kosten",
+      "prompt": "Was glaubst du: Was kostet ein Dexit?",
+      "min": 0,
+      "max": 1000,
+      "answer": 690,
+      "unit": " Mrd. €",
+      "explanation": "690 Milliarden €. Das IW Köln simulierte den EU-Austritt wie beim Brexit: Im 5. Jahr wäre das BIP um 5,6 % geschrumpft, rund 2,5 Mio. Jobs weg. Die AfD fordert den Austritt trotzdem — seit 2025 offiziell im Bundesprogramm.",
+      "source": {
+        "label": "IW Köln (iwd.de): Dexit — Teurer Ausstieg aus der Staatengemeinschaft",
+        "url": "https://www.iwd.de/artikel/dexit-teurer-ausstieg-aus-der-staatengemeinschaft-622782/",
+        "visited": "2026-09-10"
+      },
+      "context_tooltip": "Die AfD fordert den Euro- und EU-Austritt im Bundesprogramm (seit Riesa 01/2025). Das IW Köln simulierte 2024 den Austritt nach Brexit-Vorbild: 5,6 % weniger BIP im 5. Jahr, summiert 690 Mrd. €, rund 2,5 Mio. Jobs weniger. Die Kosten eines künftigen Dexits hält das IW für mindestens ähnlich hoch. Die meisten tippen hier weit unter 500.",
+      "next_hook": "Und woher die 690 Milliarden? Nächste Szene."
+    },
+    {
+      "type": "data",
+      "chapter": "kosten",
+      "headline": "Ein Dexit kostet 690 Milliarden Euro",
+      "value": 690,
+      "suffix": " Mrd. €",
+      "caption": "IW-Simulation nach Brexit-Vorbild: 5 Jahre nach dem Austritt wäre das BIP um 5,6 % kleiner — rund 2,5 Mio. Jobs weg. Corona und Energiekrise kosteten zusammen ähnlich viel.",
+      "chart": "compare",
+      "series": [
+        {
+          "label": "Allein 2021",
+          "value": 200
+        }
+      ],
+      "source": {
+        "label": "IW Köln (iwd.de): Dexit — Teurer Ausstieg aus der Staatengemeinschaft (05.06.2024)",
+        "url": "https://www.iwd.de/artikel/dexit-teurer-ausstieg-aus-der-staatengemeinschaft-622782/",
+        "visited": "2026-09-10"
+      },
+      "context_tooltip": "Die Referenz zieht das IW selbst: Die Verluste durch Corona- und Energiekrise 2020–2023 fielen zusammen in etwa ähnlich hoch aus. Für 2021 allein beziffert der iwd-Artikel ein Minus von rund 200 Mrd. € — das ist der Referenz-Balken. Bundeshaushalt und Corona-Hilfen fehlen bewusst: dafür gibt es hier keinen archivierten Beleg.",
+      "share": "Ein Dexit kostet 690 Mrd. € — das rechnet das IW Köln vor. Quelle: iwd.de"
+    },
+    {
+      "type": "data",
+      "chapter": "kosten",
+      "headline": "Die AfD kann ihr Programm nicht bezahlen",
+      "value": 2.2,
+      "suffix": " Mrd. €",
+      "caption": "IWH-Berechnung: Eine AfD-Alleinregierung in Sachsen-Anhalt bräuchte mindestens 2,2 Mrd. € pro Jahr zusätzlich — ein Viertel der Steuereinnahmen des Landes.",
+      "source": {
+        "label": "IWH Halle: Studie belegt Milliardenlücke im Wahlprogramm der AfD Sachsen-Anhalt (05.08.2026)",
+        "url": "https://www.iwh-halle.de/presse/pressemitteilungen/detail/studie-belegt-milliardenluecke-im-wahlprogramm-der-afd-sachsen-anhalt",
+        "visited": "2026-09-10"
+      },
+      "context_tooltip": "IWH-Präsident Reint Gropp: „Selbst in Teilen ist das Wahlprogramm der AfD auch mittelfristig nicht finanzierbar.“ Die Rechnung ist konservativ: Nur 28 von 136 kostenwirksamen Maßnahmen ließen sich belegen — rund 1,6 Mrd. € pro Jahr, plus 877 Mio. € Neuverschuldung. Einsparungen: 243 Mio. €. Schulden und Steuererhöhungen schließt das Programm aus.",
+      "share": "Die AfD kann ihr eigenes Programm nicht bezahlen: 2,2 Mrd. € fehlen pro Jahr. Quelle: IWH Halle"
     },
     {
       "type": "data",
@@ -464,6 +594,43 @@
         "url": "https://bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html",
         "visited": "2026-09-03"
       }
+    },
+    {
+      "type": "timeline",
+      "chapter": "fazit",
+      "headline": "Drei Tage nach der Wahl",
+      "items": [
+        {
+          "date": "06.09.2026",
+          "title": "Wahl in Sachsen-Anhalt",
+          "text": "Die AfD gewinnt mit 44 % — bestes Ergebnis ihrer Geschichte.",
+          "source": {
+            "label": "tagesschau: ARD-Hochrechnung Landtagswahl Sachsen-Anhalt",
+            "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-172.html",
+            "visited": "2026-09-10"
+          }
+        },
+        {
+          "date": "07.09.2026",
+          "title": "BSW sagt Koalition ab",
+          "text": "BSW sieht aktuell keine Koalition mit der AfD. Am Abend: Schüsse auf eine Anti-AfD-Demo in Halle — Täter unbekannt.",
+          "source": {
+            "label": "MDR-Ticker (07.09.2026) · MDR: Staatsschutz ermittelt in Halle",
+            "url": "https://www.mdr.de/nachrichten/sachsen-anhalt/halle/halle/landtagswahl-kundgebung-staatsschutz-100,schuesse-polizei-100.html",
+            "visited": "2026-09-10"
+          }
+        },
+        {
+          "date": "08./09.09.2026",
+          "title": "Siegmund, Weidel, Merz, Trump",
+          "text": "Siegmund: Kernpositionen „zu 100 Prozent“ — Weidel im Bundestag: „Schwarz-Rot ist vorbei“ — Trump feiert mit „MGGA“.",
+          "source": {
+            "label": "tagesschau: Siegmund will stabile Mehrheit suchen · ZEIT/dpa: Trump gratuliert",
+            "url": "https://www.tagesschau.de/inland/afd-siegmund-100.html",
+            "visited": "2026-09-10"
+          }
+        }
+      ]
     },
     {
       "type": "summary",

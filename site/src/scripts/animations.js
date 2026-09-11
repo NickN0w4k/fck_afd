@@ -114,21 +114,30 @@ function initCountScrub() {
   });
 }
 
-/** Balken wachsen auf Scrub: [data-bar] mit style="--w: X%" — gestaffelt pro Szene */
+/** Balken wachsen auf Scrub: [data-bar] mit style="--w: X%" — gestaffelt pro Szene.
+ *  Diverging-Variante: .dv-fill wächst als HÖHE (von der Nulllinie aus auf/ab), --h = Länge. */
 function initBars() {
   document.querySelectorAll('.scene').forEach((scene) => {
     const bars = scene.querySelectorAll('[data-bar]');
     bars.forEach((el, i) => {
       const width = el.style.getPropertyValue('--w');
+      const isDiverging = el.classList.contains('dv-fill');
+      const length = el.style.getPropertyValue('--h');
       if (prefersReduced) {
-        el.style.width = width;
+        if (isDiverging) {
+          el.style.width = length;
+        } else {
+          el.style.width = width;
+        }
         return;
       }
+      const target = isDiverging ? length : width;
+      if (!target) return;
       gsap.fromTo(
         el,
         { width: '0%' },
         {
-          width,
+          width: target,
           duration: 1.1,
           delay: i * 0.12, // Stagger: Balken wachsen nacheinander
           ease: 'power3.out',
@@ -136,6 +145,36 @@ function initBars() {
         },
       );
     });
+  });
+}
+
+/** 10×10-Kachel-Raster: [data-tiles] färbt die ersten N Kacheln gestaffelt ein (stagger 0.02).
+ *  prefers-reduced-motion → alle Kacheln sofort im Endzustand gefärbt. */
+function initTiles() {
+  document.querySelectorAll('[data-tiles]').forEach((grid) => {
+    const tiles = grid.querySelectorAll('[data-tile]');
+    if (prefersReduced) return; // SSR-Endzustand (.tile.is-on gefärbt) bleibt bestehen
+    // Akzentfarbe computed auflösen (GSAP kann var() als Farbwert nicht zuverlässig animieren)
+    const accent = getComputedStyle(grid).getPropertyValue('--accent').trim() || '#ff4d2e';
+    // Startzustand: alle dunkel; Indexliste der zu färbenden Kacheln merken
+    const onIdx = [];
+    tiles.forEach((t, i) => {
+      if (t.classList.contains('is-on')) {
+        onIdx.push(i);
+        t.classList.remove('is-on');
+      }
+    });
+    if (!onIdx.length) return;
+    gsap.to(
+      onIdx.map((i) => tiles[i]),
+      {
+        backgroundColor: accent,
+        duration: 0.28,
+        ease: 'power1.out',
+        stagger: 0.02, // gestaffelt: Kachel für Kachel füllt sich
+        scrollTrigger: { trigger: grid, start: 'top 80%', once: true },
+      },
+    );
   });
 }
 
@@ -445,6 +484,7 @@ function init() {
   initCount();
   initCountScrub();
   initBars();
+  initTiles();
   initDonut();
   initSplit();
   initStrike();

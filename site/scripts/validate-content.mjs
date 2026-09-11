@@ -37,6 +37,26 @@ scenes.forEach((scene, i) => {
   if (scene.count_scrub !== undefined && typeof scene.count_scrub !== 'boolean') {
     errors.push(`${where}: count_scrub muss boolean sein`);
   }
+  // Optionales Feld (Welle 2): facts [{big, label}] — Recap-Zahlen (Summary), max 6
+  if (scene.facts !== undefined) {
+    if (!Array.isArray(scene.facts)) {
+      errors.push(`${where}: facts muss ein Array sein`);
+    } else if (scene.facts.length > 6) {
+      errors.push(`${where}: facts darf maximal 6 Einträge haben (${scene.facts.length})`);
+    } else {
+      scene.facts.forEach((f, j) => {
+        if (!f || typeof f !== 'object' || Array.isArray(f)) {
+          errors.push(`${where}: facts[${j}] muss ein Objekt {big, label} sein`);
+        } else {
+          if (typeof f.big !== 'string' || !f.big.trim()) errors.push(`${where}: facts[${j}].big muss nicht-leerer string sein`);
+          else if (f.big.length > 24) errors.push(`${where}: facts[${j}].big länger als 24 Zeichen (${f.big.length})`);
+          if (typeof f.label !== 'string' || !f.label.trim()) errors.push(`${where}: facts[${j}].label muss nicht-leerer string sein`);
+          else if (f.label.length > 60) errors.push(`${where}: facts[${j}].label länger als 60 Zeichen (${f.label.length})`);
+        }
+      });
+    }
+    if (scene.type !== 'summary') warnings.push(`${where}: facts gesetzt, obwohl Typ ${scene.type} kein facts-Grid rendert`);
+  }
   if (scene.chart !== undefined) {
     if (!CHART_TYPES.has(scene.chart)) {
       errors.push(`${where}: chart "${scene.chart}" unbekannt (erlaubt: ${[...CHART_TYPES].join(', ')})`);

@@ -8,13 +8,18 @@ interface Props {
     value?: number;
     suffix?: string;
     caption?: string;
-    chart?: 'bars' | 'donut';
+    chart?: 'bars' | 'donut' | 'diverging' | 'tiles' | 'compare';
     count_scrub?: boolean;
     series?: { label: string; value: number }[];
     source?: { label: string; url: string; visited?: string };
   };
 }
 const { scene } = Astro.props;
+
+// Zahlformatierung de-DE (max. 1 Dezimalstelle, für Serien-Werte)
+const fmtNum = (v: number) => v.toLocaleString('de-DE', { maximumFractionDigits: 1 });
+// Vorzeichenbehaftet (diverging): −19.190 / +440
+const fmtSigned = (v: number) => `${v < 0 ? '−' : '+'}${Math.abs(v).toLocaleString('de-DE', { maximumFractionDigits: 1 })}`;
 ---
 
 <div class="data">
@@ -46,6 +51,89 @@ const { scene } = Astro.props;
         ))}
       </div>
     )
+  }
+
+  {
+    scene.chart === 'diverging' && scene.series && (() => {
+      // Diverging Bars: negative/positive Werte um eine Nulllinie (apex §1: +440 vs −19.190).
+      // Skala = max absoluter Wert; SSR-Endzustand: --up/--down sind gesetzt, JS animiert nur die Höhe.
+      const max = Math.max(...scene.series.map((s) => Math.abs(s.value)), 1);
+      return (
+        <div class="bars diverging" role="img" aria-label={scene.series.map((s) => `${s.label}: ${fmtSigned(s.value)}`).join(', ')}>
+          {scene.series.map((s) => {
+            const up = s.value >= 0;
+            // Mindestlänge 4 %: 19.190 vs 440 wäre sonst unsichtbar (2,3 %) — Verhältnis bleibt dominant
+            const pct = Math.min(100, Math.max(4, (Math.abs(s.value) / max) * 100));
+            return (
+              <div class="bar-row diverging-row">
+                <span class="bar-label">{s.label}</span>
+                <div class="dv-axis">
+                  <div class={`dv-fill ${up ? 'is-up' : 'is-down'}`} data-bar style={`--h: ${pct}%`} />
+                </div>
+                <span class={`dv-val ${up ? 'is-up' : 'is-down'}`}>{fmtSigned(s.value)}</span>
+              </div>
+            );
+          })}
+        </div>
+      );
+    })()
+  }
+
+  {
+    scene.chart === 'tiles' && scene.value !== undefined && (() => {
+      // 10×10-Kachel-Raster: value färbt die ersten N Kacheln (apex §1: 44 % → 44 Kacheln).
+      // Rein DOM/CSS + Registry-Stagger (data-tile); SSR-Endzustand: --filled Kacheln sind gefärbt.
+      const n = Math.max(0, Math.min(100, Math.round(scene.value)));
+      const tiles = Array.from({ length: 100 }, (_, i) => i < n);
+      return (
+        <div
+          class="tiles"
+          data-tiles={n}
+          role="img"
+          aria-label={`${n} von 100${scene.suffix ? ` ${scene.suffix}` : ''}`}
+        >
+          {tiles.map((on, i) => (
+            <div
+              class:list={['tile', { 'is-on': on }]}
+              data-tile
+              style={`--i: ${i}`}
+              aria-hidden="true"
+            />
+          ))}
+        </div>
+      );
+    })()
+  }
+
+  {
+    scene.chart === 'compare' && scene.value !== undefined && scene.series && (() => {
+      // Anker-Vergleich: scene.value = Ankerwert (Akzent), series = Referenz-Balken darunter (muted).
+      // Alle Werte als %-Anteil des Maximums → der Anker überragt sichtbar (apex §1: 690 vs. ~500/300).
+      const all = [scene.value, ...scene.series.map((s) => s.value)];
+      const max = Math.max(...all.map((v) => Math.abs(v)), 1);
+      return (
+        <div
+          class="bars compare"
+          role="img"
+          aria-label={`${scene.headline}: ${fmtNum(scene.value)}${scene.suffix ?? ''} — ${scene.series.map((s) => `${s.label}: ${fmtNum(s.value)}`).join(', ')}`}
+        >
+          <div class="bar-row">
+            <span class="bar-label">{fmtNum(scene.value)}{scene.suffix}</span>
+            <div class="bar-track">
+              <div class="bar-fill" data-bar style={`--w: ${(Math.abs(scene.value) / max) * 100}%`} />
+            </div>
+          </div>
+          {scene.series.map((s) => (
+            <div class="bar-row">
+              <span class="bar-label">{s.label}</span>
+              <div class="bar-track">
+                <div class="bar-fill is-ref" data-bar style={`--w: ${(Math.abs(s.value) / max) * 100}%`} />
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    })()
   }
 
   {
@@ -152,5 +240,86 @@ const { scene } = Astro.props;
     font-weight: 700;
     color: var(--accent);
     font-variant-numeric: tabular-nums;
+  }
+
+  /* ===== Diverging Bars: negativ rot nach unten, positiv Akzent nach oben, Nulllinie sichtbar ===== */
+  .diverging {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-top: 1.5rem;
+  }
+  .dv-axis {
+    position: relative;
+    height: 74px;
+    flex: 1;
+  }
+  /* Nulllinie: harte Kante zwischen Auf-/Ab-Zone */
+  .dv-axis::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: rgba(245, 242, 236, 0.25);
+  }
+  .dv-fill {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-radius: 3px;
+  }
+  /* Über der Nulllinie: wächst von der Linie nach oben (bottom: 50%) */
+  .dv-fill.is-up {
+    bottom: 50%;
+    width: var(--h, 0%); /* initBars animiert width — hier = Länge des Balkens */
+    max-width: 100%;
+    height: 8px;
+    background: var(--accent);
+  }
+  /* Unter der Nulllinie: wächst von der Linie nach unten (top: 50%), rot */
+  .dv-fill.is-down {
+    top: 50%;
+    width: var(--h, 0%);
+    max-width: 100%;
+    height: 8px;
+    background: var(--data-danger, #e5484d);
+  }
+  .dv-val {
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 4.6em;
+    text-align: right;
+  }
+  .dv-val.is-up {
+    color: var(--accent);
+  }
+  .dv-val.is-down {
+    color: var(--data-danger, #e5484d);
+  }
+
+  /* ===== 10×10-Kachel-Raster (tiles): value färbt erste N, Rest dunkel ===== */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+    margin-top: 1.5rem;
+    max-width: 22rem;
+  }
+  .tile {
+    aspect-ratio: 1;
+    border-radius: 3px;
+    background: rgba(245, 242, 236, 0.08);
+  }
+  .tile.is-on {
+    background: var(--accent);
+  }
+
+  /* ===== compare: Anker Akzent, Referenzen muted ===== */
+  .compare .bar-fill.is-ref {
+    background: rgba(245, 242, 236, 0.35);
   }
 </style>

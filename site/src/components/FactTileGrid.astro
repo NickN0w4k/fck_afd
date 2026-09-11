@@ -1,0 +1,37 @@
+---
+// FactTileGrid: Wrapper für 4–9 FactTiles — 2×2 (mobile) bis 3×3 Raster (apex §2).
+import FactTile from './FactTile.astro';
+
+interface Tile {
+  icon?: string; // Inline-SVG-Markup
+  value: string;
+  label?: string;
+  source?: { label: string; url: string; visited?: string };
+}
+interface Props {
+  tiles: Tile[];
+}
+const { tiles } = Astro.props;
+---
+
+<div class="ft-grid" data-anim="rise">
+  {
+    tiles.map((t, i) => (
+      <FactTile icon={t.icon} value={t.value} label={t.label} source={t.source} delay={i * 90} />
+    ))
+  }
+</div>
+
+<style>
+  .ft-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2×2 mobile */
+    gap: 0.7rem;
+    width: 100%;
+  }
+  @media (min-width: 640px) {
+    .ft-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3×N ab 640px */
+    }
+  }
+</style>

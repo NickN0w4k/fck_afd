@@ -1,0 +1,66 @@
+---
+// StatTile: reine Zahl + Label (apex §2) — Recap-Grid für Summary („28.000 · 690 Mrd. € · +440 € · 44 %“).
+// Optional: Inline-SVG-Icon, Count-up der Zahl über Registry (data-count) — SSR-Endzustand = Zielwert.
+interface Props {
+  big: string; // die Zahl („28.000“, „+440 €“) — färbt Akzent
+  label: string; // 1-Zeiler darunter
+  icon?: string; // Inline-SVG-Markup (optional)
+  delay?: number; // ms, für Stagger-Rise (--d)
+  count?: boolean; // Zahl hochzählen, wenn rein numerisch
+}
+const { big, label, icon, delay = 0, count = false } = Astro.props;
+// Count-up nur bei rein numerischem Wert (Punkte/Kommata/Prozent ok, Währungs-Text nicht)
+const numeric = count && /^[\d.,]+$/.test(big.replace(/\s/g, ''));
+const numValue = numeric ? big.replace(/\s/g, '').replace(/\.(?=\d{3}\b)/g, '').replace(',', '.') : undefined;
+---
+
+<div class="stat-tile" data-anim="rise" style={`--d: ${delay}ms`}>
+  {icon && <span class="st-icon" aria-hidden="true" set:html={icon} />}
+  <span class="st-big" data-count={numeric ? numValue : undefined}>{big}</span>
+  <span class="st-label">{label}</span>
+</div>
+
+<style>
+  .stat-tile {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 0.85rem;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .st-icon {
+    display: inline-flex;
+    color: var(--accent);
+    margin-bottom: auto;
+  }
+  .st-icon :global(svg) {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .st-big {
+    font-family: var(--font-head);
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+  }
+  .st-label {
+    font-size: 0.78rem;
+    line-height: 1.3;
+    color: var(--fg-muted);
+  }
+</style>
