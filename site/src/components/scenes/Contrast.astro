@@ -31,7 +31,7 @@ const realityHtml = items && items.length > 1
     <p class="side-label">Realität</p>
     <Fragment set:html={realityHtml} />
   </div>
-  {scene.source && <SourceTag source={scene.source} />}
+  {scene.source && <SourceTag source={scene.source} tooltip={scene.context_tooltip} />}
 </div>
 
 <style>

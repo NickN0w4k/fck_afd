@@ -1,0 +1,140 @@
+---
+// Kapitel-Tracker: 7 Segmente sticky oben, Animation NUR bei Kapitelwechsel
+// (kurzes Pop + Label). Kein Prozent, kein Szenen-Zähler.
+// Aktive Szene → Kapitel über data-chapter der .scene-Elemente (dieselbe
+// Zuordnung wie die Kapitel-Dots in index.astro).
+import chaptersRaw from '../../../content/chapters.json';
+const chapters = /** @type {any[]} */ (chaptersRaw);
+const chapterList = /** @type {{ id: string; num: string; title: string; accent: string }[]} */ (chapters);
+---
+
+<div class="chtracker" data-chtracker aria-label="Kapitel-Fortschritt">
+  <div class="chtracker__segments" aria-hidden="true">
+    {
+      chapterList.map((c, i) => (
+        <span
+          class:list={['chtracker__seg', i === 0 && 'is-active']}
+          data-chapter-id={c.id}
+          style={`--seg-accent: ${c.accent}`}
+        />
+      ))
+    }
+  </div>
+  <p class="chtracker__label" aria-live="polite"></p>
+</div>
+
+<script define:vars={{ chapters }}>
+  // Eine Szene pro Iteration: nächstliegende Szene zur Viewport-Mitte → Kapitel-Index
+  const root = document.querySelector('[data-chtracker]');
+  if (root) {
+    const segs = Array.from(root.querySelectorAll('.chtracker__seg'));
+    const label = root.querySelector('.chtracker__label');
+    const ids = chapters.map((c) => c.id);
+    const scenes = Array.from(document.querySelectorAll('.scene'));
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let current = -1;
+    let popTimer;
+    let labelTimer;
+
+    const nearestScene = () => {
+      const mid = window.innerHeight / 2;
+      let best = scenes[0];
+      let dist = Infinity;
+      scenes.forEach((s) => {
+        const r = s.getBoundingClientRect();
+        const d = Math.abs(r.top + r.height / 2 - mid);
+        if (d < dist) {
+          dist = d;
+          best = s;
+        }
+      });
+      return best;
+    };
+
+    const update = () => {
+      if (!scenes.length) return;
+      const idx = ids.indexOf(nearestScene().dataset.chapter);
+      if (idx < 0 || idx === current) return;
+      const first = current === -1;
+      current = idx;
+      segs.forEach((seg, k) => {
+        seg.classList.toggle('is-active', k === idx);
+        seg.classList.toggle('is-done', k < idx);
+      });
+      if (!reduced) {
+        segs[idx].classList.add('is-pop');
+        clearTimeout(popTimer);
+        popTimer = setTimeout(() => segs[idx].classList.remove('is-pop'), 450);
+      }
+      label.textContent = `Kapitel ${idx + 1}/${chapters.length} — ${chapters[idx].title}`;
+      label.classList.add('is-show');
+      clearTimeout(labelTimer);
+      labelTimer = setTimeout(() => label.classList.remove('is-show'), 2400);
+    };
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+</script>
+
+<style>
+  .chtracker {
+    position: fixed;
+    top: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 45;
+    width: min(280px, 46vw);
+    pointer-events: none;
+  }
+  .chtracker__segments {
+    display: flex;
+    gap: 4px;
+  }
+  .chtracker__seg {
+    flex: 1;
+    height: 4px;
+    border-radius: 99px;
+    background: rgba(245, 242, 236, 0.16);
+    transition: background 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+  }
+  /* absolvierte Kapitel: hohl (nur Outline) */
+  .chtracker__seg.is-done {
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px rgba(245, 242, 236, 0.35);
+  }
+  /* aktueller: gefüllt + kurzer Pop nur beim Wechsel (Klasse wird per JS gesetzt) */
+  .chtracker__seg.is-active {
+    background: var(--seg-accent, var(--accent, #ff4d2e));
+  }
+  .chtracker__seg.is-pop {
+    transform: scaleY(2.2);
+  }
+  .chtracker__label {
+    margin: 0.45rem 0 0;
+    text-align: center;
+    font-family: var(--font-head);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--fg-muted);
+    opacity: 0;
+    transform: translateY(-3px);
+    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+    white-space: nowrap;
+  }
+  .chtracker__label.is-show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (max-width: 640px) {
+    .chtracker {
+      top: 0.55rem;
+      width: min(170px, 42vw);
+    }
+    .chtracker__label {
+      font-size: 0.62rem;
+      margin-top: 0.35rem;
+    }
+  }
+</style>

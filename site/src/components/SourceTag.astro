@@ -1,9 +1,10 @@
 ---
-// Quelle als klickbarer Beleg-Tag.
+// Quelle als klickbarer Beleg-Tag + optionaler aufklappbarer Kontext (details, 0 JS).
 interface Props {
   source: { label: string; url: string; visited?: string };
+  tooltip?: string;
 }
-const { source } = Astro.props;
+const { source, tooltip } = Astro.props;
 ---
 
 <a class="source-tag" href={source.url} target="_blank" rel="noopener noreferrer">
@@ -14,3 +15,46 @@ const { source } = Astro.props;
   </svg>
   <span>{source.label}{source.visited ? ` · abgerufen ${source.visited}` : ''}</span>
 </a>
+{
+  tooltip && (
+    <details class="ctx-tooltip">
+      <summary>Warum?</summary>
+      <p>{tooltip}</p>
+    </details>
+  )
+}
+
+<style is:global>
+  .ctx-tooltip {
+    display: block;
+    margin-top: 0.6rem;
+    max-width: 46ch;
+    font-size: 0.92rem;
+    color: var(--fg-muted);
+  }
+  .ctx-tooltip summary {
+    cursor: pointer;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    user-select: none;
+  }
+  .ctx-tooltip summary::-webkit-details-marker { display: none; }
+  .ctx-tooltip summary::after {
+    content: '▾';
+    font-size: 0.7em;
+    transition: transform 0.15s ease;
+  }
+  .ctx-tooltip[open] summary::after { transform: rotate(180deg); }
+  .ctx-tooltip p {
+    margin-top: 0.5rem;
+    line-height: 1.55;
+    border-left: 2px solid var(--accent);
+    padding-left: 0.75rem;
+  }
+</style>

@@ -38,8 +38,8 @@ function check(name, cond) {
   check(`Tour: Share-Button je Szene (${scenesCount})`, (await page.locator('.scene-share').count()) === scenesCount && scenesCount >= 25);
   check('Tour: kein Stand-Badge-Overlay mehr (entfernt auf User-Wunsch)', (await page.locator('.stand-badge').count()) === 0);
   check('Tour: Skip-Link', (await page.locator('.skip-link').count()) === 1);
-  check('Tour: Timeline mit 6 Karten', (await page.locator('.tl-card').count()) === 6);
-  check('Tour: Action-Szene mit 4 Karten', (await page.locator('.action-card').count()) === 4);
+  check('Tour: Timeline mit 3 Karten (Welle 1: 6→3 Punkte)', (await page.locator('.tl-card').count()) === 3);
+  check('Tour: Action-Szene mit 3 Karten (Welle 1: 4→3)', (await page.locator('.action-card').count()) === 3);
 
   // Share-Popover (Desktop-Chromium hat kein navigator.share)
   const hasNativeShare = await page.evaluate(() => typeof navigator.share === 'function');

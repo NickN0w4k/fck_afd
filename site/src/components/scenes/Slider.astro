@@ -20,7 +20,7 @@ const { scene } = Astro.props;
 <div class="slider-scene">
   <h2 class="slider-prompt" data-anim="rise">{scene.prompt}</h2>
   <SliderIsland client:visible min={scene.min ?? 0} max={scene.max ?? 100} answer={scene.answer} unit={scene.unit ?? ''} explanation={scene.explanation} />
-  {scene.source && <SourceTag source={scene.source} />}
+  {scene.source && <SourceTag source={scene.source} tooltip={scene.context_tooltip} />}
 </div>
 
 <style>

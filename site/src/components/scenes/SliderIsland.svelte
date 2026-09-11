@@ -3,7 +3,10 @@
   let { min = 0, max = 100, answer, unit = '', explanation } = $props();
 
   let val = $state(Math.round((min + max) / 2));
+  let shown = $state(Math.round((min + max) / 2));
   let revealed = $state(false);
+
+  const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const explItems = $derived(revealed ? factList(explanation ?? '', 160) : []);
 
@@ -17,11 +20,32 @@
           ? 'Deutlich zu niedrig geschätzt.'
           : 'Deutlich zu hoch geschätzt.',
   );
+
+  const toPct = (v) => Math.max(0, Math.min(100, Math.round(((v - min) / (max - min || 1)) * 100)));
+
+  function reveal() {
+    revealed = true;
+    if (reduced) {
+      shown = answer; // reduced-motion: Endwert direkt
+      return;
+    }
+    // Readout zählt von der eigenen Schätzung auf den wahren Wert (snap auf ganze Zahlen)
+    const from = val;
+    const dur = 1200;
+    const t0 = performance.now();
+    const step = (now) => {
+      const t = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      shown = Math.round(from + (answer - from) * e);
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
 </script>
 
 <div class="slider">
-  <div class="readout" aria-live="polite">
-    <span class="val">{val}</span><span class="unit">{unit}</span>
+  <div class="readout" aria-live={revealed ? 'off' : 'polite'}>
+    <span class="val">{revealed ? shown : val}</span><span class="unit">{unit}</span>
   </div>
   <input
     type="range"
@@ -33,11 +57,23 @@
     disabled={revealed}
   />
   {#if !revealed}
-    <button class="submit" onclick={() => (revealed = true)}>Auflösen</button>
+    <button class="submit" onclick={reveal}>Auflösen</button>
   {:else}
     <div class="result" transition:slide>
       <p class="verdict">{verdict}</p>
       <p class="answer">Antwort: <strong>{answer}{unit}</strong></p>
+      <div class="diff" role="img" aria-label={`Deine Schätzung ${val}${unit}, Wahrheit ${answer}${unit}`}>
+        <div class="bar-row">
+          <span class="bar-label">Deine Schätzung</span>
+          <div class="bar-track"><div class="bar-fill est" style={`--w: ${toPct(val)}%`} /></div>
+          <span class="bar-val">{val}{unit}</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Wahrheit</span>
+          <div class="bar-track"><div class="bar-fill truth" style={`--w: ${toPct(answer)}%`} /></div>
+          <span class="bar-val">{answer}{unit}</span>
+        </div>
+      </div>
       <div class="expl">
         {#each explItems as item, i}
           <p style="--i:{i}">{@html item}</p>
@@ -102,6 +138,54 @@
   .answer {
     margin-top: 0.4rem;
   }
+  /* Differenz-Balken (data-bar-Muster): Deine Schätzung vs. Wahrheit, gestaffelt */
+  .diff {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+  }
+  .bar-row {
+    display: grid;
+    grid-template-columns: minmax(6rem, 8.5rem) 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .bar-label {
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+  }
+  .bar-track {
+    height: 12px;
+    background: rgba(245, 242, 236, 0.08);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    width: 0%;
+    animation: bar-grow 1.1s var(--ease-out) both;
+  }
+  .bar-fill.est {
+    background: var(--fg-muted);
+  }
+  .bar-fill.truth {
+    background: var(--accent);
+    animation-delay: 0.18s;
+  }
+  .bar-val {
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    color: var(--fg-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  @keyframes bar-grow {
+    from { width: 0%; }
+    to { width: var(--w); }
+  }
   .expl {
     margin-top: 0.6rem;
     color: var(--fg-muted);
@@ -123,7 +207,17 @@
   @keyframes fact-in {
     from { opacity: 0; transform: translateX(-8px); }
   }
+  @media (max-width: 767px) {
+    .bar-row {
+      grid-template-columns: minmax(4.6rem, 6rem) 1fr auto;
+      gap: 0.5rem;
+    }
+    .bar-label {
+      font-size: 0.72rem;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     .expl p { animation: none; }
+    .bar-fill { animation: none; width: var(--w); }
   }
 </style>

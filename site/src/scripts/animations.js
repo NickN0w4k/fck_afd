@@ -90,6 +90,30 @@ function initCount() {
   });
 }
 
+/** Scrubbed-Counter: [data-count-scrub] — Zahl folgt dem Scroll (Opt-in je Szene) */
+function initCountScrub() {
+  document.querySelectorAll('[data-count-scrub]').forEach((el) => {
+    const raw = el.dataset.countScrub ?? '0';
+    const target = parseFloat(raw);
+    const decimals = raw.includes('.') ? 1 : 0;
+    const fmt = (v) => v.toLocaleString('de-DE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    if (prefersReduced) {
+      el.textContent = fmt(target);
+      return;
+    }
+    const obj = { v: 0 };
+    gsap.to(obj, {
+      v: target,
+      ease: 'none',
+      snap: { v: decimals ? 0.1 : 1 },
+      scrollTrigger: { trigger: el, start: 'top 85%', end: 'top 35%', scrub: 0.5 },
+      onUpdate: () => {
+        el.textContent = fmt(obj.v);
+      },
+    });
+  });
+}
+
 /** Balken wachsen auf Scrub: [data-bar] mit style="--w: X%" — gestaffelt pro Szene */
 function initBars() {
   document.querySelectorAll('.scene').forEach((scene) => {
@@ -139,10 +163,12 @@ function initDonut() {
   });
 }
 
-/** Kontrast-Szene: Split öffnet sich beim Scrollen */
+/** Kontrast-Szene: Split öffnet sich beim Scrollen; Claim-Text parallaxt leicht,
+ *  Reality-Panel slided nach, sobald der Split bei 50 % ist */
 function initSplit() {
   document.querySelectorAll('[data-split]').forEach((el) => {
     if (prefersReduced) return;
+    const scene = el.closest('.scene');
     gsap.fromTo(
       el,
       { width: '100%' },
@@ -150,21 +176,45 @@ function initSplit() {
         width: '50%',
         ease: 'none',
         scrollTrigger: {
-          trigger: el.closest('.scene'),
+          trigger: scene,
           start: 'top top',
           end: 'center center',
           scrub: true,
         },
       },
     );
+    // Claim-Text parallaxt ~12px nach links, während der Split öffnet
+    const claimText = el.querySelector('.claim-text');
+    if (claimText) {
+      gsap.fromTo(
+        claimText,
+        { x: 0 },
+        {
+          x: -12,
+          ease: 'none',
+          scrollTrigger: { trigger: scene, start: 'top top', end: 'center center', scrub: true },
+        },
+      );
+    }
+    // Reality-Panel slided nach (y 40, autoAlpha 0→1), sobald der Split 50 % erreicht hat
+    const reality = el.parentElement?.querySelector('.reality');
+    if (reality) {
+      const kids = reality.querySelectorAll('.side-label, .reality-text, .reality-list li');
+      const tl = gsap.timeline({ scrollTrigger: { trigger: scene, start: 'center center', once: true } });
+      tl.fromTo(reality, { y: 40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.6, ease: 'power2.out' });
+      if (kids.length) {
+        tl.from(kids, { y: 24, autoAlpha: 0, duration: 0.5, stagger: 0.15, ease: 'power2.out' }, '-=0.25');
+      }
+    }
   });
 }
 
-/** Mythos-Durchstrich beim Scrollen */
+/** Mythos-Durchstrich beim Scrollen; nach struck kippt die Behauptung physisch weg */
 function initStrike() {
   document.querySelectorAll('[data-strike]').forEach((el) => {
     if (prefersReduced) {
       el.classList.add('struck');
+      gsap.set(el, { rotationY: -3, transformPerspective: 600 });
       return;
     }
     gsap.fromTo(
@@ -174,7 +224,28 @@ function initStrike() {
         '--strike': '100%',
         ease: 'none',
         scrollTrigger: { trigger: el, start: 'top 70%', end: 'top 30%', scrub: true },
-        onComplete: () => el.classList.add('struck'),
+        onComplete: () => {
+          el.classList.add('struck');
+          gsap.to(el, { rotationY: -3, transformPerspective: 600, duration: 0.6, ease: 'power2.out' });
+        },
+      },
+    );
+  });
+}
+
+/** Reveal-Tease: Karte neigt sich beim Scrollen leicht (±1.5°) und richtet sich auf (0.98→1, once) */
+function initRevealTease() {
+  document.querySelectorAll('[data-reveal-tease]').forEach((el) => {
+    if (prefersReduced) return;
+    gsap.fromTo(
+      el,
+      { rotation: -1.5, scale: 0.98 },
+      {
+        rotation: 0,
+        scale: 1,
+        duration: 0.9,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 80%', once: true },
       },
     );
   });
@@ -215,19 +286,18 @@ function initChapter() {
   });
 }
 
-/** Fortschritt: Bar + Szenen-Zähler + Dots */
+/** Fortschritt: Bar + Dots (Szenen-Zähler ersetzt durch ChapterTracker) */
 function initProgress() {
   const bar = document.querySelector('.progress__bar');
-  const counter = document.querySelector('.counter');
   const dots = document.querySelectorAll('.dots button');
   const scenes = Array.from(document.querySelectorAll('.scene'));
-  if (!bar && !counter && !dots.length) return;
+  if (!bar && !dots.length) return;
 
   const update = () => {
     const scrollY = window.scrollY;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     if (bar) bar.style.width = `${max > 0 ? Math.min(100, (scrollY / max) * 100) : 0}%`;
-    if (counter || dots.length) {
+    if (dots.length) {
       // nächstliegende Szene zur Mitte des Viewports
       let nearest = 0;
       let best = Infinity;
@@ -239,13 +309,10 @@ function initProgress() {
           nearest = i;
         }
       });
-      if (counter) counter.textContent = `${nearest + 1}/${scenes.length}`;
-      if (dots.length) {
-        // Dots sind Kapitel-, nicht Szenen-Indizes: aktive Szene → Kapitel-Index
-        const chapterOrder = Array.from(dots, (d) => (d.dataset.goto ?? '').replace('chapter-', ''));
-        const chapterIdx = chapterOrder.indexOf(scenes[nearest].dataset.chapter);
-        dots.forEach((d, i) => d.setAttribute('aria-current', String(i === chapterIdx)));
-      }
+      // Dots sind Kapitel-, nicht Szenen-Indizes: aktive Szene → Kapitel-Index
+      const chapterOrder = Array.from(dots, (d) => (d.dataset.goto ?? '').replace('chapter-', ''));
+      const chapterIdx = chapterOrder.indexOf(scenes[nearest].dataset.chapter);
+      dots.forEach((d, i) => d.setAttribute('aria-current', String(i === chapterIdx)));
     }
   };
   window.addEventListener('scroll', update, { passive: true });
@@ -376,11 +443,13 @@ function init() {
   initRise();
   initWords();
   initCount();
+  initCountScrub();
   initBars();
   initDonut();
   initSplit();
   initStrike();
   initQuote();
+  initRevealTease();
   initChapter();
   initSnapTall();
   initWheelSnap();

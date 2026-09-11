@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Scene from '../components/Scene.astro';
 import SceneBody from '../components/SceneBody.astro';
+import ChapterTracker from '../components/ChapterTracker.astro';
 
 import chaptersRaw from '../../../content/chapters.json';
 import scenesRaw from '../../../content/scenes.json';
@@ -51,6 +52,8 @@ const sourceCount = seenUrls.size;
       })
     }
   </main>
+
+  <ChapterTracker />
 
   <nav class="dots" aria-label="Kapitel-Navigation">
     {

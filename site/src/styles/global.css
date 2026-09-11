@@ -192,18 +192,7 @@ button {
   transition: width 0.15s linear;
 }
 
-/* Progress-Zähler */
-.counter {
-  position: fixed;
-  top: 0.9rem;
-  right: var(--scene-pad);
-  z-index: 50;
-  font-family: var(--font-head);
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  color: var(--fg-muted);
-  pointer-events: none;
-}
+/* Progress-Zähler (entfernt — ersetzt durch ChapterTracker) */
 
 /* Kapitel-Dots seitlich (Desktop) */
 .dots {
@@ -248,6 +237,23 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Reveal-Kamera-Zoom: Karte zoomt rein (Svelte-Transition), das Umfeld der Szene dimmt */
+.scene.reveal-open > :not(.reveal-scene) {
+  opacity: 0.35;
+  transition: opacity 0.4s var(--ease-out);
+}
+.scene.reveal-open .reveal-scene {
+  position: relative;
+  z-index: 1;
+}
+
+/* Reveal-Dim auf reduced motion statisch */
+@media (prefers-reduced-motion: reduce) {
+  .scene.reveal-open > :not(.reveal-scene) {
+    opacity: 1;
   }
 }
 
@@ -362,10 +368,6 @@ mark.hl {
   }
   .dots {
     display: none !important; /* Dots kosten auf Mobile nur Platz */
-  }
-  .counter {
-    top: 0.65rem;
-    font-size: 0.72rem;
   }
   .bar-row {
     grid-template-columns: minmax(4.6rem, 6.5rem) 1fr;

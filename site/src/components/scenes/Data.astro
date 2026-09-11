@@ -9,6 +9,7 @@ interface Props {
     suffix?: string;
     caption?: string;
     chart?: 'bars' | 'donut';
+    count_scrub?: boolean;
     series?: { label: string; value: number }[];
     source?: { label: string; url: string; visited?: string };
   };
@@ -22,7 +23,11 @@ const { scene } = Astro.props;
   {
     scene.value !== undefined && (
       <p class="data-value">
-        <span data-count={scene.value}>0</span>
+        {/* count_scrub: Zahl folgt dem Scroll (initCountScrub); sonst einmaliger Count-up (initCount) */}
+        <span
+          data-count-scrub={scene.count_scrub ? scene.value : undefined}
+          data-count={scene.count_scrub ? undefined : scene.value}
+        >0</span>
         {scene.suffix && <span class="data-suffix">{scene.suffix}</span>}
       </p>
     )
@@ -64,7 +69,7 @@ const { scene } = Astro.props;
   }
 
   {scene.caption && <p class="data-caption" data-anim="rise">{scene.caption}</p>}
-  {scene.source && <SourceTag source={scene.source} />}
+  {scene.source && <SourceTag source={scene.source} tooltip={scene.context_tooltip} />}
 </div>
 
 <style>

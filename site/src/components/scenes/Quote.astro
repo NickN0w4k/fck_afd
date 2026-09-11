@@ -24,7 +24,7 @@ const { scene } = Astro.props;
       </div>
     )}
   </footer>
-  {scene.source && <SourceTag source={scene.source} />}
+  {scene.source && <SourceTag source={scene.source} tooltip={scene.context_tooltip} />}
 </blockquote>
 
 <style>

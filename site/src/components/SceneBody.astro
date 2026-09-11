@@ -32,7 +32,7 @@ const { scene, chapter, chapters = [] } = Astro.props;
 {scene.type === 'quiz' && <Quiz scene={scene} />}
 {scene.type === 'slider' && <Slider scene={scene} />}
 {scene.type === 'reveal' && <Reveal scene={scene} />}
-{scene.type === 'chapterbreak' && <ChapterBreak chapter={chapter} />}
+{scene.type === 'chapterbreak' && <ChapterBreak chapter={chapter} scene={scene} />}
 {scene.type === 'summary' && <Summary scene={scene} chapters={chapters} />}
 {scene.type === 'sources' && <Sources scene={scene} />}
 {scene.type === 'endcard' && <EndCard scene={{ ...scene, accent: chapter?.accent }} />}

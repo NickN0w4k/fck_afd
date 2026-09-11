@@ -11,19 +11,21 @@
     {
       "type": "statement",
       "chapter": "intro",
-      "text": "Diese Seite ist keine Meinungsseite. Alles, was hier steht, lässt sich belegen — jede Zahl mit Quelle, jedes Zitat im Wortlaut. Und die Belege sprechen eine ziemlich deutliche Sprache.",
+      "text": "Diese Seite ist keine Meinungsseite. Alles mit Quelle, alles belegbar.",
       "note": "Alles mit Beleg. Immer."
     },
     {
       "type": "chapterbreak",
-      "chapter": "verfassungsschutz"
+      "chapter": "verfassungsschutz",
+      "summary": "Du weißt jetzt: Hier steht nichts ohne Beleg — jede Zahl hat ihre Quelle.",
+      "next_title": "Weiter: Verfassungsschutz"
     },
     {
       "type": "data",
       "chapter": "verfassungsschutz",
       "headline": "So viele Rechtsextremisten zählt der Verfassungsschutz im AfD-Umfeld",
       "value": 28000,
-      "caption": "2023: 11.300. 2024: 20.000. 2025: 28.000. Die AfD selbst zählt dazu, plus ihre Jugendorganisation. Die Zahl hat sich in zwei Jahren mehr als verdoppelt.",
+      "caption": "2023: 11.300. 2024: 20.000. 2025: 28.000 — mehr als verdoppelt. Die AfD zählt selbst dazu, plus ihre Jugendorganisation.",
       "chart": "bars",
       "series": [
         {
@@ -49,52 +51,21 @@
       "type": "timeline",
       "chapter": "verfassungsschutz",
       "headline": "Drei Instanzen, ein Ergebnis",
-      "intro": "Die AfD klagte dagegen. Drei Gerichte haben den Verfassungsschutz bestätigt. Der Weg im Zeitraffer:",
       "items": [
         {
           "date": "03/2021",
           "title": "Verdachtsfall",
-          "text": "Der Verfassungsschutz stuft die AfD als rechtsextremistischen Verdachtsfall ein.",
+          "text": "Der Verfassungsschutz stuft die AfD ein.",
           "source": {
             "label": "tagesschau: FAQ — Was bedeutet die neue Einstufung der AfD?",
             "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html",
-            "visited": "2026-09-03"
-          }
-        },
-        {
-          "date": "03/2022",
-          "title": "VG Köln bestätigt",
-          "text": "Die AfD klagt dagegen. Das Verwaltungsgericht Köln weist sie ab.",
-          "source": {
-            "label": "tagesschau: FAQ — Was bedeutet die neue Einstufung der AfD?",
-            "url": "https://www.tagesschau.de/inland/innenpolitik/faq-afd-neue-einstufung-verfassungsschutz-100.html",
-            "visited": "2026-09-03"
-          }
-        },
-        {
-          "date": "05/2024",
-          "title": "OVG NRW bestätigt",
-          "text": "Zweite Instanz: Das OVG Münster bestätigt die Einstufung.",
-          "source": {
-            "label": "BfV: BfV obsiegt vor dem OVG NRW gegen die AfD (PM 13.05.2024)",
-            "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html",
-            "visited": "2026-09-03"
-          }
-        },
-        {
-          "date": "02.05.2025",
-          "title": "Gesichert rechtsextremistisch",
-          "text": "Das Bundesamt stuft die Partei als gesichert rechtsextremistisch ein. Die höchste Stufe.",
-          "source": {
-            "label": "BfV: BfV obsiegt vor dem OVG NRW gegen die AfD (PM 13.05.2024)",
-            "url": "https://www.verfassungsschutz.de/SharedDocs/pressemitteilungen/DE/2024/pressemitteilung-2024-1-afd.html",
             "visited": "2026-09-03"
           }
         },
         {
           "date": "05/2025",
-          "title": "Rechtskräftig",
-          "text": "Dritte Instanz: Das Bundesverwaltungsgericht lässt die Revision nicht zu. Damit rechtskräftig.",
+          "title": "Gesichert rechtsextremistisch",
+          "text": "Drei Instanzen bestätigen — rechtskräftig.",
           "source": {
             "label": "tagesschau: Verfassungsschutz-Einstufung — Wie das AfD-Verfahren weitergeht",
             "url": "https://www.tagesschau.de/inland/innenpolitik/afd-verfahren-verfassungsschutz-100.html",
@@ -103,8 +74,8 @@
         },
         {
           "date": "26.02.2026",
-          "title": "Hochstufung vorläufig ausgesetzt",
-          "text": "Ein Kölner Gericht setzt die „gesichert“-Einstufung im Eilverfahren vorläufig aus. Der Verdachtsfall bleibt aber bestehen.",
+          "title": "Ausgesetzt",
+          "text": "Kölner Gericht setzt die „gesichert“-Einstufung vorläufig aus.",
           "source": {
             "label": "ZEIT: AfD-Hochstufung — Teilsieg für Rechtsaußen (VG Köln, 26.02.2026)",
             "url": "https://www.zeit.de/politik/deutschland/2026-02/afd-einstufung-rechtsextremistisch-verwaltungsgericht-koeln-urteil",
@@ -117,33 +88,35 @@
       "type": "reveal",
       "chapter": "verfassungsschutz",
       "teaser": "Tippen, um aufzudecken",
-      "headline": "Fünf Landesverbände gelten als gesichert rechtsextremistisch",
-      "body": "Thüringen, Sachsen und Sachsen-Anhalt gelten seit Jahren als „gesichert extremistisch“. Kein Gericht hat das gekippt. 2025 und 2026 kamen Brandenburg und Niedersachsen dazu, Niedersachsen als erster westdeutscher Verband. Die Gerichte zitieren als Beleg Wörter wie „Bevölkerungsaustausch“ und „Umvolkung“.",
+      "headline": "Fünf Landesverbände „gesichert rechtsextremistisch“",
+      "body": "Thüringen, Sachsen und Sachsen-Anhalt gelten seit Jahren als „gesichert extremistisch“ — kein Gericht hat das gekippt. Neu 2025/26: Brandenburg und Niedersachsen.",
       "source": {
         "label": "CORRECTIV — Verfassungsschutz-Einstufungen der AfD in den Bundesländern (17.06.2026)",
         "url": "https://correctiv.org/aktuelles/afd/2026/06/17/wie-stuft-der-verfassungsschutz-die-afd-in-den-bundeslaendern-ein/",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Die Gerichte zitieren als Beleg Wörter wie „Bevölkerungsaustausch“ und „Umvolkung“. Niedersachsen ist der erste westdeutsche Verband."
     },
     {
       "type": "quote",
       "chapter": "verfassungsschutz",
-      "quote": "Unsere Dörfer sterben nicht nur leise aus. Sie werden gezielt umgewandelt. … Die Politik schaut nicht nur dabei zu, sie fördert aktiv den Austausch unserer Bevölkerung.",
+      "quote": "Unsere Dörfer sterben nicht nur leise aus. … Die Politik schaut nicht nur dabei zu, sie fördert aktiv den Austausch unserer Bevölkerung.",
       "author": "Offizieller AfD-YouTube-Kanal „AfD TV“, 8. Mai 2025",
-      "context": "Das Zitat steht im Verfassungsschutzbericht 2025. Es stammt nicht von einem Einzelnen, sondern vom offiziellen AfD-YouTube-Kanal. Der „Große Austausch“ ist eine Verschwörungserzählung. Der Verfassungsschutz ordnet sie als rechtsextremistisch ein.",
+      "context": "Steht wörtlich im Verfassungsschutzbericht 2025.",
       "source": {
         "label": "Verfassungsschutzbericht 2025 (BMI), S. 131",
         "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Der „Große Austausch“ ist eine Verschwörungserzählung — der Verfassungsschutz ordnet sie als rechtsextremistisch ein. Das Zitat stammt nicht von einem Einzelnen, sondern vom offiziellen AfD-Kanal."
     },
     {
       "type": "data",
       "chapter": "verfassungsschutz",
-      "headline": "Und wo es schon Realität ist: Sachsen-Anhalt, 6. September 2026",
+      "headline": "Und wo es schon Realität ist: Sachsen-Anhalt",
       "value": 44,
       "suffix": " %",
-      "caption": "Die AfD gewinnt die Landtagswahl mit 44 %. Bestes Ergebnis ihrer Geschichte (2021: 20,8 %). Die CDU stürzt auf 17,8 %. Die absolute Mehrheit verfehlt sie knapp. Alle anderen Parteien lehnen eine Zusammenarbeit ab.",
+      "caption": "Landtagswahl 6.9.2026: Die AfD gewinnt mit 44 % — bestes Ergebnis ihrer Geschichte (2021: 20,8 %). Die absolute Mehrheit verfehlt sie knapp, alle anderen lehnen eine Zusammenarbeit ab.",
       "chart": "bars",
       "series": [
         {
@@ -170,39 +143,44 @@
       "chapter": "verfassungsschutz",
       "quote": "Der Verfassungsschutz gehört in seiner jetzigen Form abgeschafft beziehungsweise grundlegend reformiert.",
       "author": "Alice Weidel, AfD-Bundesvorsitzende, August 2026",
-      "context": "Gesagt beim Wahlkampfauftakt in Sachsen-Anhalt, vor rund 3.000 Anhängern. Weidels Behauptung: Der Verfassungsschutz beobachte nur „die politische Opposition“. Übersetzt: Die AfD will genau die Behörde abschaffen, die sie als rechtsextremistisch einstuft.",
+      "context": "Gesagt beim Wahlkampfauftakt in Sachsen-Anhalt, vor rund 3.000 Anhängern.",
       "source": {
         "label": "Deutschlandfunk 17.08.2026 · dpa/MDR zum Wahlkampfauftakt 18.07.2026",
         "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Weidels Behauptung: Der Verfassungsschutz beobachte nur „die politische Opposition“. Übersetzt: Die AfD will genau die Behörde abschaffen, die sie als rechtsextremistisch einstuft."
     },
     {
       "type": "chapterbreak",
-      "chapter": "programm"
+      "chapter": "programm",
+      "summary": "Du weißt jetzt, warum der Verfassungsschutz die Partei im Blick hat.",
+      "next_title": "Weiter: Das Programm"
     },
     {
       "type": "contrast",
       "chapter": "programm",
       "claim": "„Das Klima kann der Mensch nicht schützen.“",
-      "reality": "Diesen Satz schreibt die AfD wörtlich in ihr Wahlprogramm, Seite 53. Dort fordert sie auch den Ausstieg aus dem Pariser Klimaabkommen. 195 Staaten bleiben drin, Deutschland soll raus. Dürren, Fluten und Hitzetote gibt es schon jetzt.",
+      "reality": "Der Satz steht wörtlich im Wahlprogramm (S. 53) — die AfD will außerdem aus dem Pariser Klimaabkommen aussteigen. 195 Staaten bleiben drin.",
       "source": {
         "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 53",
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Dürren, Fluten und Hitzetote gibt es schon jetzt."
     },
     {
       "type": "quote",
       "chapter": "programm",
       "quote": "Zur Wiederherstellung des ungestörten Handels mit Russland gehören die sofortige Aufhebung der Wirtschaftssanktionen gegen Russland sowie die Instandsetzung der Nord Stream-Leitungen.",
       "author": "AfD-Wahlprogramm 2025, S. 92",
-      "context": "Russland führt Krieg gegen die Ukraine. Die AfD will die Sanktionen sofort kippen und die Gaspipelines wieder in Betrieb nehmen. Das hieße: Europa hilft, Russlands Krieg zu finanzieren. Der Verfassungsschutz nennt die AfD-Außenpolitik „eindeutig prorussisch“.",
+      "context": "Russland führt Krieg.",
       "source": {
         "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 92 · VSB 2025, S. 86–87",
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Die AfD will die Sanktionen sofort kippen und die Nord-Stream-Leitungen wieder in Betrieb nehmen — das hieße: Europa hilft, Russlands Krieg zu finanzieren. Der Verfassungsschutz nennt die AfD-Außenpolitik „eindeutig prorussisch“."
     },
     {
       "type": "slider",
@@ -212,12 +190,13 @@
       "max": 100,
       "answer": 0,
       "unit": " %",
-      "explanation": "Trickfrage: Es gibt keine Quote. Die AfD plant das „Junior-Spardepot“. Für jedes neugeborene Kind mit deutschem Pass zahlt der Staat 100 € im Monat in einen ETF-Sparplan. Auszahlung: ab 65. Kinder ohne deutschen Pass bekommen nichts. Bezahlt wird das mit Steuergeld, das alle zahlen. Profitieren können nur die einen Kinder.",
+      "explanation": "Trickfrage: Es gibt keine Quote. Geplant ist das „Junior-Spardepot“: 100 € im Monat für jedes neugeborene Kind mit deutschem Pass, Auszahlung ab 65. Kinder ohne Pass bekommen nichts.",
       "source": {
         "label": "Bundestag, Debatte zum AfD-Antrag „Junior-Spardepot“ (04.12.2025) · AfD-Wahlprogramm 2025",
         "url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw49-de-rente-1128178",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Bezahlt wird das mit Steuergeld, das alle zahlen. Profitieren können nur die einen Kinder."
     },
     {
       "type": "quiz",
@@ -237,56 +216,64 @@
           "correct": false
         }
       ],
-      "explanation": "„Remigration“ kommt aus der rechtsextremen Szene und meint Ausreise mit Druck. Im Wahlprogramm stehen: konsequente Abschiebungen, Abschaffung von Duldungen, Grenzzurückweisungen ohne Dokumente. Und der Widerruf des Schutzstatus für Syrer. Krah hat vorgerechnet, was das bedeutet: „25 Millionen Menschen, davon 15 Millionen deutsche Staatsangehörige.“",
+      "explanation": "„Remigration“ stammt aus der rechtsextremen Szene und meint Ausreise mit Druck. Im Programm: Abschiebungen, keine Duldungen, Zurückweisungen an der Grenze — plus Widerruf des Schutzstatus für Syrer.",
       "source": {
         "label": "tagesschau — Wahlprogramme im Vergleich: Migration",
         "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Krah hat vorgerechnet, was das bedeutet: „25 Millionen Menschen, davon 15 Millionen deutsche Staatsangehörige.“"
     },
     {
       "type": "chapterbreak",
-      "chapter": "innen"
+      "chapter": "innen",
+      "summary": "Du weißt jetzt, was die AfD schriftlich plant — es steht alles im Programm.",
+      "next_title": "Weiter: Innenleben"
     },
     {
       "type": "quote",
       "chapter": "innen",
       "quote": "Hitler und die Nazis sind nur ein Vogelschiss in über 1000 Jahren erfolgreicher deutscher Geschichte.",
       "author": "Alexander Gauland, damaliger AfD-Vorsitzender",
-      "context": "Gesagt beim Bundeskongress der AfD-Jugend 2018, mit Beifall. Ausgerechnet die Partei, die gern von deutscher Geschichte spricht, verharmlost die NS-Zeit. Ihre Jugend jubelt dazu.",
+      "context": "Gesagt beim Bundeskongress der AfD-Jugend 2018, mit Beifall.",
       "source": {
         "label": "DIE ZEIT, 03.06.2018 + Deutsche Welle",
         "url": "https://www.zeit.de/news/2018-06/03/empoerung-wegen-gaulands-relativierung-der-ns-zeit-180603-99-560879",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Ausgerechnet die Partei, die gern von deutscher Geschichte spricht, verharmlost die NS-Zeit. Ihre Jugend jubelt dazu."
     },
     {
       "type": "reveal",
       "chapter": "innen",
       "teaser": "Tippen, um aufzudecken",
       "headline": "„Abschieben, bis die Startbahnen glühen“",
-      "body": "Die bayerische AfD-Fraktion fordert im Januar 2026 eine Abschiebe-Truppe nach dem Vorbild der US-Behörde ICE. Name: „AFA“. Wer raus soll? „Straftäter, Ausreisepflichtige und Personen, die sich den deutschen Pass erschlichen haben“, sagt Fraktionschefin Ebner-Steiner. Der Parteitag 2024 sprach von „umfassender Remigration im Millionenbereich“. Polizei-Gewerkschaft und Innenministerium lehnen ab: rechtlich gibt es dafür keine Grundlage. Der Politologe Schammann: „Man kann die Forderungen der AfD nur erfüllen, wenn man ein anderes politisches System wählt.“",
+      "body": "Die bayerische AfD-Fraktion fordert eine Abschiebe-Truppe nach Vorbild der US-Behörde ICE. Name: „AFA“. Rechtlich gibt es dafür keine Grundlage.",
       "source": {
         "label": "Bayerischer Rundfunk BR24 (30.01.2026)",
         "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Ebner-Steiner: raus sollen „Straftäter, Ausreisepflichtige und Personen, die sich den deutschen Pass erschlichen haben“. Der Parteitag 2024 sprach von „umfassender Remigration im Millionenbereich“. Politologe Schammann: „Man kann die Forderungen der AfD nur erfüllen, wenn man ein anderes politisches System wählt.“"
     },
     {
       "type": "reveal",
       "chapter": "innen",
       "teaser": "Tippen, um aufzudecken",
       "headline": "Ein Spion arbeitete im Büro des AfD-Europa-Spitzenkandidaten",
-      "body": "Krahs langjähriger Mitarbeiter Jian G. spionierte von 2019 bis 2024 für den chinesischen Geheimdienst. Ausgerechnet aus dem EU-Büro des AfD-Spitzenkandidaten. Das OLG Dresden verurteilt ihn zu 4 Jahren und 9 Monaten Haft. Krah blieb trotzdem Spitzenkandidat und saß im EU-Ausschuss für Menschenrechte. Sein Kommentar: „Kein persönliches Fehlverhalten.“",
+      "body": "1 Mitarbeiter · 4 J. 9 Mon. Haft · 0 Konsequenzen für Krah. Jian G. spionierte 2019–2024 für Chinas Geheimdienst. Krahs Kommentar: „Kein persönliches Fehlverhalten.“",
       "source": {
         "label": "tagesschau 30.09.2025 · Generalbundesanwalt, PM 29.04.2025",
         "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Vom OLG Dresden verurteilt. Krah saß trotzdem im EU-Ausschuss für Menschenrechte."
     },
     {
       "type": "chapterbreak",
-      "chapter": "kosten"
+      "chapter": "kosten",
+      "summary": "Noch da? Du hast vier Kapitel geschafft — und weißt jetzt, wer den Ton angibt.",
+      "next_title": "Weiter: Was es kostet"
     },
     {
       "type": "statement",
@@ -302,10 +289,11 @@
     {
       "type": "data",
       "chapter": "kosten",
-      "headline": "Steuerpläne: Wer bekommt wie viel zurück?",
+      "headline": "Wer zahlt drauf — und wer kassiert?",
+      "count_scrub": true,
       "value": 19190,
       "suffix": " €",
-      "caption": "Eine Familie mit 180.000 € brutto bekommt 19.190 € im Jahr zurück. Eine Familie mit 40.000 € brutto zahlt 440 € drauf. Die Entlastung steigt mit dem Einkommen. Wer wenig hat, verliert.",
+      "caption": "Eine Familie mit 40.000 € brutto zahlt 440 € extra — im Jahr. Das sind 36 € pro Monat. Eine Familie mit 180.000 € bekommt im selben Jahr 19.190 € zurück. Wer wenig hat, verliert.",
       "chart": "bars",
       "series": [
         {
@@ -321,7 +309,8 @@
         "label": "ZEW Mannheim, „Wen die Parteien entlasten würden“ (2025)",
         "url": "https://www.zew.de/presse/pressearchiv/wen-die-parteien-entlasten-wuerden/",
         "visited": "2026-09-03"
-      }
+      },
+      "share": "Wer's nicht nötig hat, bekommt das 43-Fache. Quelle: ZEW Mannheim 2025"
     },
     {
       "type": "quiz",
@@ -341,34 +330,38 @@
           "correct": false
         }
       ],
-      "explanation": "Die untere Hälfte der Empfänger bekommt zusammen unter 4 Mrd. €. Das oberste 1 % bekommt über 12 Mrd. €, rund 30.000 € pro Betrieb. Unter den Top 100: 24 Ex-DDR-Großbetriebe. Die AfD will diese Subventionen schützen. Ihre Wähler auf dem Land zahlen sie als Steuerzahler mit.",
+      "explanation": "Das oberste 1 % bekommt über 12 Mrd. € — rund 30.000 € pro Betrieb. Die untere Hälfte: unter 4 Mrd. €. Die AfD will die Subventionen schützen; ihre Land-Wähler zahlen mit.",
       "source": {
         "label": "tagesschau (NDR/WDR/SZ, Farmsubsidies-Datenbank)",
         "url": "https://www.tagesschau.de/investigativ/ndr-wdr/eu-agrarsubventionen-unternehmen-101.html",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Unter den Top 100: 24 Ex-DDR-Großbetriebe."
     },
     {
       "type": "quote",
       "chapter": "kosten",
       "quote": "Die Hauptleidtragenden der AfD-Politik wären ihre eigenen Wählerinnen und Wähler.",
       "author": "DIW Berlin, „Das AfD-Paradox“ (2023)",
-      "context": "Das DIW zeigt: AfD-Wähler gehören überdurchschnittlich oft zu den Einkommensschwachen. Genau sie träfen Arbeitsplatzverluste und sinkende Leistungen zuerst. Die Partei, die für die kleinen Leute kämpft, kostet gerade sie am meisten.",
+      "context": "AfD-Wähler sind überdurchschnittlich oft einkommensschwach — genau sie träfe es zuerst.",
       "source": {
         "label": "DIW Berlin, DIW aktuell 88 (21.08.2023)",
         "url": "https://www.diw.de/de/diw_01.c.879742.de/publikationen/diw_aktuell/2023_0088/das_afd-paradox__die_hauptleidtragenden_der_afd-politik_waeren_ihre_eigenen_waehler_innen.html",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Die Partei, die für die kleinen Leute kämpft, kostet gerade sie am meisten: Arbeitsplatzverluste und sinkende Leistungen."
     },
     {
       "type": "chapterbreak",
-      "chapter": "einwaende"
+      "chapter": "einwaende",
+      "summary": "Du weißt jetzt, wer draufzahlt. Und wer kassiert.",
+      "next_title": "Weiter: Einwände"
     },
     {
       "type": "contrast",
       "chapter": "einwaende",
-      "claim": "„Der Verfassungsschutz ist doch parteiisch — das sind politische Gegner, die da urteilen.“",
-      "reality": "Drei Gerichte haben die Einstufung geprüft und bestätigt. Erste Instanz, zweite Instanz, dritte Instanz. Das letzte Wort hat nicht der Verfassungsschutz, sondern die Justiz.",
+      "claim": "„Der Verfassungsschutz ist parteiisch — das sind politische Gegner.“",
+      "reality": "Drei Gerichte haben die Einstufung geprüft und bestätigt — bis in dritter Instanz. Das letzte Wort hat die Justiz.",
       "source": {
         "label": "tagesschau: Verfassungsschutz-Einstufung — Wie das AfD-Verfahren weitergeht",
         "url": "https://www.tagesschau.de/inland/innenpolitik/afd-verfahren-verfassungsschutz-100.html",
@@ -378,28 +371,32 @@
     {
       "type": "contrast",
       "chapter": "einwaende",
-      "claim": "„Das sind alles nur Wahlkampfforderungen. Die AfD wird das nie durchsetzen können.“",
-      "reality": "Die Anträge liegen längst im Bundestag: Erbschaftsteuer abschaffen, ein staatliches Aktien-Depot für die Rente, Klimaschutz ausbremsen. Alles eingebracht und debattiert. Keine Theorie.",
+      "claim": "„Das sind nur Wahlkampfforderungen — nie durchsetzbar.“",
+      "reality": "Die Anträge liegen längst im Bundestag: Erbschaftsteuer abschaffen, staatliches Aktien-Depot für die Rente, Klimaschutz ausbremsen. Keine Theorie.",
       "source": {
         "label": "Bundestag: AfD will Erbschaftsteuer abschaffen (HIB)",
         "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1201000",
         "visited": "2026-09-03"
-      }
+      },
+      "context_tooltip": "Alles eingebracht und im Parlament debattiert."
     },
     {
       "type": "contrast",
       "chapter": "einwaende",
-      "claim": "„Solche Sprüche sind doch nur Rhetorik. Das nimmt doch niemand wörtlich.“",
-      "reality": "Wörtlich auf der Wahlparty 2017 nach dem Bundestags-Einzug: „Wir werden sie jagen, wir werden Frau Merkel oder wen auch immer jagen – und wir werden uns unser Land und unser Volk zurückholen.“ SPD-Chef Klingbeil sieht darin einen Grund für die zunehmende Gewalt von rechts. Und es ist kein Einzelfall: Vogelschiss-Rede, Höckes SA-Parole, der AFA-Abschiebetrupp. Die Tonlage ist System.",
+      "claim": "„Solche Sprüche nimmt doch niemand wörtlich.“",
+      "reality": "Wörtlich, Wahlparty 2017: „Wir werden sie jagen, wir werden Frau Merkel oder wen auch immer jagen – und wir werden uns unser Land und unser Volk zurückholen.“ Kein Einzelfall.",
       "source": {
         "label": "BR24 (24.09.2017) + tagesschau-Rückblick (02.10.2024)",
         "url": "https://www.br.de/bundestagswahl/afd-politiker-gauland-ueber-merkel-wir-werden-sie-jagen-100.html",
         "visited": "2026-09-06"
-      }
+      },
+      "context_tooltip": "Klingbeil sieht in der Parole einen Grund für die zunehmende Gewalt von rechts. Und: Vogelschiss-Rede, Höckes SA-Parole, der AFA-Abschiebetrupp."
     },
     {
       "type": "chapterbreak",
-      "chapter": "fazit"
+      "chapter": "fazit",
+      "summary": "Die drei Einwände vom Familienessen? Du weißt jetzt, was darauf passt.",
+      "next_title": "Weiter: Das Fazit"
     },
     {
       "type": "data",
@@ -467,7 +464,7 @@
           "correct": false
         }
       ],
-      "explanation": "20,8 % der Zweitstimmen am 23. Februar 2025. Vier Jahre vorher waren es 10,4 %. 152 AfD-Abgeordnete sitzen jetzt im Bundestag. Zweiter Platz in Deutschland.",
+      "explanation": "20,8 % der Zweitstimmen am 23. Februar 2025 — vier Jahre vorher 10,4 %. 152 AfD-Abgeordnete sitzen im Bundestag. Zweiter Platz in Deutschland.",
       "source": {
         "label": "Die Bundeswahlleiterin, Pressemitteilung Nr. 29/25 (endgültiges Ergebnis)",
         "url": "https://bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html",
@@ -479,28 +476,28 @@
       "chapter": "fazit",
       "tldr": [
         {
-          "num": "01",
-          "text": "28.000 Menschen im AfD-Umfeld ordnet der Verfassungsschutz dem Rechtsextremismus zu. Doppelt so viele wie 2023."
+          "num": "28.000",
+          "text": "Rechtsextremisten im AfD-Umfeld"
         },
         {
-          "num": "02",
-          "text": "Rechtsextremistischer Verdachtsfall. Rechtskräftig bestätigt in drei Instanzen."
+          "num": "3",
+          "text": "Gerichte bestätigen die Einstufung"
         },
         {
-          "num": "03",
-          "text": "Sachsen-Anhalt, 6.9.2026: Die AfD gewinnt mit 44 %. Die absolute Mehrheit verfehlt sie knapp."
+          "num": "44 %",
+          "text": "Wahlsieg in Sachsen-Anhalt"
         },
         {
-          "num": "04",
-          "text": "Familie mit 40.000 € brutto: minus 440 € im Jahr. Topverdiener: plus 19.190 €."
+          "num": "−440 €",
+          "text": "zahlt die Familie mit 40.000 €"
         },
         {
-          "num": "05",
-          "text": "DIW: Die Hauptleidtragenden der AfD-Politik wären ihre eigenen Wähler."
+          "num": "+19.190 €",
+          "text": "bekommt die Familie mit 180.000 €"
         },
         {
-          "num": "06",
-          "text": "Höcke: zweimal wegen einer SA-Parole verurteilt. Krahs Mitarbeiter: Spionage für China, 4 Jahre und 9 Monate Haft."
+          "num": "0",
+          "text": "Rücktritte trotz Urteilen"
         }
       ],
       "closing": "Jede Zahl hat eine Quelle. Prüfe selbst."
@@ -509,11 +506,10 @@
       "type": "action",
       "chapter": "fazit",
       "headline": "Was du jetzt tun kannst",
-      "intro": "Jetzt weißt du es. Was machst du damit?",
       "cards": [
         {
           "title": "Dranbleiben",
-          "text": "Die AfD hat die Landtagswahl in Sachsen-Anhalt gewonnen. Alle anderen Parteien lehnen eine Zusammenarbeit ab. Wie es in Magdeburg weitergeht, entscheidet sich in den nächsten Wochen.",
+          "text": "Wie es in Magdeburg weitergeht, entscheidet sich jetzt.",
           "link": {
             "label": "tagesschau: Wahl in Sachsen-Anhalt",
             "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-172.html"
@@ -521,23 +517,15 @@
         },
         {
           "title": "Selbst nachprüfen",
-          "text": "Jede Zahl in dieser Tour hat eine Quelle — verlinkt und als Volltext archiviert. Eine Behauptung prüfen dauert zwei Minuten.",
+          "text": "Jede Zahl hat eine Quelle — verlinkt und archiviert. Prüfen dauert zwei Minuten.",
           "link": {
             "label": "Zum Quellenverzeichnis",
             "url": "/quellen/"
           }
         },
         {
-          "title": "Das Gespräch suchen",
-          "text": "Fakten wirken am stärksten, wenn du sie Leuten erzählst, die du kennst. Jede Szene hat oben rechts einen Teilen-Button. Schick genau das Argument, das zählt."
-        },
-        {
-          "title": "Weiterlesen",
-          "text": "Der Verfassungsschutzbericht 2025 und die tagesschau-FAQ fassen den aktuellen Stand zusammen. Beides als Volltext archiviert.",
-          "link": {
-            "label": "VSB 2025 (PDF, BMI)",
-            "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf"
-          }
+          "title": "Teilen",
+          "text": "Fakten wirken am stärksten, wenn du sie weitererzählst."
         }
       ]
     },

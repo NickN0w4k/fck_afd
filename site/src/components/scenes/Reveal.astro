@@ -17,7 +17,7 @@ const { scene } = Astro.props;
 
 <div class="reveal-scene">
   <RevealIsland client:visible teaser={scene.teaser} headline={hl(scene.headline)} body={hl(scene.body)} />
-  {scene.source && <SourceTag source={scene.source} />}
+  {scene.source && <SourceTag source={scene.source} tooltip={scene.context_tooltip} />}
 </div>
 
 <style>

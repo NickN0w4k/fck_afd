@@ -1,26 +1,44 @@
 <script>
-  import { scale } from 'svelte/transition';
+  import { cubicOut } from 'svelte/easing';
   import { factList } from '../../scripts/textsplit.js';
   let { teaser, headline, body } = $props();
   let open = $state(false);
+  const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
   const items = $derived(open ? factList(body, 200) : []);
+
+  // Kamera-Zoom beim Öffnen: Karte skaliert 0.94→1 (statt generischem scale);
+  // Umfeld dimmt per CSS-Klasse auf der Scene (global.css .reveal-open), kein GSAP nötig.
+  function zoom(node) {
+    return {
+      duration: reduced ? 0 : 420,
+      easing: cubicOut,
+      css: (t) => `opacity: ${t}; transform: scale(${0.94 + 0.06 * t});`,
+    };
+  }
+
+  function openCard(el) {
+    open = true;
+    if (!reduced) el.closest('.scene')?.classList.add('reveal-open');
+  }
 </script>
 
-{#if !open}
-  <button class="teaser" onclick={() => (open = true)}>
-    <span class="teaser-ring" aria-hidden="true"></span>
-    <span>{teaser}</span>
-  </button>
-{:else}
-  <div class="card" transition:scale>
-    <h2>{@html headline}</h2>
-    <ul class="fact-list">
-      {#each items as item, i}
-        <li style="--i:{i}">{@html item}</li>
-      {/each}
-    </ul>
-  </div>
-{/if}
+<div class="reveal-island" data-reveal-tease>
+  {#if !open}
+    <button class="teaser" onclick={(e) => openCard(e.currentTarget)}>
+      <span class="teaser-ring" aria-hidden="true"></span>
+      <span>{teaser}</span>
+    </button>
+  {:else}
+    <div class="card" transition:zoom>
+      <h2>{@html headline}</h2>
+      <ul class="fact-list">
+        {#each items as item, i}
+          <li style="--i:{i}">{@html item}</li>
+        {/each}
+      </ul>
+    </div>
+  {/if}
+</div>
 
 <style>
   .teaser {

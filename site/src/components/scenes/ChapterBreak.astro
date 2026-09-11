@@ -2,8 +2,9 @@
 // ChapterBreak: volle Farbfläche, große Nummer mit Parallax, Frage als Cliffhanger.
 interface Props {
   chapter: { id: string; num: string; title: string; accent: string; question: string };
+  scene?: { summary?: string; next_title?: string };
 }
-const { chapter } = Astro.props;
+const { chapter, scene } = Astro.props;
 ---
 
 <div class="chapterbreak" style={`background: ${chapter.accent}; color: var(--accent-contrast);`}>
@@ -11,6 +12,8 @@ const { chapter } = Astro.props;
   <div class="ch-body">
     <h2 class="ch-title" data-anim="rise">{chapter.title}</h2>
     <p class="ch-question" data-anim="rise">{chapter.question}</p>
+    {scene?.summary && <p class="ch-summary" data-anim="rise">{scene.summary}</p>}
+    {scene?.next_title && <p class="ch-next" data-anim="rise">{scene.next_title}</p>}
   </div>
 </div>
 
@@ -45,5 +48,18 @@ const { chapter } = Astro.props;
     max-width: 24ch;
     margin-top: 1rem;
     opacity: 0.85;
+  }
+  .ch-summary {
+    margin-top: 2.25rem;
+    font-size: clamp(1rem, 2.4vw, 1.3rem);
+    font-weight: 500;
+    max-width: 30ch;
+    opacity: 0.95;
+  }
+  .ch-next {
+    margin-top: 0.6rem;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    letter-spacing: 0.04em;
+    opacity: 0.7;
   }
 </style>
