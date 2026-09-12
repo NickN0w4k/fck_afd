@@ -13,9 +13,10 @@ Live: https://info-afd.de — jede Behauptung mit archivierter Primärquelle (SH
 ## Prozess (verbindlich)
 - **Arbeits-Branch:** `v1.6` (Nachfolger von v1.5) · **Release-Branch:** `master` = Live
 - **Nick gibt frei:** Wellen, Deploy-Runden, Kachel-Kuration. Ohne Freigabe nichts live.
-- **QA-Pflicht vor Commit:** `cd site && npm run validate && npm run build && node scripts/smoke.cjs`
-  (Smoke braucht `CHROME_PATH=C:\Users\nickn\AppData\Local\ms-playwright\chromium-1234\chrome-win64\chrome.exe`
-  + laufenden Preview-Server auf :4173 — Start: `Start-Process node -ArgumentList "node_modules\astro\bin\astro.mjs","preview","--port","4173" -WorkingDirectory <site>`; lauscht auf `::`)
+- **QA-Pflicht vor Commit:** `cd site && npm run validate && npm run build && node scripts/smoke.cjs && node scripts/wheel-protocol.cjs`
+  (beide brauchen `CHROME_PATH=C:\Users\nickn\AppData\Local\ms-playwright\chromium-1234\chrome-win64\chrome.exe`
+  + laufenden Preview-Server auf :4173 — Start: `Start-Process node -ArgumentList "node_modules\astro\bin\astro.mjs","preview","--port","4173" -WorkingDirectory <site>`; lauscht auf `::`.
+  wheel-protocol fährt Desktop-Wheel-Gesten nach (Einzel-Notch = exakt +1 Szene, Maus-Bursts = keine Skips) — deckt die Debounce-Race ab, die smoke.cjs nicht sieht; Lektion aus dem Seite-2-Bug 12.09.)
 - **Playwright-Browser liegen unter** `%LOCALAPPDATA%\ms-playwright` (Windows), NICHT `~/.cache/ms-playwright` (Linux-Pfad aus dem alten Setup)
 - **Git-Identität im Repo:** `Nick <nick@local>` (repo-lokal config, nicht global)
 - **Neue Szene-Felder VOR Verwendung in `validate-content.mjs` pflegen** (Regel aus Master §4.3)

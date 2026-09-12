@@ -26,11 +26,11 @@ Wie Zahlen, Szenen und Quellen dieser Site aktualisiert werden. Gilt für alle, 
    - Szenen-Typen: `hero, statement, data, quiz, quote, reveal, contrast, slider, timeline, action, summary, endcard, sources, chapterbreak`.
    - Jede Behauptung → eine Quelle. Meta-Statements (Framing ohne Fakten) dürfen bewusst ohne Quelle sein — Validator warnt dann nur.
 
-3. **Validator + Build**:
+3. **Validator + Build + Tests**:
    ```bash
-   cd site && npm run validate && npm run build
+   cd site && npm run validate && npm run build && node scripts/smoke.cjs && node scripts/wheel-protocol.cjs
    ```
-   Der Validator bricht bei harten Fehlern ab (Quelle ohne URL/Label, Timeline-Karte ohne Datum etc.).
+   Der Validator bricht bei harten Fehlern ab (Quelle ohne URL/Label, Timeline-Karte ohne Datum etc.). Smoke + wheel-protocol laufen headless gegen einen Preview-Server (:4173, CHROME_PATH nötig — siehe CLAUDE.md); wheel-protocol fährt Desktop-Wheel-Gesten nach und fängt Scroll-Races, die der Smoke nicht sieht.
 
 4. **Stand-Datum bumpen** in `site/src/lib/meta.js` (`SITE_STAND`) — erscheint automatisch im Badge, in Unterseiten-Footern und (bei Bedarf) im og:image.
 
