@@ -549,6 +549,44 @@ function initWheelSnap() {
     }
   };
 
+  // Fix 12.09. (Nick: „Snap funktioniert nicht richtig“): Eine echte Maus-/Trackpad-Geste
+  // streamt wheel-Events über mehrere hundert ms — der 150ms-Debounce feuerte dadurch
+  // mehrfach pro Geste, und jeder Feuer las nearestIndex() aus der IN-FLIGHT-Position
+  // (Smooth-Scroll lief schon) → goTo sprang Szenen überspringend weiter. Neues Design:
+  // 1 Geste (ruhige Phase ≥150ms) = exakt 1 Schritt. Input während des Smooth-Scroll-
+  // Flights wird NICHT verworfen, sondern zu genau EINEM nachgezogenen Schritt gebündelt
+  // (Queue-Tiefe 1) — zügiges Weiterrollen bleibt flüssig, aber niemals Skip.
+  // Slow-notch-Rollen (>150ms Lücke pro Raster) = 1 Schritt pro Raster, wie TikTok.
+  let animating = false;
+
+  const step = (dir) => {
+    animating = true;
+    if (!pinStep(dir)) goTo(nearestIndex() + dir, dir);
+    setTimeout(() => {
+      animating = false;
+      // gebündelter Nachzug: genau 1 Schritt, wenn während des Flights gerollt wurde
+      if (Math.abs(acc) >= 30) {
+        const d = acc > 0 ? 1 : -1;
+        acc = 0;
+        step(d);
+      } else {
+        acc = 0;
+      }
+    }, prefersReduced ? 60 : 650); // Smooth-Scroll ~500ms, instant bei reduce
+  };
+
+  const settle = () => {
+    // 150ms ruhig: die Geste ist abgeschlossen — genau 1 Schritt, nie mehr.
+    if (animating) return; // Flight läuft — der Nachzug in step() übernimmt
+    if (Math.abs(acc) < 30) {
+      acc = 0;
+      return;
+    }
+    const d = acc > 0 ? 1 : -1;
+    acc = 0;
+    step(d);
+  };
+
   window.addEventListener(
     'wheel',
     (e) => {
@@ -558,11 +596,7 @@ function initWheelSnap() {
       e.preventDefault();
       acc += e.deltaY;
       clearTimeout(timer);
-      timer = setTimeout(() => {
-        const dir = acc > 0 ? 1 : -1;
-        if (Math.abs(acc) >= 30 && !pinStep(dir)) goTo(nearestIndex() + dir, dir);
-        acc = 0;
-      }, 150);
+      timer = setTimeout(settle, 150);
     },
     { passive: false },
   );
