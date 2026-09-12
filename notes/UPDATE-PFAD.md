@@ -46,10 +46,11 @@ Wie Zahlen, Szenen und Quellen dieser Site aktualisiert werden. Gilt für alle, 
 
 ## Spezialfälle
 
-- **Impressum-Daten ändern/ausfüllen:** Nur in `site/src/lib/impressum.js` (Name, Anschrift, E-Mail, redaktionell Verantwortlicher). Die Seite `/impressum/` rendert daraus. Solange Platzhalter drin sind, warnt der Validator und die Seite zeigt einen roten Hinweis. **Wichtig:** Das Repo ist öffentlich — echte Adressdaten erst eintragen, wenn der Betreiber das entschieden hat (Doxxing-Abwägung bei einer Anti-AfD-Site).
+- **Impressum:** Seite + Datenmodell wurden in `8d87faf` (07.09.2026) zurückgenommen — „vorerst kein Impressum" (Nick). Vorher: Platzhalter-`impressum.js` wäre mit „VORNAME NACHNAME" live gegangen. Falls es später wiederkommt: Anbieterkennzeichnung braucht Name + ladungsfähige Anschrift ODER eine c/o-Adresse (§ 5 DDG, § 18 Abs. 2 MStV); echte Adressdaten erst eintragen, wenn der Betreiber entschieden hat (Doxxing-Abwägung bei einer Anti-AfD-Site).
 
 - **Neues Kapitel**: in `chapters.json` ergänzen (id, num, title, accent, question) → Unterseite `/[id]/` entsteht automatisch, Sitemap via `npm run build` mitbauen (paths in `site/src/pages/sitemap.xml.ts` manuell ergänzen!). Szenen mit `"chapter": "<id>"` in scenes.json anlegen.
 - **Deploy-Domain ändern**: EINMAL in `site/astro.config.mjs` (`site:`) — canonical, og:image-URL und sitemap ziehen automatisch mit. Danach im og-Template (`site/og-image/template.html`) die URL-Zeile anpassen und og neu rendern. Domain seit 06.09.2026: **info-afd.de** (eigene Domain, Pages serviert vom Branch-Root → `base: '/'`, KEIN `/fck_afd/`-Präfix mehr). Die `CNAME` liegt in `site/public/` und muss bei jedem Deploy mit im dist landen — fehlt sie, verliert die Domain ihre Verknüpfung.
+- **Deploy auf gh-pages ist KEIN naiver Build+Replace** — der Branch-Root enthält Dinge, die ein frischer `dist/` nicht hat: `preview/` (Vorschau-Deploy **mit eigener `preview/CNAME`**), `.nojekyll` und Reste (`.hermes/`, `site/`). Ablauf: Dist bauen → `preview/` + `.nojekyll` + CNAME in den neuen Stand kopieren (CNAME liegt in `site/public/`, kommt normalerweise mit) → Reste (`.hermes/`, `site/`) bei der Gelegenheit entsorgen. Nach dem Deploy: Root-CNAME + `preview/CNAME` prüfen, sonst verlieren info-afd.de UND die Preview ihre Domain-Verknüpfung.
 - **Quiz ergänzen**: `options` (mindestens eine `correct: true`), `explanation`, `source`. Die Insel zeigt Erklärung erst nach dem Klick (aria-live ist gesetzt).
 - **Timeline ergänzen**: `items` mit `date, title, text, source`. Reihenfolge = Kartenreihenfolge.
 
