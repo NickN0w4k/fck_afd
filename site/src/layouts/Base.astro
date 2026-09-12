@@ -23,6 +23,9 @@ const canonical = new URL(Astro.url.pathname, site);
 const base = import.meta.env.BASE_URL;
 const ogImage = ogImageOverride ?? new URL(`${base.endsWith('/') ? base : `${base}/`}og-image.png`, site).toString();
 const ogImageAlt = ogImageAltOverride ?? 'Die AfD. Die Fakten. — belegte Fakten mit Quelle, als scrollbare Tour.';
+// Preview-Deploy (SITE_BASE=/preview/) → immer noindex (Lektion aus Projekt-Log §9: Injektion nach
+// jedem Rebuild war fehleranfällig — jetzt build-time verankert).
+const isPreview = import.meta.env.SITE_BASE === '/preview/';
 ---
 
 <!doctype html>
@@ -32,6 +35,7 @@ const ogImageAlt = ogImageAltOverride ?? 'Die AfD. Die Fakten. — belegte Fakte
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0a0a0a" />
+    {isPreview && <meta name="robots" content="noindex" />}
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`}favicon.svg`} />
     <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`}favicon.ico`} sizes="32x32" />
     <link rel="canonical" href={canonical} />
