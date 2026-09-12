@@ -105,14 +105,14 @@ Dazu: Chart-Untertypen **diverging** (±440/19.190 an Nulllinie), **tiles** (10�
 
 ---
 
-## 8. Aktueller Stand (12.09.2026)
+## 8. Aktueller Stand (12.09.2026, abends)
 
 | | |
 |---|---|
-| **Live (info-afd.de)** | Welle 1 + 2 — 42 Szenen, 7 Kapitel, 46+ archivierte Quellen |
-| **Preview (/preview/, noindex)** | Welle 3 A+B — Teilen-pro-Szene, Kacheln, OG-Images, Punktschwarm, Hero-Pin |
-| **Branches** | `v1.5` = Arbeits-Stand (6776402) · `master` = Live (3169cf5) · Freigabe → merge v1.5 → master + Deploy |
-| **Offen** | Welle 3 Rest: 3.2 Timeline-Kamerafahrt (Desktop) — 3.5 + 3.6 erledigt auf `v1.6` (siehe 8b) |
+| **Live (info-afd.de)** | Welle 1 + 2 + 3 A+B — 42 Szenen, 7 Kapitel, 54+ Quellen |
+| **Preview (/preview/)** | 8c: Deckblätter, PC-Snap, Swarm-Reveal, Wisch-Hinweis, Nummerierung 00–06 (8b: Teilen/Kacheln/Schwarm/Hero-Pin) |
+| **Branches** | `v1.6` = Arbeits-Stand (2ae3710) · `master` = Live · Freigabe → merge v1.6 → master + Root-Deploy |
+| **Offen** | 3.2 Kamerafahrt (Nick entscheidet), Quellen-Retry, Monats-Recherche |
 | **Nicht umgesetzt (bewusst)** | `next_hook`/`share`-Felder im Validator, aber ohne Renderer — erst mit 3.4-Fortsatz sinnvoll; Social-Proof-Counter (nur mit echten Zählern, sonst streichen) |
 
 ## 8b. Welle 3 Restarbeiten (12.09., auf Branch `v1.6` — Freigabe ausstehend)
@@ -126,6 +126,24 @@ Dazu: Chart-Untertypen **diverging** (±440/19.190 an Nulllinie), **tiles** (10�
 - `/quellen/` neu: Gruppierung nach Kapitel (Akzentfarben + Count-Badge je Kapitel, Reihenfolge aus chapters.json), „Verwendet in: Szene N" als Deep-Link `#scene-N` (verifiziert: landet exakt in der Szene), Betreiber-Transparenz-Block („Wie diese Seite arbeitet": Primärquellen, SHA256-Archiv, Zitate-belegen-Aussage-Regel, Korrekturen, keine Finanzierung)
 - 54 Quellen über 6 Kapitel-Gruppen erfasst (Mehr-Kapitel-Quellen erscheinen in jedem, sortiert nach erster Szene)
 - Stand-Datum auf 12.09. gebumpt
+
+---
+
+## 8c. Nick-Feedback-Runde 2 (12.09. abends, `v1.6`) — alles live auf /preview/
+
+| Nick-Befund | Fix | Commit |
+|---|---|---|
+| Quellen-Gruppen sprangen auf 02 ein | Fortlaufend 01–06 über sichtbare Gruppen | 6b3cc24 |
+| Snapping kaputt nach transition:slide-Fix | 3 Teile: Result-Panel max-height 40svh + internes Scrollen; initSnapTall reaktiv (ResizeObserver, 1.02vh) + ScrollTrigger.refresh; pinStep positionsbasiert + PIN_TAIL-Auslaufzone | 77137ca |
+| Swarm-Balken „alle gleich lang", Spoiler vor Animation | Werte normiert (11300/20000/28000 → 40/71/100 %), Werte grau in den Zeilen, Startzustand 0 (kein Spoiler), Balken im letzten Pin-Drittel | 75da375 |
+| Deckblatt: schwarze Schrift auf dunkler Nummer unlesbar | Weiche radiale Abschattung in Kapitelfarbe hinter dem Text, Nummer bleibt schwach sichtbar | ff6917d |
+| Snapping am PC ruckelig | natives mandatory-Snap nur Touch (pointer:coarse), am PC JS-WheelSnap exklusiv + Tastatur-Navigation (Pfeile/PgUp/PgDn/Space) | ff6917d |
+| „Nichts springt an" beim Scrollen | Ursache: Windows-Animationseffekte aus → prefers-reduced-motion. Scroll-Raster von Animationen entkoppelt: Touch-Snap + instant WheelSprünge auch bei reduce | 91c224f |
+| Wisch-Hinweis kam erst nach der Animation | Hinweis sofort beim Pin-Einstieg, blendet bei Auflösung aus | e1e66fb |
+| Gelbes Deckblatt zeigt 02, richtig wäre 01 | Kapitel-Nummerierung zentral: „Der Anlass" = 00 (Prolog, keine Quellen), Verfassungsschutz 01 … Fazit 06 — Deckblätter/Tracker/Unterseiten/Dots/Quellen-Seite konsistent | 2ae3710 |
+| Caption-Edit (Nick selbst) | übernommen: Swarm-Caption ohne Zahlenvorab (passt zum No-Spoiler-Reveal) | ff6917d |
+
+**Offen bleibt:** 3.2 Timeline-Kamerafahrt (nur Desktop) — Nick entscheidet, ob sie überhaupt rein soll (Timeline mit Wischen/Drag existiert bereits aus Welle 2). Quellen-Retry IW-Köln/LG-Halle. og-scenes.mjs neu rendern falls Content-Texte sich ändern (Caption-Edit betrifft Szene 4 → OG scene-3.png veraltet, aber Zahlen stehen da nicht drauf — prüfen beim nächsten Deploy).
 
 ---
 
