@@ -148,6 +148,14 @@
     background: var(--bg-elev);
     border-left: 3px solid var(--accent);
     border-radius: 0 12px 12px 0;
+    /* 3.6-Fix: Reveal darf die Szene nicht über den Viewport wachsen lassen —
+       sonst kippt das CSS-Snap (center-align auf >1vh-Szene = Oberkante unerreichbar)
+       und initWheelSnap's tall-Pfad springt ans Szenen-Ende. Innen scrollen statt
+       Szene strecken. 40svh hält die Gesamtszene unter 1.02vh (SnapTall-Schwelle). */
+    max-height: min(40svh, 380px);
+    overflow-y: auto;
+    overscroll-behavior: contain; /* Scroll geht nicht auf die Seite über */
+    -webkit-overflow-scrolling: touch;
   }
   .verdict {
     font-family: var(--font-head);

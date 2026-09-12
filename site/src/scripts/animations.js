@@ -411,11 +411,31 @@ function initResume() {
 }
 
 /** Szenen, die höher als der Viewport sind, rasten oben ein statt zentriert
- *  (bei center-align wäre der oberste Teil der Szene unerreichbar) */
+ *  (bei center-align wäre der oberste Teil der Szene unerreichbar).
+ *  Reaktiv (Fix 12.09.): Slider-/Quiz-Reveals wachsen zur Laufzeit über 1vh —
+ *  der statische Init-Check reichte nicht mehr. ResizeObserver zieht snap-align
+ *  nach und refresht ScrollTrigger, damit Pin-Positionen neu gerechnet werden.
+ *  Schwelle 1.02vh: Schon minimal Überhöhen rastet oben ein — center bei 898px-
+ *  Szene auf 844px-Viewport verdeckt sonst die oberen ~30px (Prompt-Abschneider). */
 function initSnapTall() {
-  const vh = window.innerHeight;
+  const isTall = (s) => s.scrollHeight > window.innerHeight * 1.02;
+  const refresh = () => ScrollTrigger.refresh();
+
   document.querySelectorAll('.scene').forEach((s) => {
-    if (s.scrollHeight > vh * 1.15) s.style.scrollSnapAlign = 'start';
+    if (isTall(s)) s.style.scrollSnapAlign = 'start';
+    if ('ResizeObserver' in window && !prefersReduced) {
+      const ro = new ResizeObserver(() => {
+        const prevAlign = s.style.scrollSnapAlign;
+        const nowTall = isTall(s);
+        const nextAlign = nowTall ? 'start' : '';
+        if (prevAlign !== nextAlign) {
+          s.style.scrollSnapAlign = nextAlign;
+          // Pin-Positionen folgen erst nach refresh — im nächsten Frame (Layout ist stabil)
+          requestAnimationFrame(refresh);
+        }
+      });
+      ro.observe(s);
+    }
   });
 }
 
@@ -447,10 +467,14 @@ function initWheelSnap() {
   // Pin-Stack-Schritt (Welle 3): liegt der Viewport im Bereich eines Pins,
   // durchschreitet die Geste den Pin in ~3 Etappen (Phasen erlebbar), statt
   // per Szenen-Sprung den Scrub zu überspringen.
+  // Fix 12.09.: Pin-Suche über scroll-Position (at innerhalb start-tail … end+tail),
+  // NICHT über nearestIndex() — der kippt am gepinnten Zustand (Szenen-rect bleibt
+  // bei top=0 transformiert, Szenen-Mitte verschiebt sich → falsche Szene gewählt,
+  // Rückwärts-Wheel sprang aus dem Pin statt eine Etappe zurück).
   const pinStep = (dir) => {
-    const st = pinTriggers.find((p) => p.trigger === scenes[nearestIndex()]);
-    if (!st || st.end <= st.start) return false;
     const at = window.scrollY;
+    const st = pinTriggers.find((p) => at >= p.start - 2 && at <= p.end + PIN_TAIL);
+    if (!st || st.end <= st.start) return false;
     const step = (st.end - st.start) / 3;
     if (dir > 0 && at >= st.start - 2 && at < st.end - 2) {
       window.scrollTo({ top: Math.min(st.end, at + step), behavior: 'smooth' });
@@ -492,14 +516,14 @@ function initWheelSnap() {
       }
       // vor dem Pin → normale Navigation zur vorherigen Szene
       const prev = scenes[Math.max(0, idx - 1)];
-      if (prev.scrollHeight > window.innerHeight * 1.15) {
+      if (prev.scrollHeight > window.innerHeight * 1.02) {
         window.scrollTo({ top: Math.max(0, prev.offsetTop + prev.scrollHeight - window.innerHeight), behavior: 'smooth' });
       } else {
         prev.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
       return;
     }
-    const tall = s.scrollHeight > window.innerHeight * 1.15;
+    const tall = s.scrollHeight > window.innerHeight * 1.02;
     if (tall) {
       // Hohe Szene: erst ans Ende scrollen (Autor/Quelle zeigen), Snap restet via CSS
       const targetY = s.offsetTop + s.scrollHeight - window.innerHeight;
@@ -540,14 +564,17 @@ function initWheelSnap() {
 const pinTriggers = [];
 let _pinStateActive = false;
 
-/** Bereichs-basiert (start-1 … end-exklusiv): schon am Pin-Anfang aktiv, damit das
+/** Bereichs-basiert (start-1 … end+AUSLAUF): schon am Pin-Anfang aktiv, damit das
  *  gelockerte Snap-Verhalten (html.pin-active → proximity) greift, BEVOR der Scrub
  *  beginnt — mandatory-Snap würde Zwischenpositionen im Pin sonst zum Snap-Punkt
- *  zurückziehen. Endposition exklusiv: am Pin-Ende ist der Scrub fertig, der Pin
- *  soll die Snap-Rückgabe wieder freigeben. */
+ *  zurückziehen. Am ENDE mit kleiner Auslaufzone (+150px): Die Rückwärts-Etappe
+ *  (pinStep dir<0) startet bei y=pin.end und wird ohne Zone vom mandatory-Snap
+ *  zurückgezogen, bevor der smooth-scroll ankommt (Fix 12.09.: „Snap hängt am
+ *  Pin-Ende"). 150px ≈ halbe Wheel-Etappe, ohne die nächste Szene zu überlappen. */
+const PIN_TAIL = 150;
 function updatePinState() {
   const at = window.scrollY || window.pageYOffset || 0;
-  const active = pinTriggers.some((st) => at >= st.start - 1 && at < st.end);
+  const active = pinTriggers.some((st) => at >= st.start - 1 && at < st.end + PIN_TAIL);
   if (active === _pinStateActive) return;
   _pinStateActive = active;
   document.documentElement.classList.toggle('pin-active', active);
