@@ -695,7 +695,10 @@ function initPinStack() {
     const barFills = barsBlock ? Array.from(barsBlock.querySelectorAll('[data-bar]')) : [];
     const hint = scene.querySelector('[data-swarm-hint]');
     if (barsBlock) gsap.set(barsBlock, { autoAlpha: 0 });
-    if (hint) gsap.set(hint, { autoAlpha: 0 });
+    // Fix 12.09. Runde 2 (Nick): Hinweis muss SOFORT beim Pin-Einstieg stehen — er erklärt
+    // ja die Wartezeit („scrollen, damit's weitergeht"), nicht das Ende. Startet sichtbar,
+    // verschwindet erst wenn die Auflösung kommt (Letzte Phase / Pin-Ende).
+    if (hint) gsap.set(hint, { autoAlpha: 0.9 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -757,12 +760,11 @@ function initPinStack() {
             `bars+=${bi * 0.18}`,
           );
         });
-        if (hint) tl.fromTo(hint, { autoAlpha: 0 }, { autoAlpha: 0.9, duration: 0.3 }, 'bars+=0.4');
+        // Auflösung kommt → Hinweis hat seine Arbeit getan, weicht den Balken:
+        if (hint) tl.to(hint, { autoAlpha: 0, duration: 0.3 }, 'bars+=0.1');
       }
     });
     tl.to({}, { duration: 0.35 }); // Endruhe: 28.000 hält kurz, dann löst der Pin
-    // Am Pin-Ende: Wisch-Hinweis ausblenden (der ist nur während des Pins sinnvoll)
-    tl.call(() => hint?.classList.add('is-done'), [], '+=0.01');
   });
 }
 
