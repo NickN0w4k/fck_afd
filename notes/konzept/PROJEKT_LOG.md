@@ -156,6 +156,14 @@ Dazu: Chart-Untertypen **diverging** (±440/19.190 an Nulllinie), **tiles** (10�
 - **Voll-QA-Agenten lohnen nicht (Nick):** 1 h + viele Tokens für Wort-für-Wort-Prüfungen → gezielte Checks in execute_code, QA-Subagents früh stoppen
 - **IW-Köln 403 / LG-Halle-PM 404:** Fakten über archivierte Ersatzquellen doppelt belegt (iwd.de-Volltext, tagesschau+ZEIT) — Retry später
 
+## 9.b Feedback-Runde 3 (13.09., Nick): Scroll-Rhythmus
+
+- **Meldung:** „Erste Seite: mehrfach scrollen bis man weiterkommt; am PC kommt man gar nicht weg. Auch Szene 2 hakt beim Runterscrollen."
+- **Diagnose (headless, LIVE):** Live-Stand war bereits v1.6 — der echte Übeltäter war der **Hero-Parallax-Pin** (Pin 1, `end +=600`): reservierte 600px Extra-Scroll = am PC 3 pinStep-Etappen + 1 Landung = **4 Maus-Raster**, bis Inhalt kommt; headless reproduziert (10 Gesten ohne Escape auf dem alten Live-Stand, nach v1.6-Deploy 4 Notch-Etappen). Der 28.000er-Schwarm-Pin (Phase-Hinweis erklärt die Wartezeit) war nie das Problem.
+- **Fix:** Hero-Pin **entfernt** (Pin-Budget jetzt 1/3) — Parallax + Outro-Fade als normaler GSAP-Scrub über die natürliche Szenenhöhe (`top top → bottom top`). 1 Wheel-Raster = 1 Szene am PC, Rückwärts replayt symmetrisch. Headless verifiziert: R1 → Szene 1 (y≈900), R2 → Swarm-Einstieg (2700), R3/R4 → Pin-Etappen (3200, …).
+- **Methodik-Lektion:** Headless-Wheel-Timing ist verrauscht (einmal y=0 trotz korrektem Handler) → vor „Fix kaputt"-Schlüsse immer Server neu starten + Handler-Aufrufe instrumentieren (scrollTo/scrollIntoView monkeypatchen + scrollLog); `npx gh-pages` ersetzt Alt-Ordner am gh-pages-Root NICHT (`.hermes/`, `site/` überlebten) → manuell per Clone+rm+push entsorgen.
+- **Rollback-Anker (vor diesem Deploy notiert):** d0d02da = Live-v1.6-Vorher-Stand; 8b9f1ab = v1.5.
+
 ## 10. Wer was macht (Rollen)
 
 | | |

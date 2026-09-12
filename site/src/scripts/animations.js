@@ -626,10 +626,14 @@ function registerPin(st) {
   return st;
 }
 
-/** Welle 3 / 3.3 — Hero-Parallax-Pin (Pin 1 von 3, apex §3 „statement/hero“):
- *  Ambient-Glow-Layer yPercent 30 (scrub), Headline-Block yPercent -10,
- *  Hero-Inhalt blendet beim ersten Scroll aus. end '+=600', pinType transform,
- *  anticipatePin 1. prefers-reduced-motion: kein Pin — statischer Hero (SSR). */
+/** Welle 3 / 3.3 — Hero-Parallax (KEIN Pin mehr, Nick-Feedback 13.09.):
+ *  Ursprünglich Pin 1 von 3 mit 'end +=600' — das reservierte 600px Extra-Scroll
+ *  = am PC 3 Wheel-Etappen (pinStep /3) + 1 Landung = 4 Raster, bis überhaupt
+ *  Inhalt kommt. Nicks Regel: Die ERSTE Seite darf nicht mehrfach scrollen
+ *  (der 28.000er-Schwarm darf es — dort erklären Phasen + Wisch-Hinweis die Wartezeit).
+ *  Jetzt: Parallax + Outro-Fade als normaler Scrub über die NATÜRLICHE Szenenhöhe
+ *  (top top → bottom top, kein pin, kein pinSpacing) — 1 Wheel-Raster = 1 Szene,
+ *  Rückwärts-Scroll replayt symmetrisch. prefers-reduced-motion: statischer Hero (SSR). */
 function initHeroParallax() {
   const glow = document.querySelector('.hero-glow');
   if (!glow) return;
@@ -642,17 +646,11 @@ function initHeroParallax() {
     scrollTrigger: {
       trigger: scene,
       start: 'top top',
-      end: '+=600',
-      pin: true,
-      pinType: 'transform',
-      anticipatePin: 1,
+      end: 'bottom top', // natürliche Szenenhöhe — kein Pin, keine reservierte Scroll-Strecke
       scrub: true,
       invalidateOnRefresh: true,
-      onUpdate: updatePinState,
-      onToggle: updatePinState,
     },
   });
-  registerPin(tl.scrollTrigger);
   tl.to(glow, { yPercent: 30, ease: 'none', duration: 1 }, 0)
     .to(inner, { yPercent: -10, ease: 'none', duration: 1 }, 0);
   tl.to([inner, canvas, hint].filter(Boolean), { autoAlpha: 0, duration: 0.4, ease: 'power1.in' }, 0.6);
