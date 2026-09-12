@@ -1,49 +1,49 @@
 [
   {
     "id": "intro",
-    "num": "01",
+    "num": "00",
     "title": "Der Anlass",
     "accent": "#FF4D2E",
     "question": "Wofür steht diese Partei wirklich?"
   },
   {
     "id": "verfassungsschutz",
-    "num": "02",
+    "num": "01",
     "title": "Verfassungsschutz",
     "accent": "#FFB02E",
     "question": "Warum stuft der Staat diese Partei als rechtsextremistisch ein?"
   },
   {
     "id": "programm",
-    "num": "03",
+    "num": "02",
     "title": "Das Programm",
     "accent": "#4DE0FF",
     "question": "Was plant die AfD für dein Geld, deine Rente, dein Klima?"
   },
   {
     "id": "innen",
-    "num": "04",
+    "num": "03",
     "title": "Innenleben",
     "accent": "#B44DFF",
     "question": "Wer gibt dort den Ton an?"
   },
   {
     "id": "kosten",
-    "num": "05",
+    "num": "04",
     "title": "Was es kostet",
     "accent": "#5CFF8F",
     "question": "Wer zahlt für die AfD-Pläne? Institute haben es durchgerechnet."
   },
   {
     "id": "einwaende",
-    "num": "06",
+    "num": "05",
     "title": "Einwände",
     "accent": "#E8A34D",
     "question": "Argumente, die du im Gespräch hörst. Hier geprüft."
   },
   {
     "id": "fazit",
-    "num": "07",
+    "num": "06",
     "title": "Das Fazit",
     "accent": "#FF4D2E",
     "question": "Du kennst die Fakten. Und jetzt?"

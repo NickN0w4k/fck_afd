@@ -30,7 +30,7 @@ const next = chapters[idx + 1];
 >
   <div class="doc-page" style={`--accent: ${chapter.accent}`}>
     <header class="doc-header">
-      <p class="doc-kicker">Kapitel {chapter.num} / {String(chapters.length).padStart(2, '0')}</p>
+      <p class="doc-kicker">Kapitel {chapter.num} / {String(chapters.length - 1).padStart(2, '0')}</p>
       <h1 class="doc-title">{chapter.title}</h1>
       <p class="doc-question">{chapter.question}</p>
       <a class="doc-tour-link" href={import.meta.env.BASE_URL}>→ Zur komplette Tour (mit Animation & Quiz)</a>
