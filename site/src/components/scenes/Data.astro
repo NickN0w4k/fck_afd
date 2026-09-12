@@ -67,23 +67,43 @@ const SWARM_PHASES = [
           ))}
         </div>
         <p class="swarm-legend">1 Punkt ≈ 250 Menschen</p>
+        {/* Fix 12.09. (Nick): „Wischen zum Weiterkommen" — Hinweis während der Pin-Etappen.
+            SSR sichtbar (no-JS/reduced-motion: Pin läuft eh nicht), JS blendet aus sobald der Pin endet. */}
+        <p class="swarm-hint" data-swarm-hint>Wischen zum Weiterkommen ↓</p>
       </div>
     )
   }
 
   {
-    scene.chart === 'bars' && scene.series && (
-      <div class="bars" role="img" aria-label={scene.series.map((s) => `${s.label}: ${s.value}`).join(', ')}>
-        {scene.series.map((s) => (
-          <div class="bar-row">
-            <span class="bar-label">{s.label}</span>
-            <div class="bar-track">
-              <div class="bar-fill" data-bar style={`--w: ${s.value}%`} />
-            </div>
-          </div>
-        ))}
-      </div>
-    )
+    scene.chart === 'bars' && scene.series && (() => {
+      // Fix 12.09.: Series-Werte sind ABSOLUT (11300/20000/28000) — als %-Width interpretiert
+      // liefen die Fills 63× über den Track („alle gleich lang"). Jetzt normiert auf max.
+      // Swarm-Szene: Werte zusätzlich IN den Balken (muted, grau statt daneben — Nicks Feedback),
+      // Startzustand per data-bars-hidden (initPinStack deckt erst im Pin auf → kein Spoiler).
+      const max = Math.max(...scene.series.map((s) => Math.abs(s.value)), 1);
+      const isSwarmBars = isSwarm;
+      return (
+        <div
+          class="bars"
+          role="img"
+          aria-label={scene.series.map((s) => `${s.label}: ${s.value}`).join(', ')}
+          {...(isSwarmBars ? { 'data-bars-staged': '' } : {})}
+        >
+          {scene.series.map((s) => {
+            const pct = Math.max(4, (Math.abs(s.value) / max) * 100);
+            return (
+              <div class="bar-row">
+                <span class="bar-label">{s.label}</span>
+                <div class="bar-track">
+                  <div class="bar-fill" data-bar style={`--w: ${pct}%`} />
+                  {isSwarmBars && <span class="bar-val">{s.value.toLocaleString('de-DE')}</span>}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      );
+    })()
   }
 
   {
@@ -233,16 +253,42 @@ const SWARM_PHASES = [
     color: var(--fg-muted);
   }
   .bar-track {
+    position: relative; /* Anker für .bar-val (Werte im/auf dem Balken, Fix 12.09.) */
     height: 14px;
     background: rgba(245, 242, 236, 0.08);
     border-radius: 99px;
-    overflow: hidden;
+    overflow: visible; /* Werte außerhalb kurzer Balken bleiben sichtbar */
   }
   .bar-fill {
     height: 100%;
     border-radius: 99px;
     background: var(--accent);
     width: 0%;
+  }
+  /* Fix 12.09.: Werte IN den Balken-Zeilen (Swarm-Szene) — konsequent grau/muted rechts
+     am Track-Ende (Nicks Feedback: „in grauer Schrift, damit es nicht heraussticht").
+     Außerhalb des Fills, auf dunklem Grund: kontrastarm, kollidiert nie mit dem Akzentbalken. */
+  .bar-val {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) translateY(-1px);
+    font-family: var(--font-head);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--fg-muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  /* Voll-Fill (2025/100 %): Wert sitzt auf der Akzentfläche → dunkel statt grau bleibt lesbar */
+  .bar-row:last-child .bar-val {
+    color: rgba(10, 10, 10, 0.78);
+  }
+  /* Staged (Swarm): JS deckt Balken erst im Pin auf — SSR/no-JS sieht Endzustand.
+     data-staged-hidden wird von initPinStack gesetzt und per gsap.set autoAlpha:0 umgesetzt. */
+  .bars[data-bars-staged] .bar-fill {
+    opacity: 1;
   }
   .donut {
     width: min(60vw, 260px);
@@ -395,5 +441,13 @@ const SWARM_PHASES = [
   /* ===== compare: Anker Akzent, Referenzen muted ===== */
   .compare .bar-fill.is-ref {
     background: rgba(245, 242, 236, 0.35);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .swarm-hint { animation: none; }
+  }
+  .swarm-hint.is-done {
+    opacity: 0;
+    transition: opacity 0.4s;
+    animation: none;
   }
 </style>

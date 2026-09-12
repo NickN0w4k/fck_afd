@@ -118,6 +118,8 @@ function initCountScrub() {
  *  Diverging-Variante: .dv-fill wächst als HÖHE (von der Nulllinie aus auf/ab), --h = Länge. */
 function initBars() {
   document.querySelectorAll('.scene').forEach((scene) => {
+    // Swarm-Szene: Balken laufen in der Pin-Stack-Timeline (initPinStack) — hier ausnehmen
+    if (scene.querySelector('[data-swarm]')) return;
     const bars = scene.querySelectorAll('[data-bar]');
     bars.forEach((el, i) => {
       const width = el.style.getPropertyValue('--w');
@@ -655,6 +657,14 @@ function initPinStack() {
     gsap.set(dots, { scale: 0, autoAlpha: 0 });
     years.forEach((y) => y.classList.remove('is-on'));
     if (counter) counter.textContent = fmt(0);
+    // Fix 12.09. (Nick): Balken-Zeitreihe unter dem Schwarm nicht vorgreifen —
+    // erst im letzten Pin-Drittel aufdecken (vorher standen Zahl+Werte sofort da = Spoiler).
+    // gsap.set statt CSS-Hook (kein .js-Klasse-System): autoAlpha 0 + width 0 bis zur Aufdeckung.
+    const barsBlock = scene.querySelector('[data-bars-staged]');
+    const barFills = barsBlock ? Array.from(barsBlock.querySelectorAll('[data-bar]')) : [];
+    const hint = scene.querySelector('[data-swarm-hint]');
+    if (barsBlock) gsap.set(barsBlock, { autoAlpha: 0 });
+    if (hint) gsap.set(hint, { autoAlpha: 0 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -698,8 +708,30 @@ function initPinStack() {
         if (pi > 0 && years[pi - 1]) tl.to(years[pi - 1], { autoAlpha: 0, duration: 0.2 }, label);
         tl.fromTo(years[pi], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, label);
       }
+      // Fix 12.09.: Letzte Phase (2025/28.000) — Balken aufdecken, Werte wachsen mit:
+      // Balken 1–3 wachsen nacheinander (stagger), initBars' eigener Trigger ist dafür
+      // entfernt (initBars springt Swarm-Szenen aus → kein Doppel-Animation).
+      if (pi === phases.length - 1 && barFills.length) {
+        tl.addLabel('bars', pi * 1.8 + 0.45); // kurz nach dem finalen Punkte-Pop
+        tl.to(barsBlock, { autoAlpha: 1, duration: 0.25 }, 'bars'); // Block einblenden
+        barFills.forEach((el, bi) => {
+          tl.fromTo(
+            el,
+            { width: '0%' },
+            {
+              width: el.style.getPropertyValue('--w'),
+              duration: 0.55,
+              ease: 'power2.out',
+            },
+            `bars+=${bi * 0.18}`,
+          );
+        });
+        if (hint) tl.fromTo(hint, { autoAlpha: 0 }, { autoAlpha: 0.9, duration: 0.3 }, 'bars+=0.4');
+      }
     });
     tl.to({}, { duration: 0.35 }); // Endruhe: 28.000 hält kurz, dann löst der Pin
+    // Am Pin-Ende: Wisch-Hinweis ausblenden (der ist nur während des Pins sinnvoll)
+    tl.call(() => hint?.classList.add('is-done'), [], '+=0.01');
   });
 }
 
