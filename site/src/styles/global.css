@@ -133,6 +133,18 @@ button {
   }
 }
 
+/* Fix 12.09.: reduced-motion heißt „keine Animationen" — aber das SCROLL-RASTER ist
+   keine Animation, sondern Navigation (Nicks Fall: Windows-Animationseffekte aus
+   → sonst springt GAR nichts an). Touch rastet auch bei reduce sanft per CSS. */
+@media (prefers-reduced-motion: reduce) and (pointer: coarse) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+  .scene {
+    scroll-snap-align: center;
+  }
+}
+
 /* Kapitel-Akzentfarben: jedes Kapitel tönt seine Szenen */
 .scene[data-accent] {
   --accent: attr(data-accent type(<color>)); /* Fallback unten per Inline-Style */

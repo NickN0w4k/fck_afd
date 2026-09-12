@@ -442,11 +442,24 @@ function initSnapTall() {
 }
 
 /** Desktop-Wheel-Stopper: eine Scroll-Geste = exakt eine Szene weiter (TikTok-Feel).
- *  Touch & Keyboard laufen weiter über natives CSS-Snap; reduced-motion lässt alles nativ. */
+ *  Touch & Keyboard laufen weiter über natives CSS-Snap.
+ *  Fix 12.09.: Läuft auch bei prefers-reduced-motion — das Scroll-Raster ist Navigation,
+ *  keine Deko-Animation (Nicks Fall: Windows-Animationseffekte aus → sonst springt nichts).
+ *  scrollTo nutzt trotzdem 'auto' (instant) statt smooth, wenn reduce aktiv ist. */
 function initWheelSnap() {
-  if (prefersReduced) return;
   const scenes = Array.from(document.querySelectorAll('.scene'));
   if (!scenes.length) return;
+  // reduce → instant springs statt smooth (keine Animation, nur Positionierung)
+  const smooth = prefersReduced ? 'auto' : 'smooth';
+  const scrollTo = (top) => window.scrollTo({ top, behavior: smooth });
+  const scrollIntoView = (s) => {
+    if (prefersReduced) {
+      const r = s.getBoundingClientRect();
+      window.scrollTo({ top: window.scrollY + r.top + r.height / 2 - window.innerHeight / 2 });
+    } else {
+      s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
 
   let acc = 0;
   let timer = null;
@@ -479,11 +492,11 @@ function initWheelSnap() {
     if (!st || st.end <= st.start) return false;
     const step = (st.end - st.start) / 3;
     if (dir > 0 && at >= st.start - 2 && at < st.end - 2) {
-      window.scrollTo({ top: Math.min(st.end, at + step), behavior: 'smooth' });
+      scrollTo(Math.min(st.end, at + step));
       return true;
     }
     if (dir < 0 && at > st.start + 2 && at <= st.end + 2) {
-      window.scrollTo({ top: Math.max(st.start, at - step), behavior: 'smooth' });
+      scrollTo(Math.max(st.start, at - step));
       return true;
     }
     return false;
@@ -498,30 +511,30 @@ function initWheelSnap() {
       const at = window.scrollY;
       if (dir > 0) {
         if (at < pin.start - 2) {
-          window.scrollTo({ top: pin.start, behavior: 'smooth' });
+          scrollTo(pin.start);
           return;
         }
         if (at < pin.end - 2) {
-          window.scrollTo({ top: Math.min(pin.end, at + (pin.end - pin.start) / 3), behavior: 'smooth' });
+          scrollTo(Math.min(pin.end, at + (pin.end - pin.start) / 3));
           return;
         }
         goTo(idx + 1, dir); // Pin komplett durchlaufen → nächste Szene
         return;
       }
       if (at > pin.end + 2) {
-        window.scrollTo({ top: Math.max(pin.start, pin.end - (pin.end - pin.start) / 3), behavior: 'smooth' });
+        scrollTo(Math.max(pin.start, pin.end - (pin.end - pin.start) / 3));
         return; // von unten zurück in den Pin: am Ende wieder einsteigen
       }
       if (at > pin.start + 2) {
-        window.scrollTo({ top: Math.max(pin.start, at - (pin.end - pin.start) / 3), behavior: 'smooth' });
+        scrollTo(Math.max(pin.start, at - (pin.end - pin.start) / 3));
         return;
       }
       // vor dem Pin → normale Navigation zur vorherigen Szene
       const prev = scenes[Math.max(0, idx - 1)];
       if (prev.scrollHeight > window.innerHeight * 1.02) {
-        window.scrollTo({ top: Math.max(0, prev.offsetTop + prev.scrollHeight - window.innerHeight), behavior: 'smooth' });
+        scrollTo(Math.max(0, prev.offsetTop + prev.scrollHeight - window.innerHeight));
       } else {
-        prev.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        scrollIntoView(prev);
       }
       return;
     }
@@ -530,9 +543,9 @@ function initWheelSnap() {
       // Hohe Szene: erst ans Ende scrollen (Autor/Quelle zeigen), Snap restet via CSS
       const targetY = s.offsetTop + s.scrollHeight - window.innerHeight;
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      window.scrollTo({ top: Math.min(targetY, Math.max(0, max)), behavior: 'smooth' });
+      scrollTo(Math.min(targetY, Math.max(0, max)));
     } else {
-      s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      scrollIntoView(s);
     }
   };
 
