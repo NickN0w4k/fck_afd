@@ -1,0 +1,1 @@
+typeof window<`u`&&((window.__svelte??={}).v??=new Set).add(`5`);function e(e,t=180){if(!e||e.length<=t)return[e];let n=[],r=``,i=e.split(/(?<=[^—])\s+—\s+/);for(let e of i)r&&(r+` — `+e).length>t?(n.push(r),r=e):r=r?r+` — `+e:e;return r&&n.push(r),n.slice(0,4)}export{e as t};
