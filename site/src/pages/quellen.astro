@@ -33,6 +33,8 @@ allScenes.forEach((s, i) => {
 
 // Nach Kapitel gruppieren (Reihenfolge aus chapters.json); Quellen mit mehreren
 // Kapiteln erscheinen in jedem — sortiert nach erster Szene im Kapitel.
+// Nummerierung fortlaufend ab 01 über die SICHTBAREN Gruppen (Kapitel 01 „Der Anlass“
+// hat keine eigenen Quellen — sonst würde die Liste bei 02 einsteigen).
 const byChapter = chapters
   .map((c) => ({
     chapter: c,
@@ -40,7 +42,8 @@ const byChapter = chapters
       .filter((s) => s.chapters.has(c.id))
       .sort((a, b) => a.scenes.get(c.id) - b.scenes.get(c.id)),
   }))
-  .filter((g) => g.sources.length > 0);
+  .filter((g) => g.sources.length > 0)
+  .map((g, gi) => ({ ...g, groupNum: String(gi + 1).padStart(2, '0') }));
 
 const totalCount = seen.size;
 ---
@@ -59,10 +62,10 @@ const totalCount = seen.size;
     </header>
 
     {
-      byChapter.map(({ chapter, sources }) => (
+      byChapter.map(({ chapter, sources, groupNum }) => (
         <section class="q-chapter" style={`--accent: ${chapter.accent}`}>
           <h2 class="q-chapter-title">
-            <span class="q-chapter-num">{chapter.num}</span>
+            <span class="q-chapter-num">{groupNum}</span>
             {chapter.title}
             <span class="q-chapter-count">{sources.length}</span>
           </h2>
