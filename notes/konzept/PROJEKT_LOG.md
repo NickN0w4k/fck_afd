@@ -112,8 +112,22 @@ Dazu: Chart-Untertypen **diverging** (±440/19.190 an Nulllinie), **tiles** (10�
 | **Live (info-afd.de)** | Welle 1 + 2 — 42 Szenen, 7 Kapitel, 46+ archivierte Quellen |
 | **Preview (/preview/, noindex)** | Welle 3 A+B — Teilen-pro-Szene, Kacheln, OG-Images, Punktschwarm, Hero-Pin |
 | **Branches** | `v1.5` = Arbeits-Stand (6776402) · `master` = Live (3169cf5) · Freigabe → merge v1.5 → master + Deploy |
-| **Offen** | Welle 3 Rest: 3.2 Timeline-Kamerafahrt (Desktop), 3.5 Quellen-Verzeichnis als Feature, 3.6 Kosten-Du-Rechner |
+| **Offen** | Welle 3 Rest: 3.2 Timeline-Kamerafahrt (Desktop) — 3.5 + 3.6 erledigt auf `v1.6` (siehe 8b) |
 | **Nicht umgesetzt (bewusst)** | `next_hook`/`share`-Felder im Validator, aber ohne Renderer — erst mit 3.4-Fortsatz sinnvoll; Social-Proof-Counter (nur mit echten Zählern, sonst streichen) |
+
+## 8b. Welle 3 Restarbeiten (12.09., auf Branch `v1.6` — Freigabe ausstehend)
+
+**3.6 Kosten-Du-Rechner:**
+- Dexit-Slider-Szene: Du-Ebene nach dem Reveal — „Rund 8.200 € pro Kopf" (Akzent-Kachel) + „Für eine Vierer-Familie: rund 33.000 €." (Muster aus saw §4: 690 Mrd. / 84 Mio. ≈ 8.214 €, ×4)
+- Neue optionale Felder `per_head`, `per_family`, `per_family_label` (Validator gepflegt: Typ-Checks + Warnung außerhalb slider)
+- **Bugfix aus Welle 1 (Vorbefund seit Initiale Version):** `transition:slide` ohne Import warf `ReferenceError: slide is not defined` bei jedem Slider-Reveal → `import { slide } from 'svelte/transition'` ergänzt, JS-Fehlerzähler im Smoke jetzt sauber 0
+
+**3.5 Quellen-Verzeichnis als Feature:**
+- `/quellen/` neu: Gruppierung nach Kapitel (Akzentfarben + Count-Badge je Kapitel, Reihenfolge aus chapters.json), „Verwendet in: Szene N" als Deep-Link `#scene-N` (verifiziert: landet exakt in der Szene), Betreiber-Transparenz-Block („Wie diese Seite arbeitet": Primärquellen, SHA256-Archiv, Zitate-belegen-Aussage-Regel, Korrekturen, keine Finanzierung)
+- 54 Quellen über 6 Kapitel-Gruppen erfasst (Mehr-Kapitel-Quellen erscheinen in jedem, sortiert nach erster Szene)
+- Stand-Datum auf 12.09. gebumpt
+
+---
 
 ## 9. Was NICHT geklappt hat / Lektionen
 

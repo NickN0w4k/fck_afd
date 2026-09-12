@@ -354,6 +354,9 @@
       "answer": 690,
       "unit": " Mrd. €",
       "explanation": "690 Milliarden €. Das IW Köln simulierte den EU-Austritt wie beim Brexit: Im 5. Jahr wäre das BIP um 5,6 % geschrumpft, rund 2,5 Mio. Jobs weg — allein 2021 kostete der Austritt ~200 Mrd. €. Die AfD fordert ihn trotzdem.",
+      "per_head": 8200,
+      "per_family": 33000,
+      "per_family_label": "Für eine Vierer-Familie: rund 33.000 €.",
       "source": {
         "label": "IW Köln (iwd.de): Dexit — Teurer Ausstieg aus der Staatengemeinschaft",
         "url": "https://www.iwd.de/artikel/dexit-teurer-ausstieg-aus-der-staatengemeinschaft-622782/",

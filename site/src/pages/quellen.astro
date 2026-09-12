@@ -1,34 +1,48 @@
 ---
-// Quellen-Übersicht: alle Belege der Tour als flache, verlinkbare Liste.
+// Quellen-Verzeichnis als Feature (3.5): Kapitel-Gruppierung, „Verwendet in“-Deep-Links,
+// Betreiber-Transparenz. Volltexte liegen mit SHA256 im Repo (sources/pages/).
 import Base from '../layouts/Base.astro';
+import chaptersRaw from '../../../content/chapters.json';
 import scenesRaw from '../../../content/scenes.json';
 import { SITE_STAND } from '../lib/meta.js';
 
+const chapters = /** @type {any[]} */ (chaptersRaw);
 const allScenes = /** @type {any[]} */ ((/** @type {any} */ (scenesRaw)).scenes);
 
-// Quellen einsammeln: scene.source + scene.sources[] + timeline items
+// Quellen einsammeln: scene.source + scene.sources[] + timeline items (+ Karte-Links)
 const seen = new Map();
-const chapterSources = /** @type {Map<string, any[]>} */ (new Map());
-
-function addSource(chapter, src) {
-  if (!src?.url || src.url.startsWith('/')) return; // interne Links sind keine Belege
-  if (!seen.has(src.url)) {
-    seen.set(src.url, { ...src, chapters: new Set() });
-  }
-  seen.get(src.url).chapters.add(chapter);
+function addSource(src, chapterId, sceneIndex) {
+  if (!src?.url || !/^https?:\/\//.test(src.url)) return; // interne Links sind keine Belege
+  if (!seen.has(src.url)) seen.set(src.url, { ...src, chapters: new Set(), scenes: new Map() });
+  const entry = seen.get(src.url);
+  entry.chapters.add(chapterId);
+  // erste Szenen-Nummer gewinnt — „Verwendet in“ zeigt den ersten Einsatzort
+  if (!entry.scenes.has(chapterId)) entry.scenes.set(chapterId, sceneIndex);
 }
 
-for (const s of allScenes) {
-  addSource(s.chapter, s.source);
-  for (const src of s.sources ?? []) addSource(s.chapter, src);
-  for (const item of s.items ?? []) addSource(s.chapter, item.source);
+allScenes.forEach((s, i) => {
+  if (s.source) addSource(s.source, s.chapter, i);
+  for (const src of s.sources ?? []) addSource(src, s.chapter, i);
+  for (const item of s.items ?? []) if (item.source) addSource(item.source, s.chapter, i);
   for (const card of s.cards ?? []) {
-    if (card.link?.url) {
-      addSource(s.chapter, { label: card.link.label, url: card.link.url });
+    if (card.link?.url && /^https?:\/\//.test(card.link.url)) {
+      addSource({ label: card.link.label, url: card.link.url }, s.chapter, i);
     }
   }
-}
-const sources = [...seen.values()].map((s) => ({ ...s, chapters: [...s.chapters] }));
+});
+
+// Nach Kapitel gruppieren (Reihenfolge aus chapters.json); Quellen mit mehreren
+// Kapiteln erscheinen in jedem — sortiert nach erster Szene im Kapitel.
+const byChapter = chapters
+  .map((c) => ({
+    chapter: c,
+    sources: [...seen.values()]
+      .filter((s) => s.chapters.has(c.id))
+      .sort((a, b) => a.scenes.get(c.id) - b.scenes.get(c.id)),
+  }))
+  .filter((g) => g.sources.length > 0);
+
+const totalCount = seen.size;
 ---
 
 <Base title="Quellen — Die AfD. Die Fakten." description="Alle Belege der Fakten-Tour. Jede Quelle mit Abrufdatum, Volltexte archiviert.">
@@ -37,33 +51,137 @@ const sources = [...seen.values()].map((s) => ({ ...s, chapters: [...s.chapters]
       <p class="doc-kicker">Transparenz</p>
       <h1 class="doc-title">Quellen</h1>
       <p class="doc-question">
-        Jede Behauptung hat einen Beleg. Hier stehen alle {sources.length} Quellen mit
-        Abrufdatum. Die Volltexte sind archiviert, falls eine Seite mal offline geht.
+        Jede Behauptung hat einen Beleg. Hier stehen alle {totalCount} Quellen — gruppiert nach
+        Kapitel, mit Abrufdatum und dem Ort in der Tour, wo sie verwendet wird. Die Volltexte
+        sind archiviert (SHA256-geprüft), falls eine Seite mal offline geht.
       </p>
       <a class="doc-tour-link" href={import.meta.env.BASE_URL}>→ Zur Tour</a>
     </header>
 
-    <ol class="sources-list">
-      {
-        sources.map((src, i) => (
-          <li class="sources-item">
-            <span class="sources-num">{String(i + 1).padStart(2, '0')}</span>
-            <div>
-              <a class="sources-link" href={src.url} target="_blank" rel="noopener noreferrer">
-                {src.label}
-              </a>
-              <p class="sources-meta">
-                {src.visited ? `abgerufen ${src.visited}` : 'Abrufdatum s. Tour'} · Kapitel:{' '}
-                {src.chapters.join(', ')}
-              </p>
-            </div>
-          </li>
-        ))
-      }
-    </ol>
+    {
+      byChapter.map(({ chapter, sources }) => (
+        <section class="q-chapter" style={`--accent: ${chapter.accent}`}>
+          <h2 class="q-chapter-title">
+            <span class="q-chapter-num">{chapter.num}</span>
+            {chapter.title}
+            <span class="q-chapter-count">{sources.length}</span>
+          </h2>
+          <ol class="sources-list">
+            {sources.map((src) => (
+              <li class="sources-item">
+                <div>
+                  <a class="sources-link" href={src.url} target="_blank" rel="noopener noreferrer">
+                    {src.label}
+                  </a>
+                  <p class="sources-meta">
+                    {src.visited ? `abgerufen ${src.visited}` : 'Abrufdatum s. Tour'} ·
+                    Verwendet in:{' '}
+                    <a
+                      class="q-usage"
+                      href={`${import.meta.env.BASE_URL}#scene-${src.scenes.get(chapter.id)}`}
+                    >
+                      Szene {src.scenes.get(chapter.id) + 1}
+                    </a>
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))
+    }
+
+    <section class="q-about">
+      <h2 class="q-about-title">Wie diese Seite arbeitet</h2>
+      <ul class="q-about-list">
+        <li><strong>Primärquellen zuerst.</strong> Behörden, Gerichte, Institute, Parlamentsdokumente — Medienberichte nur, wenn sie Wortlaut oder Zahlen dokumentieren.</li>
+        <li><strong>Jede Quelle wird archiviert.</strong> Beim Zitieren wird der Volltext gespeichert und mit SHA256 gefingerabdruckt. Auch wenn das Original später verschwindet, bleibt der Beleg prüfbar.</li>
+        <li><strong>Zitate belegen die Aussage, nicht den Sachverhalt.</strong> Ein Zitat zeigt, was gesagt wurde — nicht, ob es stimmt.</li>
+        <li><strong>Korrekturen werden sichtbar.</strong> Wird eine Quelle widerlegt oder eine Zahl korrigiert, wird die betroffene Szene angepasst.</li>
+        <li><strong>Betreiber-Transparenz.</strong> Diese Seite ist ein privates, unabhängiges Projekt — keine Parteifinanzierung, keine Auftragsarbeit. Quellen-Archiv und Code sind öffentlich einsehbar.</li>
+      </ul>
+    </section>
 
     <footer class="doc-footer">
       <p>Stand: {SITE_STAND} · <a href={import.meta.env.BASE_URL}>Zur Tour</a></p>
     </footer>
   </div>
 </Base>
+
+<style>
+  .q-chapter {
+    margin-top: 2.8rem;
+    scroll-margin-top: 5rem;
+  }
+  .q-chapter-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    font-family: var(--font-head);
+    font-size: clamp(1.25rem, 3.4vw, 1.7rem);
+    font-weight: 700;
+    padding-bottom: 0.7rem;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 1.1rem;
+  }
+  .q-chapter-num {
+    color: var(--accent);
+    font-size: 0.85em;
+  }
+  .q-chapter-count {
+    margin-left: auto;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--fg-muted);
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 0.2rem 0.7rem;
+  }
+  .q-usage {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+  .q-usage:hover {
+    border-bottom-color: var(--accent);
+  }
+  .q-about {
+    margin-top: 3.2rem;
+    padding: 1.5rem 1.4rem;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .q-about-title {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .q-about-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    color: var(--fg-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+  .q-about-list li {
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent);
+  }
+  .q-about-list strong {
+    color: var(--fg);
+    font-family: var(--font-head);
+  }
+  @media (max-width: 767px) {
+    .q-chapter-title {
+      flex-wrap: wrap;
+      row-gap: 0.3rem;
+    }
+  }
+</style>

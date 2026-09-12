@@ -1,6 +1,16 @@
 <script>
+  import { slide } from 'svelte/transition';
   import { factList } from '../../scripts/textsplit.js';
-  let { min = 0, max = 100, answer, unit = '', explanation } = $props();
+  let {
+    min = 0,
+    max = 100,
+    answer,
+    unit = '',
+    explanation,
+    per_head,
+    per_family,
+    per_family_label,
+  } = $props();
 
   let val = $state(Math.round((min + max) / 2));
   let shown = $state(Math.round((min + max) / 2));
@@ -79,6 +89,14 @@
           <p style="--i:{i}">{@html item}</p>
         {/each}
       </div>
+      {#if per_head}
+        <div class="per-you">
+          <p class="per-head">Rund <strong>{per_head.toLocaleString('de-DE')} € pro Kopf</strong></p>
+          {#if per_family_label}
+            <p class="per-family" style={`--target:${per_family?.toLocaleString('de-DE') ?? ''}`}>{per_family_label}</p>
+          {/if}
+        </div>
+      {/if}
     </div>
   {/if}
 </div>
@@ -189,6 +207,30 @@
   .expl {
     margin-top: 0.6rem;
     color: var(--fg-muted);
+  }
+  /* Du-Ebene (3.6 Kosten-Du-Rechner): Milliarden → persönlicher Betrag */
+  .per-you {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .per-head {
+    padding: 0.85rem 1rem;
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    border-radius: 10px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .per-head strong {
+    font-family: var(--font-head);
+    font-size: 1.3em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .per-family {
+    color: var(--fg-muted);
+    line-height: 1.5;
   }
   .expl p {
     margin: 0.4rem 0;

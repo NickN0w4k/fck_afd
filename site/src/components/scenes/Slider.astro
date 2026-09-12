@@ -11,6 +11,9 @@ interface Props {
     answer: number;
     unit?: string;
     explanation: string;
+    per_head?: number;
+    per_family?: number;
+    per_family_label?: string;
     source?: { label: string; url: string; visited?: string };
   };
 }
@@ -19,7 +22,7 @@ const { scene } = Astro.props;
 
 <div class="slider-scene">
   <h2 class="slider-prompt" data-anim="rise">{scene.prompt}</h2>
-  <SliderIsland client:visible min={scene.min ?? 0} max={scene.max ?? 100} answer={scene.answer} unit={scene.unit ?? ''} explanation={scene.explanation} />
+  <SliderIsland client:visible min={scene.min ?? 0} max={scene.max ?? 100} answer={scene.answer} unit={scene.unit ?? ''} explanation={scene.explanation} per_head={scene.per_head} per_family={scene.per_family} per_family_label={scene.per_family_label} />
   {scene.source && <SourceTag source={scene.source} tooltip={scene.context_tooltip} />}
 </div>
 

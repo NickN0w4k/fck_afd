@@ -1,7 +1,7 @@
 // Zentrale Site-Konstanten: Stand-Datum, Share-Texte, Fakten-Kurzliste.
 // Beim Update der Inhalte: SITE_STAND anpassen (siehe notes/UPDATE-PFAD.md).
 
-export const SITE_STAND = '07.09.2026';
+export const SITE_STAND = '12.09.2026';
 
 export const SHARE_TITLE = 'Die AfD. Die Fakten.';
 export const SHARE_TEXT = 'Die Fakten über die AfD. Jede mit Quelle. Prüf es selbst.';

@@ -34,6 +34,28 @@ scenes.forEach((scene, i) => {
   if (scene.share !== undefined && typeof scene.share !== 'string') {
     errors.push(`${where}: share muss string sein`);
   }
+  // Optionale Felder (3.6 Kosten-Du-Rechner): per_head/per_family = Zahl (€), label = Übersetzung
+  if (scene.per_head !== undefined) {
+    if (typeof scene.per_head !== 'number' || scene.per_head <= 0) {
+      errors.push(`${where}: per_head muss positive Zahl sein`);
+    } else if (scene.type !== 'slider') {
+      warnings.push(`${where}: per_head gesetzt, obwohl Typ ${scene.type} keine Du-Ebene rendert`);
+    }
+  }
+  if (scene.per_family !== undefined) {
+    if (typeof scene.per_family !== 'number' || scene.per_family <= 0) {
+      errors.push(`${where}: per_family muss positive Zahl sein`);
+    } else if (scene.per_head === undefined) {
+      errors.push(`${where}: per_family braucht auch per_head (Du-Ebene startet mit pro-Kopf-Betrag)`);
+    }
+  }
+  if (scene.per_family_label !== undefined) {
+    if (typeof scene.per_family_label !== 'string' || !scene.per_family_label.trim()) {
+      errors.push(`${where}: per_family_label muss nicht-leerer string sein`);
+    } else if (scene.per_family_label.length > 90) {
+      errors.push(`${where}: per_family_label länger als 90 Zeichen (${scene.per_family_label.length})`);
+    }
+  }
   if (scene.count_scrub !== undefined && typeof scene.count_scrub !== 'boolean') {
     errors.push(`${where}: count_scrub muss boolean sein`);
   }
