@@ -553,6 +553,24 @@ function initWheelSnap() {
     },
     { passive: false },
   );
+
+  // Fix 12.09. (Nick: „Snapping am PC"): Trackpads senden teils wheel-Deltas < 30 pro Geste —
+  // die landeten nie. Zusätzlich Tastatur (PgUp/PgDn/Space) an den Szenen-Rhythmus koppeln:
+  window.addEventListener(
+    'keydown',
+    (e) => {
+      if (e.ctrlKey || e.altKey || e.metaKey) return;
+      const t = e.target;
+      if (t.closest && t.closest('input, textarea, select, [contenteditable]')) return;
+      const nextKeys = ['PageDown', 'ArrowDown', ' '];
+      const prevKeys = ['PageUp', 'ArrowUp'];
+      if (!nextKeys.includes(e.key) && !prevKeys.includes(e.key)) return;
+      const dir = nextKeys.includes(e.key) ? 1 : -1;
+      e.preventDefault();
+      if (!pinStep(dir)) goTo(nearestIndex() + dir, dir);
+    },
+    { passive: false },
+  );
 }
 
 // ============================================================================

@@ -7,7 +7,7 @@ interface Props {
 const { chapter, scene } = Astro.props;
 ---
 
-<div class="chapterbreak" style={`background: ${chapter.accent}; color: var(--accent-contrast);`}>
+<div class="chapterbreak" style={`background: ${chapter.accent}; --chbg: ${chapter.accent}; color: var(--accent-contrast);`}>
   <p class="ch-num" data-chapter-num aria-hidden="true">{chapter.num}</p>
   <div class="ch-body">
     <h2 class="ch-title" data-anim="rise">{chapter.title}</h2>
@@ -39,6 +39,29 @@ const { chapter, scene } = Astro.props;
     transform: translateY(-50%);
     pointer-events: none;
     user-select: none;
+  }
+  /* Fix 12.09. (Nick): Die große Kapitelnummer lief mitten durch den Text — schwarze
+     Schrift auf dunkler Zahl war unlesbar. Weiche Abschattung hinter dem Text-Block
+     in der Kapitelfarbe (CSS-Var --chbg) „drückt die Nummer lokal zurück": radialer
+     Verlauf liest sich als sanfter Schatten, keine harte Kante. */
+  .ch-body {
+    position: relative;
+    z-index: 1; /* Text über der Nummer */
+  }
+  .ch-body::before {
+    content: '';
+    position: absolute;
+    inset: -1.8rem -1.4rem -1.8rem -0.6rem; /* rechts breiter: dort steht die Nummer */
+    z-index: -1;
+    border-radius: 24px;
+    /* Halbtransparente Kapitelfarbe: Nummer bleibt schwach sichtbar (Tiefe), Text kontrastiert */
+    background: radial-gradient(
+      ellipse at 78% 55%,
+      color-mix(in srgb, var(--chbg) 82%, transparent) 40%,
+      transparent 85%
+    );
+    filter: blur(2px);
+    pointer-events: none;
   }
   .ch-question {
     font-family: var(--font-head);

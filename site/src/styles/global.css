@@ -111,13 +111,25 @@ button {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Snap-Container ist das Dokument (html), nicht .feed */
+  /* Snap-Container ist das Dokument (html), nicht .feed.
+     Fix 12.09. (Nick: „Snapping am PC"): natives mandatory-Snap NUR für Touch —
+     auf pointer:fine (Maus/Trackpad) kämpft es mit dem JS-WheelSnap gegeneinander
+     (Ruckler, schräge Landungen). Dort übernimmt initWheelSnap exklusiv. */
   html {
     scroll-snap-type: y mandatory;
   }
   .scene {
     scroll-snap-align: center;
     scroll-snap-stop: always;
+  }
+  @media (pointer: fine) {
+    html {
+      scroll-snap-type: none;
+    }
+    .scene {
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+    }
   }
 }
 
@@ -650,8 +662,10 @@ html.pin-active .glow-blob {
 }
 
 /* Pin-Scrub läuft: Snap lockern (proximity), damit Zwischenstopps im Pin nicht
-   auf den nächsten Snap-Punkt zurückspringen. Nach dem Pin wieder mandatory. */
-@media (prefers-reduced-motion: no-preference) {
+   auf den nächsten Snap-Punkt zurückspringen. Nach dem Pin wieder mandatory.
+   Nur Touch: am PC (pointer:fine) gibt's kein natives Snap mehr — JS-WheelSnap
+   regelt die Etappen allein (Fix 12.09.). */
+@media (prefers-reduced-motion: no-preference) and (pointer: coarse) {
   html.pin-active {
     scroll-snap-type: y proximity;
   }
