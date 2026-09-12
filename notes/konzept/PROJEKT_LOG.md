@@ -134,7 +134,7 @@ Dazu: Chart-Untertypen **diverging** (±440/19.190 an Nulllinie), **tiles** (10�
 - **Hermes browser_exec** unbenutzbar (real-profile-Toggle meckert über Default-Browser) → Headless-Checks direkt mit node + playwright-core aus `site/node_modules`
 - **Preview-Base-Bug (2× passiert):** `SITE_BASE=/preview/` vergessen → Assets referenzieren `/_astro/…` ohne Präfix → Seite unstyled (404). Fix: Flag immer explizit, Build-Check `grep href="/preview/_astro`
 - **gh-pages-Push-Konflikte (2×):** Live-Deploy schreibt gh-pages parallel → vor Preview-Push immer `fetch` + `reset --hard origin/gh-pages`
-- **noindex vergessen** = Preview ohne Schutz — Injektion nach JEDEM Rebuild
+- **noindex vergessen** = Preview ohne Schutz — jetzt build-time gelöst: `SITE_BASE=/preview/` setzt robots-noindex automatisch in Base.astro (8839cdf); manuelle Injektion entfällt
 - **Voll-QA-Agenten lohnen nicht (Nick):** 1 h + viele Tokens für Wort-für-Wort-Prüfungen → gezielte Checks in execute_code, QA-Subagents früh stoppen
 - **IW-Köln 403 / LG-Halle-PM 404:** Fakten über archivierte Ersatzquellen doppelt belegt (iwd.de-Volltext, tagesschau+ZEIT) — Retry später
 
@@ -148,3 +148,5 @@ Dazu: Chart-Untertypen **diverging** (±440/19.190 an Nulllinie), **tiles** (10�
 | **apex** | Komponenten, Charts, Performance |
 | **Orchestrator (Hermes)** | Kuratierung, Scoring, Copy-Auswahl, Rendering-Verdrahtung, validate/build/smoke/Lighthouse, Deploy |
 | **Nick** | Freigaben (Wellen, Deploy-Runden, Kachel-Kuration per Nummer) |
+
+**Preview-Deploy (12.09.):** v1.6 auf https://info-afd.de/preview/ live (gh-pages 5fe4286, Subtree-only — Root unangetastet). Verifiziert: noindex ✓, Du-Rechner ✓, Quellen-Feature ✓, Root-Site unverändert (HTTP 200). Deploy-Muster: `git worktree add ../fck_afd_ghpages origin/gh-pages` → `Remove-Item ../fck_afd_ghpages/preview -Recurse -Force` → `Copy-Item -Recurse site/dist ../fck_afd_ghpages/preview` → commit → `git push origin HEAD:gh-pages` (Worktree ist detached!).
