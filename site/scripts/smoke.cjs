@@ -41,7 +41,8 @@ function check(name, cond) {
   // --- Tour ---
   await page.goto(BASE + '/', { waitUntil: 'networkidle' });
   const scenesCount = await page.evaluate(() => document.querySelectorAll('.scene').length);
-  check(`Tour: Share-Button je Szene (${scenesCount})`, (await page.locator('.scene-share').count()) === scenesCount && scenesCount >= 25);
+  check(`Tour: Share-Buttons je Szene (${scenesCount}×2: teilen + Kachel)`, (await page.locator('.scene-share').count()) === scenesCount * 2 && scenesCount >= 25);
+  check('Tour: Kachel-Export-Button je Szene', (await page.locator('[data-share-tile]').count()) === scenesCount);
   check('Tour: kein Stand-Badge-Overlay mehr (entfernt auf User-Wunsch)', (await page.locator('.stand-badge').count()) === 0);
   check('Tour: Skip-Link', (await page.locator('.skip-link').count()) === 1);
   check(`Tour: Timeline mit ${expectedTlCards} Karten (aus scenes.json abgeleitet)`, (await page.locator('.tl-card').count()) === expectedTlCards);
@@ -105,7 +106,7 @@ function check(name, cond) {
   // Sitemap + robots (base-aware: BASE enthält ggf. /fck_afd)
   const basePath = new URL(BASE + '/').pathname; // z.B. /fck_afd/
   const sm = await page.evaluate(async (u) => (await fetch(u)).text(), `${basePath}sitemap.xml`);
-  check('sitemap.xml: 9 URLs', (sm.match(/<loc>/g) || []).length === 9);
+  check('sitemap.xml: 51 URLs (9 + 42 Szenen)', (sm.match(/<loc>/g) || []).length === 9 + scenesData.length);
   const rb = await page.evaluate(async (u) => (await fetch(u)).text(), `${basePath}robots.txt`);
   check('robots.txt: Sitemap-Zeile', rb.includes('Sitemap:'));
 

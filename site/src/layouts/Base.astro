@@ -6,19 +6,23 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string; // Override: pro-Szene-OG (Welle 3) — sonst og-image.png
+  ogImageAlt?: string;
 }
 
 const {
   title = 'Die AfD. Was du wissen solltest.',
   description = 'Die Fakten über die AfD. Jede mit Quelle.',
+  ogImage: ogImageOverride,
+  ogImageAlt: ogImageAltOverride,
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://info-afd.de/');
 // Astro.url.pathname enthält base bereits (z.B. /fck_afd/quellen/); für og:image BASE_URL anhängen.
 const canonical = new URL(Astro.url.pathname, site);
 const base = import.meta.env.BASE_URL;
-const ogImage = new URL(`${base.endsWith('/') ? base : `${base}/`}og-image.png`, site);
-const ogImageAlt = 'Die AfD. Die Fakten. — belegte Fakten mit Quelle, als scrollbare Tour.';
+const ogImage = ogImageOverride ?? new URL(`${base.endsWith('/') ? base : `${base}/`}og-image.png`, site).toString();
+const ogImageAlt = ogImageAltOverride ?? 'Die AfD. Die Fakten. — belegte Fakten mit Quelle, als scrollbare Tour.';
 ---
 
 <!doctype html>

@@ -132,9 +132,64 @@ document.querySelectorAll('.scene[data-share-text] [data-share]').forEach((btn) 
     const text = scene?.dataset.shareText || document.title;
     const url = window.location.origin + window.location.pathname + (scene?.id ? `#${scene.id}` : '');
     if (navigator.share) {
-      navigator.share({ title: document.title, text, url }).catch(() => {});
+      navigator.share({ title: document.title, text, url }).catch(() => {}); // Abbruch ok
     } else {
       openSheetFor(btn, text, url);
+    }
+  });
+});
+
+// --- Kachel-Export: Szene als PNG (9:16 + 1:1) herunterladen ---
+// Akzent als 6-stelliges Hex (Canvas-Alpha like `${accent}30` braucht Hex, kein rgb()).
+function resolveAccent(scene) {
+  const raw = scene?.dataset?.accent?.trim();
+  if (/^#[0-9a-fA-F]{6}$/.test(raw ?? '')) return raw;
+  const cs = getComputedStyle(scene).getPropertyValue('--accent').trim();
+  if (/^#[0-9a-fA-F]{6}$/.test(cs)) return cs;
+  const m = cs.match(/rgba?\((\d+)[,\s]+(\d+)[,\s]+(\d+)/);
+  if (m) return `#${[m[1], m[2], m[3]].map((v) => Number(v).toString(16).padStart(2, '0')).join('')}`;
+  return '#ff4d2e';
+}
+
+async function downloadTile(scene, canvas, index) {
+  const dataUrl = canvas.toDataURL('image/png');
+  const a = document.createElement('a');
+  a.href = dataUrl;
+  a.download = `fckafd-szene-${index}.png`;
+  a.click();
+  await new Promise((r) => setTimeout(r, 350)); // Browser brauchen Luft zwischen Downloads
+}
+
+let tileRendering = false;
+document.querySelectorAll('.scene[data-share-text] [data-share-tile]').forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    if (tileRendering) return;
+    const scene = btn.closest('.scene');
+    if (!scene) return;
+    tileRendering = true;
+    btn.setAttribute('aria-busy', 'true');
+    try {
+      const scenesData = (window.__fckafd_scenes ?? []).scenes ?? window.__fckafd_scenes ?? [];
+      const num = Number(scene.dataset.sceneIndex);
+      const data = scenesData[num];
+      const accent = resolveAccent(scene);
+      const { renderSceneTiles } = await import('./scene-tile.js');
+      const canvases = renderSceneTiles(data ?? { type: 'statement', text: scene.dataset.shareText }, {
+        accent,
+        deepLink: window.location.origin + window.location.pathname + (scene.id ? `#${scene.id}` : ''),
+        siteUrl: window.location.origin.replace(/^https?:\/\//, ''),
+      });
+      for (const [k, canvas] of canvases.entries()) {
+        await downloadTile(scene, canvas, num);
+        if (k < canvases.length - 1) await new Promise((r) => setTimeout(r, 250));
+      }
+      toast('Kacheln exportiert ✓');
+    } catch (err) {
+      console.error('Kachel-Export fehlgeschlagen:', err);
+      toast('Export fehlgeschlagen ✗');
+    } finally {
+      btn.removeAttribute('aria-busy');
+      tileRendering = false;
     }
   });
 });
@@ -142,12 +197,61 @@ document.querySelectorAll('.scene[data-share-text] [data-share]').forEach((btn) 
 // --- Deep-Links: URL folgt der Szene, Hash springt in die Szene ---
 const scenes = Array.from(document.querySelectorAll('.scene[id]'));
 
+/** Kapitel-Kontext beim Deep-Link-Einstieg: Label setzen + Segment aktivieren. */
+function primeChapterContext(sceneEl) {
+  const tr = document.querySelector('[data-chtracker]');
+  if (!tr || !sceneEl?.dataset.chapter) return;
+  const chapters = Array.from(tr.querySelectorAll('.chtracker__seg')).map((s) => s.dataset.chapterId);
+  const idx = chapters.indexOf(sceneEl.dataset.chapter);
+  if (idx < 0) return;
+  const label = tr.querySelector('.chtracker__label');
+  if (label) {
+    const titles = window.__fckafd_chapters ?? [];
+    const title = typeof titles[idx] === 'object' ? titles[idx]?.title : titles[idx];
+    label.textContent = `Kapitel ${idx + 1}/${chapters.length} — ${title ?? ''}`;
+    label.classList.add('is-show');
+    setTimeout(() => label.classList.remove('is-show'), 4000);
+  }
+  const seg = tr.querySelectorAll('.chtracker__seg')[idx];
+  if (seg && !seg.classList.contains('is-active')) {
+    tr.querySelectorAll('.chtracker__seg').forEach((s, k) => {
+      s.classList.toggle('is-active', k === idx);
+      s.classList.toggle('is-done', k < idx);
+    });
+  }
+}
+
+/** „→ Weiter zur nächsten Szene“-Pfeil unter der Deep-Link-Ziel-Szene. */
+function mountNextArrow(sceneEl) {
+  document.querySelectorAll('.scene-next').forEach((n) => n.remove());
+  const next = sceneEl?.nextElementSibling;
+  if (!next || !next.classList.contains('scene')) return; // letzte Szene → kein Pfeil
+  const nav = document.createElement('button');
+  nav.className = 'scene-next';
+  nav.type = 'button';
+  nav.innerHTML = `<span>→ Weiter zur nächsten Szene</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>`;
+  nav.addEventListener('click', () => next.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+  sceneEl.appendChild(nav);
+  setTimeout(() => {
+    if (nav.isConnected) nav.remove();
+  }, 12000);
+}
+
 function jumpToHash(instant) {
   if (!window.location.hash) return false;
   const el = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
   if (!el || !el.classList.contains('scene')) return false;
   localStorage.removeItem('fck-afd-resume'); // explizite Navigation schlägt Resume vor
-  setTimeout(() => el.scrollIntoView({ behavior: instant ? 'instant' : 'smooth', block: 'center' }), 80);
+  setTimeout(() => {
+    el.scrollIntoView({ behavior: instant ? 'instant' : 'smooth', block: 'center' });
+    // Deep-Link-Kontext: Kapitel-Label + aktives Segment setzen + Orientierungs-Pfeil
+    if (instant) {
+      setTimeout(() => {
+        primeChapterContext(el);
+        mountNextArrow(el);
+      }, 150);
+    }
+  }, 80);
   return true;
 }
 

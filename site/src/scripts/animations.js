@@ -444,8 +444,61 @@ function initWheelSnap() {
     return best;
   };
 
-  const goTo = (i) => {
-    const s = scenes[Math.max(0, Math.min(scenes.length - 1, i))];
+  // Pin-Stack-Schritt (Welle 3): liegt der Viewport im Bereich eines Pins,
+  // durchschreitet die Geste den Pin in ~3 Etappen (Phasen erlebbar), statt
+  // per Szenen-Sprung den Scrub zu überspringen.
+  const pinStep = (dir) => {
+    const st = pinTriggers.find((p) => p.trigger === scenes[nearestIndex()]);
+    if (!st || st.end <= st.start) return false;
+    const at = window.scrollY;
+    const step = (st.end - st.start) / 3;
+    if (dir > 0 && at >= st.start - 2 && at < st.end - 2) {
+      window.scrollTo({ top: Math.min(st.end, at + step), behavior: 'smooth' });
+      return true;
+    }
+    if (dir < 0 && at > st.start + 2 && at <= st.end + 2) {
+      window.scrollTo({ top: Math.max(st.start, at - step), behavior: 'smooth' });
+      return true;
+    }
+    return false;
+  };
+
+  const goTo = (i, dir = 1) => {
+    const idx = Math.max(0, Math.min(scenes.length - 1, i));
+    const s = scenes[idx];
+    // Pin-Szene als Ziel: an den Pin-Anfang fahren (Scrub startet), nicht ans Szenen-Ende springen
+    const pin = pinTriggers.find((p) => p.trigger === s);
+    if (pin && pin.end > pin.start) {
+      const at = window.scrollY;
+      if (dir > 0) {
+        if (at < pin.start - 2) {
+          window.scrollTo({ top: pin.start, behavior: 'smooth' });
+          return;
+        }
+        if (at < pin.end - 2) {
+          window.scrollTo({ top: Math.min(pin.end, at + (pin.end - pin.start) / 3), behavior: 'smooth' });
+          return;
+        }
+        goTo(idx + 1, dir); // Pin komplett durchlaufen → nächste Szene
+        return;
+      }
+      if (at > pin.end + 2) {
+        window.scrollTo({ top: Math.max(pin.start, pin.end - (pin.end - pin.start) / 3), behavior: 'smooth' });
+        return; // von unten zurück in den Pin: am Ende wieder einsteigen
+      }
+      if (at > pin.start + 2) {
+        window.scrollTo({ top: Math.max(pin.start, at - (pin.end - pin.start) / 3), behavior: 'smooth' });
+        return;
+      }
+      // vor dem Pin → normale Navigation zur vorherigen Szene
+      const prev = scenes[Math.max(0, idx - 1)];
+      if (prev.scrollHeight > window.innerHeight * 1.15) {
+        window.scrollTo({ top: Math.max(0, prev.offsetTop + prev.scrollHeight - window.innerHeight), behavior: 'smooth' });
+      } else {
+        prev.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
     const tall = s.scrollHeight > window.innerHeight * 1.15;
     if (tall) {
       // Hohe Szene: erst ans Ende scrollen (Autor/Quelle zeigen), Snap restet via CSS
@@ -467,12 +520,160 @@ function initWheelSnap() {
       acc += e.deltaY;
       clearTimeout(timer);
       timer = setTimeout(() => {
-        if (Math.abs(acc) >= 30) goTo(nearestIndex() + (acc > 0 ? 1 : -1));
+        const dir = acc > 0 ? 1 : -1;
+        if (Math.abs(acc) >= 30 && !pinStep(dir)) goTo(nearestIndex() + dir, dir);
         acc = 0;
       }, 150);
     },
     { passive: false },
   );
+}
+
+// ============================================================================
+// Welle 3 — Pin-Stack-Infrastruktur (apex §3, MASTER §4.3/§5)
+// pinTriggers sammelt alle Pin-ScrollTrigger (Budget: max 3 — Hero = Pin 1,
+// 28.000er-Punktschwarm = Pin 2). Solange ein Pin läuft (isActive && progress > 0),
+// setzt die Registry html.pin-active + dispatcht fckafd:pin-active/-inactive —
+// ambient.js pausiert dann das Partikel-Rendering, die Glow-Blobs frieren ein
+// (global.css). Drift-frei, weil isActive live gelesen wird.
+// ============================================================================
+const pinTriggers = [];
+let _pinStateActive = false;
+
+/** Bereichs-basiert (start-1 … end-exklusiv): schon am Pin-Anfang aktiv, damit das
+ *  gelockerte Snap-Verhalten (html.pin-active → proximity) greift, BEVOR der Scrub
+ *  beginnt — mandatory-Snap würde Zwischenpositionen im Pin sonst zum Snap-Punkt
+ *  zurückziehen. Endposition exklusiv: am Pin-Ende ist der Scrub fertig, der Pin
+ *  soll die Snap-Rückgabe wieder freigeben. */
+function updatePinState() {
+  const at = window.scrollY || window.pageYOffset || 0;
+  const active = pinTriggers.some((st) => at >= st.start - 1 && at < st.end);
+  if (active === _pinStateActive) return;
+  _pinStateActive = active;
+  document.documentElement.classList.toggle('pin-active', active);
+  document.dispatchEvent(new CustomEvent(active ? 'fckafd:pin-active' : 'fckafd:pin-inactive'));
+}
+
+/** Pin-ScrollTrigger registrieren + Budget bewachen (MASTER §4.3: max 3) */
+function registerPin(st) {
+  pinTriggers.push(st);
+  if (pinTriggers.length === 1) {
+    window.addEventListener('scroll', updatePinState, { passive: true });
+  }
+  if (pinTriggers.length > 3) {
+    console.warn(`Pin-Budget überschritten: ${pinTriggers.length} Pins registriert (Budget: 3)`);
+  }
+  return st;
+}
+
+/** Welle 3 / 3.3 — Hero-Parallax-Pin (Pin 1 von 3, apex §3 „statement/hero“):
+ *  Ambient-Glow-Layer yPercent 30 (scrub), Headline-Block yPercent -10,
+ *  Hero-Inhalt blendet beim ersten Scroll aus. end '+=600', pinType transform,
+ *  anticipatePin 1. prefers-reduced-motion: kein Pin — statischer Hero (SSR). */
+function initHeroParallax() {
+  const glow = document.querySelector('.hero-glow');
+  if (!glow) return;
+  const scene = glow.closest('.scene');
+  if (!scene || prefersReduced) return;
+  const inner = scene.querySelector('.hero-inner');
+  const hint = scene.querySelector('.swipe-hint');
+  const canvas = scene.querySelector('.hero-canvas');
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: scene,
+      start: 'top top',
+      end: '+=600',
+      pin: true,
+      pinType: 'transform',
+      anticipatePin: 1,
+      scrub: true,
+      invalidateOnRefresh: true,
+      onUpdate: updatePinState,
+      onToggle: updatePinState,
+    },
+  });
+  registerPin(tl.scrollTrigger);
+  tl.to(glow, { yPercent: 30, ease: 'none', duration: 1 }, 0)
+    .to(inner, { yPercent: -10, ease: 'none', duration: 1 }, 0);
+  tl.to([inner, canvas, hint].filter(Boolean), { autoAlpha: 0, duration: 0.4, ease: 'power1.in' }, 0.6);
+}
+
+/** Welle 3 / 3.1 — 28.000er-Punktschwarm als Pin-Stack (apex §3 „data“, MASTER 3.1):
+ *  Pin 2 von 3. 112 DOM-Kreise (1 Punkt ≈ 250 Personen), 3 Phasen an Scrollposition:
+ *  11.300 (45 Punkte) → 20.000 (80) → 28.000 (112), Punkte poppen gestaffelt
+ *  (stagger 0.02), der Zähler läuft scrubbed mit (data-count-scrub-Muster auf
+ *  data-swarm-count — initCount/initCountScrub fassen die Szene dadurch nicht an).
+ *  Die Balken-Zeitreihe bleibt als Folge-Element unter dem Schwarm und ist nach
+ *  dem Pin normal sichtbar (pinSpacing default: GSAP reserviert die Scroll-Länge).
+ *  prefers-reduced-motion: Endzustand sofort (SSR: 112 Punkte · 28.000 · 2025),
+ *  keine Pin-Scroll-Länge — Funktion springt aus, bevor irgendwas gesetzt wird. */
+function initPinStack() {
+  document.querySelectorAll('[data-swarm]').forEach((swarm) => {
+    const scene = swarm.closest('.scene');
+    const dots = Array.from(swarm.querySelectorAll('[data-swarm-dot]'));
+    const years = Array.from(swarm.querySelectorAll('.swarm-year'));
+    let phases = [];
+    try {
+      phases = JSON.parse(swarm.dataset.swarmPhases ?? '[]');
+    } catch {
+      phases = []; // defekte Daten → SSR-Endzustand bleibt stehen
+    }
+    if (!scene || phases.length !== 3 || dots.length !== phases[2].dots) return;
+    if (prefersReduced) return; // Endzustand sofort, Pin aus
+
+    const counter = scene.querySelector('[data-swarm-count]');
+    const fmt = (v) => Math.round(v).toLocaleString('de-DE');
+
+    // Startzustand setzen (SSR liefert den Endzustand für reduced-motion/no-JS)
+    gsap.set(dots, { scale: 0, autoAlpha: 0 });
+    years.forEach((y) => y.classList.remove('is-on'));
+    if (counter) counter.textContent = fmt(0);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: scene,
+        start: 'top top',
+        end: '+=1500',
+        pin: true,
+        pinType: 'transform',
+        anticipatePin: 1,
+        scrub: 0.6,
+        invalidateOnRefresh: true,
+        onUpdate: updatePinState,
+        onToggle: updatePinState,
+      },
+    });
+    registerPin(tl.scrollTrigger);
+
+    phases.forEach((phase, pi) => {
+      const fromDots = pi === 0 ? 0 : phases[pi - 1].dots;
+      const label = `p${pi}`;
+      tl.addLabel(label, pi * 1.8); // Phasenwechsel an Scrollposition (Gap = kurzer Beat)
+      tl.to(dots.slice(fromDots, phase.dots), {
+        scale: 1,
+        autoAlpha: 1,
+        duration: 0.45,
+        stagger: 0.02, // Punkte poppen gestaffelt
+        ease: 'back.out(2.2)',
+      }, label);
+      if (counter) {
+        const obj = { v: pi === 0 ? 0 : phases[pi - 1].value };
+        tl.to(obj, {
+          v: phase.value,
+          duration: 0.45 + (phase.dots - fromDots - 1) * 0.02, // Zähler hält mit den Punkten Schritt
+          ease: 'none',
+          onUpdate: () => {
+            counter.textContent = Math.round(obj.v).toLocaleString('de-DE');
+          },
+        }, label);
+      }
+      if (years[pi]) {
+        if (pi > 0 && years[pi - 1]) tl.to(years[pi - 1], { autoAlpha: 0, duration: 0.2 }, label);
+        tl.fromTo(years[pi], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, label);
+      }
+    });
+    tl.to({}, { duration: 0.35 }); // Endruhe: 28.000 hält kurz, dann löst der Pin
+  });
 }
 
 function init() {
@@ -491,12 +692,33 @@ function init() {
   initQuote();
   initRevealTease();
   initChapter();
+  initHeroParallax(); // Welle 3 / 3.3 — Pin 1 (Hero-Parallax)
+  initPinStack(); // Welle 3 / 3.1 — Pin 2 (28.000er-Punktschwarm)
   initSnapTall();
   initWheelSnap();
   initProgress();
   initAccent();
   initResume();
   ScrollTrigger.refresh();
+  // Registry-Zählung (MASTER §4.3: ≤3 Scrub-Tweens pro Szene/Viewport, Pin-Budget 3) —
+  // für Checks headless lesbar. once-Tweens zählen nicht (idle nach einer Auslösung).
+  const sceneEls = Array.from(document.querySelectorAll('.scene'));
+  const scrubByScene = {};
+  ScrollTrigger.getAll().forEach((st) => {
+    if (!st.vars?.scrub && !st.vars?.pin) return;
+    const scene = st.trigger?.closest?.('.scene');
+    const key = scene ? `${scene.dataset.chapter ?? '?'}#${sceneEls.indexOf(scene)}` : 'global';
+    scrubByScene[key] = (scrubByScene[key] ?? 0) + 1;
+  });
+  window.__fckafd_registry = {
+    pins: pinTriggers.map((st) => ({
+      chapter: st.trigger?.dataset?.chapter ?? st.trigger?.id ?? '?',
+      start: st.start,
+      end: st.end,
+      length: st.end - st.start,
+    })),
+    scrubByScene,
+  };
 }
 
 if (document.readyState === 'loading') {

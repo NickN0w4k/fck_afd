@@ -1,15 +1,17 @@
 import type { APIRoute } from 'astro';
 import chapters from '../../../content/chapters.json';
+import scenes from '../../../content/scenes.json';
 
 const site = import.meta.env.SITE ?? 'https://info-afd.de/';
 // SITE enthält bei GitHub Pages keinen Base-Pfad — hier anhängen, damit loc-URLs stimmen.
 const base = import.meta.env.BASE_URL ?? '/';
 const siteWithBase = site.endsWith('/') ? site : `${site}/`;
 const chaptersAny = chapters as any[];
+const scenesAny = ((scenes as any).scenes ?? scenes) as any[];
 
-/** Statische XML-Sitemap: Startseite + Kapitel-Unterseiten + Quellen. */
+/** Statische XML-Sitemap: Startseite + Kapitel-Unterseiten + Quellen + Szenen-Seiten. */
 export const GET: APIRoute = () => {
-  const paths = ['/', ...chaptersAny.map((c) => `/${c.id}/`), '/quellen/'];
+  const paths = ['/', ...chaptersAny.map((c) => `/${c.id}/`), '/quellen/', ...scenesAny.map((_, i) => `/szene/${i}/`)];
   const urls = paths
     .map((p) => `  <url><loc>${new URL(p.slice(1), siteWithBase).href}</loc><changefreq>monthly</changefreq></url>`)
     .join('\n');

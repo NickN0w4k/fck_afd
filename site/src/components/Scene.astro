@@ -9,20 +9,42 @@ interface Props {
   total?: number;
   id?: string;
   shareText?: string;
+  sceneIndex?: number;
 }
-const { chapter, accent, kicker, index, total, id, shareText } = Astro.props;
+const { chapter, accent, kicker, index, total, id, shareText, sceneIndex } = Astro.props;
 const sceneId = id ?? (index !== undefined ? `scene-${index}` : undefined);
 ---
 
-<section class:list={['scene']} data-accent={accent} id={sceneId} data-chapter={chapter} data-share-text={shareText}>
+<section
+  class:list={['scene']}
+  data-accent={accent}
+  id={sceneId}
+  data-chapter={chapter}
+  data-share-text={shareText}
+  data-scene-index={sceneIndex}
+>
   {
     shareText !== undefined && (
-      <button class="scene-share" data-share aria-label="Diese Szene teilen" title="Szene teilen">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-          <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
-          <line x1="8.59" y1="13.51" x2="15.42" y2="17.23" /><line x1="15.41" y1="8.77" x2="8.59" y2="12.49" />
-        </svg>
-      </button>
+      <div class="scene-actions">
+        <button class="scene-share" data-share aria-label="Diese Szene teilen" title="Szene teilen">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.23" /><line x1="15.41" y1="8.77" x2="8.59" y2="12.49" />
+          </svg>
+        </button>
+        <button
+          class="scene-share scene-share--tile"
+          data-share-tile
+          aria-label="Szene als Fakten-Kachel exportieren"
+          title="Szene als Bild-Kachel exportieren (9:16 + 1:1)"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" />
+          </svg>
+        </button>
+      </div>
     )
   }
   {kicker && <p class="kicker">{kicker}</p>}

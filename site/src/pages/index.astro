@@ -45,6 +45,7 @@ const sourceCount = seenUrls.size;
             shareText={sceneShareText(scene, chapter?.title)}
             id={i === 0 ? 'scene-0' : undefined}
             kicker={scene.type === 'chapterbreak' ? `Kapitel ${chapter?.num ?? ''}` : undefined}
+            sceneIndex={i}
           >
             <SceneBody scene={scene} chapter={chapter} chapters={chapters} />
           </Scene>
@@ -68,11 +69,14 @@ const sourceCount = seenUrls.size;
     }
   </nav>
 
-  <script define:vars={{ scenesRaw, sourceCount }}>
-    // TL;DR global für die ShareCard-Generierung (EndCard)
+  <script define:vars={{ scenesRaw, sourceCount, chaptersRaw }}>
+    // Global-Daten für Client-Features (Welle 3, Stufe A):
     const summary = (scenesRaw.scenes ?? scenesRaw).find((s) => s.type === 'summary');
     if (summary) window.__fckafd_tldr = summary.tldr;
     window.__fckafd_sourceCount = sourceCount;
+    // Szenen + Kapitel für Kachel-Export und Deep-Link-Kapitel-Label
+    window.__fckafd_scenes = (scenesRaw.scenes ?? scenesRaw).map((s, i) => ({ ...s, __num: i }));
+    window.__fckafd_chapters = chaptersRaw.map((c) => ({ id: c.id, title: c.title }));
     // 6 Kernfakten für die ShareCard (kurz, grafisch, eindrücklich)
     window.__fckafd_facts6 = [
       { big: '44 %', label: 'AfD-Sieg in Sachsen-Anhalt', small: 'Bestes Ergebnis ihrer Geschichte — 06.09.2026.' },

@@ -20,6 +20,16 @@ const { scene } = Astro.props;
 const fmtNum = (v: number) => v.toLocaleString('de-DE', { maximumFractionDigits: 1 });
 // Vorzeichenbehaftet (diverging): −19.190 / +440
 const fmtSigned = (v: number) => `${v < 0 ? '−' : '+'}${Math.abs(v).toLocaleString('de-DE', { maximumFractionDigits: 1 })}`;
+
+// Welle 3 / 3.1: die 28.000er-Szene (VSB 2025, Kapitel verfassungsschutz) bekommt
+// den Punkt-Schwarm als Pin-Stack (apex §3) — die Balken-Zeitreihe bleibt als Folge-Element.
+const isSwarm = scene.value === 28000 && scene.chart === 'bars';
+// Schwarm-Phasen: 1 Punkt ≈ 250 Personen → 45 (11.300) → 80 (20.000) → 112 (28.000)
+const SWARM_PHASES = [
+  { value: 11300, dots: 45, label: '2023' },
+  { value: 20000, dots: 80, label: '2024' },
+  { value: 28000, dots: 112, label: '2025' },
+];
 ---
 
 <div class="data">
@@ -28,13 +38,36 @@ const fmtSigned = (v: number) => `${v < 0 ? '−' : '+'}${Math.abs(v).toLocaleSt
   {
     scene.value !== undefined && (
       <p class="data-value">
-        {/* count_scrub: Zahl folgt dem Scroll (initCountScrub); sonst einmaliger Count-up (initCount) */}
+        {/* count_scrub: Zahl folgt dem Scroll (initCountScrub); sonst einmaliger Count-up (initCount).
+            Swarm-Szene: Zähler läuft scrubbed im Pin-Stack mit (initPinStack, data-count-scrub-Muster) */}
         <span
-          data-count-scrub={scene.count_scrub ? scene.value : undefined}
-          data-count={scene.count_scrub ? undefined : scene.value}
-        >0</span>
+          data-swarm-count={isSwarm ? scene.value : undefined}
+          data-count-scrub={!isSwarm && scene.count_scrub ? scene.value : undefined}
+          data-count={!isSwarm && !scene.count_scrub ? scene.value : undefined}
+        >{isSwarm ? fmtNum(scene.value) : '0'}</span>
         {scene.suffix && <span class="data-suffix">{scene.suffix}</span>}
       </p>
+    )
+  }
+
+  {
+    isSwarm && (
+      // Welle 3 / 3.1 — 28.000er-Punktschwarm (apex §3 Pin-Stack): SSR im Endzustand
+      // (alle 112 Kreise gefärbt, Jahr 2025) → reduced-motion/no-JS sehen sofort das Ergebnis;
+      // initPinStack setzt den Startzustand und poppt die Kreise in 3 Phasen im Pin.
+      <div class="swarm" data-swarm data-swarm-phases={JSON.stringify(SWARM_PHASES)}>
+        <div class="swarm-years" aria-hidden="true">
+          {SWARM_PHASES.map((p, i) => (
+            <span class:list={['swarm-year', { 'is-on': i === SWARM_PHASES.length - 1 }]}>{p.label}</span>
+          ))}
+        </div>
+        <div class="swarm-dots" aria-hidden="true">
+          {Array.from({ length: SWARM_PHASES[SWARM_PHASES.length - 1].dots }, () => (
+            <i class="swarm-dot" data-swarm-dot />
+          ))}
+        </div>
+        <p class="swarm-legend">1 Punkt ≈ 250 Menschen</p>
+      </div>
     )
   }
 
@@ -240,6 +273,47 @@ const fmtSigned = (v: number) => `${v < 0 ? '−' : '+'}${Math.abs(v).toLocaleSt
     font-weight: 700;
     color: var(--accent);
     font-variant-numeric: tabular-nums;
+  }
+
+  /* ===== Welle 3: 28.000er-Punktschwarm (Pin-Stack, apex §3) ===== */
+  .swarm {
+    margin-top: 1.25rem;
+  }
+  .swarm-years {
+    position: relative;
+    height: 1.25em;
+    margin-bottom: 0.9rem;
+    font-family: var(--font-head);
+  }
+  .swarm-year {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: clamp(1.3rem, 4.5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+    font-variant-numeric: tabular-nums;
+    opacity: 0; /* JS blendet die Phasen-Jahre um (SSR: 2025 sichtbar via .is-on) */
+  }
+  .swarm-year.is-on {
+    opacity: 1;
+  }
+  .swarm-dots {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr); /* 112 Punkte = 8 × 14 */
+    gap: 4px;
+    max-width: 26rem;
+  }
+  .swarm-dot {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--accent); /* SSR-Endzustand: alle 112 gefärbt */
+  }
+  .swarm-legend {
+    margin-top: 0.8rem;
+    font-size: 0.78rem;
+    color: var(--fg-muted);
   }
 
   /* ===== Diverging Bars: negativ rot nach unten, positiv Akzent nach oben, Nulllinie sichtbar ===== */

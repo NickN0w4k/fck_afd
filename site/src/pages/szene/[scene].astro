@@ -1,0 +1,60 @@
+---
+// Pro-Szene-HTML (Welle 3, Stufe A — nova §5): statisches HTML pro Szene mit
+// eigenem og:image (og/scene-N.png), eigenem Titel + Beschreibung.
+// Der Body zeigt dieselbe Szene als lesbare Seite mit „→ Weiter zur nächsten Szene“.
+// Deep-Link-Quelle: scene-share-Buttons teilen /#scene-N — dieses HTML ist das Ziel.
+import Base from '../../layouts/Base.astro';
+import SceneBody from '../../components/SceneBody.astro';
+import chaptersRaw from '../../../../content/chapters.json';
+import scenesRaw from '../../../../content/scenes.json';
+import { sceneShareText } from '../../lib/scene-text.js';
+
+const chapters = /** @type {any[]} */ (chaptersRaw);
+const allScenes = /** @type {any[]} */ ((/** @type {any} */ (scenesRaw)).scenes);
+const chapterById = Object.fromEntries(chapters.map((c) => [c.id, c]));
+
+export function getStaticPaths() {
+  const all = (/** @type {any} */ (scenesRaw)).scenes ?? scenesRaw;
+  return all.map((scene, i) => ({
+    params: { scene: String(i) },
+    props: { index: i },
+  }));
+}
+
+const { index } = Astro.props;
+const scene = allScenes[index];
+const next = allScenes[index + 1];
+const chapter = chapterById[scene.chapter];
+const share = sceneShareText(scene, chapter?.title);
+const padded = String(index + 1).padStart(2, '0');
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const ogImage = `${base}og/scene-${index}.png`;
+const ogAlt = `Fakten-Kachel zu Szene ${padded}: ${share}`.slice(0, 200);
+---
+
+<Base title={`Szene ${padded}: ${share} — Die AfD. Die Fakten.`} description={share} ogImage={ogImage} ogImageAlt={ogAlt}>
+  <div class="doc-page" style={`--accent: ${chapter?.accent}`}>
+    <header class="doc-header">
+      <p class="doc-kicker">Szene {padded} / {String(allScenes.length).padStart(2, '0')} · {chapter?.title}</p>
+      <h1 class="doc-title">{share}</h1>
+      <a class="doc-tour-link" href={import.meta.env.BASE_URL}>→ Zur kompletten Tour</a>
+    </header>
+
+    <div class="doc-scenes">
+      <section class="doc-scene">
+        <SceneBody scene={scene} chapter={chapter} chapters={chapters} />
+      </section>
+    </div>
+
+    <nav class="doc-nav" aria-label="Szenen-Navigation">
+      {
+        index > 0 ? (
+          <a class="doc-nav-link" href={`${import.meta.env.BASE_URL}#scene-${index - 1}`}>← Szene {String(index).padStart(2, '0')}</a>
+        ) : (
+          <span />
+        )
+      }
+      {next && <a class="doc-nav-link" href={`${import.meta.env.BASE_URL}#scene-${index + 1}`}>→ Weiter zur nächsten Szene</a>}
+    </nav>
+  </div>
+</Base>

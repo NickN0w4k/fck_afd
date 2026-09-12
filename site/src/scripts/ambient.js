@@ -84,5 +84,11 @@ export function initAmbient() {
   const start = () => { if (!raf) raf = requestAnimationFrame(tick); };
   const stop = () => { cancelAnimationFrame(raf); raf = 0; };
   document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+  // Pin-Läufe pausieren das Ambient-Rendering (animations.js dispatcht fckafd:pin-active/-inactive,
+  // solange ein ScrollTrigger-Pin aktiv ist — Batterie + visueller Fokus auf der gepinnten Szene)
+  document.addEventListener('fckafd:pin-active', stop);
+  document.addEventListener('fckafd:pin-inactive', () => {
+    if (!document.hidden) start();
+  });
   start();
 }
