@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://info-afd.de/preview/sitemap.xml
+Sitemap: https://info-afd.de/sitemap.xml
