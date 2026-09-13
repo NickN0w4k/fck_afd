@@ -181,6 +181,14 @@ Dazu: Chart-Untertypen **diverging** (±440/19.190 an Nulllinie), **tiles** (10�
 **Nachträgliche Fix-Runden (Nicks Preview-Review):** Szene-16-Highlighter-Bug („Jahre n" — Regex matcht „Jahre" vor „Jahren", Fix in hl-server + highlights: `531f67b`), Resume-Hint komplett entfernt auf Nicks Wunsch (`347f3d7`).
 **Release:** Nick-Freigabe 13.09. → Merge cleanup → master (`347f3d7`) → Root-Deploy (gh-pages `d0da7bc`, Rollback-Anker VORHER = `5d68b47`). Live-Check zog die Falle „Root-Build überschreibt preview/-Kopie ohne noindex" — Preview-Subtree neu aus SITE_BASE-Build deployed (`6eca870`), beide Pfade final verifiziert (Root 37 Szenen/kein noindex, Preview noindex/Präfix).
 
+## 9b. Text-Schärfung (13.09.2026, /preview/)
+
+**Anlass:** Nick — „zu harmlos, wirkt bei jedem Punkt sehr neutral … auf jeder Seite zu jedem Thema eine Einordnung, die auch vermittelt, dass es und warum es negativ ist. Einfache und kurze Sätze."
+**Branch:** `schärfung` (384e8db) — master/Live UNVERÄNDERT, nur /preview/ aktualisiert.
+**Content (31 Edits + 6 Nachtrimmer, 37 Szenen, Ø 159 Z. sichtbar, max 225):** Jede Claim-Szene mit harter Einordnung in kurzen Sätzen. Ebenen sauber getrennt: sichtbares `context` = Bewertung („relativiert die NS-Zeit", „Das ist die Partei"), `context_tooltip` = Belege/Wortlaut. Neue Tooltips: 28.000er (Dobrindt/CDU-Behörde, Junge Alternative gesichert rechtsextremistisch bis Auflösung 2025 — VSB S. 94/144), Timeline-Intro, Köln-Karte mit 5 Landes-Einstufungen (Correctiv-Kopie).
+**Beleg-Integrität (Sweep vor Release):** Krah-Spruch „Kein persönliches Fehlverhalten" stand NICHT in der tagesschau-Archivkopie (real: Krah als Zeuge „nichts gewusst", dpa-Interview „Opfer") → ersetzt durch belegten Wortlaut + Ermittlungs-Hinweis. AFA „keine rechtliche Grundlage" = GdP-Landeschef (BR24-Kopie) → Zuschreibung ergänzt. VSB-Zahlen gegen die PDF-Kopie geprüft. Lektion: Zitate vor jeder Schärfung gegen die Archiv-Kopie prüfen, nicht gegen die Erinnerung.
+**QA + Deploy:** validate ✓ · build 46 Seiten ✓ · smoke ALL GREEN (Root + Subpfad) ✓ · wheel-protocol sauber ✓ · OG-Images 37× neu gerendert. Preview-Deploy gh-pages `a6b9cdb` (Anker davor `6eca870`), live verifiziert: noindex ✓, neue Marker ✓, alte Headline 0× ✓, og/scene-4.png 200 ✓.
+
 ## 10. Wer was macht (Rollen)
 
 | | |
