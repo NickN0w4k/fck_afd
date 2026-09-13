@@ -164,6 +164,21 @@ Dazu: Chart-Untertypen **diverging** (±440/19.190 an Nulllinie), **tiles** (10�
 - **Methodik-Lektion:** Headless-Wheel-Timing ist verrauscht (einmal y=0 trotz korrektem Handler) → vor „Fix kaputt"-Schlüsse immer Server neu starten + Handler-Aufrufe instrumentieren (scrollTo/scrollIntoView monkeypatchen + scrollLog); `npx gh-pages` ersetzt Alt-Ordner am gh-pages-Root NICHT (`.hermes/`, `site/` überlebten) → manuell per Clone+rm+push entsorgen.
 - **Rollback-Anker (vor diesem Deploy notiert):** d0d02da = Live-v1.6-Vorher-Stand; 8b9f1ab = v1.5.
 
+## 9.c Cleanup-Welle (13.09., Branch `cleanup` — NICHT live, Deploy nach Freigabe)
+
+**Auftrag (Nick):** Komplette Überprüfung (Fehler/Optik/Bedienung) + „muss kürzer werden" + kleiner Sport-Catcher am Ende (Teaser auf kommende Übersichts-/Sportseite). Team-Reports: `cleanup_nova_plan.md` (Struktur), `cleanup_nexus_check.md` (Beleg-/Zitat-Integrität), `cleanup_apex_audit.md` (Code-Fundliste) in `notes/konzept/`. saw (Copy-Agent) hing in Denk-Loop → gestoppt, Copy selbst gemacht.
+
+**Content (42 → 37 Szenen, Ø 202 → 170 Z., 0 Szene >250):**
+- Streichungen nach nova/nexus-Dopplungs-Check: Weidel-VS-Quote (O-Ton in Einwand-Kontrast gerettet), Trump-MGGA (wortgleich in Timeline), Instituts-Statement. Umfragen-Szene in BTW-Quiz gemerged (Pflege-Aufwand entfällt), Rundfunk in Bürgerwacht-Contrast gemerged. innen-Reihenfolge: Zickzack quote/reveal statt 3 Quotes am Stück.
+- **Amtliches Endergebnis 43,8 % Site-weit eingestellt** (Hochrechnung 44,0/CDU 17,8/SPD 9,1 war überholt): Chart-Szene, Timeline, Summary-Kachel, Fakten-Karte, Quellen-Verzeichnis; tagesschau-180 archiviert. Untere Balken-Werte auf echte Beträge (19.190/440) statt Skalierungswerte.
+- nexus-Integritäts-Fixes: Klima S. 79 (nicht 53), „195 Staaten" raus (unbelegt), ZDF-Datum 30.08. (war 27.07.), Krah-Zitat auf Festnahme-Kontext, DIW „Wähler*innen" Original-Schreibweise, Gauland „schon 2017" statt „später", unbelegte Tooltips raus (Musk/Grenell, Krah-EU-Ausschuss), Agrar-AfD-Satz raus, Dexit per_head 8.300 € JETZT belegt (Destatis 83,5 Mio., PM archiviert).
+- Zweitquellen als neues `sources[]`-Feld (Validator gepflegt, /quellen/ listet sie): DLF, DW, ZEIT, wahlrecht, Destatis.
+- **Sport-Catcher** in der EndCard (nova-Empfehlung): dashed Kasten mit „IN ARBEIT"-Badge, bewusst KEIN Link (Seite existiert nicht → kein toter Link, kein Fake-Feature). Wenn die Sportseite live geht: Kasten in EndCard durch Link ersetzen.
+
+**Code (apex-Audit, 10 KRITISCH/MITTEL gefixt):** og:image auf `/szene/N/` absolut (Messenger-Previews zeigen jetzt Bild), Kapitel-Akzent Inline-Fallback (Firefox/Safari brachen sonst auf Rot), Split-Scrub Desktop-only (Mobile-Quetschung in 6 Szenen), initBars auf Doc-Seiten, Keyboard-Guard + Flight-Lock, Resume-Hint gestylt (war tot), Swarm-Hint bei reduce aus, Timeline-Drag-Capture erst nach 5px (Quell-Klicks), Tap-Flächen ≥44px, FACTS6 Single-Source (meta.js, 43,8 %), toter Code raus (Badge-Listener, char-Split, .char-CSS), Quiz/Slider aria-disabled + reduce-Guard. Smoke um dynamische Sitemap + og:image-Absolute-Checks erweitert.
+
+**QA:** validate ✓ · build 46 Seiten ✓ · smoke ALL GREEN ✓ · wheel-protocol sauber ✓ · OG-Images 37× neu gerendert (5 überzählige gelöscht) · visuell verifiziert (Fakten-Karte, EndCard-Catcher, Mobile+Desktop-Contrast). Commit `26c0f8e`. Nicht live — Merge nach Freigabe.
+
 ## 10. Wer was macht (Rollen)
 
 | | |
