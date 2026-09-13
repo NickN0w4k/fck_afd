@@ -6,6 +6,18 @@
 
 const SHARE_SHEET_ID = 'share-sheet';
 
+/** Kanal-Attribution: ?ref=<ziel> in die Share-URL einfügen, Hash (#scene-N) bewahren.
+ *  Copy bleibt ohne ref (Kanal unbekannt), native navigator.share ebenso (Sheet-Fallback-Links haben ref). */
+function withRef(url, target) {
+  try {
+    const u = new URL(url);
+    u.searchParams.set('ref', target);
+    return u.toString();
+  } catch {
+    return url; // relative/defekte URL: unangetastet lassen
+  }
+}
+
 /** Popover-Fallback: kleines Menü mit Deeplinks */
 function ensureSheet() {
   let sheet = document.getElementById(SHARE_SHEET_ID);
@@ -28,32 +40,36 @@ function ensureSheet() {
     const btn = e.target.closest('[data-share-to]');
     if (!btn) return;
     const { text, url } = sheet.dataset;
+    // Kanal-Attribution: ref-Parameter je Ziel an die Share-URL (Hash bleibt erhalten).
+    // Ausgehend: trackShare loggt den Klick; eingehend: ?ref=... erscheint in den URL-Metriken.
+    const target = btn.dataset.shareTo;
+    const channeled = target && target !== 'copy' ? withRef(url, target) : url;
     const enc = encodeURIComponent;
-    const full = `${text} ${url}`;
+    const full = `${text} ${channeled}`;
     let done = false;
-    if (btn.dataset.shareTo === 'telegram') {
-      window.open(`https://t.me/share/url?url=${enc(url)}&text=${enc(text)}`, '_blank', 'noopener');
+    if (target === 'telegram') {
+      window.open(`https://t.me/share/url?url=${enc(channeled)}&text=${enc(text)}`, '_blank', 'noopener');
       done = true;
-    } else if (btn.dataset.shareTo === 'whatsapp') {
+    } else if (target === 'whatsapp') {
       window.open(`https://wa.me/?text=${enc(full)}`, '_blank', 'noopener');
       done = true;
-    } else if (btn.dataset.shareTo === 'x') {
-      window.open(`https://twitter.com/intent/tweet?text=${enc(text)}&url=${enc(url)}`, '_blank', 'noopener');
+    } else if (target === 'x') {
+      window.open(`https://twitter.com/intent/tweet?text=${enc(text)}&url=${enc(channeled)}`, '_blank', 'noopener');
       done = true;
-    } else if (btn.dataset.shareTo === 'copy') {
+    } else if (target === 'copy') {
       done = await copyToClipboard(full);
       if (done) toast('Link kopiert ✓');
     }
     if (done) {
-      trackShare(btn.dataset.shareTo, sheet.dataset);
+      trackShare(target, channeled);
       closeSheet();
     }
   });
 
-  function trackShare(target, ds) {
+  function trackShare(target, channeledUrl) {
     try {
       if (window.umami && typeof window.umami.track === 'function') {
-        window.umami.track('share', { target: String(target ?? ''), url: String(ds?.url ?? '') });
+        window.umami.track('share', { target: String(target ?? ''), url: String(channeledUrl ?? '') });
       }
     } catch (e) { /* tracking darf nie brechen */ }
   }
