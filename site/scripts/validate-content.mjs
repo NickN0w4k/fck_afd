@@ -63,7 +63,7 @@ scenes.forEach((scene, i) => {
   if (scene.verdict !== undefined) {
     if (typeof scene.verdict !== 'string' || !scene.verdict.trim()) {
       errors.push(`${where}: verdict muss nicht-leerer string sein`);
-    } else if (scene.type !== 'quote') {
+    } else if (scene.type !== 'quote' && scene.type !== 'contrast') {
       warnings.push(`${where}: verdict gesetzt, obwohl Typ ${scene.type} kein Verdict-Feld rendert`);
     } else if (scene.verdict.length > 160) {
       warnings.push(`${where}: verdict länger als 160 Zeichen (${scene.verdict.length})`);
