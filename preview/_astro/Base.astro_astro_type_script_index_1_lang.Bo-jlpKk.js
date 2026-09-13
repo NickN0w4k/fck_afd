@@ -1,4 +1,4 @@
-import{t as e}from"./preload-helper.CxFQXtKk.js";var t=`share-sheet`;function n(e,t){try{let n=new URL(e);return n.searchParams.set(`ref`,t),n.toString()}catch{return e}}function r(){let e=document.getElementById(t);if(e)return e;e=document.createElement(`div`),e.id=t,e.className=`share-sheet`,e.setAttribute(`role`,`menu`),e.hidden=!0,e.innerHTML=`
+import{t as e}from"./preload-helper.Bj6bIgIO.js";var t=`share-sheet`;function n(e,t){try{let n=new URL(e);return n.searchParams.set(`ref`,t),n.toString()}catch{return e}}function r(){let e=document.getElementById(t);if(e)return e;e=document.createElement(`div`),e.id=t,e.className=`share-sheet`,e.setAttribute(`role`,`menu`),e.hidden=!0,e.innerHTML=`
     <p class="share-sheet__label">Szene teilen</p>
     <button data-share-to="telegram" role="menuitem">Telegram</button>
     <button data-share-to="whatsapp" role="menuitem">WhatsApp</button>
