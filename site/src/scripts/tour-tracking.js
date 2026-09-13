@@ -1,6 +1,10 @@
 // Umami-Tour-Tracking: scene_view / scene_time / tour_exit.
 // Lektion aus Welle 3: JS-generierte DOM-Zustände nie statisch verifizieren —
 // dieses Script sendet nur bei hostname === 'info-afd.de' (kein Preview-/Local-Noise).
+// Zahlen-Präzision (13.09.): scene_time wird PRO SZENE akkumuliert (Re-Entries addieren
+// sich) und erst beim Verlassen der Seite geflusht — max. 1 scene_time-Event je Szene
+// und Session statt je Eintritt einer. Hash-Pageviews schaltet der Tracker-Tag selbst
+// aus (data-exclude-hash in Base.astro), ?ref= bleibt erhalten (kein exclude-search).
 (function () {
   'use strict';
   if (window.__umamiTour) return;
@@ -42,24 +46,33 @@
 
   var t0 = Date.now();
   var current = null;      // { index, chapter, since }
+  var times = {};          // slug -> akkumulierte ms
+  var chapters = {};       // slug -> chapter (für den Flush)
   var reached = 0;         // höchste angesehene Szenen-Nummer
   var seen = {};           // Dedupe: Szene nur einmal als view zählen
 
-  var leave = function (ms) {
+  var accumulate = function () {
     if (!current) return;
-    var dur = ms !== undefined ? ms : Date.now() - current.since;
-    if (dur >= 1000) {
-      send('scene_time', { scene: String(current.index), chapter: current.chapter, ms: String(dur) });
-    }
+    var dur = Date.now() - current.since;
+    times[current.index] = (times[current.index] || 0) + dur;
     current = null;
+  };
+
+  var flushTimes = function () {
+    Object.keys(times).forEach(function (sl) {
+      var ms = Math.round(times[sl]);
+      if (ms >= 1000) send('scene_time', { scene: sl, chapter: chapters[sl] || '', ms: String(ms) });
+    });
+    times = {}; // geleert: nach pagehide/bfcache-Restore keine Doppelzählung
   };
 
   var enter = function (scene) {
     var idx = scene.getAttribute('data-scene-index');
     var sl = scene.getAttribute('data-slug') || idx;
     var ch = scene.getAttribute('data-chapter') || '';
-    leave();
+    accumulate();
     current = { index: sl, chapter: ch, since: Date.now() };
+    chapters[sl] = ch;
     var n = parseInt(idx, 10) || 0;
     if (n > reached) reached = n;
     if (!seen[sl]) {
@@ -80,7 +93,9 @@
 
   var onExit = function () {
     var lastIdx = current ? current.index : String(reached);
-    leave();
+    accumulate();
+    flushTimes();
+    current = null; // bfcache-Restore erkennt die Szene via visibilitychange wieder
     send('tour_exit', {
       last: lastIdx,
       reached: String(reached),
@@ -89,17 +104,22 @@
     });
   };
   // pagehide feuert auch bei Tab-Schließen/Navigation (keepalive überlebt das);
-  // visibilitychange(hidden) deckt Tab-Wechsel als Soft-Exit ab (nicht bFCache-sicher nötig).
+  // visibilitychange(hidden) sichert nur die Zeit der aktuellen Szene — geflusht wird
+  // beim pagehide, damit ein Tab-Wechsel zurück die Akkumulation fortsetzen kann.
   window.addEventListener('pagehide', onExit, { capture: true });
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'hidden') {
-      leave(); // Zeit der aktuellen Szene sichern, Exit-Event nur beim pagehide
+      accumulate(); // Zeit der aktuellen Szene sichern, Exit-Event nur beim pagehide
     } else if (document.visibilityState === 'visible' && !current) {
       // Zurück vom Tab: aktuelle Szene wieder als aktiv markieren
       var mid = Math.floor(window.innerHeight / 2);
       var el = document.elementFromPoint(window.innerWidth / 2, mid);
       var sc = el && (el.closest ? el.closest('.scene[data-scene-index]') : null);
-      if (sc) current = { index: sc.getAttribute('data-slug') || sc.getAttribute('data-scene-index'), chapter: sc.getAttribute('data-chapter') || '', since: Date.now() };
+      if (sc) {
+        var sl = sc.getAttribute('data-slug') || sc.getAttribute('data-scene-index');
+        current = { index: sl, chapter: sc.getAttribute('data-chapter') || '', since: Date.now() };
+        chapters[sl] = current.chapter;
+      }
     }
   });
 })();
