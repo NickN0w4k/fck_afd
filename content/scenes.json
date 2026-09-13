@@ -11,7 +11,7 @@
     {
       "type": "statement",
       "chapter": "intro",
-      "text": "Diese Seite ist keine Meinungsseite. Alles mit Quelle, alles belegbar.",
+      "text": "Diese Seite ist keine Meinungsseite. Es ist eine Akte: jede Behauptung mit Quelle, jede Quelle archiviert.",
       "note": "Alles mit Beleg. Immer."
     },
     {
@@ -90,7 +90,7 @@
       "chapter": "verfassungsschutz",
       "teaser": "Tippen, um aufzudecken",
       "headline": "Fünf Landesverbände „gesichert rechtsextremistisch“",
-      "body": "Thüringen, Sachsen, Sachsen-Anhalt, Brandenburg, Niedersachsen. Kein Gericht hat eine dieser Einstufungen gekippt.",
+      "body": "Fünf Bundesländer, ein Befund: gesichert rechtsextremistisch. Kein Gericht hat eine einzige dieser Einstufungen gekippt.",
       "source": {
         "label": "CORRECTIV — Verfassungsschutz-Einstufungen der AfD in den Bundesländern (17.06.2026)",
         "url": "https://correctiv.org/aktuelles/afd/2026/06/17/wie-stuft-der-verfassungsschutz-die-afd-in-den-bundeslaendern-ein/",
@@ -142,7 +142,7 @@
     {
       "type": "chapterbreak",
       "chapter": "programm",
-      "summary": "Du weißt jetzt, warum der Verfassungsschutz die Partei im Blick hat."
+      "summary": "Du weißt jetzt, warum der Verfassungsschutz die AfD im Blick hat. Sie will ihn abschaffen."
     },
     {
       "type": "contrast",
@@ -189,7 +189,7 @@
       "type": "contrast",
       "chapter": "programm",
       "claim": "„…als eine dritte Säule der Sicherheitsarchitektur vor Ort eine freiwillige Bürgerwacht aufbauen.“",
-      "reality": "Verfassungsrechtler Thiel: „problematisch“. Hoheitsrechte gehören zum Staat — nicht zu Bürgerwehren.",
+      "reality": "Polizeirechtler Thiel: „verfassungsrechtlich problematisch“. Bürgerwehren mit Hoheitsrechten: nicht erlaubt. Dieselbe AfD will den Rundfunk kündigen.",
       "source": {
         "label": "AfD Sachsen-Anhalt, Regierungsprogramm „Das Land zuerst.“ (Punkt 20) · zdfheute 30.08.2026",
         "url": "https://www.zdfheute.de/politik/deutschland/afd-sachsen-anhalt-buergerwacht-plan-100.html",
@@ -227,7 +227,7 @@
           "correct": false
         }
       ],
-      "explanation": "„Remigration“ stammt aus der rechtsextremen Szene. Sie meint: Menschen raus, mit Druck. Im Programm: Abschiebungen, keine Duldungen, Grenz-Zurückweisungen.",
+      "explanation": "„Remigration“ stammt aus der rechtsextremen Szene: Menschen raus, mit Druck. Die AfD hat das Wort wörtlich übernommen — Abschiebungen, keine Duldungen, Zurückweisungen an der Grenze.",
       "source": {
         "label": "tagesschau — Wahlprogramme im Vergleich: Migration",
         "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html",
@@ -238,7 +238,7 @@
     {
       "type": "chapterbreak",
       "chapter": "innen",
-      "summary": "Du weißt jetzt, was die AfD schriftlich plant — es steht alles im Programm."
+      "summary": "Du weißt jetzt, was die AfD schriftlich plant. Kein Gerücht — ihr Programm, Wort für Wort."
     },
     {
       "type": "quote",
@@ -258,7 +258,7 @@
       "chapter": "innen",
       "teaser": "Tippen, um aufzudecken",
       "headline": "„Abschieben, bis die Startbahnen glühen“",
-      "body": "Die bayerische AfD will eine eigene Abschiebe-Truppe nach dem Vorbild der US-Behörde ICE. Name: „AFA“. Polizeigewerkschaft: Dafür gibt es keine rechtliche Grundlage.",
+      "body": "Die bayerische AfD will eine Abschiebe-Truppe nach Vorbild der US-Behörde ICE: „AFA“. Polizeigewerkschaft: keine rechtliche Grundlage.",
       "source": {
         "label": "Bayerischer Rundfunk BR24 (30.01.2026) · ZEIT (VG-Köln-Bericht)",
         "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3",
@@ -284,7 +284,7 @@
       "chapter": "innen",
       "teaser": "Tippen, um aufzudecken",
       "headline": "Ein Spion arbeitete im Büro des AfD-Europa-Spitzenkandidaten",
-      "body": "1 Mitarbeiter · 4 J. 9 Mon. Haft · Jian G. spionierte von Krahs Büro aus für Chinas Geheimdienst. Krah: nichts gewusst. Ermittlungen gegen ihn laufen trotzdem.",
+      "body": "1 Mitarbeiter · 4 J. 9 Mon. Haft · Jian G. spionierte für Chinas Geheimdienst. Krah: nichts gewusst. Ermittlungen gegen ihn laufen trotzdem.",
       "source": {
         "label": "tagesschau 30.09.2025 · Generalbundesanwalt, PM 29.04.2025",
         "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html",
@@ -396,20 +396,20 @@
           "correct": false
         }
       ],
-      "explanation": "Das oberste 1 % bekommt über 12 Mrd. € — rund 30.000 € pro Betrieb. Die untere Hälfte der Betriebe: unter 4 Mrd. €.",
+      "explanation": "Das oberste 1 % bekommt über 12 Mrd. € — rund 30.000 € pro Betrieb. Die untere Hälfte: unter 4 Mrd. €. Die „Partei der kleinen Leute“ verteidigt das.",
       "source": {
         "label": "tagesschau (NDR/WDR/SZ, Farmsubsidies-Datenbank)",
         "url": "https://www.tagesschau.de/investigativ/ndr-wdr/eu-agrarsubventionen-unternehmen-101.html",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Die Partei der „kleinen Leute“ verteidigt ein System, das nach oben zahlt: Unter den 100 größten Empfängern sind mindestens 24 Ex-DDR-Großbetriebe — und selbst RWE, BASF und Bayer erhielten Agrargelder. Die untere Hälfte der Betriebe kommt im Schnitt auf 200 Euro im Monat."
+      "context_tooltip": "Unter den 100 größten Empfängern sind mindestens 24 Ex-DDR-Großbetriebe — und selbst RWE, BASF und Bayer erhielten Agrargelder. Die untere Hälfte der Betriebe kommt im Schnitt auf 200 Euro im Monat."
     },
     {
       "type": "quote",
       "chapter": "kosten",
       "quote": "Die Hauptleidtragenden der AfD-Politik wären ihre eigenen Wähler*innen.",
       "author": "DIW Berlin, „Das AfD-Paradox“ (2023)",
-      "context": "AfD-Wähler sind überdurchschnittlich oft einkommensschwach — genau sie träfe es zuerst.",
+      "context": "Wer AfD wählt, ist überdurchschnittlich oft einkommensschwach. Genau die träfe die eigene Partei zuerst.",
       "source": {
         "label": "DIW Berlin, DIW aktuell 88 (21.08.2023)",
         "url": "https://www.diw.de/de/diw_01.c.879742.de/publikationen/diw_aktuell/2023_0088/das_afd-paradox__die_hauptleidtragenden_der_afd-politik_waeren_ihre_eigenen_waehler_innen.html",
@@ -467,7 +467,7 @@
     {
       "type": "chapterbreak",
       "chapter": "fazit",
-      "summary": "Die drei Einwände vom Familienessen? Du weißt jetzt, was darauf passt."
+      "summary": "Die drei Einwände vom Familienessen? Du weißt jetzt: Keiner hält einer Prüfung stand."
     },
     {
       "type": "quiz",

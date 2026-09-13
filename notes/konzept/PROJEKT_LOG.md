@@ -189,6 +189,8 @@ Dazu: Chart-Untertypen **diverging** (±440/19.190 an Nulllinie), **tiles** (10�
 **Beleg-Integrität (Sweep vor Release):** Krah-Spruch „Kein persönliches Fehlverhalten" stand NICHT in der tagesschau-Archivkopie (real: Krah als Zeuge „nichts gewusst", dpa-Interview „Opfer") → ersetzt durch belegten Wortlaut + Ermittlungs-Hinweis. AFA „keine rechtliche Grundlage" = GdP-Landeschef (BR24-Kopie) → Zuschreibung ergänzt. VSB-Zahlen gegen die PDF-Kopie geprüft. Lektion: Zitate vor jeder Schärfung gegen die Archiv-Kopie prüfen, nicht gegen die Erinnerung.
 **QA + Deploy:** validate ✓ · build 46 Seiten ✓ · smoke ALL GREEN (Root + Subpfad) ✓ · wheel-protocol sauber ✓ · OG-Images 37× neu gerendert. Preview-Deploy gh-pages `a6b9cdb` (Anker davor `6eca870`), live verifiziert: noindex ✓, neue Marker ✓, alte Headline 0× ✓, og/scene-4.png 200 ✓.
 
+**Runde 2 (Nick: „gerne noch schärfer insgesamt auch bei den anderen texten, klare kritik"):** 10 Edits + 2 Reveal-Nachtrimmer (Ø 163 Z.): Statement → „Es ist eine Akte", Breaks B2/B3/B6 mit Kritik-Punchlines („Sie will ihn abschaffen", „Kein Gerücht — ihr Programm, Wort für Wort", „Keiner hält einer Prüfung stand"), Bürgerwacht-Reality mit Rundfunk-Kündigung als Kontrast, Agrar-Punchline „Partei der kleinen Leute" sichtbar, DIW-Frame direkt („Wer AfD wählt … genau die träfe die eigene Partei zuerst"). Subpfad-Falle erneut gebissen: Rebuild nach og-scenes ohne SITE_BASE → 4 Smoke-Fails → korrekt re-deployed. Preview-Deploy gh-pages `5df584f` (Anker davor `a6b9cdb`), live verifiziert (noindex, alle Marker, og/scene-6.png 200).
+
 ## 10. Wer was macht (Rollen)
 
 | | |
