@@ -111,12 +111,19 @@ function check(name, cond) {
   check('robots.txt: Sitemap-Zeile', rb.includes('Sitemap:'));
 
   // Pro-Szene-OG-Images (Fix 13.09.): og:images auf /szene/N/ müssen ABSOLUTE URLs sein
-  // und auf vorhandene PNGs zeigen (Cleanup-Welle: Szenenzahl ist dynamisch)
+  // und auf vorhandene PNGs zeigen (Cleanup-Welle: Szenenzahl ist dynamisch).
+  // Erreichbarkeit gegen den AKTUELLEN Origin prüfen (Subpfad-Preview: og zeigt auf
+  // info-afd.de/preview/... — lokal existiert genau dieser Pfad unter dem Test-Origin).
   await page.goto(BASE + '/szene/0/', { waitUntil: 'networkidle' });
   const ogChecks = await page.evaluate(async () => {
     const meta = document.querySelector('meta[property="og:image"]')?.content ?? '';
-    const res = await fetch(meta, { method: 'HEAD' });
-    return { content: meta, absolute: meta.startsWith('http'), status: res.status };
+    let status = 0;
+    try {
+      const path = new URL(meta).pathname;
+      const res = await fetch(path, { method: 'HEAD' });
+      status = res.status;
+    } catch {}
+    return { content: meta, absolute: meta.startsWith('http'), status };
   });
   check('Szene-0: og:image absolut', ogChecks.absolute);
   check('Szene-0: og:image erreichbar (200)', ogChecks.status === 200);
