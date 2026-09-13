@@ -2,7 +2,8 @@
 // Läuft über alle [data-hl] Elemente; escaped nur HTML-unsichere Zeichen, Text stammt aus scenes.json.
 const PATTERNS = [
   // Zahlen mit Einheiten/Währung/Prozent: 19.190 €, 690 Mrd. €, 6,2 %, 2021, 2,5 Millionen
-  /(\d[\d.,]*\s?(?:%|€|Mrd\.?|Mio\.?|Milliarden|Millionen|Billionen|Tsd\.?|Jahre|Jahren|Euro)(?:\s(?:pro|je)\s\w+)?)/g,
+  // Fix 13.09.: "Jahren" vor "Jahre" (sonst blieb das n außerhalb der Markierung: „Jahre n")
+  /(\d[\d.,]*\s?(?:%|€|Mrd\.?|Mio\.?|Milliarden|Millionen|Billionen|Tsd\.?|Jahren|Jahre|Euro)(?:\s(?:pro|je)\s\w+)?)/g,
   // Rechtliche/ideologische Kernbegriffe — Fix 13.09. (apex): Duplikat „Volksverhetzung“
   // raus + mit hl-server.js synchron („deutscher Staatsangehörigkeit“ ergänzt)
   /(Verfassungsschutz|Verdachtsfall|rechtskräftig|gesichert rechtsextremistisch|Rechtsextremismus|Volksverhetzung|SA-Parole|Remigration|Großer Austausch|Umvolkung|Menschenwürde|Grundgesetz|deutscher Staatsangehörigkeit)/gi,
