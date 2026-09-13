@@ -251,7 +251,13 @@ button {
   opacity: 0.8;
 }
 
-/* ============ Reduced Motion: alles statisch ============ */
+/* Reduced Motion: alles statisch ============ */
+
+/* Fix 13.09. (apex-Audit, MITTEL): Swarm-Hint beschreibt Pin-Etappen, die es bei
+   reduced-motion nicht gibt — dort dauerhaft ausblenden (Endzustand-Grundsatz). */
+@media (prefers-reduced-motion: reduce) {
+  .swarm-hint { display: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -541,45 +547,9 @@ mark.hl {
   }
 }
 
-/* ===== Stand-Badge + Skip-Link ===== */
-/* Fix 13.09. (apex-Audit, KRITISCH): Resume-Hint war komplett unstyled → Feature praktisch tot.
-   Jetzt: fixed Button unten links, Tap-Fläche ≥44px, verschwindet nach 12s (initResume). */
-.resume-hint {
-  position: fixed;
-  left: 0.9rem;
-  bottom: 0.9rem;
-  z-index: 60;
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0.55rem 1.1rem;
-  font-family: var(--font-head);
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--fg);
-  background: color-mix(in srgb, var(--bg-elev) 88%, transparent);
-  border: 1px solid var(--border);
-  border-radius: 99px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
-  transition: color 0.2s, border-color 0.2s;
-}
-.resume-hint:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-@media (max-width: 640px) {
-  .resume-hint {
-    left: 0.6rem;
-    right: 0.6rem;
-    justify-content: center;
-  }
-}
-/* Fix 13.09. (apex-Audit, MITTEL): Swarm-Hint beschreibt Pin-Etappen, die es bei
-   reduced-motion nicht gibt — dort dauerhaft ausblenden (Endzustand-Grundsatz). */
-@media (prefers-reduced-motion: reduce) {
-  .swarm-hint { display: none; }
-}
+/* ===== Skip-Link ===== */
+/* (Fix 13.09./Nick: Resume-Hint komplett entfernt — störte beim Wiederkommen.
+   Kein localStorage-Resume mehr, der Tour-Einstieg ist immer Szene 1.) */
 
 .stand-badge {
   position: fixed;

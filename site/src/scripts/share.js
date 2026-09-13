@@ -241,7 +241,6 @@ function jumpToHash(instant) {
   if (!window.location.hash) return false;
   const el = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
   if (!el || !el.classList.contains('scene')) return false;
-  localStorage.removeItem('fck-afd-resume'); // explizite Navigation schlägt Resume vor
   setTimeout(() => {
     el.scrollIntoView({ behavior: instant ? 'instant' : 'smooth', block: 'center' });
     // Deep-Link-Kontext: Kapitel-Label + aktives Segment setzen + Orientierungs-Pfeil

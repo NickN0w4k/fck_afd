@@ -389,39 +389,7 @@ function initAccent() {
   });
 }
 
-/** localStorage-Resume: merkt Scrollposition */
-function initResume() {
-  const KEY = 'fck-afd-resume';
-  const scenes = document.querySelectorAll('.scene');
-  if (!scenes.length) return;
-  // speichern
-  let saveTimer;
-  window.addEventListener(
-    'scroll',
-    () => {
-      clearTimeout(saveTimer);
-      saveTimer = setTimeout(() => {
-        localStorage.setItem(KEY, String(window.scrollY));
-      }, 300);
-    },
-    { passive: true },
-  );
-  // wiederherstellen mit Hinweis statt Auto-Jump
-  const saved = localStorage.getItem(KEY);
-  if (saved && parseInt(saved, 10) > window.innerHeight * 1.5) {
-    const hint = document.createElement('button');
-    hint.className = 'resume-hint';
-    hint.type = 'button';
-    hint.textContent = 'Weiter da, wo du aufgehört hast?';
-    hint.setAttribute('data-anim', 'rise');
-    hint.addEventListener('click', () => {
-      window.scrollTo({ top: parseInt(saved, 10), behavior: 'smooth' });
-      hint.remove();
-    });
-    document.body.appendChild(hint);
-    setTimeout(() => hint.remove(), 12000);
-  }
-}
+/** Kapitel-Akzentfarbe aufs :root migrieren, wenn Szene aktiv */
 
 /** Szenen, die höher als der Viewport sind, rasten oben ein statt zentriert
  *  (bei center-align wäre der oberste Teil der Szene unerreichbar).
@@ -844,7 +812,6 @@ function init() {
   initWheelSnap();
   initProgress();
   initAccent();
-  initResume();
   ScrollTrigger.refresh();
   // Registry-Zählung (MASTER §4.3: ≤3 Scrub-Tweens pro Szene/Viewport, Pin-Budget 3) —
   // für Checks headless lesbar. once-Tweens zählen nicht (idle nach einer Auslösung).
