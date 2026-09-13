@@ -177,7 +177,9 @@ Dazu: Chart-Untertypen **diverging** (±440/19.190 an Nulllinie), **tiles** (10�
 
 **Code (apex-Audit, 10 KRITISCH/MITTEL gefixt):** og:image auf `/szene/N/` absolut (Messenger-Previews zeigen jetzt Bild), Kapitel-Akzent Inline-Fallback (Firefox/Safari brachen sonst auf Rot), Split-Scrub Desktop-only (Mobile-Quetschung in 6 Szenen), initBars auf Doc-Seiten, Keyboard-Guard + Flight-Lock, Resume-Hint gestylt (war tot), Swarm-Hint bei reduce aus, Timeline-Drag-Capture erst nach 5px (Quell-Klicks), Tap-Flächen ≥44px, FACTS6 Single-Source (meta.js, 43,8 %), toter Code raus (Badge-Listener, char-Split, .char-CSS), Quiz/Slider aria-disabled + reduce-Guard. Smoke um dynamische Sitemap + og:image-Absolute-Checks erweitert.
 
-**QA:** validate ✓ · build 46 Seiten ✓ · smoke ALL GREEN ✓ · wheel-protocol sauber ✓ · OG-Images 37× neu gerendert (5 überzählige gelöscht) · visuell verifiziert (Fakten-Karte, EndCard-Catcher, Mobile+Desktop-Contrast). Commit `26c0f8e`. Nicht live — Merge nach Freigabe.
+**QA:** validate ✓ · build 46 Seiten ✓ · smoke ALL GREEN ✓ · wheel-protocol sauber ✓ · OG-Images 37× neu gerendert (5 überzählige gelöscht) · visuell verifiziert (Fakten-Karte, EndCard-Catcher, Mobile+Desktop-Contrast). Commit `26c0f8e`.
+**Nachträgliche Fix-Runden (Nicks Preview-Review):** Szene-16-Highlighter-Bug („Jahre n" — Regex matcht „Jahre" vor „Jahren", Fix in hl-server + highlights: `531f67b`), Resume-Hint komplett entfernt auf Nicks Wunsch (`347f3d7`).
+**Release:** Nick-Freigabe 13.09. → Merge cleanup → master (`347f3d7`) → Root-Deploy (gh-pages `d0da7bc`, Rollback-Anker VORHER = `5d68b47`). Live-Check zog die Falle „Root-Build überschreibt preview/-Kopie ohne noindex" — Preview-Subtree neu aus SITE_BASE-Build deployed (`6eca870`), beide Pfade final verifiziert (Root 37 Szenen/kein noindex, Preview noindex/Präfix).
 
 ## 10. Wer was macht (Rollen)
 
