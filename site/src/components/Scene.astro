@@ -13,7 +13,7 @@ interface Props {
   slug?: string;
 }
 const { chapter, accent, kicker, index, total, id, shareText, sceneIndex, slug } = Astro.props;
-// Anker-ID: expliziter Slug (scenes.json) hat Vorrang — taucht in Share-Links + Umami-URLs auf.
+// Anker-ID: expliziter Slug (scenes.json) hat Vorrang — taucht in Share-Links + Matomo-Events auf.
 const sceneId = id ?? slug ?? (index !== undefined ? `scene-${index}` : undefined);
 ---
 

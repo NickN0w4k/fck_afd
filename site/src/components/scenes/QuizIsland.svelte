@@ -11,13 +11,13 @@
   function trackQuiz(answerIdx, correct, slug) {
     try {
       const w = window;
-      if (w.umami && typeof w.umami.track === 'function') {
-        w.umami.track('quiz_answer', {
-          scene: String(slug ?? sceneIndex ?? ''),
-          chapter: String(chapter ?? ''),
-          answer: String(answerIdx),
-          correct: correct ? '1' : '0',
-        });
+      if (w.__matomoTrack && typeof w.__matomoTrack.trackQuiz === 'function') {
+        w.__matomoTrack.trackQuiz(
+          String(slug ?? sceneIndex ?? ''),
+          String(chapter ?? ''),
+          String(answerIdx),
+          !!correct
+        );
       }
     } catch (e) { /* tracking darf nie brechen */ }
   }

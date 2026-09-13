@@ -68,8 +68,8 @@ function ensureSheet() {
 
   function trackShare(target, channeledUrl) {
     try {
-      if (window.umami && typeof window.umami.track === 'function') {
-        window.umami.track('share', { target: String(target ?? ''), url: String(channeledUrl ?? '') });
+      if (window.__matomoTrack && typeof window.__matomoTrack.trackShare === 'function') {
+        window.__matomoTrack.trackShare(String(target ?? ''), String(channeledUrl ?? ''));
       }
     } catch (e) { /* tracking darf nie brechen */ }
   }
@@ -212,8 +212,8 @@ document.querySelectorAll('.scene[data-share-text] [data-share-tile]').forEach((
       }
       toast('Kacheln exportiert ✓');
       try {
-        if (window.umami && typeof window.umami.track === 'function') {
-          window.umami.track('tile_export', { scene: String(num ?? '') });
+        if (window.__matomoTrack && typeof window.__matomoTrack.trackTileExport === 'function') {
+          window.__matomoTrack.trackTileExport(String(num ?? ''));
         }
       } catch (e) { /* tracking darf nie brechen */ }
     } catch (err) {

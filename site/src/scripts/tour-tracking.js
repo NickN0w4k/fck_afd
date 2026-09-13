@@ -1,55 +1,29 @@
-// Umami-Tour-Tracking: scene_view / scene_time / tour_exit.
-// Lektion aus Welle 3: JS-generierte DOM-Zustände nie statisch verifizieren —
-// dieses Script sendet nur bei hostname === 'info-afd.de' (kein Preview-/Local-Noise).
-// Zahlen-Präzision (13.09.): scene_time wird PRO SZENE akkumuliert (Re-Entries addieren
-// sich) und erst beim Verlassen der Seite geflusht — max. 1 scene_time-Event je Szene
-// und Session statt je Eintritt einer. Hash-Pageviews schaltet der Tracker-Tag selbst
-// aus (data-exclude-hash in Base.astro), ?ref= bleibt erhalten (kein exclude-search).
+// Matomo-Tour-Tracking: scene_view / scene_time / tour_exit via window.__matomoTrack
+// (Bridge aus analytics.js, die Base.astro als klassisches Script vor diesem hier lädt).
+// Zahlen-Präzision: scene_time wird PRO SZENE akkumuliert (Re-Entries addieren sich)
+// und erst beim Verlassen der Seite geflusht — max. 1 scene_time-Event je Szene/Session.
+// Matomo zählt Hash-URL-Änderungen nicht als Pageview — kein exclude-hash nötig.
+// Gate: sendet nur auf info-afd.de (Headless-Test via window.__MATOMO_TOUR_TEST__).
 (function () {
   'use strict';
-  if (window.__umamiTour) return;
-  window.__umamiTour = true;
+  if (window.__matomoTour) return;
+  window.__matomoTour = true;
 
   var HOST = 'info-afd.de';
-  var SITE = 'https://analytics.nwk-pro.dev';
-  var WID = document.querySelector('script[data-website-id]');
-  var websiteId = WID ? WID.getAttribute('data-website-id') : null;
-  if (!websiteId) return;
-  // __UMAMI_TOUR_TEST__ (nur in Headless-Tests via addInitScript gesetzt) umgeht den Hostname-Gate.
-  if (location.hostname !== HOST && window.__UMAMI_TOUR_TEST__ !== true) return;
+  if (location.hostname !== HOST && window.__MATOMO_TOUR_TEST__ !== true) return;
 
-  var send = function (name, data) {
-    var payload = {
-      website: websiteId,
-      hostname: HOST,
-      language: navigator.language || 'de-DE',
-      screen: window.innerWidth + 'x' + window.innerHeight,
-      url: location.pathname,
-      name: name,
-      data: data,
-    };
-    if (window.umami && typeof window.umami.track === 'function') {
-      try { window.umami.track(name, data); return; } catch (e) { /* fallback unten */ }
-    }
-    try {
-      fetch(SITE + '/api/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'event', payload: payload }),
-        keepalive: true,
-      }).catch(function () {});
-    } catch (e) { /* tracking darf nie brechen */ }
-  };
+  var A = window.__matomoTrack;
+  if (!A) return; // Bridge fehlt (z. B. Script-Load-Reihenfolge) — nichts senden
 
   var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene[data-scene-index]'));
   if (!scenes.length) return;
 
   var t0 = Date.now();
-  var current = null;      // { index, chapter, since }
+  var current = null;      // { index (slug), chapter, since }
   var times = {};          // slug -> akkumulierte ms
-  var chapters = {};       // slug -> chapter (für den Flush)
-  var reached = 0;         // höchste angesehene Szenen-Nummer
-  var seen = {};           // Dedupe: Szene nur einmal als view zählen
+  var chapters = {};       // slug -> chapter
+  var reached = 0;         // höchste angesehene Szenen-Nummer (data-scene-index)
+  var seen = {};           // slug -> true (Dedupe scene_view; Zähler = Exit-Dimension 3)
 
   var accumulate = function () {
     if (!current) return;
@@ -61,9 +35,9 @@
   var flushTimes = function () {
     Object.keys(times).forEach(function (sl) {
       var ms = Math.round(times[sl]);
-      if (ms >= 1000) send('scene_time', { scene: sl, chapter: chapters[sl] || '', ms: String(ms) });
+      if (ms >= 1000) A.trackSceneTime(sl, chapters[sl] || '', ms);
     });
-    times = {}; // geleert: nach pagehide/bfcache-Restore keine Doppelzählung
+    times = {}; // nach pagehide/bfcache-Restore keine Doppelzählung
   };
 
   var enter = function (scene) {
@@ -77,7 +51,7 @@
     if (n > reached) reached = n;
     if (!seen[sl]) {
       seen[sl] = true;
-      send('scene_view', { scene: sl, chapter: ch });
+      A.trackScene(sl, ch);
     }
   };
 
@@ -96,22 +70,15 @@
     accumulate();
     flushTimes();
     current = null; // bfcache-Restore erkennt die Szene via visibilitychange wieder
-    send('tour_exit', {
-      last: lastIdx,
-      reached: String(reached),
-      session_ms: String(Date.now() - t0),
-      seen: String(Object.keys(seen).length),
-    });
+    A.trackTourExit({ last: lastIdx, reached: reached, seen: Object.keys(seen).length });
   };
-  // pagehide feuert auch bei Tab-Schließen/Navigation (keepalive überlebt das);
-  // visibilitychange(hidden) sichert nur die Zeit der aktuellen Szene — geflusht wird
-  // beim pagehide, damit ein Tab-Wechsel zurück die Akkumulation fortsetzen kann.
+  // pagehide feuert auch bei Tab-Schließen/Navigation; visibilitychange(hidden) sichert
+  // nur die Zeit der aktuellen Szene — geflusht wird beim pagehide.
   window.addEventListener('pagehide', onExit, { capture: true });
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'hidden') {
-      accumulate(); // Zeit der aktuellen Szene sichern, Exit-Event nur beim pagehide
+      accumulate();
     } else if (document.visibilityState === 'visible' && !current) {
-      // Zurück vom Tab: aktuelle Szene wieder als aktiv markieren
       var mid = Math.floor(window.innerHeight / 2);
       var el = document.elementFromPoint(window.innerWidth / 2, mid);
       var sc = el && (el.closest ? el.closest('.scene[data-scene-index]') : null);
