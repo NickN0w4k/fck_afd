@@ -44,8 +44,19 @@ function ensureSheet() {
       done = await copyToClipboard(full);
       if (done) toast('Link kopiert ✓');
     }
-    if (done) closeSheet();
+    if (done) {
+      trackShare(btn.dataset.shareTo, sheet.dataset);
+      closeSheet();
+    }
   });
+
+  function trackShare(target, ds) {
+    try {
+      if (window.umami && typeof window.umami.track === 'function') {
+        window.umami.track('share', { target: String(target ?? ''), url: String(ds?.url ?? '') });
+      }
+    } catch (e) { /* tracking darf nie brechen */ }
+  }
 
   // Outside-Click + Esc schließen
   document.addEventListener('click', (e) => {
@@ -184,6 +195,11 @@ document.querySelectorAll('.scene[data-share-text] [data-share-tile]').forEach((
         if (k < canvases.length - 1) await new Promise((r) => setTimeout(r, 250));
       }
       toast('Kacheln exportiert ✓');
+      try {
+        if (window.umami && typeof window.umami.track === 'function') {
+          window.umami.track('tile_export', { scene: String(num ?? '') });
+        }
+      } catch (e) { /* tracking darf nie brechen */ }
     } catch (err) {
       console.error('Kachel-Export fehlgeschlagen:', err);
       toast('Export fehlgeschlagen ✗');

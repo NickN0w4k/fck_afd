@@ -2,15 +2,30 @@
   import { slide } from 'svelte/transition';
   import { factList } from '../../scripts/textsplit.js';
   // Svelte 5: runes-lose, einfache Props + State
-  let { options, explanation } = $props();
+  let { options, explanation, sceneIndex, chapter } = $props();
 
   let picked = $state(null);
 
   const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  function trackQuiz(answerIdx, correct) {
+    try {
+      const w = window;
+      if (w.umami && typeof w.umami.track === 'function') {
+        w.umami.track('quiz_answer', {
+          scene: String(sceneIndex ?? ''),
+          chapter: String(chapter ?? ''),
+          answer: String(answerIdx),
+          correct: correct ? '1' : '0',
+        });
+      }
+    } catch (e) { /* tracking darf nie brechen */ }
+  }
+
   function pick(i) {
     if (picked !== null) return; // nur einmal antworten
     picked = i;
+    trackQuiz(i, !!options[i]?.correct);
   }
 
   const items = $derived(picked !== null ? factList(explanation ?? '', 160) : []);

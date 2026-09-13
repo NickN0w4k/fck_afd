@@ -47,7 +47,7 @@ const sourceCount = seenUrls.size;
             kicker={scene.type === 'chapterbreak' ? `Kapitel ${chapter?.num ?? ''}` : undefined}
             sceneIndex={i}
           >
-            <SceneBody scene={scene} chapter={chapter} chapters={chapters} />
+            <SceneBody scene={{ ...scene, scene_index: i }} chapter={chapter} chapters={chapters} />
           </Scene>
         );
       })

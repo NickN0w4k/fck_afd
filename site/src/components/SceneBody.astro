@@ -29,7 +29,7 @@ const { scene, chapter, chapters = [] } = Astro.props;
 {scene.type === 'data' && <Data scene={scene} />}
 {scene.type === 'contrast' && <Contrast scene={scene} />}
 {scene.type === 'quote' && <Quote scene={scene} />}
-{scene.type === 'quiz' && <Quiz scene={scene} />}
+{scene.type === 'quiz' && <Quiz scene={scene} sceneIndex={scene.scene_index} chapter={chapter?.id ?? scene.chapter} />}
 {scene.type === 'slider' && <Slider scene={scene} />}
 {scene.type === 'reveal' && <Reveal scene={scene} />}
 {scene.type === 'chapterbreak' && <ChapterBreak chapter={chapter} scene={scene} />}

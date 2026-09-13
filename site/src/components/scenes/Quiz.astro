@@ -10,13 +10,15 @@ interface Props {
     explanation: string;
     source?: { label: string; url: string; visited?: string };
   };
+  sceneIndex?: number;
+  chapter?: string;
 }
-const { scene } = Astro.props;
+const { scene, sceneIndex, chapter } = Astro.props;
 ---
 
 <div class="quiz">
   <h2 class="quiz-question" data-anim="rise">{scene.question}</h2>
-  <QuizIsland client:visible options={scene.options} explanation={scene.explanation} />
+  <QuizIsland client:visible options={scene.options} explanation={scene.explanation} sceneIndex={sceneIndex} chapter={chapter} />
   {scene.source && <SourceTag source={scene.source} tooltip={scene.context_tooltip} />}
 </div>
 
