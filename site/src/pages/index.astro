@@ -40,7 +40,7 @@ const sourceCount = seenUrls.size;
           <Scene
             index={i}
             total={total}
-            accent={chapter?.accent}
+            accent={i === 0 ? '#009EE3' : chapter?.accent}
             chapter={scene.chapter}
             shareText={sceneShareText(scene, chapter?.title)}
             id={i === 0 ? 'scene-0' : undefined}

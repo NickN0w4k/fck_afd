@@ -260,7 +260,7 @@
       "chapter": "innen",
       "teaser": "Tippen, um aufzudecken",
       "headline": "„Abschieben, bis die Startbahnen glühen“",
-      "body": "Die bayerische AfD will eine Abschiebe-Truppe nach Vorbild der US-Behörde ICE: „AFA“. Polizeigewerkschaft: keine rechtliche Grundlage.",
+      "body": "Soll Fahndung bündeln, systematische Kontrollen fahren — nach Vorbild der US-Behörde ICE. Polizeigewerkschaft: keine rechtliche Grundlage.",
       "source": {
         "label": "Bayerischer Rundfunk BR24 (30.01.2026) · ZEIT (VG-Köln-Bericht)",
         "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3",
@@ -273,7 +273,7 @@
       "chapter": "innen",
       "quote": "Die größte Bedrohung für unsere Demokratie kommt weiterhin von Rechtsextremisten.",
       "author": "Alexander Dobrindt, Bundesinnenminister, 30.06.2026",
-      "verdict": "Das sagt nicht ein Gegner, sondern der Innenminister von der CDU — und die Zahl kommt aus seiner eigenen Behörde.",
+      "verdict": "Das sagt nicht einfach irgendein Gegner, sondern der Innenminister von der CDU — und die Zahl kommt aus seiner eigenen Behörde.",
       "source": {
         "label": "BMI: Verfassungsschutzbericht 2025 vorgestellt (30.06.2026)",
         "url": "https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2026/06/vsb2025-pm.html",
@@ -286,7 +286,7 @@
       "chapter": "innen",
       "teaser": "Tippen, um aufzudecken",
       "headline": "Ein Spion arbeitete im Büro des AfD-Europa-Spitzenkandidaten",
-      "body": "1 Mitarbeiter · 4 J. 9 Mon. Haft · Jian G. spionierte für Chinas Geheimdienst. Krah: nichts gewusst. Ermittlungen gegen ihn laufen trotzdem.",
+      "body": "1 Mitarbeiter · 4 J. 9 Mon. Haft · Jian G. spionierte für China. Krah hat angeblich nichts gewusst. Ermittlungen gegen ihn laufen trotzdem.",
       "source": {
         "label": "tagesschau 30.09.2025 · Generalbundesanwalt, PM 29.04.2025",
         "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html",
@@ -297,15 +297,15 @@
     {
       "type": "quote",
       "chapter": "innen",
-      "quote": "Schwarz-Rot ist vorbei.",
-      "author": "Alice Weidel, AfD-Bundesvorsitzende, Bundestag 09.09.2026",
-      "verdict": "Gesagt, als wäre die Machtfrage entschieden. Merz nannte die Partei am selben Abend „eine destruktive Kraft“.",
+      "quote": "Alles für Deutschland",
+      "author": "Björn Höcke, AfD-Landeschef Thüringen — gerufen auf zwei Partei-Veranstaltungen (2021 & 2023)",
+      "verdict": "Die verbotene Parole der SA, gerufen vom mächtigsten Mann der Partei. Zwei Gerichte: Er wusste, was er tat. Rechtskräftig.",
       "source": {
-        "label": "Deutscher Bundestag, Plenarprotokoll 21/92 (09.09.2026) · tagesschau zur Generaldebatte",
-        "url": "https://dserver.bundestag.de/btp/21/21092.pdf",
-        "visited": "2026-09-10"
+        "label": "ZEIT: BGH bestätigt Urteile gegen Höcke — NS-Parole (11.09.2025) · tagesschau (01.07.2024)",
+        "url": "https://www.zeit.de/politik/deutschland/2025-09/hoecke-afd-ns-parole-urteil-bgh",
+        "visited": "2026-09-03"
       },
-      "context_tooltip": "Wörtlich im Plenarprotokoll 21/92 (09.09.2026): Weidel eröffnet die Generaldebatte — \"Schwarz-Rot ist vorbei\", \"Ihre Zeit ist ohnehin abgelaufen\", dazu \"günstiges Gas aus Russland\". Merz: \"Sie sind und Sie bleiben, Frau Weidel, eine destruktive Kraft\", wirft der AfD \"ethnische Säuberung\" vor. Klöckner droht AfD-Abgeordneten mit Rauswurf."
+      "context_tooltip": "Das Landgericht Halle verurteilte Höcke zweimal wegen Verwendens von Kennzeichen verfassungswidriger Organisationen: 13.000 € (Mai 2024), 16.900 € (Juli 2024). Das Gericht stellte fest, dass er um historischen Hintergrund und Verbot wusste. Der BGH wies die Revisionen zurück — die Urteile sind rechtskräftig. \"Alles für Deutschland\" war die Losung der SA, der paramilitärischen Truppe der NSDAP."
     },
     {
       "type": "chapterbreak",
@@ -379,32 +379,6 @@
         "visited": "2026-09-03"
       },
       "share": "Wer's nicht nötig hat, bekommt das 43-Fache. Quelle: ZEW Mannheim 2025"
-    },
-    {
-      "type": "quiz",
-      "chapter": "kosten",
-      "question": "Wer bekommt den größten Teil der EU-Agrarmilliarden?",
-      "options": [
-        {
-          "text": "Kleine Familienbetriebe",
-          "correct": false
-        },
-        {
-          "text": "Das oberste 1 % der Empfänger",
-          "correct": true
-        },
-        {
-          "text": "Gleichmäßig verteilt",
-          "correct": false
-        }
-      ],
-      "explanation": "Das oberste 1 % bekommt über 12 Mrd. € — rund 30.000 € pro Betrieb. Die untere Hälfte: unter 4 Mrd. €. Die „Partei der kleinen Leute“ verteidigt das.",
-      "source": {
-        "label": "tagesschau (NDR/WDR/SZ, Farmsubsidies-Datenbank)",
-        "url": "https://www.tagesschau.de/investigativ/ndr-wdr/eu-agrarsubventionen-unternehmen-101.html",
-        "visited": "2026-09-03"
-      },
-      "context_tooltip": "Unter den 100 größten Empfängern sind mindestens 24 Ex-DDR-Großbetriebe — und selbst RWE, BASF und Bayer erhielten Agrargelder. Die untere Hälfte der Betriebe kommt im Schnitt auf 200 Euro im Monat."
     },
     {
       "type": "quote",
@@ -503,50 +477,6 @@
           "label": "wahlrecht.de — Umfragenübersicht (Sonntagsfrage, Sept. 2026)",
           "url": "https://www.wahlrecht.de/umfragen/",
           "visited": "2026-09-03"
-        }
-      ]
-    },
-    {
-      "type": "timeline",
-      "chapter": "fazit",
-      "headline": "Nach der Wahl",
-      "items": [
-        {
-          "date": "06.09.",
-          "title": "Wahlsieg",
-          "text": "Die AfD gewinnt mit 43,8 % (2021: 20,8 %).",
-          "source": {
-            "label": "tagesschau: vorläufiges Endergebnis Sachsen-Anhalt",
-            "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-180.html",
-            "visited": "2026-09-13"
-          }
-        },
-        {
-          "date": "07.09.2026",
-          "title": "BSW sagt Koalition ab",
-          "text": "Keine Koalition. Schüsse auf Anti-AfD-Demo in Halle — Täter unbekannt.",
-          "source": {
-            "label": "MDR-Ticker (07.09.2026) · MDR: Staatsschutz ermittelt in Halle",
-            "url": "https://www.mdr.de/nachrichten/sachsen-anhalt/halle/halle/landtagswahl-kundgebung-staatsschutz-100,schuesse-polizei-100.html",
-            "visited": "2026-09-10"
-          }
-        },
-        {
-          "date": "08./09.",
-          "title": "Siegmund, Trump",
-          "text": "Siegmund: Kernpositionen „zu 100 Prozent“. Trump: „MGGA“.",
-          "source": {
-            "label": "tagesschau: Siegmund will stabile Mehrheit suchen · ZEIT/dpa: Trump gratuliert",
-            "url": "https://www.tagesschau.de/inland/afd-siegmund-100.html",
-            "visited": "2026-09-10"
-          }
-        }
-      ],
-      "sources": [
-        {
-          "label": "DIE ZEIT (dpa): Trump gratuliert AfD — Bewegung „im Aufwind“ (09.09.2026)",
-          "url": "https://www.zeit.de/news/2026-09/09/trump-gratuliert-afd-bewegung-im-aufwind",
-          "visited": "2026-09-10"
         }
       ]
     },
