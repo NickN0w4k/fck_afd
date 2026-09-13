@@ -313,7 +313,7 @@ if (scenes.length) {
           }
         });
         if (!best) return;
-        const target = best.id === 'scene-0' ? '' : `#${best.id}`;
+        const target = best.id === 'start' ? '' : `#${best.id}`;
         if (window.location.hash !== target) {
           history.replaceState(null, '', window.location.pathname + window.location.search + target);
         }

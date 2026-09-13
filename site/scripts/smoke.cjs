@@ -72,20 +72,20 @@ function check(name, cond) {
   const live = page.locator('.explanation[aria-live="polite"]');
   check('Quiz: Erklärung aria-live', (await live.count()) >= 1 && (await live.first().isVisible()));
 
-  // Deep-Link: #scene-20 → Szene 20 im Viewport
-  await page.goto(BASE + '/#scene-20', { waitUntil: 'networkidle' });
+  // Deep-Link: #dexit-kosten → Szene 21 (Dexit-Slider) im Viewport
+  await page.goto(BASE + '/#dexit-kosten', { waitUntil: 'networkidle' });
   await page.waitForTimeout(900);
   const hashOK = await page.evaluate(() => {
-    const el = document.getElementById('scene-20');
+    const el = document.getElementById('dexit-kosten');
     const r = el.getBoundingClientRect();
     return r.top > -el.offsetHeight && r.top < window.innerHeight;
   });
-  check('Deep-Link: #scene-20 landet in Szene 20', hashOK);
+  check('Deep-Link: #dexit-kosten landet in Szene 21', hashOK);
 
   // URL folgt dem Scrollen
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.waitForTimeout(900);
-  const hashCleared = await page.evaluate(() => location.hash === '' || location.hash === '#scene-0');
+  const hashCleared = await page.evaluate(() => location.hash === '' || location.hash === '#start');
   check('Deep-Link: Hash folgt Scrollen', hashCleared);
 
   // --- Unterseiten ---
@@ -114,7 +114,7 @@ function check(name, cond) {
   // und auf vorhandene PNGs zeigen (Cleanup-Welle: Szenenzahl ist dynamisch).
   // Erreichbarkeit gegen den AKTUELLEN Origin prüfen (Subpfad-Preview: og zeigt auf
   // info-afd.de/preview/... — lokal existiert genau dieser Pfad unter dem Test-Origin).
-  await page.goto(BASE + '/szene/0/', { waitUntil: 'networkidle' });
+  await page.goto(BASE + '/szene/start/', { waitUntil: 'networkidle' });
   const ogChecks = await page.evaluate(async () => {
     const meta = document.querySelector('meta[property="og:image"]')?.content ?? '';
     let status = 0;

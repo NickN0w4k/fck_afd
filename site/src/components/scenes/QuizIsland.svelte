@@ -2,18 +2,18 @@
   import { slide } from 'svelte/transition';
   import { factList } from '../../scripts/textsplit.js';
   // Svelte 5: runes-lose, einfache Props + State
-  let { options, explanation, sceneIndex, chapter } = $props();
+  let { options, explanation, sceneIndex, chapter, slug } = $props();
 
   let picked = $state(null);
 
   const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function trackQuiz(answerIdx, correct) {
+  function trackQuiz(answerIdx, correct, slug) {
     try {
       const w = window;
       if (w.umami && typeof w.umami.track === 'function') {
         w.umami.track('quiz_answer', {
-          scene: String(sceneIndex ?? ''),
+          scene: String(slug ?? sceneIndex ?? ''),
           chapter: String(chapter ?? ''),
           answer: String(answerIdx),
           correct: correct ? '1' : '0',
@@ -25,7 +25,7 @@
   function pick(i) {
     if (picked !== null) return; // nur einmal antworten
     picked = i;
-    trackQuiz(i, !!options[i]?.correct);
+    trackQuiz(i, !!options[i]?.correct, slug);
   }
 
   const items = $derived(picked !== null ? factList(explanation ?? '', 160) : []);

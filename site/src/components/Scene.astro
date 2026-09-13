@@ -10,9 +10,11 @@ interface Props {
   id?: string;
   shareText?: string;
   sceneIndex?: number;
+  slug?: string;
 }
-const { chapter, accent, kicker, index, total, id, shareText, sceneIndex } = Astro.props;
-const sceneId = id ?? (index !== undefined ? `scene-${index}` : undefined);
+const { chapter, accent, kicker, index, total, id, shareText, sceneIndex, slug } = Astro.props;
+// Anker-ID: expliziter Slug (scenes.json) hat Vorrang — taucht in Share-Links + Umami-URLs auf.
+const sceneId = id ?? slug ?? (index !== undefined ? `scene-${index}` : undefined);
 ---
 
 <section
@@ -23,6 +25,7 @@ const sceneId = id ?? (index !== undefined ? `scene-${index}` : undefined);
   data-chapter={chapter}
   data-share-text={shareText}
   data-scene-index={sceneIndex}
+  data-slug={slug}
 >
   {
     shareText !== undefined && (

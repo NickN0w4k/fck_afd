@@ -12,13 +12,14 @@ interface Props {
   };
   sceneIndex?: number;
   chapter?: string;
+  slug?: string;
 }
-const { scene, sceneIndex, chapter } = Astro.props;
+const { scene, sceneIndex, chapter, slug } = Astro.props;
 ---
 
 <div class="quiz">
   <h2 class="quiz-question" data-anim="rise">{scene.question}</h2>
-  <QuizIsland client:visible options={scene.options} explanation={scene.explanation} sceneIndex={sceneIndex} chapter={chapter} />
+  <QuizIsland client:visible options={scene.options} explanation={scene.explanation} sceneIndex={sceneIndex} chapter={chapter} slug={slug} />
   {scene.source && <SourceTag source={scene.source} tooltip={scene.context_tooltip} />}
 </div>
 

@@ -6,18 +6,21 @@
       "chapter": "intro",
       "title": "Die AfD.",
       "subtitle": "Was du über sie wissen solltest, bevor du sie wählst.",
-      "cta": "Scrollen"
+      "cta": "Scrollen",
+      "slug": "start"
     },
     {
       "type": "statement",
       "chapter": "intro",
       "text": "Diese Seite ist keine Meinungsseite. Es ist eine Akte: jede Behauptung mit Quelle, jede Quelle archiviert.",
-      "note": "Alles mit Beleg. Immer."
+      "note": "Alles mit Beleg. Immer.",
+      "slug": "akte-keine-meinung"
     },
     {
       "type": "chapterbreak",
       "chapter": "verfassungsschutz",
-      "summary": "Du weißt jetzt: Hier steht nichts ohne Beleg — jede Zahl hat ihre Quelle."
+      "summary": "Du weißt jetzt: Hier steht nichts ohne Beleg — jede Zahl hat ihre Quelle.",
+      "slug": "kapitel-verfassungsschutz"
     },
     {
       "type": "data",
@@ -45,7 +48,8 @@
         "label": "Verfassungsschutzbericht 2025 (BMI), Tabelle „Rechtsextremismuspotenzial“, S. 94–95",
         "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
         "visited": "2026-09-03"
-      }
+      },
+      "slug": "rechtsextremisten-rekord"
     },
     {
       "type": "timeline",
@@ -83,7 +87,8 @@
             "visited": "2026-09-03"
           }
         }
-      ]
+      ],
+      "slug": "drei-instanzen-ein-urteil"
     },
     {
       "type": "reveal",
@@ -96,7 +101,8 @@
         "url": "https://correctiv.org/aktuelles/afd/2026/06/17/wie-stuft-der-verfassungsschutz-die-afd-in-den-bundeslaendern-ein/",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "„Gesichert“ ist die höchste Stufe: Der Verdacht gilt als zur Gewissheit verdichtet. Wo Gerichte prüften, hielt es stand — in Sachsen bestätigte das OVG Bautzen die Einstufung rechtsverbindlich, in Niedersachsen wertete das VG Hannover Begriffe wie „Umvolkung“ und „Volkstod“ als Belege für eine rassistische Weltanschauung."
+      "context_tooltip": "„Gesichert“ ist die höchste Stufe: Der Verdacht gilt als zur Gewissheit verdichtet. Wo Gerichte prüften, hielt es stand — in Sachsen bestätigte das OVG Bautzen die Einstufung rechtsverbindlich, in Niedersachsen wertete das VG Hannover Begriffe wie „Umvolkung“ und „Volkstod“ als Belege für eine rassistische Weltanschauung.",
+      "slug": "fuenf-laender-gesichert"
     },
     {
       "type": "quote",
@@ -109,7 +115,8 @@
         "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Der Verfassungsschutz zitiert das Video als Beleg für ein ethnisch-abstammungsmäßiges Volksverständnis, das dem Grundgesetz widerspricht. Narrative wie „Großer Austausch“ und „Umvolkung“ nennt der Bericht rechtsextremistische und verschwörungstheoretische Erzählungen — gesprochen vom offiziellen Kanal der Partei."
+      "context_tooltip": "Der Verfassungsschutz zitiert das Video als Beleg für ein ethnisch-abstammungsmäßiges Volksverständnis, das dem Grundgesetz widerspricht. Narrative wie „Großer Austausch“ und „Umvolkung“ nennt der Bericht rechtsextremistische und verschwörungstheoretische Erzählungen — gesprochen vom offiziellen Kanal der Partei.",
+      "slug": "zitat-bevoelkerungsaustausch"
     },
     {
       "type": "data",
@@ -137,12 +144,14 @@
         "label": "tagesschau.de — vorläufiges Endergebnis Landtagswahl Sachsen-Anhalt (07.09.2026)",
         "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-180.html",
         "visited": "2026-09-13"
-      }
+      },
+      "slug": "sachsen-anhalt-wahl"
     },
     {
       "type": "chapterbreak",
       "chapter": "programm",
-      "summary": "Du weißt jetzt, warum der Verfassungsschutz die AfD im Blick hat. Sie will ihn abschaffen."
+      "summary": "Du weißt jetzt, warum der Verfassungsschutz die AfD im Blick hat. Sie will ihn abschaffen.",
+      "slug": "kapitel-programm"
     },
     {
       "type": "contrast",
@@ -155,7 +164,8 @@
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Der Satz ist keine Randbemerkung, sondern die Grundannahme der AfD-Klimapolitik. Die vom Bundeswirtschaftsministerium beauftragte Studie rechnet bis 2050 mit Klimaschäden von 280 bis 900 Milliarden Euro. In der Bundestagsdebatte hieß es, ein Ausstieg aus dem Pariser Abkommen wäre der „sichere Weg“ in die Isolation."
+      "context_tooltip": "Der Satz ist keine Randbemerkung, sondern die Grundannahme der AfD-Klimapolitik. Die vom Bundeswirtschaftsministerium beauftragte Studie rechnet bis 2050 mit Klimaschäden von 280 bis 900 Milliarden Euro. In der Bundestagsdebatte hieß es, ein Ausstieg aus dem Pariser Abkommen wäre der „sichere Weg“ in die Isolation.",
+      "slug": "klima-wahlprogramm"
     },
     {
       "type": "quote",
@@ -168,7 +178,8 @@
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Wortlaut im Wahlprogramm (S. 92), Kapitel „Äußere Sicherheit“. Im Klartext: Die Forderung läuft darauf hinaus, Russlands Krieg zu finanzieren, während er läuft. Der Verfassungsschutzbericht ordnet ein: Teile des Verdachtsfalls „AfD“ vertraten „eindeutig prorussische Narrative“, mehrere Abgeordnete beteiligten sich an der Kampagne „Stoppt die Sanktionen“."
+      "context_tooltip": "Wortlaut im Wahlprogramm (S. 92), Kapitel „Äußere Sicherheit“. Im Klartext: Die Forderung läuft darauf hinaus, Russlands Krieg zu finanzieren, während er läuft. Der Verfassungsschutzbericht ordnet ein: Teile des Verdachtsfalls „AfD“ vertraten „eindeutig prorussische Narrative“, mehrere Abgeordnete beteiligten sich an der Kampagne „Stoppt die Sanktionen“.",
+      "slug": "russland-sanktionen"
     },
     {
       "type": "slider",
@@ -184,7 +195,8 @@
         "url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw49-de-rente-1128178",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Kein Wahlkampfgerücht, sondern ein ausgearbeiteter Antrag, über den der Bundestag debattiert hat. Alle Steuerzahler zahlen ein — auch Eltern, deren Kinder ohne deutschen Pass nichts bekommen. Der Unterschied zwischen Kindern besteht hier genau in einem Dokument."
+      "context_tooltip": "Kein Wahlkampfgerücht, sondern ein ausgearbeiteter Antrag, über den der Bundestag debattiert hat. Alle Steuerzahler zahlen ein — auch Eltern, deren Kinder ohne deutschen Pass nichts bekommen. Der Unterschied zwischen Kindern besteht hier genau in einem Dokument.",
+      "slug": "rente-aktien"
     },
     {
       "type": "contrast",
@@ -209,7 +221,8 @@
           "url": "https://www.dw.com/de/sachsen-anhalt-afd-landtagswahl-2026-aktuell-wahl-cdu-spd-gr%C3%BCne-linke-bsw-siegmund-schulze/a-79096739",
           "visited": "2026-09-10"
         }
-      ]
+      ],
+      "slug": "buergerwachten"
     },
     {
       "type": "quiz",
@@ -235,12 +248,14 @@
         "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Der Begriff kommt nicht aus der Asylpolitik, sondern aus einem Geheimtreffen in Potsdam: AfD-Politiker berieten dort mit Neonazis und dem Kopf der Identitären Bewegung die „Remigration“ — auch über Menschen mit deutschem Pass. Die Unwort-Jury wählte ihn zum Unwort des Jahres: eine „beschönigende Tarnvokabel“."
+      "context_tooltip": "Der Begriff kommt nicht aus der Asylpolitik, sondern aus einem Geheimtreffen in Potsdam: AfD-Politiker berieten dort mit Neonazis und dem Kopf der Identitären Bewegung die „Remigration“ — auch über Menschen mit deutschem Pass. Die Unwort-Jury wählte ihn zum Unwort des Jahres: eine „beschönigende Tarnvokabel“.",
+      "slug": "remigration-quiz"
     },
     {
       "type": "chapterbreak",
       "chapter": "innen",
-      "summary": "Du weißt jetzt, was die AfD schriftlich plant. Kein Gerücht — ihr Programm, Wort für Wort."
+      "summary": "Du weißt jetzt, was die AfD schriftlich plant. Kein Gerücht — ihr Programm, Wort für Wort.",
+      "slug": "kapitel-innen"
     },
     {
       "type": "quote",
@@ -253,7 +268,8 @@
         "url": "https://www.zeit.de/news/2018-06/03/empoerung-wegen-gaulands-relativierung-der-ns-zeit-180603-99-560879",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Der Satz relativiert die NS-Zeit. Schon 2017 (Flügel-Treffen) hatte Gauland das Recht eingefordert, „stolz“ auf die Leistungen deutscher Soldaten in zwei Weltkriegen zu sein. Das Internationale Auschwitz-Komitee nannte den Satz „widerlich“; Gauland verteidigte ihn später als eine der „verachtungsvollsten Charakterisierungen“, die die deutsche Sprache kennt."
+      "context_tooltip": "Der Satz relativiert die NS-Zeit. Schon 2017 (Flügel-Treffen) hatte Gauland das Recht eingefordert, „stolz“ auf die Leistungen deutscher Soldaten in zwei Weltkriegen zu sein. Das Internationale Auschwitz-Komitee nannte den Satz „widerlich“; Gauland verteidigte ihn später als eine der „verachtungsvollsten Charakterisierungen“, die die deutsche Sprache kennt.",
+      "slug": "vogelschiss-zitat"
     },
     {
       "type": "reveal",
@@ -266,7 +282,8 @@
         "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Die Forderung zeigt, wo der Rechtsstaat endet. Der Politologe Schammann: Man könne die Forderungen der AfD nur erfüllen, wenn man ein anderes politisches System wählt. Der Maßstab: Bayerns AfD will „umfassende Remigration im Millionenbereich“ — ausreisepflichtig waren in Bayern Mitte 2025 aber nur rund 24.500 Menschen."
+      "context_tooltip": "Die Forderung zeigt, wo der Rechtsstaat endet. Der Politologe Schammann: Man könne die Forderungen der AfD nur erfüllen, wenn man ein anderes politisches System wählt. Der Maßstab: Bayerns AfD will „umfassende Remigration im Millionenbereich“ — ausreisepflichtig waren in Bayern Mitte 2025 aber nur rund 24.500 Menschen.",
+      "slug": "startbahnen-gluehen"
     },
     {
       "type": "quote",
@@ -279,7 +296,8 @@
         "url": "https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2026/06/vsb2025-pm.html",
         "visited": "2026-09-10"
       },
-      "context_tooltip": "Gesagt zur Vorstellung des Verfassungsschutzberichts 2025 (BMI-PM, 30.06.2026). Der Bericht zählt im AfD-Umfeld 28.000 Rechtsextremisten, das Potenzial stieg auf 58.700 (+17 %), 15.600 gewaltorientiert. Fünf Landesverbände gelten als gesichert rechtsextremistisch — die Behörde des Innenministers sieht in der Partei die größte Gefahr."
+      "context_tooltip": "Gesagt zur Vorstellung des Verfassungsschutzberichts 2025 (BMI-PM, 30.06.2026). Der Bericht zählt im AfD-Umfeld 28.000 Rechtsextremisten, das Potenzial stieg auf 58.700 (+17 %), 15.600 gewaltorientiert. Fünf Landesverbände gelten als gesichert rechtsextremistisch — die Behörde des Innenministers sieht in der Partei die größte Gefahr.",
+      "slug": "dobrindt-demokratie-zitat"
     },
     {
       "type": "reveal",
@@ -292,7 +310,8 @@
         "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Bestraft wurde der Mitarbeiter, nicht der Arbeitgeber. Krah nennt sich selbst „Opfer“. Die Generalstaatsanwaltschaft Dresden ermittelt separat gegen ihn — wegen Bestechlichkeit und Geldwäsche im Zusammenhang mit chinesischen Zahlungen."
+      "context_tooltip": "Bestraft wurde der Mitarbeiter, nicht der Arbeitgeber. Krah nennt sich selbst „Opfer“. Die Generalstaatsanwaltschaft Dresden ermittelt separat gegen ihn — wegen Bestechlichkeit und Geldwäsche im Zusammenhang mit chinesischen Zahlungen.",
+      "slug": "spion-eu-parlament"
     },
     {
       "type": "quote",
@@ -305,12 +324,14 @@
         "url": "https://www.zeit.de/politik/deutschland/2025-09/hoecke-afd-ns-parole-urteil-bgh",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Das Landgericht Halle verurteilte Höcke zweimal wegen Verwendens von Kennzeichen verfassungswidriger Organisationen: 13.000 € (Mai 2024), 16.900 € (Juli 2024). Das Gericht stellte fest, dass er um historischen Hintergrund und Verbot wusste. Der BGH wies die Revisionen zurück — die Urteile sind rechtskräftig. \"Alles für Deutschland\" war die Losung der SA, der paramilitärischen Truppe der NSDAP."
+      "context_tooltip": "Das Landgericht Halle verurteilte Höcke zweimal wegen Verwendens von Kennzeichen verfassungswidriger Organisationen: 13.000 € (Mai 2024), 16.900 € (Juli 2024). Das Gericht stellte fest, dass er um historischen Hintergrund und Verbot wusste. Der BGH wies die Revisionen zurück — die Urteile sind rechtskräftig. \"Alles für Deutschland\" war die Losung der SA, der paramilitärischen Truppe der NSDAP.",
+      "slug": "alles-fuer-deutschland"
     },
     {
       "type": "chapterbreak",
       "chapter": "kosten",
-      "summary": "Noch da? Du hast vier Kapitel geschafft — und weißt jetzt, wer den Ton angibt."
+      "summary": "Noch da? Du hast vier Kapitel geschafft — und weißt jetzt, wer den Ton angibt.",
+      "slug": "kapitel-kosten"
     },
     {
       "type": "slider",
@@ -337,7 +358,8 @@
           "url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/06/PD26_203_124.html",
           "visited": "2026-09-13"
         }
-      ]
+      ],
+      "slug": "dexit-kosten"
     },
     {
       "type": "data",
@@ -352,7 +374,8 @@
         "visited": "2026-09-10"
       },
       "context_tooltip": "IWH-Präsident Reint Gropp: „Selbst in Teilen ist das Wahlprogramm der AfD auch mittelfristig nicht finanzierbar.“ Die Rechnung ist konservativ: Nur 28 von 136 kostenwirksamen Maßnahmen ließen sich belegen — rund 1,6 Mrd. € pro Jahr, plus 877 Mio. € Neuverschuldung. Einsparungen: 243 Mio. €. Schulden und Steuererhöhungen schließt das Programm aus.",
-      "share": "Die AfD kann ihr eigenes Programm nicht bezahlen: 2,2 Mrd. € fehlen pro Jahr. Quelle: IWH Halle"
+      "share": "Die AfD kann ihr eigenes Programm nicht bezahlen: 2,2 Mrd. € fehlen pro Jahr. Quelle: IWH Halle",
+      "slug": "programm-luecke"
     },
     {
       "type": "data",
@@ -378,7 +401,8 @@
         "url": "https://www.zew.de/presse/pressearchiv/wen-die-parteien-entlasten-wuerden/",
         "visited": "2026-09-03"
       },
-      "share": "Wer's nicht nötig hat, bekommt das 43-Fache. Quelle: ZEW Mannheim 2025"
+      "share": "Wer's nicht nötig hat, bekommt das 43-Fache. Quelle: ZEW Mannheim 2025",
+      "slug": "familie-zahlt"
     },
     {
       "type": "quote",
@@ -391,12 +415,14 @@
         "url": "https://www.diw.de/de/diw_01.c.879742.de/publikationen/diw_aktuell/2023_0088/das_afd-paradox__die_hauptleidtragenden_der_afd-politik_waeren_ihre_eigenen_waehler_innen.html",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Das DIW erklärt das Paradox: Die AfD redet ihren Unterstützern ein, sie würden gewinnen, wenn Leistungen und Grundrechte für andere gestrichen werden — eine kollektive Fehleinschätzung, so die Analyse. Und ihr nüchternes Fazit: Kaum eine Partei hat in 70 Jahren so hart nach unten getreten wie diese."
+      "context_tooltip": "Das DIW erklärt das Paradox: Die AfD redet ihren Unterstützern ein, sie würden gewinnen, wenn Leistungen und Grundrechte für andere gestrichen werden — eine kollektive Fehleinschätzung, so die Analyse. Und ihr nüchternes Fazit: Kaum eine Partei hat in 70 Jahren so hart nach unten getreten wie diese.",
+      "slug": "diw-eigene-waehler"
     },
     {
       "type": "chapterbreak",
       "chapter": "einwaende",
-      "summary": "Du weißt jetzt, wer draufzahlt. Und wer kassiert."
+      "summary": "Du weißt jetzt, wer draufzahlt. Und wer kassiert.",
+      "slug": "kapitel-einwaende"
     },
     {
       "type": "contrast",
@@ -415,7 +441,8 @@
           "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html",
           "visited": "2026-09-03"
         }
-      ]
+      ],
+      "slug": "verfassungsschutz-parteiisch"
     },
     {
       "type": "contrast",
@@ -428,7 +455,8 @@
         "url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1201000",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Keine Parole, sondern Drucksache: Die AfD-Fraktion hat diese Gesetzentwürfe offiziell in den Bundestag eingebracht. Allein ihr Erbschaftsteuer-Entwurf soll Erben um 8,5 Milliarden Euro entlasten — eine Rechnung, die die Verfasser selbst vorlegen. Aus dem offiziellen AfD-Antrag, nicht aus einem Chat."
+      "context_tooltip": "Keine Parole, sondern Drucksache: Die AfD-Fraktion hat diese Gesetzentwürfe offiziell in den Bundestag eingebracht. Allein ihr Erbschaftsteuer-Entwurf soll Erben um 8,5 Milliarden Euro entlasten — eine Rechnung, die die Verfasser selbst vorlegen. Aus dem offiziellen AfD-Antrag, nicht aus einem Chat.",
+      "slug": "nur-wahlkampf"
     },
     {
       "type": "contrast",
@@ -441,12 +469,14 @@
         "url": "https://www.br.de/bundestagswahl/afd-politiker-gauland-ueber-merkel-wir-werden-sie-jagen-100.html",
         "visited": "2026-09-06"
       },
-      "context_tooltip": "Nach dem Angriff auf den SPD-Politiker Matthias Ecke zog SPD-Chef Klingbeil genau diese Linie: „Es gibt Vertreter beispielsweise auch der AfD, die offen dazu auffordern, andere Politiker zu jagen. Und dann sind das vielleicht nicht diejenigen, die so eine Tat unmittelbar zu verantworten haben.“"
+      "context_tooltip": "Nach dem Angriff auf den SPD-Politiker Matthias Ecke zog SPD-Chef Klingbeil genau diese Linie: „Es gibt Vertreter beispielsweise auch der AfD, die offen dazu auffordern, andere Politiker zu jagen. Und dann sind das vielleicht nicht diejenigen, die so eine Tat unmittelbar zu verantworten haben.“",
+      "slug": "niemand-nimmt-woertlich"
     },
     {
       "type": "chapterbreak",
       "chapter": "fazit",
-      "summary": "Die drei Einwände vom Familienessen? Du weißt jetzt: Keiner hält einer Prüfung stand."
+      "summary": "Die drei Einwände vom Familienessen? Du weißt jetzt: Keiner hält einer Prüfung stand.",
+      "slug": "kapitel-fazit"
     },
     {
       "type": "quiz",
@@ -478,7 +508,8 @@
           "url": "https://www.wahlrecht.de/umfragen/",
           "visited": "2026-09-03"
         }
-      ]
+      ],
+      "slug": "wahl-2025-quiz"
     },
     {
       "type": "summary",
@@ -509,7 +540,8 @@
           "text": "Rücktritte trotz Urteilen"
         }
       ],
-      "closing": "Jede Zahl hat eine Quelle. Prüfe selbst."
+      "closing": "Jede Zahl hat eine Quelle. Prüfe selbst.",
+      "slug": "die-fakten"
     },
     {
       "type": "action",
@@ -536,11 +568,13 @@
           "title": "Teilen",
           "text": "Fakten wirken am stärksten, wenn du sie weitererzählst."
         }
-      ]
+      ],
+      "slug": "was-du-tun-kannst"
     },
     {
       "type": "endcard",
-      "chapter": "fazit"
+      "chapter": "fazit",
+      "slug": "ende"
     },
     {
       "type": "sources",
@@ -771,7 +805,8 @@
           "url": "https://www.tagesschau.de/inland/gauland-212.html",
           "visited": "2026-09-06"
         }
-      ]
+      ],
+      "slug": "quellen"
     }
   ]
 }

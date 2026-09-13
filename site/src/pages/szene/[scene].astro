@@ -16,7 +16,7 @@ const chapterById = Object.fromEntries(chapters.map((c) => [c.id, c]));
 export function getStaticPaths() {
   const all = (/** @type {any} */ (scenesRaw)).scenes ?? scenesRaw;
   return all.map((scene, i) => ({
-    params: { scene: String(i) },
+    params: { scene: scene.slug ?? String(i) },
     props: { index: i },
   }));
 }
@@ -26,6 +26,7 @@ const scene = allScenes[index];
 const next = allScenes[index + 1];
 const chapter = chapterById[scene.chapter];
 const share = sceneShareText(scene, chapter?.title);
+const slug = scene.slug ?? String(index);
 // Runde 3: Doc-Titel schlank halten — bei Zitaten nur Zitat + Autor (das Verdict
 // gehört in og:description + Kachel, nicht als unformatierter Riesentitel ins H1)
 const pageTitle = scene.type === 'quote' ? `„${scene.quote}“ — ${scene.author}` : share;
@@ -52,12 +53,12 @@ const ogAlt = `Fakten-Kachel zu Szene ${padded}: ${share}`.slice(0, 200);
     <nav class="doc-nav" aria-label="Szenen-Navigation">
       {
         index > 0 ? (
-          <a class="doc-nav-link" href={`${import.meta.env.BASE_URL}#scene-${index - 1}`}>← Szene {String(index).padStart(2, '0')}</a>
+          <a class="doc-nav-link" href={`${import.meta.env.BASE_URL}#${allScenes[index - 1].slug ?? index - 1}`}>← Szene {String(index).padStart(2, '0')}</a>
         ) : (
           <span />
         )
       }
-      {next && <a class="doc-nav-link" href={`${import.meta.env.BASE_URL}#scene-${index + 1}`}>→ Weiter zur nächsten Szene</a>}
+      {next && <a class="doc-nav-link" href={`${import.meta.env.BASE_URL}#${slug}`}>→ Weiter zur nächsten Szene</a>}
     </nav>
   </div>
 </Base>

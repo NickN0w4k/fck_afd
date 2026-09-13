@@ -31,7 +31,7 @@ const sourceCount = seenUrls.size;
 ---
 
 <Base>
-  <a class="skip-link" href={summaryIndex >= 0 ? `#scene-${summaryIndex}` : '#scene-0'}>Direkt zum Fazit</a>
+  <a class="skip-link" href={summaryIndex >= 0 ? `#${scenes[summaryIndex].slug ?? `scene-${summaryIndex}`}` : '#start'}>Direkt zum Fazit</a>
   <main class="feed" id="feed">
     {
       scenes.map((scene, i) => {
@@ -43,7 +43,7 @@ const sourceCount = seenUrls.size;
             accent={i === 0 ? '#009EE3' : chapter?.accent}
             chapter={scene.chapter}
             shareText={sceneShareText(scene, chapter?.title)}
-            id={i === 0 ? 'scene-0' : undefined}
+            slug={scene.slug}
             kicker={scene.type === 'chapterbreak' ? `Kapitel ${chapter?.num ?? ''}` : undefined}
             sceneIndex={i}
           >

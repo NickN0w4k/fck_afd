@@ -56,14 +56,15 @@
 
   var enter = function (scene) {
     var idx = scene.getAttribute('data-scene-index');
+    var sl = scene.getAttribute('data-slug') || idx;
     var ch = scene.getAttribute('data-chapter') || '';
     leave();
-    current = { index: idx, chapter: ch, since: Date.now() };
+    current = { index: sl, chapter: ch, since: Date.now() };
     var n = parseInt(idx, 10) || 0;
     if (n > reached) reached = n;
-    if (!seen[idx]) {
-      seen[idx] = true;
-      send('scene_view', { scene: idx, chapter: ch });
+    if (!seen[sl]) {
+      seen[sl] = true;
+      send('scene_view', { scene: sl, chapter: ch });
     }
   };
 
@@ -98,7 +99,7 @@
       var mid = Math.floor(window.innerHeight / 2);
       var el = document.elementFromPoint(window.innerWidth / 2, mid);
       var sc = el && (el.closest ? el.closest('.scene[data-scene-index]') : null);
-      if (sc) current = { index: sc.getAttribute('data-scene-index'), chapter: sc.getAttribute('data-chapter') || '', since: Date.now() };
+      if (sc) current = { index: sc.getAttribute('data-slug') || sc.getAttribute('data-scene-index'), chapter: sc.getAttribute('data-chapter') || '', since: Date.now() };
     }
   });
 })();
