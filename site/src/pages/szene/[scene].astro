@@ -26,17 +26,20 @@ const scene = allScenes[index];
 const next = allScenes[index + 1];
 const chapter = chapterById[scene.chapter];
 const share = sceneShareText(scene, chapter?.title);
+// Runde 3: Doc-Titel schlank halten — bei Zitaten nur Zitat + Autor (das Verdict
+// gehört in og:description + Kachel, nicht als unformatierter Riesentitel ins H1)
+const pageTitle = scene.type === 'quote' ? `„${scene.quote}“ — ${scene.author}` : share;
 const padded = String(index + 1).padStart(2, '0');
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const ogImage = `${base}og/scene-${index}.png`;
 const ogAlt = `Fakten-Kachel zu Szene ${padded}: ${share}`.slice(0, 200);
 ---
 
-<Base title={`Szene ${padded}: ${share} — Die AfD. Die Fakten.`} description={share} ogImage={ogImage} ogImageAlt={ogAlt}>
+<Base title={`Szene ${padded}: ${pageTitle} — Die AfD. Die Fakten.`} description={pageTitle} ogImage={ogImage} ogImageAlt={ogAlt}>
   <div class="doc-page" style={`--accent: ${chapter?.accent}`}>
     <header class="doc-header">
       <p class="doc-kicker">Szene {padded} / {String(allScenes.length).padStart(2, '0')} · {chapter?.title}</p>
-      <h1 class="doc-title">{share}</h1>
+      <h1 class="doc-title">{pageTitle}</h1>
       <a class="doc-tour-link" href={import.meta.env.BASE_URL}>→ Zur kompletten Tour</a>
     </header>
 

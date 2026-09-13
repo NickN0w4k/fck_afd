@@ -1,5 +1,8 @@
 ---
-// Quote: Vollbild-Zitat, Wörter sliden einzeln rein. Kontext als Einordnung-Karte.
+// Quote: Vollbild-Zitat, Wörter sliden einzeln rein.
+// Runde 3 (Nick): Einordnung GROSS und prominent direkt unter dem Zitat —
+// Feld `verdict` (harte Kritik, sichtbar) oder Fallback `context`. Das alte
+// Mini-Einordnungsfeld (0.92rem) war zu unauffällig unter dem Mega-Zitat.
 import SourceTag from '../SourceTag.astro';
 
 interface Props {
@@ -7,20 +10,22 @@ interface Props {
     quote: string;
     author: string;
     context?: string;
+    verdict?: string;
     source?: { label: string; url: string; visited?: string };
   };
 }
 const { scene } = Astro.props;
+const verdict = scene.verdict ?? scene.context;
 ---
 
 <blockquote class="quote">
   <p class="quote-text" data-quote data-hl>„{scene.quote}“</p>
   <footer class="quote-footer" data-anim="rise">
     <p class="quote-author">{scene.author}</p>
-    {scene.context && (
-      <div class="quote-context">
-        <p class="context-kicker">Einordnung</p>
-        <p class="context-text" data-hl>{scene.context}</p>
+    {verdict && (
+      <div class="quote-verdict">
+        <p class="verdict-kicker">Warum das schlecht ist</p>
+        <p class="verdict-text" data-hl>{verdict}</p>
       </div>
     )}
   </footer>
@@ -51,26 +56,30 @@ const { scene } = Astro.props;
     font-family: var(--font-head);
     font-weight: 600;
   }
-  .quote-context {
-    margin-top: 0.9rem;
+  /* Runde 3: Verdict-Block — groß, lesbar, klar als Bewertung markiert */
+  .quote-verdict {
+    margin-top: 1.4rem;
     border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
+    border-left: 4px solid var(--accent);
     border-radius: 12px;
-    padding: 0.9rem 1.1rem;
+    padding: 1.2rem 1.4rem;
     background: var(--bg-elev);
-    max-width: 46ch;
+    max-width: 52ch;
   }
-  .context-kicker {
+  .verdict-kicker {
     font-family: var(--font-head);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
+    font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.55rem;
   }
-  .context-text {
-    font-size: 0.92rem;
-    color: var(--fg-muted);
-    line-height: 1.55;
+  .verdict-text {
+    font-family: var(--font-head);
+    font-size: clamp(1.15rem, 3.2vw, 1.6rem);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--fg);
   }
 </style>

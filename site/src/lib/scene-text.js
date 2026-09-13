@@ -14,7 +14,7 @@ export function sceneShareText(scene, chapterTitle) {
     case 'quiz':
       return clean(`Quiz: ${scene.question}`);
     case 'quote':
-      return clean(`„${scene.quote}" — ${scene.author}`);
+      return clean(`„${scene.quote}“ — ${scene.author}${scene.verdict ? ` — ${scene.verdict}` : ''}`);
     case 'reveal':
       return clean(scene.headline || scene.teaser || scene.body);
     case 'contrast':
