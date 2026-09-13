@@ -6,6 +6,8 @@
 
   let picked = $state(null);
 
+  const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function pick(i) {
     if (picked !== null) return; // nur einmal antworten
     picked = i;
@@ -25,7 +27,7 @@
       class:dim={picked !== null && !opt.correct && picked !== i}
       class:flip={picked !== null}
       onclick={() => pick(i)}
-      disabled={picked !== null}
+      aria-disabled={picked !== null}
     >
       <span class="option-text">{opt.text}</span>
       {#if picked !== null && opt.correct}
@@ -38,7 +40,7 @@
 </div>
 
 {#if picked !== null}
-  <div class="explanation" role="status" aria-live="polite" transition:slide>
+  <div class="explanation" role="status" aria-live="polite" transition:slide={{ duration: reduced ? 0 : 250 }}>
     {#each items as item, i}
       <p style="--i:{i}">{@html item}</p>
     {/each}
@@ -67,14 +69,14 @@
     background: var(--bg-elev);
     transition: transform 0.15s var(--ease-out), border-color 0.2s, background 0.2s, opacity 0.2s;
   }
-  .option:not(:disabled):hover {
+  .option:not([aria-disabled='true']):hover {
     transform: scale(1.015);
     border-color: var(--accent);
   }
-  .option:not(:disabled):active {
+  .option:not([aria-disabled='true']):active {
     transform: scale(0.985);
   }
-  .option:disabled {
+  .option[aria-disabled='true'] {
     cursor: default;
   }
   .option.correct {

@@ -106,9 +106,20 @@ function check(name, cond) {
   // Sitemap + robots (base-aware: BASE enthält ggf. /fck_afd)
   const basePath = new URL(BASE + '/').pathname; // z.B. /fck_afd/
   const sm = await page.evaluate(async (u) => (await fetch(u)).text(), `${basePath}sitemap.xml`);
-  check('sitemap.xml: 51 URLs (9 + 42 Szenen)', (sm.match(/<loc>/g) || []).length === 9 + scenesData.length);
+  check(`sitemap.xml: ${9 + scenesData.length} URLs (9 + ${scenesData.length} Szenen)`, (sm.match(/<loc>/g) || []).length === 9 + scenesData.length);
   const rb = await page.evaluate(async (u) => (await fetch(u)).text(), `${basePath}robots.txt`);
   check('robots.txt: Sitemap-Zeile', rb.includes('Sitemap:'));
+
+  // Pro-Szene-OG-Images (Fix 13.09.): og:images auf /szene/N/ müssen ABSOLUTE URLs sein
+  // und auf vorhandene PNGs zeigen (Cleanup-Welle: Szenenzahl ist dynamisch)
+  await page.goto(BASE + '/szene/0/', { waitUntil: 'networkidle' });
+  const ogChecks = await page.evaluate(async () => {
+    const meta = document.querySelector('meta[property="og:image"]')?.content ?? '';
+    const res = await fetch(meta, { method: 'HEAD' });
+    return { content: meta, absolute: meta.startsWith('http'), status: res.status };
+  });
+  check('Szene-0: og:image absolut', ogChecks.absolute);
+  check('Szene-0: og:image erreichbar (200)', ogChecks.status === 200);
 
   console.log('\nJS-Fehler gesamt:', errors.length ? errors.slice(0, 10) : 'keine');
   check('keine JS-Fehler', errors.length === 0);

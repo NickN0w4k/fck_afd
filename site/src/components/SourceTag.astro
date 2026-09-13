@@ -38,6 +38,7 @@ const { source, tooltip } = Astro.props;
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
+    min-height: 44px; /* Fix 13.09. (apex): Tap-Fläche — Pill war ~31px hoch */
     font-family: var(--font-head);
     font-size: 0.9rem;
     font-weight: 600;

@@ -12,11 +12,11 @@
     per_family_label,
   } = $props();
 
+  const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   let val = $state(Math.round((min + max) / 2));
   let shown = $state(Math.round((min + max) / 2));
   let revealed = $state(false);
-
-  const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const explItems = $derived(revealed ? factList(explanation ?? '', 160) : []);
 
@@ -69,7 +69,7 @@
   {#if !revealed}
     <button class="submit" onclick={reveal}>Auflösen</button>
   {:else}
-    <div class="result" transition:slide>
+    <div class="result" transition:slide={{ duration: reduced ? 0 : 250 }}>
       <p class="verdict">{verdict}</p>
       <p class="answer">Antwort: <strong>{answer}{unit}</strong></p>
       <div class="diff" role="img" aria-label={`Deine Schätzung ${val}${unit}, Wahrheit ${answer}${unit}`}>

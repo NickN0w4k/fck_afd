@@ -1,6 +1,10 @@
 ---
 // EndCard: Finale Aktions-Szene — Neustart, Teilen, Story-Karte generieren.
 // (Kein eigener Scene-Wrapper mehr — SceneBody wird immer von außen gewrappt.)
+// Cleanup-Welle 13.09.: (1) Teilen-Button nutzt jetzt window.__sceneShare (gleiche
+// UX-Flows wie die Szenen-Buttons: Sheet mit Telegram/WhatsApp/X/Kopieren statt
+// stummen Clipboard-Copy). (2) Sport-Catcher: kleiner Teaser auf die geplante
+// Übersichts-/Sportseite (in Arbeit — bewusst KEIN Link auf eine noch leere Seite).
 interface Props {
   scene: { accent?: string };
   index?: number;
@@ -44,6 +48,13 @@ const accent = scene.accent ?? '#ff4d2e';
     </div>
 
     <p class="end-note" data-anim="rise" style="--d: 400ms">Alle Quellen liegen als Volltexte offen — prüfe jede Zahl.</p>
+
+    {/* Sport-Catcher (Cleanup-Welle): Teaser auf die kommende Übersichts-/Sportseite.
+        Kein Link (Seite existiert noch nicht) — nur Neugier, kein Fake-Feature. */}
+    <div class="sport-catcher" data-anim="rise" style="--d: 480ms">
+      <span class="sport-soon">In Arbeit</span>
+      <p class="sport-text">Bald gibt's hier eine Übersicht, auf der du dir alles ansehen und durchklicken kannst — jede Szene einzeln, zum Weitergeben.</p>
+    </div>
 
     <button class="scroll-to-sources" data-scroll-sources aria-label="Zu den Quellen scrollen">
       <span>Quellen</span>
@@ -132,6 +143,32 @@ const accent = scene.accent ?? '#ff4d2e';
     color: var(--fg-muted);
     font-size: 0.85rem;
   }
+  /* ===== Sport-Catcher (Cleanup-Welle) ===== */
+  .sport-catcher {
+    margin-top: 1.6rem;
+    padding: 1rem 1.2rem;
+    background: var(--bg-elev);
+    border: 1px dashed var(--border);
+    border-radius: 14px;
+  }
+  .sport-soon {
+    display: inline-block;
+    font-family: var(--font-head);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 99px;
+    padding: 0.2rem 0.65rem;
+    margin-bottom: 0.55rem;
+  }
+  .sport-text {
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
   .scroll-to-sources {
     margin-top: 1.4rem;
     display: flex;
@@ -170,21 +207,11 @@ const accent = scene.accent ?? '#ff4d2e';
       if (action === 'restart') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (action === 'share') {
-        const shareData = {
-          title: 'Die AfD. Die Fakten.',
-          text: 'Die Fakten über die AfD. Jede mit Quelle. Prüf es selbst.',
-          url: window.location.origin + window.location.pathname,
-        };
-        if (navigator.share) {
-          try { await navigator.share(shareData); } catch {} // Abbruch ist ok
-        } else {
-          try {
-            await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
-            const original = b.innerHTML; // inkl. Icon
-            b.textContent = 'Link kopiert ✓';
-            setTimeout(() => (b.innerHTML = original), 1800);
-          } catch {}
-        }
+        // Fix 13.09. (apex-Audit): gleiche Share-UX wie die Szenen-Buttons —
+        // navigator.share oder Sheet (Telegram/WhatsApp/X/Copieren), nicht stummes Copy.
+        const text = 'Die Fakten über die AfD. Jede mit Quelle. Prüf es selbst.';
+        const url = window.location.origin + window.location.pathname;
+        window.__sceneShare?.(text, url, b);
       } else if (action === 'card') {
         const { renderShareCard } = await import('../../scripts/sharecard.js');
         const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#ff4d2e';

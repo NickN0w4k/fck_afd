@@ -18,6 +18,7 @@ const sceneId = id ?? (index !== undefined ? `scene-${index}` : undefined);
 <section
   class:list={['scene']}
   data-accent={accent}
+  style={accent ? `--accent: ${accent}` : undefined}
   id={sceneId}
   data-chapter={chapter}
   data-share-text={shareText}

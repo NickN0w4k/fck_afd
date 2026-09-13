@@ -88,7 +88,7 @@
       "chapter": "verfassungsschutz",
       "teaser": "Tippen, um aufzudecken",
       "headline": "Fünf Landesverbände „gesichert rechtsextremistisch“",
-      "body": "Thüringen, Sachsen und Sachsen-Anhalt gelten seit Jahren als „gesichert extremistisch“ — kein Gericht hat das gekippt. Neu 2025/26: Brandenburg und Niedersachsen.",
+      "body": "Drei Landesverbände gelten seit Jahren als „gesichert extremistisch“ — kein Gericht hat das gekippt. Neu 2025/26: Brandenburg und Niedersachsen.",
       "source": {
         "label": "CORRECTIV — Verfassungsschutz-Einstufungen der AfD in den Bundesländern (17.06.2026)",
         "url": "https://correctiv.org/aktuelles/afd/2026/06/17/wie-stuft-der-verfassungsschutz-die-afd-in-den-bundeslaendern-ein/",
@@ -99,56 +99,43 @@
     {
       "type": "quote",
       "chapter": "verfassungsschutz",
-      "quote": "Unsere Dörfer sterben nicht nur leise aus. … Die Politik schaut nicht nur dabei zu, sie fördert aktiv den Austausch unserer Bevölkerung.",
+      "quote": "Die Politik schaut nicht nur dabei zu, sie fördert aktiv den Austausch unserer Bevölkerung.",
       "author": "Offizieller AfD-YouTube-Kanal „AfD TV“, 8. Mai 2025",
-      "context": "Der Verfassungsschutz zitiert dieses Video wörtlich als Beleg für eine rechtsextremistische, dem Grundgesetz widersprechende Erzählung. „Großer Austausch“ nennt der Bericht eine verschwörungstheoretische Falschbehauptung — von der offiziellen Partei-Kanals gesprochen, nicht in einem Chat.",
+      "context": "Der Verfassungsschutz zitiert das Video wörtlich als Beleg für rechtsextremistische Erzählung.",
       "source": {
         "label": "Verfassungsschutzbericht 2025 (BMI), S. 131",
         "url": "https://www.bmi.bund.de/SharedDocs/downloads/DE/publikationen/themen/sicherheit/BMI26012-vsb2025.pdf",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Der Verfassungsschutz zitiert das Video als Beleg für ein ethnisch-abstammungsmäßiges Volksverständnis, das dem Grundgesetz widerspricht. Narrative wie „Großer Austausch“ und „Umvolkung“ nennt der Bericht rechtsextremistische und verschwörungstheoretische Erzählungen — gesprochen von keinem Einzelnen, sondern vom offiziellen Kanal der Partei."
+      "context_tooltip": "Der Verfassungsschutz zitiert das Video als Beleg für ein ethnisch-abstammungsmäßiges Volksverständnis, das dem Grundgesetz widerspricht. Narrative wie „Großer Austausch“ und „Umvolkung“ nennt der Bericht rechtsextremistische und verschwörungstheoretische Erzählungen — gesprochen vom offiziellen Kanal der Partei."
     },
     {
       "type": "data",
       "chapter": "verfassungsschutz",
       "headline": "Und wo es schon Realität ist: Sachsen-Anhalt",
-      "value": 44,
+      "value": 43.8,
       "suffix": " %",
-      "caption": "Landtagswahl 6.9.2026: Die AfD gewinnt mit 44 % — bestes Ergebnis ihrer Geschichte (2021: 20,8 %). Die absolute Mehrheit verfehlt sie knapp, alle anderen lehnen eine Zusammenarbeit ab.",
+      "caption": "Landtagswahl 6.9.2026, vorläufiges Endergebnis: Die AfD gewinnt mit 43,8 % — bestes Ergebnis ihrer Geschichte (2021: 20,8 %). Die absolute Mehrheit verfehlt sie knapp, alle anderen lehnen eine Zusammenarbeit ab.",
       "chart": "bars",
       "series": [
         {
           "label": "AfD",
-          "value": 44
+          "value": 43.8
         },
         {
           "label": "CDU",
-          "value": 17.8
+          "value": 17.2
         },
         {
           "label": "SPD",
-          "value": 9.1
+          "value": 9.3
         }
       ],
       "source": {
-        "label": "tagesschau.de — ARD-Hochrechnung Landtagswahl Sachsen-Anhalt (infratest dimap, 06.09.2026)",
-        "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-172.html",
-        "visited": "2026-09-06"
+        "label": "tagesschau.de — vorläufiges Endergebnis Landtagswahl Sachsen-Anhalt (07.09.2026)",
+        "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-180.html",
+        "visited": "2026-09-13"
       }
-    },
-    {
-      "type": "quote",
-      "chapter": "verfassungsschutz",
-      "quote": "Der Verfassungsschutz gehört in seiner jetzigen Form abgeschafft beziehungsweise grundlegend reformiert.",
-      "author": "Alice Weidel, AfD-Bundesvorsitzende, August 2026",
-      "context": "Die Behörde, die die AfD als rechtsextremistisch einstuft, soll weg. Nicht die Kritik an ihr — die Beobachtung selbst soll durch ihre Abschaffung enden. Drei Gerichte haben die Einstufung bisher bestätigt.",
-      "source": {
-        "label": "Deutschlandfunk 17.08.2026 · dpa/MDR zum Wahlkampfauftakt 18.07.2026",
-        "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html",
-        "visited": "2026-09-03"
-      },
-      "context_tooltip": "Die Forderung richtet sich gegen genau die Behörde, die die AfD als rechtsextremistisch einstuft: Der Landesverband in Sachsen-Anhalt gilt als gesichert rechtsextremistisch, die Bundespartei als Verdachtsfall — dreifach gerichtlich bestätigt. Wer die Behörde abschaffen will, will die Beobachtung loswerden, nicht reformieren."
     },
     {
       "type": "chapterbreak",
@@ -159,9 +146,9 @@
       "type": "contrast",
       "chapter": "programm",
       "claim": "„Das Klima kann der Mensch nicht schützen.“",
-      "reality": "Der Satz steht wörtlich im Wahlprogramm (S. 53) — die AfD will außerdem aus dem Pariser Klimaabkommen aussteigen. 195 Staaten bleiben drin.",
+      "reality": "Der Satz steht wörtlich im Wahlprogramm (S. 79) — die AfD will außerdem aus dem Pariser Klimaabkommen aussteigen.",
       "source": {
-        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 53",
+        "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 79",
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
         "visited": "2026-09-03"
       },
@@ -170,15 +157,15 @@
     {
       "type": "quote",
       "chapter": "programm",
-      "quote": "Zur Wiederherstellung des ungestörten Handels mit Russland gehören die sofortige Aufhebung der Wirtschaftssanktionen gegen Russland sowie die Instandsetzung der Nord Stream-Leitungen.",
+      "quote": "… die sofortige Aufhebung der Wirtschaftssanktionen gegen Russland sowie die Instandsetzung der Nord Stream-Leitungen.",
       "author": "AfD-Wahlprogramm 2025, S. 92",
-      "context": "Das Programm will die Sanktionen aufheben, solange Russland Krieg gegen die Ukraine führt — und ein Land finanziert, das es seit 2022 angreift. Der Verfassungsschutz nennt genau diese Linie „eindeutig prorussische Narrative“.",
+      "context": "Sanktionen aufheben, solange Russland Krieg führt — laut Verfassungsschutz „prorussisch“.",
       "source": {
         "label": "AfD-Wahlprogramm 2025 (PDF, afd.de), S. 92 · VSB 2025, S. 86–87",
         "url": "https://www.afd.de/wp-content/uploads/2025/02/AfD_Bundestagswahlprogramm2025_web.pdf",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Der Verfassungsschutz ordnet genau diese Linie ein: Teile des Verdachtsfalls „AfD“ vertraten „eindeutig prorussische Narrative“, mehrere Abgeordnete beteiligten sich an der Kampagne „Stoppt die Sanktionen“. Die Forderung läuft also darauf hinaus, Russlands Krieg zu finanzieren, während er läuft."
+      "context_tooltip": "Wortlaut im Wahlprogramm (S. 92), Kapitel „Äußere Sicherheit“. Der VSB ordnet ein: Teile des Verdachtsfalls „AfD“ vertraten „eindeutig prorussische Narrative“, mehrere Abgeordnete beteiligten sich an der Kampagne „Stoppt die Sanktionen“. Die Forderung läuft darauf hinaus, Russlands Krieg zu finanzieren, während er läuft."
     },
     {
       "type": "slider",
@@ -199,26 +186,26 @@
     {
       "type": "contrast",
       "chapter": "programm",
-      "claim": "„Die Rundfunkstaatsverträge werden als erste Amtshandlung gekündigt, um echten Reformdruck zu erzeugen!“",
-      "reality": "Steht wörtlich im Regierungsprogramm „Das Land zuerst.“ (Sofortmaßnahme Nr. 3). Die DW nennt den Kurs einen „radikalen Gesellschaftsumbau“ — der Kampf gilt dem öffentlich-rechtlichen Rundfunk.",
+      "claim": "„…als eine dritte Säule der Sicherheitsarchitektur vor Ort eine freiwillige Bürgerwacht aufbauen.“",
+      "reality": "Verfassungsrechtler Thiel: „verfassungsrechtlich problematisch“ — und dasselbe Programm kündigt als erste Amtshandlung die Rundfunk-Staatsverträge.",
       "source": {
-        "label": "AfD Sachsen-Anhalt, Regierungsprogramm „Das Land zuerst.“ (11.04.2026, PDF) · DW 10.09.2026",
-        "url": "https://afd-lsa.de/wp-content/uploads/2026/07/AfD_Sachsen-Anhalt_Regierungsprogramm_2026_230726-web.pdf",
-        "visited": "2026-09-10"
-      },
-      "context_tooltip": "Das Programm zielt auf das Ende von „Posten und Pflichtgebühren“ im Öffentlich-Rechtlichen — beschlossen auf dem Landesparteitag Magdeburg (11.04.2026), PDF-Stand 23.07.2026. Die DW nach der Wahl: Die AfD sagt dem öffentlich-rechtlichen Rundfunk „den Kampf an“ — Teil eines „radikalen Gesellschaftsumbaus“ (10.09.2026)."
-    },
-    {
-      "type": "contrast",
-      "chapter": "programm",
-      "claim": "„Wir werden deshalb als eine dritte Säule der Sicherheitsarchitektur vor Ort eine freiwillige Bürgerwacht aufbauen.“",
-      "reality": "Verfassungsrechtler Markus Thiel warnt: verfassungsrechtlich problematisch (Grundrechte, Funktionsvorbehalt) — und der Begriff „erinnert, absichtlich oder unabsichtlich, an Bürgerwehr“.",
-      "source": {
-        "label": "AfD Sachsen-Anhalt, Regierungsprogramm „Das Land zuerst.“ (Punkt 20) · ZDF heute 27.07.2026",
+        "label": "AfD Sachsen-Anhalt, Regierungsprogramm „Das Land zuerst.“ (Punkt 20) · zdfheute 30.08.2026",
         "url": "https://www.zdfheute.de/politik/deutschland/afd-sachsen-anhalt-buergerwacht-plan-100.html",
         "visited": "2026-09-10"
       },
-      "context_tooltip": "Polizeirechtler Markus Thiel (Polizeihochschule Münster) in zdfheute: Der Plan ist „verfassungsrechtlich problematisch, und zwar mit Blick auf die Grundrechte und den sogenannten Funktionsvorbehalt“ — Hoheitsrechte gehören nach Art. 33 GG in den öffentlichen Dienst. Eine „Bürgerwehr“ mit hoheitlichen Befugnissen sei „nicht erlaubt“."
+      "context_tooltip": "Polizeirechtler Markus Thiel (Polizeihochschule Münster) in zdfheute (30.08.2026): „verfassungsrechtlich problematisch, und zwar mit Blick auf die Grundrechte und den sogenannten Funktionsvorbehalt“ — Hoheitsrechte gehören nach Art. 33 GG in den öffentlichen Dienst. Eine „Bürgerwehr“ mit hoheitlichen Befugnissen sei „nicht erlaubt“. Zur Rundfunk-Kündigung (Sofortmaßnahme Nr. 3 des Programms „Das Land zuerst.“, Landesparteitag Magdeburg 11.04.2026): Die DW nennt den Kurs nach der Wahl einen „radikalen Gesellschaftsumbau“ — der Kampf gilt dem öffentlich-rechtlichen Rundfunk (DW, 06.09.2026).",
+      "sources": [
+        {
+          "label": "AfD Sachsen-Anhalt, Regierungsprogramm „Das Land zuerst.“ (11.04.2026, PDF)",
+          "url": "https://afd-lsa.de/wp-content/uploads/2026/07/AfD_Sachsen-Anhalt_Regierungsprogramm_2026_230726-web.pdf",
+          "visited": "2026-09-10"
+        },
+        {
+          "label": "Deutsche Welle: AfD will in Sachsen-Anhalt regieren — aber wie? (06.09.2026)",
+          "url": "https://www.dw.com/de/sachsen-anhalt-afd-landtagswahl-2026-aktuell-wahl-cdu-spd-gr%C3%BCne-linke-bsw-siegmund-schulze/a-79096739",
+          "visited": "2026-09-10"
+        }
+      ]
     },
     {
       "type": "quiz",
@@ -238,7 +225,7 @@
           "correct": false
         }
       ],
-      "explanation": "„Remigration“ stammt aus der rechtsextremen Szene und meint Ausreise mit Druck. Im Programm: Abschiebungen, keine Duldungen, Zurückweisungen an der Grenze — plus Widerruf des Schutzstatus für Syrer.",
+      "explanation": "„Remigration“ stammt aus der rechtsextremen Szene und meint Ausreise mit Druck — im Programm: Abschiebungen, keine Duldungen, Zurückweisungen an der Grenze.",
       "source": {
         "label": "tagesschau — Wahlprogramme im Vergleich: Migration",
         "url": "https://www.tagesschau.de/inland/bundestagswahl/programmvergleich/wahlprogramme-migration-100.html",
@@ -256,13 +243,13 @@
       "chapter": "innen",
       "quote": "Hitler und die Nazis sind nur ein Vogelschiss in über 1000 Jahren erfolgreicher deutscher Geschichte.",
       "author": "Alexander Gauland, damaliger AfD-Vorsitzender",
-      "context": "Ein Satz, der die NS-Zeit relativiert — und keine Randbemerkung: Die AfD-Jugend applaudierte, und derselbe Gauland forderte später öffentlich, „stolz“ auf die „Leistungen deutscher Soldaten in zwei Weltkriegen“ sein zu dürfen.",
+      "context": "NS-Relativierung. Schon 2017 forderte Gauland, „stolz“ auf deutsche Soldaten-Leistungen sein zu dürfen.",
       "source": {
         "label": "DIE ZEIT, 03.06.2018 + Deutsche Welle",
         "url": "https://www.zeit.de/news/2018-06/03/empoerung-wegen-gaulands-relativierung-der-ns-zeit-180603-99-560879",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Derselbe Gauland forderte später öffentlich das Recht ein, stolz auf die Leistungen deutscher Soldaten in zwei Weltkriegen zu sein — und verteidigte den Vogelschiss als eine der verachtungsvollsten Charakterisierungen, die die deutsche Sprache kennt. Das Internationale Auschwitz-Komitee nannte den Satz „widerlich“."
+      "context_tooltip": "Der Satz relativiert die NS-Zeit. Schon 2017 (Flügel-Treffen) hatte Gauland das Recht eingefordert, „stolz“ auf die Leistungen deutscher Soldaten in zwei Weltkriegen zu sein. Das Internationale Auschwitz-Komitee nannte den Satz „widerlich“; Gauland verteidigte ihn später als eine der „verachtungsvollsten Charakterisierungen“, die die deutsche Sprache kennt."
     },
     {
       "type": "reveal",
@@ -271,24 +258,37 @@
       "headline": "„Abschieben, bis die Startbahnen glühen“",
       "body": "Die bayerische AfD-Fraktion fordert eine Abschiebe-Truppe nach Vorbild der US-Behörde ICE. Name: „AFA“. Rechtlich gibt es dafür keine Grundlage.",
       "source": {
-        "label": "Bayerischer Rundfunk BR24 (30.01.2026)",
+        "label": "Bayerischer Rundfunk BR24 (30.01.2026) · ZEIT (VG-Köln-Bericht)",
         "url": "https://www.br.de/nachrichten/bayern/abschiebetrupp-aehnlich-wie-ice-wie-experten-afd-plaene-sehen,V9UPrH3",
         "visited": "2026-09-03"
       },
       "context_tooltip": "Die Forderung zeigt, wo der Rechtsstaat endet: Der Politologe Schammann urteilt, man könne die Forderungen der AfD nur erfüllen, wenn man ein anderes politisches System wählt. Der Maßstab: Bayerns AfD will „umfassende Remigration im Millionenbereich“ — Mitte 2025 waren in Bayern aber nur rund 24.500 Menschen ausreisepflichtig."
     },
     {
+      "type": "quote",
+      "chapter": "innen",
+      "quote": "Die größte Bedrohung für unsere Demokratie kommt weiterhin von Rechtsextremisten.",
+      "author": "Alexander Dobrindt, Bundesinnenminister, 30.06.2026",
+      "context": "Der Innenminister selbst: Sein Bericht zählt 28.000 Rechtsextremisten im AfD-Umfeld — Rekord.",
+      "source": {
+        "label": "BMI: Verfassungsschutzbericht 2025 vorgestellt (30.06.2026)",
+        "url": "https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2026/06/vsb2025-pm.html",
+        "visited": "2026-09-10"
+      },
+      "context_tooltip": "Gesagt zur Vorstellung des Verfassungsschutzberichts 2025 (BMI-PM, 30.06.2026). Der Bericht zählt im AfD-Umfeld 28.000 Rechtsextremisten, das Potenzial stieg auf 58.700 (+17 %), 15.600 gewaltorientiert. Fünf Landesverbände gelten als gesichert rechtsextremistisch — die Behörde des Innenministers sieht in der Partei die größte Gefahr."
+    },
+    {
       "type": "reveal",
       "chapter": "innen",
       "teaser": "Tippen, um aufzudecken",
       "headline": "Ein Spion arbeitete im Büro des AfD-Europa-Spitzenkandidaten",
-      "body": "1 Mitarbeiter · 4 J. 9 Mon. Haft · 0 Konsequenzen für Krah. Jian G. spionierte 2019–2024 für Chinas Geheimdienst. Krahs Kommentar: „Kein persönliches Fehlverhalten.“",
+      "body": "1 Mitarbeiter · 4 J. 9 Mon. Haft · Jian G. spionierte 2019–2024 für Chinas Geheimdienst. Zu dessen Festnahme: „Kein persönliches Fehlverhalten.“",
       "source": {
         "label": "tagesschau 30.09.2025 · Generalbundesanwalt, PM 29.04.2025",
         "url": "https://www.tagesschau.de/inland/innenpolitik/ex-mitarbeiter-krah-spionage-urteil-100.html",
         "visited": "2026-09-03"
       },
-      "context_tooltip": "Bestraft wurde der Mitarbeiter, nicht der Arbeitgeber: Gegen Krah selbst ermittelt die Generalstaatsanwaltschaft Dresden in einem separaten Verfahren wegen Bestechlichkeit und Geldwäsche im Zusammenhang mit chinesischen Zahlungen. Und während der Fall lief, saß Krah im EU-Unterausschuss für Menschenrechte."
+      "context_tooltip": "Bestraft wurde der Mitarbeiter, nicht der Arbeitgeber: Gegen Krah selbst ermittelt die Generalstaatsanwaltschaft Dresden in einem separaten Verfahren wegen Bestechlichkeit und Geldwäsche im Zusammenhang mit chinesischen Zahlungen."
     },
     {
       "type": "quote",
@@ -304,46 +304,9 @@
       "context_tooltip": "Wörtlich im Plenarprotokoll 21/92 (09.09.2026): Weidel eröffnet die Generaldebatte — \"Schwarz-Rot ist vorbei\", \"Ihre Zeit ist ohnehin abgelaufen\", dazu \"günstiges Gas aus Russland\". Merz: \"Sie sind und Sie bleiben, Frau Weidel, eine destruktive Kraft\", wirft der AfD \"ethnische Säuberung\" vor. Klöckner droht AfD-Abgeordneten mit Rauswurf."
     },
     {
-      "type": "quote",
-      "chapter": "innen",
-      "quote": "Wow, die populistische Partei in Deutschland hatte eine wirklich große Nacht. … MGGA!!!",
-      "author": "Donald Trump, US-Präsident, Truth Social 09.09.2026",
-      "context": "Zwei Tage nach der Wahl feiert der US-Präsident eine Partei, die der Verfassungsschutz als rechtsextremistisch einstuft.",
-      "source": {
-        "label": "DIE ZEIT (dpa): Trump gratuliert AfD — Bewegung „im Aufwind“ (09.09.2026)",
-        "url": "https://www.zeit.de/news/2026-09/09/trump-gratuliert-afd-bewegung-im-aufwind",
-        "visited": "2026-09-10"
-      },
-      "context_tooltip": "Trumps Post auf Truth Social, zwei Tage nach der Wahl (ZEIT/dpa). Weiter: \"SIE BEFINDEN SICH IM AUFWIND\" — Abschluss \"MGGA!!!\" (\"Make Germany Great Again\"). Musk kommentiert Weidels Siegespost mit \"Gut gemacht!\", Ex-Botschafter Grenell nennt es \"einen großen Sieg\". Die SPD nennt die Gratulation \"extremst befremdlich\"."
-    },
-    {
-      "type": "quote",
-      "chapter": "innen",
-      "quote": "Die größte Bedrohung für unsere Demokratie kommt weiterhin von Rechtsextremisten.",
-      "author": "Alexander Dobrindt, Bundesinnenminister, 30.06.2026",
-      "context": "Der Innenminister selbst: Sein Verfassungsschutzbericht zählt 28.000 Rechtsextremisten im AfD-Umfeld, mehr als je zuvor.",
-      "source": {
-        "label": "BMI: Verfassungsschutzbericht 2025 vorgestellt (30.06.2026)",
-        "url": "https://www.bmi.bund.de/SharedDocs/pressemitteilungen/DE/2026/06/vsb2025-pm.html",
-        "visited": "2026-09-10"
-      },
-      "context_tooltip": "Gesagt zur Vorstellung des Verfassungsschutzberichts 2025 (BMI-PM, 30.06.2026). Der Bericht zählt im AfD-Umfeld 28.000 Rechtsextremisten, das Potenzial stieg auf 58.700 (+17 %), 15.600 gewaltorientiert. Fünf Landesverbände gelten als gesichert rechtsextremistisch — die Behörde des Innenministers sieht in der Partei die größte Gefahr."
-    },
-    {
       "type": "chapterbreak",
       "chapter": "kosten",
       "summary": "Noch da? Du hast vier Kapitel geschafft — und weißt jetzt, wer den Ton angibt."
-    },
-    {
-      "type": "statement",
-      "chapter": "kosten",
-      "text": "Die AfD sagt, sie kämpfe für den kleinen Mann. Die Wirtschaftsforschung rechnet vor, für wen ihre Pläne wirklich was bringen.",
-      "note": "IW Köln · DIW Berlin · ZEW Mannheim",
-      "source": {
-        "label": "IW Köln, DIW Berlin, ZEW Mannheim — Analysen zu AfD-Programmpunkten (2023–2026)",
-        "url": "https://www.zew.de/presse/pressearchiv/wen-die-parteien-entlasten-wuerden/",
-        "visited": "2026-09-03"
-      }
     },
     {
       "type": "slider",
@@ -354,16 +317,23 @@
       "answer": 690,
       "unit": " Mrd. €",
       "explanation": "690 Milliarden €. Das IW Köln simulierte den EU-Austritt wie beim Brexit: Im 5. Jahr wäre das BIP um 5,6 % geschrumpft, rund 2,5 Mio. Jobs weg — allein 2021 kostete der Austritt ~200 Mrd. €. Die AfD fordert ihn trotzdem.",
-      "per_head": 8200,
-      "per_family": 33000,
+      "per_head": 8300,
+      "per_family": 33200,
       "per_family_label": "Für eine Vierer-Familie: rund 33.000 €.",
       "source": {
-        "label": "IW Köln (iwd.de): Dexit — Teurer Ausstieg aus der Staatengemeinschaft",
+        "label": "IW Köln (iwd.de): Dexit — Teurer Ausstieg · IW-Gutachten 2025 (2,5 Mio. Jobs)",
         "url": "https://www.iwd.de/artikel/dexit-teurer-ausstieg-aus-der-staatengemeinschaft-622782/",
         "visited": "2026-09-10"
       },
-      "context_tooltip": "Die AfD fordert den Euro- und EU-Austritt im Bundesprogramm (seit Riesa 01/2025). Das IW Köln simulierte 2024 den Austritt nach Brexit-Vorbild: 5,6 % weniger BIP im 5. Jahr, summiert 690 Mrd. €, rund 2,5 Mio. Jobs weniger. Die Kosten eines künftigen Dexits hält das IW für mindestens ähnlich hoch. Die meisten tippen hier weit unter 500.",
-      "next_hook": "Und woher die 690 Milliarden? Nächste Szene."
+      "context_tooltip": "Die AfD fordert den Euro-Austritt im Bundestagswahlprogramm, den EU-Austritt im Grundsatzprogramm. Das IW Köln simulierte 2024 den Austritt nach Brexit-Vorbild: 5,6 % weniger BIP im 5. Jahr, summiert 690 Mrd. €, rund 2,5 Mio. Jobs weniger. Die Kosten eines künftigen Dexits hält das IW für mindestens ähnlich hoch. Die meisten tippen hier weit unter 500.",
+      "next_hook": "Und woher die 690 Milliarden? Nächste Szene.",
+      "sources": [
+        {
+          "label": "Statistisches Bundesamt: Bevölkerungsstand — 83,5 Mio. Menschen (Jahresende 2025)",
+          "url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/06/PD26_203_124.html",
+          "visited": "2026-09-13"
+        }
+      ]
     },
     {
       "type": "data",
@@ -392,11 +362,11 @@
       "series": [
         {
           "label": "Familie 180.000 €",
-          "value": 95
+          "value": 19190
         },
         {
           "label": "Familie 40.000 €",
-          "value": 3
+          "value": 440
         }
       ],
       "source": {
@@ -424,7 +394,7 @@
           "correct": false
         }
       ],
-      "explanation": "Das oberste 1 % bekommt über 12 Mrd. € — rund 30.000 € pro Betrieb. Die untere Hälfte: unter 4 Mrd. €. Die AfD will die Subventionen schützen; ihre Land-Wähler zahlen mit.",
+      "explanation": "Das oberste 1 % bekommt über 12 Mrd. € — rund 30.000 € pro Betrieb. Die untere Hälfte der Betriebe: unter 4 Mrd. €.",
       "source": {
         "label": "tagesschau (NDR/WDR/SZ, Farmsubsidies-Datenbank)",
         "url": "https://www.tagesschau.de/investigativ/ndr-wdr/eu-agrarsubventionen-unternehmen-101.html",
@@ -435,7 +405,7 @@
     {
       "type": "quote",
       "chapter": "kosten",
-      "quote": "Die Hauptleidtragenden der AfD-Politik wären ihre eigenen Wählerinnen und Wähler.",
+      "quote": "Die Hauptleidtragenden der AfD-Politik wären ihre eigenen Wähler*innen.",
       "author": "DIW Berlin, „Das AfD-Paradox“ (2023)",
       "context": "AfD-Wähler sind überdurchschnittlich oft einkommensschwach — genau sie träfe es zuerst.",
       "source": {
@@ -454,12 +424,19 @@
       "type": "contrast",
       "chapter": "einwaende",
       "claim": "„Der Verfassungsschutz ist parteiisch — das sind politische Gegner.“",
-      "reality": "Drei Gerichte haben die Einstufung geprüft und bestätigt — bis in dritter Instanz. Das letzte Wort hat die Justiz.",
+      "reality": "Drei Gerichte haben die Einstufung geprüft und bestätigt — bis in dritter Instanz. Weidels Antwort: Der Verfassungsschutz „gehöre in seiner jetzigen Form abgeschafft“.",
       "source": {
         "label": "tagesschau: Verfassungsschutz-Einstufung — Wie das AfD-Verfahren weitergeht",
         "url": "https://www.tagesschau.de/inland/innenpolitik/afd-verfahren-verfassungsschutz-100.html",
         "visited": "2026-09-03"
-      }
+      },
+      "sources": [
+        {
+          "label": "Deutschlandfunk: Weidel will Verfassungsschutz abschaffen (17.08.2026)",
+          "url": "https://www.deutschlandfunk.de/afd-chefin-weidel-verfassungsschutz-in-seiner-jetzigen-form-abschaffen-100.html",
+          "visited": "2026-09-03"
+        }
+      ]
     },
     {
       "type": "contrast",
@@ -477,7 +454,7 @@
       "type": "contrast",
       "chapter": "einwaende",
       "claim": "„Solche Sprüche nimmt doch niemand wörtlich.“",
-      "reality": "Wörtlich, Wahlparty 2017: „Wir werden sie jagen, wir werden Frau Merkel oder wen auch immer jagen – und wir werden uns unser Land und unser Volk zurückholen.“ Kein Einzelfall.",
+      "reality": "Wörtlich, September 2017 nach der Bundestagswahl: „Wir werden sie jagen, wir werden Frau Merkel oder wen auch immer jagen – und wir werden uns unser Land und unser Volk zurückholen.“ Kein Einzelfall.",
       "source": {
         "label": "BR24 (24.09.2017) + tagesschau-Rückblick (02.10.2024)",
         "url": "https://www.br.de/bundestagswahl/afd-politiker-gauland-ueber-merkel-wir-werden-sie-jagen-100.html",
@@ -489,54 +466,6 @@
       "type": "chapterbreak",
       "chapter": "fazit",
       "summary": "Die drei Einwände vom Familienessen? Du weißt jetzt, was darauf passt."
-    },
-    {
-      "type": "data",
-      "chapter": "fazit",
-      "headline": "Wo die AfD in den Umfragen steht",
-      "value": 28,
-      "suffix": " %",
-      "caption": "Sonntagsfrage, Stand 1. September 2026. Alle acht Institute sehen die AfD zwischen 27 und 29 Prozent. Überall vor der Union. Das ist keine Randerscheinung mehr.",
-      "chart": "bars",
-      "series": [
-        {
-          "label": "INSA",
-          "value": 29
-        },
-        {
-          "label": "Verian",
-          "value": 28
-        },
-        {
-          "label": "Forsa",
-          "value": 28
-        },
-        {
-          "label": "Infratest dimap",
-          "value": 28
-        },
-        {
-          "label": "GMS",
-          "value": 28
-        },
-        {
-          "label": "YouGov",
-          "value": 28
-        },
-        {
-          "label": "Allensbach",
-          "value": 27.5
-        },
-        {
-          "label": "FG Wahlen",
-          "value": 27
-        }
-      ],
-      "source": {
-        "label": "wahlrecht.de — Umfragenübersicht (Institute: Allensbach, Verian, Forsa, FG Wahlen, GMS, Infratest dimap, INSA, YouGov)",
-        "url": "https://www.wahlrecht.de/umfragen/",
-        "visited": "2026-09-03"
-      }
     },
     {
       "type": "quiz",
@@ -556,32 +485,39 @@
           "correct": false
         }
       ],
-      "explanation": "20,8 % der Zweitstimmen am 23. Februar 2025 — vier Jahre vorher 10,4 %. 152 AfD-Abgeordnete sitzen im Bundestag. Zweiter Platz in Deutschland.",
+      "explanation": "20,8 % der Zweitstimmen am 23.02.2025 — vier Jahre vorher 10,4 %. 152 AfD-Abgeordnete im Bundestag. Heute: alle acht Institute 27–29 %.",
       "source": {
         "label": "Die Bundeswahlleiterin, Pressemitteilung Nr. 29/25 (endgültiges Ergebnis)",
         "url": "https://bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html",
         "visited": "2026-09-03"
-      }
+      },
+      "sources": [
+        {
+          "label": "wahlrecht.de — Umfragenübersicht (Sonntagsfrage, Sept. 2026)",
+          "url": "https://www.wahlrecht.de/umfragen/",
+          "visited": "2026-09-03"
+        }
+      ]
     },
     {
       "type": "timeline",
       "chapter": "fazit",
-      "headline": "Drei Tage nach der Wahl",
+      "headline": "Nach der Wahl",
       "items": [
         {
-          "date": "06.09.2026",
-          "title": "Wahl in Sachsen-Anhalt",
-          "text": "Die AfD gewinnt mit 44 % — bestes Ergebnis ihrer Geschichte.",
+          "date": "06.09.",
+          "title": "Wahlsieg",
+          "text": "Die AfD gewinnt mit 43,8 % (2021: 20,8 %).",
           "source": {
-            "label": "tagesschau: ARD-Hochrechnung Landtagswahl Sachsen-Anhalt",
-            "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-172.html",
-            "visited": "2026-09-10"
+            "label": "tagesschau: vorläufiges Endergebnis Sachsen-Anhalt",
+            "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-180.html",
+            "visited": "2026-09-13"
           }
         },
         {
           "date": "07.09.2026",
           "title": "BSW sagt Koalition ab",
-          "text": "BSW sieht aktuell keine Koalition mit der AfD. Am Abend: Schüsse auf eine Anti-AfD-Demo in Halle — Täter unbekannt.",
+          "text": "Keine Koalition. Schüsse auf Anti-AfD-Demo in Halle — Täter unbekannt.",
           "source": {
             "label": "MDR-Ticker (07.09.2026) · MDR: Staatsschutz ermittelt in Halle",
             "url": "https://www.mdr.de/nachrichten/sachsen-anhalt/halle/halle/landtagswahl-kundgebung-staatsschutz-100,schuesse-polizei-100.html",
@@ -589,14 +525,21 @@
           }
         },
         {
-          "date": "08./09.09.2026",
-          "title": "Siegmund, Weidel, Merz, Trump",
-          "text": "Siegmund: Kernpositionen „zu 100 Prozent“ — Weidel im Bundestag: „Schwarz-Rot ist vorbei“ — Trump feiert mit „MGGA“.",
+          "date": "08./09.",
+          "title": "Siegmund, Trump",
+          "text": "Siegmund: Kernpositionen „zu 100 Prozent“. Trump: „MGGA“.",
           "source": {
             "label": "tagesschau: Siegmund will stabile Mehrheit suchen · ZEIT/dpa: Trump gratuliert",
             "url": "https://www.tagesschau.de/inland/afd-siegmund-100.html",
             "visited": "2026-09-10"
           }
+        }
+      ],
+      "sources": [
+        {
+          "label": "DIE ZEIT (dpa): Trump gratuliert AfD — Bewegung „im Aufwind“ (09.09.2026)",
+          "url": "https://www.zeit.de/news/2026-09/09/trump-gratuliert-afd-bewegung-im-aufwind",
+          "visited": "2026-09-10"
         }
       ]
     },
@@ -613,7 +556,7 @@
           "text": "Gerichte bestätigen die Einstufung"
         },
         {
-          "num": "44 %",
+          "num": "43,8 %",
           "text": "Wahlsieg in Sachsen-Anhalt"
         },
         {
@@ -640,8 +583,8 @@
           "title": "Dranbleiben",
           "text": "Wie es in Magdeburg weitergeht, entscheidet sich jetzt.",
           "link": {
-            "label": "tagesschau: Wahl in Sachsen-Anhalt",
-            "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-172.html"
+            "label": "tagesschau: Wahlergebnis Sachsen-Anhalt",
+            "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-180.html"
           }
         },
         {
@@ -722,9 +665,9 @@
           "visited": "2026-09-03"
         },
         {
-          "label": "tagesschau.de: ARD-Hochrechnung Landtagswahl Sachsen-Anhalt (06.09.2026)",
-          "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-172.html",
-          "visited": "2026-09-06"
+          "label": "tagesschau.de: Vorläufiges Endergebnis Landtagswahl Sachsen-Anhalt (43,8 %)",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/landtagswahl-sachsen-anhalt-180.html",
+          "visited": "2026-09-13"
         },
         {
           "label": "Bayerischer Rundfunk: AfD fordert Abschiebetrupp „ähnlich wie ICE“ (30.01.2026)",

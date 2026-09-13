@@ -109,17 +109,9 @@ const { scene } = Astro.props;
 </style>
 
 <script>
-  // Titel in Buchstaben-Spans für Stagger-Animation
-  const title = document.querySelector('.hero-title');
-  if (title && !title.dataset.split) {
-    title.innerHTML = title.textContent
-      .split('')
-      .map((c) => (c === ' ' ? ' ' : `<span class="char">${c}</span>`))
-      .join('');
-    title.dataset.split = '1';
-  }
-
   // Partikel-Canvas: dezente driftende Punkte, die zum Cursor gezogen werden
+  // (Cleanup 13.09.: toter .char-Split entfernt — animations.js animiert das ganze h1,
+  // kein Tween hat je auf .char gegriffen)
   const canvas = document.querySelector('.hero-canvas');
   if (canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const ctx = canvas.getContext('2d');

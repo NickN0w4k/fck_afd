@@ -117,7 +117,13 @@ function initCountScrub() {
 /** Balken wachsen auf Scrub: [data-bar] mit style="--w: X%" — gestaffelt pro Szene.
  *  Diverging-Variante: .dv-fill wächst als HÖHE (von der Nulllinie aus auf/ab), --h = Länge. */
 function initBars() {
-  document.querySelectorAll('.scene').forEach((scene) => {
+  // Fix 13.09. (apex-Audit, MITTEL): Wrapper-Auflösung über .scene ODER section.doc-scene —
+  // auf Lese-Modus-/Szenen-Seiten heißen die Wrapper .doc-scene, dort blieben alle Balken bei 0 %.
+  const wrappers = [
+    ...Array.from(document.querySelectorAll('.scene')),
+    ...Array.from(document.querySelectorAll('.doc-scene')),
+  ];
+  wrappers.forEach((scene) => {
     // Swarm-Szene: Balken laufen in der Pin-Stack-Timeline (initPinStack) — hier ausnehmen
     if (scene.querySelector('[data-swarm]')) return;
     const bars = scene.querySelectorAll('[data-bar]');
@@ -207,9 +213,13 @@ function initDonut() {
 /** Kontrast-Szene: Split öffnet sich beim Scrollen; Claim-Text parallaxt leicht,
  *  Reality-Panel slided nach, sobald der Split bei 50 % ist */
 function initSplit() {
+  // Fix 13.09. (apex-Audit, KRITISCH): Split-Scrub nur Desktop. Mobile ist .contrast ein
+  // vertikaler Stack (flex-wrap) — der width-Scrub schrumpfte dort die Claim-Box auf 50 %
+  // (halbbreiter Kasten, 6 Szenen betroffen); auf Doc-/Szenen-Seiten blieb 50 % dauerhaft stehen.
+  if (window.matchMedia('(max-width: 767px)').matches) return;
   document.querySelectorAll('[data-split]').forEach((el) => {
     if (prefersReduced) return;
-    const scene = el.closest('.scene');
+    const scene = el.closest('.scene') ?? el.closest('section') ?? el;
     gsap.fromTo(
       el,
       { width: '100%' },
@@ -401,6 +411,7 @@ function initResume() {
   if (saved && parseInt(saved, 10) > window.innerHeight * 1.5) {
     const hint = document.createElement('button');
     hint.className = 'resume-hint';
+    hint.type = 'button';
     hint.textContent = 'Weiter da, wo du aufgehört hast?';
     hint.setAttribute('data-anim', 'rise');
     hint.addEventListener('click', () => {
@@ -601,20 +612,31 @@ function initWheelSnap() {
     { passive: false },
   );
 
-  // Fix 12.09. (Nick: „Snapping am PC"): Trackpads senden teils wheel-Deltas < 30 pro Geste —
-  // die landeten nie. Zusätzlich Tastatur (PgUp/PgDn/Space) an den Szenen-Rhythmus koppeln:
+  // Fix 12.09. (Nick: „Snapping am PC“): Trackpads senden teils wheel-Deltas < 30 pro Geste —
+  // die landeten nie. Zusätzlich Tastatur (PgUp/PgDn/Space) an den Szenen-Rhythmus koppeln.
+  // Fix 13.09. (apex-Audit, MITTEL): (a) Fokus auf button/a/details → Taste bedient das Element,
+  // nicht die Szene. (b) Flight-Lock wie beim Wheel — sonst springen Tasten-Spams Szenen
+  // (nearestIndex() liest In-Flight-Position), exakt der Bug, den das Wheel 12.09. hatte.
+  const keyStep = (dir) => {
+    if (animating) return; // Flight läuft → ignorieren (kein Queue-Nachzug, Tasten sind diskret)
+    animating = true;
+    if (!pinStep(dir)) goTo(nearestIndex() + dir, dir);
+    setTimeout(() => {
+      animating = false;
+    }, prefersReduced ? 60 : 650);
+  };
   window.addEventListener(
     'keydown',
     (e) => {
       if (e.ctrlKey || e.altKey || e.metaKey) return;
       const t = e.target;
-      if (t.closest && t.closest('input, textarea, select, [contenteditable]')) return;
+      if (t.closest && t.closest('input, textarea, select, [contenteditable], button, a, details, [role="button"]')) return;
       const nextKeys = ['PageDown', 'ArrowDown', ' '];
       const prevKeys = ['PageUp', 'ArrowUp'];
       if (!nextKeys.includes(e.key) && !prevKeys.includes(e.key)) return;
       const dir = nextKeys.includes(e.key) ? 1 : -1;
       e.preventDefault();
-      if (!pinStep(dir)) goTo(nearestIndex() + dir, dir);
+      keyStep(dir);
     },
     { passive: false },
   );

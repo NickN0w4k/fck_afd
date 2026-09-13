@@ -7,7 +7,7 @@ import ChapterTracker from '../components/ChapterTracker.astro';
 import chaptersRaw from '../../../content/chapters.json';
 import scenesRaw from '../../../content/scenes.json';
 import { sceneShareText } from '../lib/scene-text.js';
-import { SITE_STAND } from '../lib/meta.js';
+import { SITE_STAND, FACTS6 } from '../lib/meta.js';
 
 const chapters = /** @type {any[]} */ (chaptersRaw);
 const scenes = /** @type {any[]} */ ((/** @type {any} */ (scenesRaw)).scenes);
@@ -69,7 +69,7 @@ const sourceCount = seenUrls.size;
     }
   </nav>
 
-  <script define:vars={{ scenesRaw, sourceCount, chaptersRaw }}>
+  <script define:vars={{ scenesRaw, sourceCount, chaptersRaw, facts6: FACTS6 }}>
     // Global-Daten für Client-Features (Welle 3, Stufe A):
     const summary = (scenesRaw.scenes ?? scenesRaw).find((s) => s.type === 'summary');
     if (summary) window.__fckafd_tldr = summary.tldr;
@@ -77,15 +77,8 @@ const sourceCount = seenUrls.size;
     // Szenen + Kapitel für Kachel-Export und Deep-Link-Kapitel-Label
     window.__fckafd_scenes = (scenesRaw.scenes ?? scenesRaw).map((s, i) => ({ ...s, __num: i }));
     window.__fckafd_chapters = chaptersRaw.map((c) => ({ id: c.id, title: c.title }));
-    // 6 Kernfakten für die ShareCard (kurz, grafisch, eindrücklich)
-    window.__fckafd_facts6 = [
-      { big: '44 %', label: 'AfD-Sieg in Sachsen-Anhalt', small: 'Bestes Ergebnis ihrer Geschichte — 06.09.2026.' },
-      { big: '28.000', label: 'Rechtsextremisten im AfD-Umfeld', small: 'Doppelt so viele wie 2023 — Verfassungsschutzbericht 2025.' },
-      { big: '5×', label: 'Landesverbände gesichert rechtsextremistisch', small: 'Thüringen bis Niedersachsen — von keinem Gericht gekippt.' },
-      { big: '−440 €', label: 'Verlust pro Jahr für Normalverdiener', small: 'Topverdiener gewinnen 19.190 € — laut ZEW-Berechnung.' },
-      { big: '690 Mrd. €', label: 'Kosten eines Dexit', small: '5,6 % des BIP und 2,5 Mio. Jobs weg — laut IW Köln.' },
-      { big: 'VS abschaffen', label: 'Weidels Rezept gegen die Beobachtung', small: 'Die Behörde soll weg, die sie als rechtsextrem einstuft.' },
-    ];
+    // 6 Kernfakten für die ShareCard — EINE Quelle der Wahrheit: meta.js FACTS6 (Fix 13.09.)
+    window.__fckafd_facts6 = facts6;
     // Kapitel-Dots: scrollt zur ersten Szene des jeweiligen Kapitels
     document.querySelectorAll('.dots button').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -94,12 +87,5 @@ const sourceCount = seenUrls.size;
         target?.scrollIntoView({ behavior: 'smooth' });
       });
     });
-    // Stand-Badge: springt zur Quellen-Szene
-    const badge = document.querySelector('[data-goto-sources]');
-    if (badge) {
-      badge.addEventListener('click', () => {
-        document.getElementById(badge.dataset.gotoSources)?.scrollIntoView({ behavior: 'smooth' });
-      });
-    }
   </script>
 </Base>

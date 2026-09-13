@@ -86,6 +86,17 @@ scenes.forEach((scene, i) => {
       warnings.push(`${where}: chart gesetzt, obwohl Typ ${scene.type} keins rendert`);
     }
   }
+  // Optionale Felder (Cleanup-Welle 13.09): sources[] = Zweitquellen je Szene (erscheinen
+  // im Quellen-Verzeichnis /quellen/), gleiche Struktur wie source
+  if (scene.sources !== undefined) {
+    if (!Array.isArray(scene.sources)) errors.push(`${where}: sources muss ein Array sein`);
+    else
+      scene.sources.forEach((src, j) => {
+        if (!src?.url || !src?.label) errors.push(`${where}: sources[${j}] braucht label + url`);
+        if (src?.url && !/^https?:\/\//.test(src.url)) errors.push(`${where}: sources[${j}].url kein http(s)-Link`);
+        if (src?.url && src?.label && !src?.visited) warnings.push(`${where}: sources[${j}] ohne visited-Datum`);
+      });
+  }
   // Timeline: jede Karte braucht date + title + text; Quellen je Karte prüfen
   if (scene.type === 'timeline') {
     if (!Array.isArray(scene.items) || scene.items.length < 3) {
@@ -102,6 +113,13 @@ scenes.forEach((scene, i) => {
         warnings.push(`${where}: item #${j + 1} ohne Quelle`);
       }
     });
+    if (scene.sources !== undefined) {
+      if (!Array.isArray(scene.sources)) errors.push(`${where}: sources muss ein Array sein`);
+      else
+        scene.sources.forEach((src, j) => {
+          if (!src?.url || !src?.label) errors.push(`${where}: sources[${j}] braucht label + url`);
+        });
+    }
   }
 });
 

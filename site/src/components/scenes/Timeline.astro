@@ -110,25 +110,52 @@ const { scene } = Astro.props;
 </style>
 
 <script>
-  // Drag-Scroll am Desktop (Touch scrollt nativ)
+  // Drag-Scroll am Desktop (Touch scrollt nativ).
+  // Fix 13.09. (apex-Audit, MITTEL): setPointerCapture sofort bei pointerdown retargetet
+  // follow-up-Events → Klicks auf Quellen-Links in Karten starben am Desktop. Jetzt:
+  // Capture erst nach 5px Bewegung (echter Drag), Klicks bleiben unberührt; nach Drag
+  // folgte-Clicks unterdrücken + Textauswahl während des Drucks aus.
   document.querySelectorAll('[data-timeline]').forEach((track) => {
     let down = false;
+    let dragging = false;
     let startX = 0;
+    let startY = 0;
     let startScroll = 0;
     track.addEventListener('pointerdown', (e) => {
       if (e.pointerType !== 'mouse') return;
       down = true;
+      dragging = false;
       startX = e.clientX;
+      startY = e.clientY;
       startScroll = track.scrollLeft;
-      track.setPointerCapture(e.pointerId);
     });
     track.addEventListener('pointermove', (e) => {
       if (!down) return;
+      if (!dragging) {
+        if (Math.abs(e.clientX - startX) < 5) return;
+        dragging = true;
+        track.setPointerCapture(e.pointerId);
+        track.style.userSelect = 'none';
+      }
       track.scrollLeft = startScroll - (e.clientX - startX);
     });
     ['pointerup', 'pointercancel'].forEach((ev) =>
-      track.addEventListener(ev, () => {
+      track.addEventListener(ev, (e) => {
+        if (!down) return;
         down = false;
+        track.style.userSelect = '';
+        if (dragging) {
+          // Klick nach Drag unterdrücken (Release landet sonst als click auf Link/Track)
+          track.addEventListener(
+            'click',
+            (ce) => {
+              ce.preventDefault();
+              ce.stopPropagation();
+            },
+            { capture: true, once: true },
+          );
+        }
+        dragging = false;
       }),
     );
   });

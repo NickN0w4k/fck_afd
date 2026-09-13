@@ -67,7 +67,7 @@ const chapterList = /** @type {{ id: string; num: string; title: string; accent:
         clearTimeout(popTimer);
         popTimer = setTimeout(() => segs[idx].classList.remove('is-pop'), 450);
       }
-      label.textContent = `Kapitel ${idx}/${chapters.length - 1} — ${chapters[idx].title}`;
+      label.textContent = `Kapitel ${chapters[idx].num} — ${chapters[idx].title}`;
       label.classList.add('is-show');
       clearTimeout(labelTimer);
       labelTimer = setTimeout(() => label.classList.remove('is-show'), 2400);

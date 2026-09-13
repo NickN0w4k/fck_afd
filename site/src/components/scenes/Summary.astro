@@ -39,7 +39,9 @@ const tldrItems = scene.tldr.map((p, i) =>
     )
   }
 
-  <p class="closing" data-anim="rise">{scene.closing}</p>
+  {
+    scene.closing && <p class="closing" data-anim="rise">{scene.closing}</p>
+  }
 </div>
 
 <style>
