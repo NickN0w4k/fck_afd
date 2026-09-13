@@ -33,8 +33,11 @@ export function sceneTileContent(scene) {
         source: srcLabel(scene),
       };
     }
-    case 'quote':
-      return { big: clean(scene.quote), label: `— ${clean(scene.author)}`, source: srcLabel(scene) };
+    case 'quote': {
+      // Runde 3: Verdict in die Kachel — aber nur erster Satz (Label max-height clippt sonst)
+      const verdictLine = clean(scene.verdict ?? '').split(/(?<=\.)\s/)[0] ?? '';
+      return { big: clean(scene.quote), label: `— ${clean(scene.author)}${verdictLine ? ` — ${verdictLine}` : ''}`, source: srcLabel(scene) };
+    }
     case 'reveal':
       return { big: clean(scene.headline || scene.teaser), label: clean(scene.body || scene.teaser), source: srcLabel(scene) };
     case 'contrast': {

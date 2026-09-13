@@ -59,6 +59,16 @@ scenes.forEach((scene, i) => {
   if (scene.count_scrub !== undefined && typeof scene.count_scrub !== 'boolean') {
     errors.push(`${where}: count_scrub muss boolean sein`);
   }
+  // Optionales Feld (Runde 3): verdict = sichtbare harte Einordnung bei AfD-Zitaten
+  if (scene.verdict !== undefined) {
+    if (typeof scene.verdict !== 'string' || !scene.verdict.trim()) {
+      errors.push(`${where}: verdict muss nicht-leerer string sein`);
+    } else if (scene.type !== 'quote') {
+      warnings.push(`${where}: verdict gesetzt, obwohl Typ ${scene.type} kein Verdict-Feld rendert`);
+    } else if (scene.verdict.length > 160) {
+      warnings.push(`${where}: verdict länger als 160 Zeichen (${scene.verdict.length})`);
+    }
+  }
   // Optionales Feld (Welle 2): facts [{big, label}] — Recap-Zahlen (Summary), max 6
   if (scene.facts !== undefined) {
     if (!Array.isArray(scene.facts)) {
