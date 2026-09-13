@@ -56,6 +56,8 @@ export function sceneTileContent(scene) {
       return { big: 'Das Wichtigste in Kürze', label: 'Sechs Fakten — jede mit Quelle.', source: '' };
     case 'action':
       return { big: clean(scene.headline || 'Was du jetzt tun kannst'), label: (scene.cards ?? []).map((c) => clean(c.title)).join(' · '), source: '' };
+    case 'howto':
+      return { big: clean(scene.title || 'So funktioniert die Tour'), label: clean(scene.intro || 'Scrollen, teilen, mitmachen.'), source: '' };
     case 'endcard':
       return { big: 'Teile die Fakten.', label: 'Die komplette Tour: jede Szene, jede Quelle.', source: '' };
     case 'sources':

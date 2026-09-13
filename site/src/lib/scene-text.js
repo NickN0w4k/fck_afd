@@ -33,6 +33,8 @@ export function sceneShareText(scene, chapterTitle) {
       return clean(scene.headline || 'Wie die AfD zum Verfassungsschutz-Thema wurde');
     case 'action':
       return clean(scene.headline || 'Was du jetzt tun kannst.');
+    case 'howto':
+      return clean(`${scene.title} — ${scene.intro}`);
     default:
       return '';
   }

@@ -17,6 +17,36 @@
       "slug": "akte-keine-meinung"
     },
     {
+      "type": "howto",
+      "chapter": "intro",
+      "slug": "so-funktionierts",
+      "title": "So geht die Tour",
+      "intro": "Scrolle dich durch die Fakten — jede Folie ist ein Beleg.",
+      "steps": [
+        {
+          "icon": "scroll",
+          "title": "Scrollen",
+          "text": "Ein Wisch = eine Folie. Jede Szene ist ein Fakt — mit Quelle am Ende."
+        },
+        {
+          "icon": "share",
+          "title": "Teilen",
+          "text": "Der Teilen-Button sitzt oben rechts auf jeder Folie — direkt in Telegram oder WhatsApp teilen."
+        },
+        {
+          "icon": "tile",
+          "title": "Kachel speichern",
+          "text": "Neben dem Teilen-Button: die Folie als Bild-Kachel herunterladen und repostet werden."
+        },
+        {
+          "icon": "quiz",
+          "title": "Mitmachen",
+          "text": "Bei Quizzen antippen — die Auflösung erscheint direkt darunter."
+        }
+      ],
+      "hint": "Teilen-Button = Papierflieger-Symbol, oben rechts."
+    },
+    {
       "type": "chapterbreak",
       "chapter": "verfassungsschutz",
       "summary": "Du weißt jetzt: Hier steht nichts ohne Beleg — jede Zahl hat ihre Quelle.",

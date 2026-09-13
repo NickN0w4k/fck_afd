@@ -1,0 +1,189 @@
+---
+// Howto: „So funktioniert die Tour" — Anleitung mit Pfeilen auf die realen UI-Elemente.
+// Wird als normale Szene im Feed gerendert (Position 2, nach dem Statement).
+// Kein Claim → keine Quelle (wie hero/chapterbreak in NO_CLAIM_TYPES).
+interface Props {
+  scene: {
+    title: string;
+    intro: string;
+    steps: { icon: string; title: string; text: string }[];
+    hint?: string;
+  };
+}
+const { scene } = Astro.props;
+---
+
+<div class="howto">
+  <h2 class="howto-title" data-anim="rise">{scene.title}</h2>
+  <p class="howto-intro" data-anim="rise" style="--d:100">{scene.intro}</p>
+
+  <ol class="howto-steps">
+    {
+      scene.steps.map((step, i) => (
+        <li class="howto-step" data-anim="rise" style={`--d:${200 + i * 150}`}>
+          <span class="howto-icon" aria-hidden="true">
+            {step.icon === 'scroll' && (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12l7 7 7-7" />
+              </svg>
+            )}
+            {step.icon === 'share' && (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+            )}
+            {step.icon === 'tile' && (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+            )}
+            {step.icon === 'quiz' && (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+            )}
+          </span>
+          <span class="howto-step-text">
+            <strong>{step.title}</strong>
+            <span>{step.text}</span>
+          </span>
+        </li>
+      ))
+    }
+  </ol>
+
+  {
+    scene.hint && (
+      <div class="howto-hint" data-anim="rise" style="--d:900">
+        <div class="howto-phone" aria-hidden="true">
+          {/* Mini-Phone-Mock: Szene-Karte mit Share-Buttons oben rechts + Pfeil */}
+          <div class="howto-screen">
+            <div class="howto-actions">
+              <span class="howto-dot" />
+              <span class="howto-dot" />
+            </div>
+            <div class="howto-line howto-line--1" />
+            <div class="howto-line howto-line--2" />
+            <div class="howto-line howto-line--3" />
+          </div>
+          <svg class="howto-arrow" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 20 L11 11" />
+            <polyline points="8 9.5 11.5 11 12.5 14.5" />
+          </svg>
+          <span class="howto-hint-label">{scene.hint}</span>
+        </div>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .howto {
+    max-width: 44rem;
+    width: 100%;
+  }
+  .howto-title {
+    font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+    margin-bottom: 0.75rem;
+    max-width: calc(100% - 4rem); /* Platz für die Share-Buttons oben rechts (real gebissen) */
+  }
+  .howto-intro {
+    opacity: 0.8;
+    margin-bottom: 1.75rem;
+    font-size: clamp(1rem, 2.4vw, 1.15rem);
+  }
+  .howto-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .howto-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    background: color-mix(in srgb, var(--accent, #ff4d2e) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent, #ff4d2e) 35%, transparent);
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+  }
+  .howto-icon {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent, #ff4d2e) 25%, transparent);
+    color: var(--accent, #ff4d2e);
+  }
+  .howto-step-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  }
+  .howto-step-text strong {
+    font-family: var(--font-head);
+    font-size: 1.02em;
+  }
+  .howto-step-text span {
+    opacity: 0.85;
+    line-height: 1.45;
+  }
+  .howto-hint {
+    margin-top: 1.75rem;
+  }
+  .howto-phone {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--accent, #ff4d2e);
+  }
+  .howto-screen {
+    position: relative;
+    width: 7.5rem;
+    height: 5rem;
+    border: 2px solid color-mix(in srgb, var(--accent, #ff4d2e) 55%, transparent);
+    border-radius: 10px;
+    padding: 0.4rem;
+  }
+  .howto-actions {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.45rem;
+    display: flex;
+    gap: 0.25rem;
+  }
+  .howto-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: var(--accent, #ff4d2e);
+    box-shadow: 0 0 6px color-mix(in srgb, var(--accent, #ff4d2e) 60%, transparent);
+  }
+  .howto-line {
+    height: 2px;
+    border-radius: 2px;
+    background: color-mix(in srgb, currentColor 45%, transparent);
+    margin: 0.35rem 0.15rem 0;
+  }
+  .howto-line--1 { width: 70%; }
+  .howto-line--2 { width: 55%; }
+  .howto-arrow {
+    transform: translateY(6px);
+  }
+  .howto-hint-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    max-width: 16ch;
+    line-height: 1.3;
+  }
+</style>

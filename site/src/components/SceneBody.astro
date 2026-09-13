@@ -15,6 +15,7 @@ import Sources from './scenes/Sources.astro';
 import EndCard from './scenes/EndCard.astro';
 import Timeline from './scenes/Timeline.astro';
 import Action from './scenes/Action.astro';
+import Howto from './scenes/Howto.astro';
 
 interface Props {
   scene: any;
@@ -25,6 +26,7 @@ const { scene, chapter, chapters = [] } = Astro.props;
 ---
 
 {scene.type === 'hero' && <Hero scene={scene} />}
+{scene.type === 'howto' && <Howto scene={scene} />}
 {scene.type === 'statement' && <Statement scene={scene} />}
 {scene.type === 'data' && <Data scene={scene} />}
 {scene.type === 'contrast' && <Contrast scene={scene} />}
