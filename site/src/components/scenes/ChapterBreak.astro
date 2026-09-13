@@ -72,12 +72,12 @@ const { chapter, scene } = Astro.props;
     opacity: 0.85;
   }
   .ch-summary {
-    margin-bottom: 3.5rem;
+    margin-bottom: 9.4rem;
     font-size: clamp(1rem, 2.4vw, 1.3rem);
     font-weight: 500;
     max-width: 30ch;
-    /* Leicht ausgegraut (Recap-Look): Kontrastfarbe Richtung Kapitelhintergrund gemischt */
-    color: color-mix(in srgb, var(--accent-contrast) 72%, var(--chbg));
+    /* Dezent heller (Recap-Look): 85% Kontrastfarbe, 15% Kapitelhintergrund */
+    color: color-mix(in srgb, var(--accent-contrast) 85%, var(--chbg));
     opacity: 1;
   }
 </style>
